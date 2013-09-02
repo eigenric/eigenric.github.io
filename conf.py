@@ -9,14 +9,14 @@ TIMEZONE = "Europe/Madrid"
 
 DEFAULT_CATEGORY = 'Uncategorized'
 DATE_FORMAT = {
-'es': '%a %d de %b de %Y'
+'en': '%a %d de %b de %Y'
 }
 DEFAULT_DATE_FORMAT = '%d %m %Y'
 DEFAULT_DATE = 'fs'
 
 DISQUS_SITENAME = "ricardotpy"
 TWITTER_USERNAME = 'riki319'
-GITHUB_URL = 'http://github.com/riki319'
+GITHUB_URL = 'http://github.com/riki319/ricardotpy'
 
 EMAIL = 'riki319@gmail.com'
 SOCIAL = (('github', 'http://github.com/riki319'),
