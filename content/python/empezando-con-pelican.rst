@@ -5,3 +5,4 @@ Volando con pelican
 :tags: python, pelican, static, blog
 :summary: Los sitios estáticos han muerto. ¡Vivan los sitios estáticos!
 
+Los sitios estáticos han muerto. ¡Vivan los sitios estáticos!

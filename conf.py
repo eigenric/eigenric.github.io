@@ -17,13 +17,14 @@ DEFAULT_DATE = 'fs'
 DISQUS_SITENAME = "ricardotpy"
 TWITTER_USERNAME = 'riki319'
 GITHUB_URL = 'http://github.com/riki319/ricardotpy'
+SEXY_BOOKMARKS = True
 
 EMAIL = 'riki319@gmail.com'
 SOCIAL = (('github', 'http://github.com/riki319'),
 		  ('twitter', 'http://twitter.com/riki319'),
 		  ('facebook', 'http://facebook.com/riki319'))
 
-BLOGROLL = (('Geekia', 'http://geekia.es'),)
+LINKS = (('Geekia', 'http://geekia.es'),)
 
 PDF_GENERATOR = False
 REVERSE_CATEGORY_ORDER = True
