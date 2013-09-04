@@ -3,7 +3,6 @@ Hi Pelican
 
 :slug: hi-pelican
 :tags: python, pelican, static, blog
-:summary: Los sitios estáticos han muerto. ¡Vivan los sitios estáticos!
 
 **Los sitios estáticos han muerto**
 
@@ -12,6 +11,7 @@ Hi Pelican
     :height: 44px
 
 **¡Vivan los sitios estáticos!**
+
 
 Nuevo blog, éste, ha sido creado gracias a Pelican_, un simple generador de
 contenido blogs estáticos. Los posts se escriben con lenguajes de marcado ligeros,
@@ -81,13 +81,13 @@ Así es como tendría que quedarnos
 
 .. image:: |filename|/images/pelican-blog.png
     :width: 760
-    :height: 720
+    :height: 420
 
 
 Por defecto se utilizar el tema *notmyidea*, pero puedes descargar otros en
 http://pelicanthemes.com o crear uno -> pelican-docs.pdf_.
 
 
-.. _pelican-docs.pdf: |filename|/pdfs/pelican.pdf
+.. _pelican-docs.pdf: https://www.dropbox.com/s/orvvnkwentc5ptb/pelican.pdf
 
 Pues esto es todo amigos, gracias por leer el post, ¡hasta otra! :)

@@ -8,7 +8,7 @@ OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
-FTP_HOST=ftp.ricardotpy.zz.mu
+FTP_HOST=ftp.ricardotpy.tk
 FTP_USER=u944951978
 FTP_TARGET_DIR=/public_html
 
