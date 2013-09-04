@@ -5,7 +5,7 @@ PELICANOPTS=
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
-CONFFILE=$(BASEDIR)/conf.py
+CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
 FTP_HOST=ftp.ricardotpy.zz.mu
@@ -20,7 +20,7 @@ SSH_TARGET_DIR=/var/www
 
 S3_BUCKET=my_s3_bucket
 
-DROPBOX_DIR=~/Dropbox/Public/
+DROPBOX_DIR=~/Dropbox/ricardotpy
 
 help:
 	@echo 'Makefile for a pelican Web site                                        '
@@ -35,11 +35,12 @@ help:
 	@echo '   make stopserver                  stop local server                  '
 	@echo '   ssh_upload                       upload the web site via SSH        '
 	@echo '   rsync_upload                     upload the web site via rsync+ssh  '
-	@echo '   dropbox_upload                   upload the web site via Dropbox    '
+	@echo '   dropbox                          upload the web site via Dropbox    '
 	@echo '   ftp                              upload the web site via FTP        '
 	@echo '   s3_upload                        upload the web site via S3         '
 	@echo '   github                           upload the web site via gh-pages   '
-	@echo '                                                                       '
+	@echo '   edit                             for edit the site                  '
+	@echo '   conf                             for config my site                 '
 
 
 html: clean $(OUTPUTDIR)/index.html
@@ -73,7 +74,7 @@ ssh_upload: publish
 rsync_upload: publish
 	rsync -e "ssh -p $(SSH_PORT)" -P -rvz --delete $(OUTPUTDIR)/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR) --cvs-exclude
 
-dropbox_upload: publish
+dropbox: publish
 	cp -r $(OUTPUTDIR)/* $(DROPBOX_DIR)
 
 ftp: publish
@@ -86,4 +87,12 @@ github: publish
 	ghp-import $(OUTPUTDIR)
 	git push origin gh-pages
 
+edit: 
+	vim content/*
+	make html
+
 .PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload github
+
+conf:
+	nano  $(CONFFILE)
+	make html
