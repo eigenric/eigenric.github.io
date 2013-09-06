@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ###Python###
 
 *.py[cod]
@@ -36,3 +37,12 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+=======
+*.pid
+*.save
+*.pyc
+__pycache__
+output
+plugins
+themes
+>>>>>>> 3c5a7e8d54f4651f7afa64ff021eddb0818fd1dc
