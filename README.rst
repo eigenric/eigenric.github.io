@@ -6,6 +6,7 @@ Repositorio para pruebas :)
 * Probando como funciona esto de git, usando sublimegit en Sublime Text 3.
 * Leyendo Git Magic.
 * Viendo videotutoriales
+Editado el README para la version 0.2
 
 Código
 ******
