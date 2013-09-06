@@ -5,20 +5,15 @@ PELICANOPTS=
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
-CONFFILE=$(BASEDIR)/pelicanconf.py
-PUBLISHCONF=$(BASEDIR)/publishconf.py
+CONFFILE=$(BASEDIR)/conf/pelicanconf.py
+PUBLISHCONF=$(BASEDIR)/conf/publishconf.py
+SERVER_SCRIPT=$(BASEDIR)/conf/wdevelop_server.sh
 
-FTP_HOST=ftp.ricardotpy.tk
+DEFAULT_EDITOR = 'subl'
+
+FTP_HOST=ftp.youngeek.tk
 FTP_USER=u944951978
 FTP_TARGET_DIR=/public_html
-
-
-SSH_HOST=localhost
-SSH_PORT=22
-SSH_USER=root
-SSH_TARGET_DIR=/var/www
-
-S3_BUCKET=my_s3_bucket
 
 DROPBOX_DIR=~/Dropbox/ricardotpy
 
@@ -33,7 +28,6 @@ help:
 	@echo '   make serve                       serve site at http://localhost:8000'
 	@echo '   make devserver                   start/restart develop_server.sh    '
 	@echo '   make stopserver                  stop local server                  '
-	@echo '   ssh_upload                       upload the web site via SSH        '
 	@echo '   rsync_upload                     upload the web site via rsync+ssh  '
 	@echo '   dropbox                          upload the web site via Dropbox    '
 	@echo '   ftp                              upload the web site via FTP        '
@@ -58,7 +52,7 @@ serve:
 	cd $(OUTPUTDIR) && $(PY) -m pelican.server
 
 devserver:
-	$(BASEDIR)/develop_server.sh restart
+	$(SERVER_SCRIPT) restart
 
 stopserver:
 	kill -9 `cat pelican.pid`
@@ -67,9 +61,6 @@ stopserver:
 
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
-
-ssh_upload: publish
-	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
 
 rsync_upload: publish
 	rsync -e "ssh -p $(SSH_PORT)" -P -rvz --delete $(OUTPUTDIR)/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR) --cvs-exclude
@@ -88,11 +79,9 @@ github: publish
 	git push origin gh-pages
 
 edit: 
-	vim content/*
-	make html
-
-.PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload github
+	$(DEFAULT_EDITOR) content/*
 
 conf:
-	nano  $(CONFFILE)
-	make html
+	$(DEFAULT_EDITOR) $(CONFFILE)
+
+.PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload github

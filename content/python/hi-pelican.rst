@@ -5,25 +5,18 @@ Hi Pelican
 :tags: python, pelican, static, blog
 
 **Los sitios estáticos han muerto**
-
-.. image:: |filename|/images/pelican.png
-    :width: 201px
-    :height: 44px
-
 **¡Vivan los sitios estáticos!**
 
 
-Nuevo blog, éste, ha sido creado gracias a Pelican_, un simple generador de
-contenido blogs estáticos. Los posts se escriben con lenguajes de marcado ligeros,
+¡Nuevo Blog! Ha sido creado gracias a Pelican_, un simple generador de
+blogs estáticos escrito en python. Los posts se escriben con lenguajes de marcado ligeros,
 como ReStructuredText_ o Markdown_, y el sitio, con ayuda del motor de
-plantillas Jinja2_
+plantillas Jinja2_. ¿Lo quieres?
 
 .. _Pelican: http://www.getpelican.com
 .. _ReStructuredText: http://code.nabla.net/es/rest.html
 .. _Markdown: http://daringfireball.net/projects/markdown/
 .. _Jinja2: http://jinja.pocoo.org/
-
-¿Quieres probarlo? ¡Sigue leyendo!
 
 Instalación
 -----------
