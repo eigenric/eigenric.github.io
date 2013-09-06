@@ -1,5 +1,6 @@
 output
 env
+###Python###
 
 *.py[cod]
 
@@ -48,4 +49,8 @@ themes
 >>>>>>> 3c5a7e8d54f4651f7afa64ff021eddb0818fd1dc
 .swo
 .swp
+<<<<<<< HEAD
 content/images/pelican.png
+=======
+content/images/pelican.png
+>>>>>>> 3a9ba82d51513c32ca0638ac44deb2c9cae4a3e9

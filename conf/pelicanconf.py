@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 
-THEME = 'notmyidea' 
+THEME = './mytheme' 
 
 # Basic
 
