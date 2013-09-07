@@ -44,6 +44,9 @@ $(OUTPUTDIR)/%.html:
 
 clean:
 	sudo rm -d -r $(OUTPUTDIR)
+=======
+	[ ! -d $(OUTPUTDIR) ] || find $(OUTPUTDIR) -mindepth 1 -delete
+>>>>>>> 9d6c16aecb24b50a31a041ca2cfddcd89925e389
 
 regenerate: clean
 	$(PELICAN) -r $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
