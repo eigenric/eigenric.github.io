@@ -39,7 +39,7 @@ TAGLINE = "Geek & Pythonista"
 DISQUS_SITENAME = "youngeek"
 TWITTER_USERNAME = 'riki319'
 GOOGLE_ANALYTICS = 'UA-16479483-10'
-COLLAPSE_COMMENTS = True
+COLLAPSE_COMMENTS = False
 FEED_RSS = 'feeds/all.rss.xml'
 CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 
