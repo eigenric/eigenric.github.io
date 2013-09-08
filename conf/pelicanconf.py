@@ -6,7 +6,7 @@ THEME = 'youngeek-theme'
 
 AUTHOR = 'Ricardo Ruiz'
 SITENAME = "YounGeek"
-SITEURL = 'http://localhost:8000'
+SITEURL = ['http://www.youngeek.tk', 'http://localhost:8000'][0]
 TIMEZONE = "Europe/Madrid"
 
 DEFAULT_CATEGORY = '/dev/random'
