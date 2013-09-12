@@ -3,13 +3,13 @@ PELICAN=pelican
 PELICANOPTS=
 
 BASEDIR=$(CURDIR)
-INPUTDIR=$(BASEDIR)/content
+INPUTDIR=$(BASEDIR)/blog
 OUTPUTDIR=$(BASEDIR)/conf/output
 CONFFILE=$(BASEDIR)/conf/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/conf/publishconf.py
 SERVER_SCRIPT=$(BASEDIR)/conf/develop_server.sh
 
-DEFAULT_EDITOR = 'vim'
+DEFAULT_EDITOR = 'subl'
 
 FTP_HOST=ftp.youngeek.tk
 FTP_USER=u944951978
@@ -60,13 +60,10 @@ stopserver:
 	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
 
 publish:
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
 rsync_upload: publish
 	rsync -e "ssh -p $(SSH_PORT)" -P -rvz --delete $(OUTPUTDIR)/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR) --cvs-exclude
-
-dropbox: publish
-	cp -r $(OUTPUTDIR)/* $(DROPBOX_DIR)
 
 ftp: publish
 	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
@@ -84,5 +81,5 @@ edit:
 conf:
 	$(DEFAULT_EDITOR) $(CONFFILE)
 
-.PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload github
+.PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload github conf edit
 
