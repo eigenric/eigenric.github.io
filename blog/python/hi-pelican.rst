@@ -24,7 +24,6 @@ Instalación
 Pelican está escrito en Python, basta con usar *pip*, el gestor de paquetes de
 python, para instalarlo. Pero antes, os recomiendo usar virtualenv para evitar errores de
 dependencias entre paquetes.
-X
 
 .. code-block:: Bash
     

@@ -78,7 +78,7 @@ github: publish
 	git push origin gh-pages
 
 edit: 
-	$(DEFAULT_EDITOR) content/
+	$(DEFAULT_EDITOR) $(INPUTDIR)
 
 conf:
 	$(DEFAULT_EDITOR) $(CONFFILE)
