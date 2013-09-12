@@ -1,4 +1,7 @@
 *.swp
+blog/pdfs/*
+blog/images/*
+.*.*
 conf/output
 env
 ###Python###
