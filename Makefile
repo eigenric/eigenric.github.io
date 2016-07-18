@@ -2,19 +2,20 @@ PY?=python
 PELICAN?=pelican
 PELICANOPTS=
 
-BASEDIR=.
-INPUTDIR=$(BASEDIR)/blog
+BASEDIR=$(CURDIR)
+INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/.output
-CONFFILE=$(BASEDIR)/conf/pelicanconf.py
-PUBLISHCONF=$(BASEDIR)/conf/publishconf.py
-DEVSERVER_SCRIPT=$(BASEDIR)/conf/develop_server.sh
+CONFFILE=$(BASEDIR)/pelicanconf.py
+PUBLISHCONF=$(BASEDIR)/publishconf.py
+
+FTP_HOST=localhost
+FTP_USER=anonymous
+FTP_TARGET_DIR=/
 
 SSH_HOST=localhost
 SSH_PORT=22
 SSH_USER=root
 SSH_TARGET_DIR=/var/www
-
-FTP_CONFIG=$(BASEDIR)/conf/ftp
 
 S3_BUCKET=my_s3_bucket
 
@@ -86,13 +87,13 @@ endif
 
 devserver:
 ifdef PORT
-	$(DEVSERVER_SCRIPT) restart $(PORT)
+	$(BASEDIR)/develop_server.sh restart $(PORT)
 else
-	$(DEVSERVER_SCRIPT) restart
+	$(BASEDIR)/develop_server.sh restart
 endif
 
 stopserver:
-	$(DEVSERVER_SCRIPT) stop
+	$(BASEDIR)/develop_server.sh stop
 	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
 
 publish:
@@ -108,7 +109,7 @@ dropbox_upload: publish
 	cp -r $(OUTPUTDIR)/* $(DROPBOX_DIR)
 
 ftp_upload: publish
-	lftp ftp://$(FTP_USER):$(FTP_PASSWORD)@$(FTP_HOST) -e "mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
+	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
 
 s3_upload: publish
 	s3cmd sync $(OUTPUTDIR)/ s3://$(S3_BUCKET) --acl-public --delete-removed --guess-mime-type
