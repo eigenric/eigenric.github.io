@@ -1,0 +1,8 @@
+pupil
+plugins
+.output
+conf/ftp
+
+*.pyc
+*.save
+*.pid
