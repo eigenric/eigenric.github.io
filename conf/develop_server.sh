@@ -69,7 +69,7 @@ function start_up(){
   cd $OUTPUTDIR
   $PY -m pelican.server $port &
   srv_pid=$!
-  cd $BASEDIR
+  #cd $BASEDIR
   echo $srv_pid > $SRV_PID
   sleep 1
   if ! alive $pelican_pid ; then

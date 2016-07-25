@@ -2,15 +2,12 @@ PY?=python
 PELICAN?=pelican
 PELICANOPTS=
 
-BASEDIR=$(CURDIR)
-INPUTDIR=$(BASEDIR)/content
+BASEDIR=.
+INPUTDIR=$(BASEDIR)/blog
 OUTPUTDIR=$(BASEDIR)/.output
-CONFFILE=$(BASEDIR)/pelicanconf.py
-PUBLISHCONF=$(BASEDIR)/publishconf.py
-
-FTP_HOST=localhost
-FTP_USER=anonymous
-FTP_TARGET_DIR=/
+CONFFILE=$(BASEDIR)/conf/pelicanconf.py
+PUBLISHCONF=$(BASEDIR)/conf/publishconf.py
+DEVSERVER_SCRIPT=$(BASEDIR)/conf/develop_server.sh
 
 SSH_HOST=localhost
 SSH_PORT=22
@@ -87,13 +84,13 @@ endif
 
 devserver:
 ifdef PORT
-	$(BASEDIR)/develop_server.sh restart $(PORT)
+	$(DEVSERVER_SCRIPT) restart $(PORT)
 else
-	$(BASEDIR)/develop_server.sh restart
+	$(DEVSERVER_SCRIPT) restart
 endif
 
 stopserver:
-	$(BASEDIR)/develop_server.sh stop
+	$(DEVSERVER_SCRIPT) stop
 	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
 
 publish:
