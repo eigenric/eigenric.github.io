@@ -4,13 +4,16 @@ Hi Pelican
 :slug: hi-pelican
 :tags: python, pelican, static, blog
 
-**Los sitios estáticos han muerto**
-**¡Vivan los sitios estáticos!**
+Nuevo blog gracias a Pelican_, un sencillo generador de sitios estáticos
+escrito en python. ¿Le echas un vistazo?
 
-¡Nuevo Blog! Ha sido creado gracias a Pelican_, un simple generador de
-blogs estáticos escrito en python. Los posts se escriben con lenguajes de marcado ligeros,
-como ReStructuredText_ o Markdown_, y el sitio, con ayuda del motor de
-plantillas Jinja2_. ¿Lo quieres?
+.. readmore
+
+En Pelican, los posts se pueden escribir con dos lenguajes de marcado ligeros:
+ReStructuredText_ o Markdown_ . Cada uno ofrece un estilo distinto como se explica
+en este artíulo: `Markdown vs Pelican`__.
+El diseño del sitio se construye con ayuda del motor de plantillas Jinja2.
+Procedamos a instalarlo.
 
 .. readmore
 
@@ -19,26 +22,23 @@ plantillas Jinja2_. ¿Lo quieres?
 .. _Markdown: http://daringfireball.net/projects/markdown/
 .. _Jinja2: http://jinja.pocoo.org/
 
+__ https://jasonstitt.com/markdown-vs-rst-pelican
+
 Instalación
 -----------
 
-Pelican está escrito en Python, basta con usar *pip*, el gestor de paquetes de
-python, para instalarlo. Pero antes, os recomiendo usar virtualenv para evitar errores de
-dependencias entre paquetes.
+Pelican está escrito en Python, por lo que para instalarlo basta con usar pip.
+Para evitar problemas, podéis usar ``pyenv``, ``virtualenv``, o ``conda``.
 
 .. code-block:: console
-    
-    $ sudo apt-get install python-virtualenv
-    $ mkdir blog; cd blog
-    $ virtualenv --no-site-packages --distribute env
-    $ source env/bin/activate
-    $ pip install pelican
 
-Bien, ya tenemos instalado pelican. Ahora crearemos un nuevo proyecto gracias a
-la orden *pelican-quickstart*. Seguidamente aparecerá un asistente para
-configurarlo (nombre del sitio, autor, ftp server).
+    $ source activate blog
+    (blog) $ pip install pelican
 
-Activad el *Makefile* y el *Auto-reload & SimpleHTTP*. **DRY!**.
+Una vez, instalado pelican, creamos un nuevo proyecto. El comando
+*pelican-quickstart* nos facilita el trabajo mediante un asistente que nos
+pregunta por la configuración deseada (nombre del sitio, autor, servidor ftp,
+etc.). Personalmente, yo activo el Makefile y el Devserver.
 
 
 Escribamos pues nuestro primer post. Usaremos el lenguaje de marcado
@@ -63,24 +63,25 @@ Después de guardarlo en *content*, volvemos al directorio raíz y ejecutamos la
 siguientes órdenes:
 
 .. code-block:: console
-    
+
     $ make html
     $ make serve
 
 *make html* genera los archivos en la carpeta *output* y *make serve* inicia un
 pequeño servidor local en localhost:8000 para poder ver nuestro sitio.
 
-Así es como tendría que quedarnos
+Así es como tendrá que quedarnos
 
 .. image:: |filename|/images/screenshot.png
     :width: 740px
     :alt: Magnifica imagen de muestra
 
 
-Por defecto se utilizar el tema *notmyidea*, pero puedes descargar otros en
-http://pelicanthemes.com o crear uno -> pelican-docs.pdf_.
+Por defecto se utiliza el tema ``notmyidea``, pero puedes `descargar otros`__
+o crear uno (más información en la propia `Documentación de Pelican`__)
+
+__ http://pelicanthemes.com
+__ http://docs.getpelican.com/en/stable/
 
 
-.. _pelican-docs.pdf: https://www.dropbox.com/s/orvvnkwentc5ptb/pelican.pdf
-
-Pues esto es todo amigos, gracias por leer el post, ¡hasta otra! :)
+Hasta aquí el pequeño tutorial de instalación. Un saludo!
