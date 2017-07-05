@@ -9,7 +9,7 @@ from __future__ import unicode_literals
 THEME='pupil'
 AUTHOR = 'Ricardo Ruiz'
 SITENAME = "Pwaqø"
-SITEURL = ['http://www.pwaqo.tk']
+SITEURL = ['http://www.pwaqo.tk'][0]
 
 PATH = '../blog'
 TIMEZONE = 'Europe/Madrid'
@@ -29,7 +29,8 @@ TAGS_URL = 'tags'
 TAGS_SAVE_AS = 'tags/index.html'
 ARCHIVES_URL = 'archivo'
 ARCHIVES_SAVE_AS = 'archivo/index.html'
-
+AUTHOR_URL = 'autor/{slug}'
+AUTHOR_SAVE_AS = 'author/{slug}/index.html'
 
 # Feed
 
@@ -53,8 +54,8 @@ SOCIAL = (('github', 'http://www.github.com/pwaqo'),
 EMAIL = 'pwaqostao@gmail.com'
 
 
-'''OTHERS = ['Flavors', 'Fascinate', 'Lakki Reddy', 'Open Sans', 
-	  'Playfair Display', 'Vollkorn', 'Ribeye Marrow', 
+'''OTHERS = ['Flavors', 'Fascinate', 'Lakki Reddy', 'Open Sans',
+	  'Playfair Display', 'Vollkorn', 'Ribeye Marrow',
   	   'Oleo Script Swash Caps', 'Lobster']'''
 
 # Plugins
