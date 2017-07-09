@@ -62,7 +62,9 @@ PLUGINS = [
         'plugins.summary.summary',
         #'plugins.read_more_link.read_more_link']
         'plugins.assets.assets',
-        'plugins.neighbors.neighbors']
+        'plugins.neighbors.neighbors',
+        'plugins.sitemap.sitemap'
+]
 
 SUMMARY_END_MARKER = "<!-- readmore -->" # In rST .. readmore
 #READ_MORE_LINK_FORMAT = "<a class='more' href='%s/{url}'>{text}</a>" % SITEURL
