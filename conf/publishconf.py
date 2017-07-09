@@ -1,15 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
-from __future__ import unicode_literals
-
-
 # Pelican Basics
 
-THEME='pupil'
+THEME='pneumatic'
 AUTHOR = 'Ricardo Ruiz'
 SITENAME = "Pwaqø"
-SITEURL = ['http://www.pwaqo.tk'][0]
+SITEURL = 'http://pwaqo.github.io'
 
 PATH = '../blog'
 TIMEZONE = 'Europe/Madrid'
@@ -23,45 +20,50 @@ ARTICLE_URL = '{slug}'
 ARTICLE_SAVE_AS = '{slug}/index.html'
 PAGE_URL = '{slug}'
 PAGE_SAVE_AS = '{slug}/index.html'
-TAG_URL = 'tag/{slug}'
-TAG_SAVE_AS = 'tag/{slug}/index.html'
-TAGS_URL = 'tags'
-TAGS_SAVE_AS = 'tags/index.html'
-ARCHIVES_URL = 'archivo'
-ARCHIVES_SAVE_AS = 'archivo/index.html'
-AUTHOR_URL = 'autor/{slug}'
-AUTHOR_SAVE_AS = 'author/{slug}/index.html'
+ARCHIVES_URL = 'archive'
+ARCHIVES_SAVE_AS = 'archive/index.html'
 
 # Feed
 
 FEED_RSS = 'feeds/all.rss.xml'
 CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 
-# Iris Config
+# Pneumatic Config
 
-GOOGLE_FONTS = ['Ribeye Marrow']
+BIO_TEXT = "Ceci n'est pas moi"
+FA_EMBED_CODE = "d6199a8f5e"
+ICONS_PATH = "images/icons"
+INDEX_DESCRIPTION = "Pwaqo's blog"
 
-DISPLAY_PAGES_ON_MENU = True
+DISQUS_SITENAME = "www-pwaqo-tk"
+GOOGLE_ANALYTICS = "UA-16479483-12"
 
-MENUITEMS = (('Archivo',ARCHIVES_URL),
-             ('Tags', TAGS_URL),)
+SOCIAL_ICONS = [
+        ('http://www.github.com/pwaqo', 'GitHub', 'fa-github'),
+        ('mailto:pwaqostao@gmail.com', 'Email', 'fa-envelope'),
+        ('/feeds/all.rss.xml', 'Feed', 'fa-rss')
+]
 
-USER_LOGO = 'perfil.jpg'
+SIDEBAR_LINKS = [
+        "<a href='/me/'>Acerca</a>",
+        "<a href='/archive/'>Archivo</a>"
+]
 
-SOCIAL = (('github', 'http://www.github.com/pwaqo'),
-          ('twitter', 'http://www.twitter.com/pwaqostao'),)
+FOOTER_TEXT = (
+     "Con <icon class='icon fa fa-heart'></icon>"
+     " por Ricardo Ruiz gracias a <a href='http://www.getpelican.com'>Pelican</a>"
+     " y a <a href='http://www.python.org'>Python</a><br>"
+     " Obra licenciada bajo <a target='_blank'"
+     " href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>"
+     "<img src='https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png'></a>"
+)
 
-EMAIL = 'pwaqostao@gmail.com'
-
-
-'''OTHERS = ['Flavors', 'Fascinate', 'Lakki Reddy', 'Open Sans',
-	  'Playfair Display', 'Vollkorn', 'Ribeye Marrow',
-  	   'Oleo Script Swash Caps', 'Lobster']'''
-
-# Plugins
-
-PLUGINS = ['plugins.summary.summary', 'plugins.read_more_link.read_more_link']
+PLUGINS = [
+        'plugins.summary.summary',
+        #'plugins.read_more_link.read_more_link']
+        'plugins.assets.assets',
+        'plugins.neighbors.neighbors']
 
 SUMMARY_END_MARKER = "<!-- readmore -->" # In rST .. readmore
-READ_MORE_LINK_FORMAT = "<a class='more' href='%s/{url}'>{text}</a>" % SITEURL
-READ_MORE_LINK = '[Leer más]'
+#READ_MORE_LINK_FORMAT = "<a class='more' href='%s/{url}'>{text}</a>" % SITEURL
+#READ_MORE_LINK = "[Leer más]"
