@@ -66,6 +66,21 @@ PLUGINS = [
         'plugins.sitemap.sitemap'
 ]
 
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    },
+	'exclude': ['tag', 'category', 'author', 'tags', 'categories']
+}
+
 SUMMARY_END_MARKER = "<!-- readmore -->" # In rST .. readmore
 #READ_MORE_LINK_FORMAT = "<a class='more' href='%s/{url}'>{text}</a>" % SITEURL
 #READ_MORE_LINK = "[Leer más]"
