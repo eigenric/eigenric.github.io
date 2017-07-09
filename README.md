@@ -2,10 +2,8 @@
 
 Content and Pelican configurations for my own blog www.pwaqo.tk
 
-I use [Pupil theme](http://github.com/pwaqo/pupil) with
+I use my customized [Pneumatic theme](http://github.com/pwaqo/pneumatic) with the
 [Summary](https://github.com/getpelican/pelican-plugins/tree/master/summary)
-and [Read more link](https://github.com/getpelican/pelican-plugins/tree/master/read_more_link)
-plugins.
 
 I've made some changes in the default `Makefile` and `develop_server.sh` scripts
 to avoid showing the `pelican.pid` `svr.pid` and to focus on the content (in `blog` folder).
@@ -29,6 +27,19 @@ If you want to use this Makefile to upload your work via ftp:
 ```console
 	$ source conf/ftp
 	$ make ftp_upload
+```
+
+## Github Pages Upload
+
+1. Create your `username.github.io` repository
+2. The code mustn't be in the master branch. (Ex.: src branch)
+3. Install ghp-import `pip install ghp-import`
+4. Execute
+
+```console
+    $ make publish
+    $ ghp-import .output
+    $ git push origin gh-pages:master
 ```
 
 ## License
