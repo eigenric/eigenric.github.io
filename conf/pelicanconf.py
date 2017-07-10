@@ -2,7 +2,7 @@
 
 THEME='pneumatic'
 AUTHOR = 'Ricardo Ruiz'
-SITENAME = "Pwaqø"
+SITENAME = "Ricardø Ruiz"
 SITEURL = 'http://localhost:8000'
 
 PATH = '../blog'
@@ -39,10 +39,11 @@ AUTHOR_FEED_RSS = None
 
 # Pneumatic theme
 
-BIO_TEXT = "Ceci n'est pas moi"
+BIO_TEXT = "Python and Math enthusiast."
+SITE_AUTHOR = "Ricardo Ruiz"
 FA_EMBED_CODE = ""
 ICONS_PATH = "images/icons"
-INDEX_DESCRIPTION = "Pwaqo's blog"
+INDEX_DESCRIPTION = "Personal blog of Ricardo Ruiz, alias pwaqo"
 
 # DISQUS_SITENAME = ""
 # GOOGLE_ANALYTICS = ""
@@ -60,8 +61,9 @@ SIDEBAR_LINKS = [
 
 FOOTER_TEXT = (
      "Con <icon class='icon fa fa-heart'></icon>"
-     " por Ricardo Ruiz gracias a <a href='http://www.getpelican.com'>Pelican</a>"
-     " y a <a href='http://www.python.org'>Python</a><br>"
+     " por <a target='_blank' href='http://github.com/pwaqo'>pwaqo</a> gracias a "
+     " <a target='_blank' href='http://www.getpelican.com'>Pelican</a>"
+     " y a <a target='_blank' href='http://www.python.org'>Python</a><br>"
      " Obra licenciada bajo <a target='_blank'"
      " href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>"
      "<img src='https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png'></a>"
