@@ -1,50 +1,83 @@
-from __future__ import unicode_literals
+#!/usr/bin/env python
 
-THEME = 'youngeek-theme' 
+# Pelican Basics
 
-# Basic
-
+THEME='pneumatic'
 AUTHOR = 'Ricardo Ruiz'
-SITENAME = "YounGeek"
-SITEURL = ['http://www.youngeek.tk', 'http://localhost:8000'][1]
-TIMEZONE = "Europe/Madrid"
+SITENAME = "Pwaqø"
+SITEURL = 'http://localhost:8000'
 
-DEFAULT_CATEGORY = '/dev/random'
+PATH = '../blog'
+TIMEZONE = 'Europe/Madrid'
+DEFAULT_LANG = u'es'
 DEFAULT_DATE = 'fs'
 DEFAULT_DATE_FORMAT = '%d de %B de %Y'
 
-# Site
+# Permalinks
 
-# Urls
-
-ARTICLE_URL = 'blog/{slug}'
-ARTICLE_SAVE_AS = 'blog/{slug}/index.html'
-
+ARTICLE_URL = '{slug}'
+ARTICLE_SAVE_AS = '{slug}/index.html'
 PAGE_URL = '{slug}'
 PAGE_SAVE_AS = '{slug}/index.html'
+ARCHIVES_URL = 'archive'
+ARCHIVES_SAVE_AS = 'archive/index.html'
 
-TAG_URL = 'tag/{slug}'
-TAG_SAVE_AS = 'tag/{slug}/index.html'
-
-CATEGORY_URL = 'cat/{slug}'
-CATEGORY_SAVE_AS = 'cat/{slug}/index.html'
-
-AUTHOR_URL = 'autor/{slug}'
-AUTHOR_SAVE_AS = 'autor/{slug}/index.html'
-
-USER_LOGO_URL = SITEURL + '/static/images/youngeek-logo.gif'
-
-TAGLINE = "Geek & Pythonista"
-
-DISQUS_SITENAME = "youngeek"
-TWITTER_USERNAME = 'riki319'
-GOOGLE_ANALYTICS = 'UA-16479483-10'
-
-COLLAPSE_COMMENTS = False
+# Feed
 
 FEED_RSS = 'feeds/all.rss.xml'
 CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 
+# Pneumatic Config
 
-STATIC_PATHS = ["images"]
-FILES_TO_COPY = (('extra/google53aa3b50d6efd909.html', 'google53aa3b50d6efd909.html'),('extra/favicon.ico', 'favicon.ico'))
+BIO_TEXT = "Ceci n'est pas moi"
+FA_EMBED_CODE = ""
+ICONS_PATH = "images/icons"
+INDEX_DESCRIPTION = "Pwaqo's blog"
+
+# DISQUS_SITENAME = ""
+# GOOGLE_ANALYTICS = ""
+
+SOCIAL_ICONS = [
+        ('http://www.github.com/pwaqo', 'GitHub', 'fa-github'),
+        ('mailto:pwaqostao@gmail.com', 'Email', 'fa-envelope'),
+        ('/feeds/all.rss.xml', 'Feed', 'fa-rss')
+]
+
+SIDEBAR_LINKS = [
+        "<a href='/me/'>Acerca</a>",
+        "<a href='/archive/'>Archivo</a>"
+]
+
+FOOTER_TEXT = (
+     "Con <icon class='icon fa fa-heart'></icon>"
+     " por Ricardo Ruiz gracias a <a href='http://www.getpelican.com'>Pelican</a>"
+     " y a <a href='http://www.python.org'>Python</a><br>"
+     " Obra licenciada bajo <a target='_blank'"
+     " href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>"
+     "<img src='https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png'></a>"
+)
+
+PLUGINS = [
+        'plugins.summary.summary',
+        #'plugins.read_more_link.read_more_link']
+        'plugins.assets.assets',
+        'plugins.neighbors.neighbors',
+        'plugins.sitemap.sitemap'
+]
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    },
+	'exclude': ['tag', 'category', 'author', 'tags', 'categories']
+}
+
+SUMMARY_END_MARKER = "<!-- readmore -->" # In rST .. readmore
+#READ_MORE_LINK_FORMAT = "<a class='more' href='%s/{url}'>{text}</a>" % SITEURL

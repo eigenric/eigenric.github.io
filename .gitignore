@@ -1,34 +1,9 @@
-###### Python ######
+pneumatic
+pupil
+plugins
+.output
+conf/ftp
 
-### Mio ###
-
-*.swp
-.*.*
-blog/pdfs/
-blog/images/
-conf/output
-env/
-
-### Github ###
-
-*.py[cod]
-*.so
-*.egg
-*.egg-info
-dist
-build
-eggs
-parts
-bin
-var
-sdist
-develop-eggs
-.installed.cfg
-lib
-lib64
-__pycache__
-pip-log.txt
-.coverage
-.tox
-nosetests.xml
-*.mo
+*.pyc
+*.save
+*.pid
