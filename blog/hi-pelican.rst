@@ -35,14 +35,13 @@ Para evitar problemas, podéis usar ``pyenv``, ``virtualenv``, o ``conda``.
     $ source activate blog
     (blog) $ pip install pelican
 
-Una vez, instalado pelican, creamos un nuevo proyecto. El comando
-*pelican-quickstart* nos facilita el trabajo mediante un asistente que nos
+Una vez, instalado pelican, creamos un nuevo proyecto. El comando ``pelican-quickstart`` nos facilita el trabajo mediante un asistente que nos
 pregunta por la configuración deseada (nombre del sitio, autor, servidor ftp,
 etc.). Personalmente, yo activo el Makefile y el Devserver.
 
 
 Escribamos pues nuestro primer post. Usaremos el lenguaje de marcado
-*ReStructuredText*.
+``ReStructuredText``.
 
 post.rst
 ''''''''
@@ -59,7 +58,7 @@ post.rst
 
     **ReStructuredText is awesome**
 
-Después de guardarlo en *content*, volvemos al directorio raíz y ejecutamos las
+Después de guardarlo en ``content``, volvemos al directorio raíz y ejecutamos las
 siguientes órdenes:
 
 .. code-block:: console
@@ -67,7 +66,7 @@ siguientes órdenes:
     $ make html
     $ make serve
 
-*make html* genera los archivos en la carpeta *output* y *make serve* inicia un
+``make html`` genera los archivos en la carpeta ``output`` y ``make serve`` inicia un
 pequeño servidor local en localhost:8000 para poder ver nuestro sitio.
 
 Así es como tendrá que quedarnos
