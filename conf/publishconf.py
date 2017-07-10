@@ -1,11 +1,9 @@
-#!/usr/bin/env python
-
 # Pelican Basics
 
 THEME='pneumatic'
 AUTHOR = 'Ricardo Ruiz'
 SITENAME = "Pwaqø"
-SITEURL = 'http://pwaqo.github.io'
+SITEURL = 'http://pwaqo.ml'
 
 PATH = '../blog'
 TIMEZONE = 'Europe/Madrid'
