@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /feeds/*
+Sitemap: http://pwaqo.github.io/sitemap.xml
