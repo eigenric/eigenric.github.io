@@ -52,6 +52,7 @@ INDEX_DESCRIPTION = "Personal blog of Ricardo Ruiz, alias pwaqo"
 
 SOCIAL_ICONS = [
         ('http://www.github.com/pwaqo', 'GitHub', 'fa-github'),
+        ('http://t.me/pwaqo', 'Telegram', 'fa-telegram'),
         ('mailto:pwaqostao@gmail.com', 'Email', 'fa-envelope'),
         ('/atom.xml', 'Feed', 'fa-rss')
 ]
