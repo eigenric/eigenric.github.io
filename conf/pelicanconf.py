@@ -19,6 +19,8 @@ PAGE_URL = '{slug}'
 PAGE_SAVE_AS = '{slug}/index.html'
 ARCHIVES_URL = 'archive'
 ARCHIVES_SAVE_AS = 'archive/index.html'
+YEAR_ARCHIVE_SAVE_AS = '{date:%Y}/index.html'
+MONTH_ARCHIVE_SAVE_AS = '{date:%Y}/{date:%m}/index.html'
 
 # Disable authors, categories, tags
 
