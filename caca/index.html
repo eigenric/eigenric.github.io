@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>Hi Pelican | Pwaqø</title>
+	<meta name="description" content="Nuevo blog gracias a Pelican, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo?">
+	<meta name="author" content="Ricardo Ruiz">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Hi Pelican">
+	<meta property="og:description" content="Nuevo blog gracias a Pelican, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo?">
+	<meta property="og:image" content="http://localhost:8000/images/icons/avatar.png">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://localhost:8000/caca">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css?393e6ce5" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-196x196.png" sizes="196x196">
+
+	<meta name="theme-color" content="#1e2327">
+
+	<meta name="msapplication-TileColor" content="#1e2327">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+			<div id="name"><a href="/">Pwaqø</a></div>
+			<div id="bio">Ceci n'est pas moi.</div>
+
+			<div id="sidebar-links">
+				<a href='/me/'>Acerca</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='/archive/'>Archivo</a>
+			</div>
+
+			<div id="social">
+				<a href="mailto:pwaqostao@gmail.com" title="Email" class="icon fa fa-envelope"></a>
+				<a href="http://www.twitter.com/pwaqostao" title="Twitter" class="icon fa fa-twitter"></a>
+				<a href="http://www.github.com/pwaqo" title="GitHub" class="icon fa fa-github"></a>
+				<a href="http://www.github.com/pwaqo" title="SoundCloud" class="icon fa fa-soundcloud"></a>
+				<a href="/atom.xml" title="Feed" class="icon fa fa-rss"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/caca" title="Hi Pelican">Hi Pelican</a></h1>
+	<div class="content">
+		<p>Nuevo blog gracias a <a class="reference external" href="http://www.getpelican.com">Pelican</a>, un sencillo generador de sitios estáticos
+escrito en python. ¿Le echas un vistazo?</p>
+<!-- readmore -->
+<p>En Pelican, los posts se pueden escribir con dos lenguajes de marcado ligeros:
+<a class="reference external" href="http://code.nabla.net/es/rest.html">ReStructuredText</a> o <a class="reference external" href="http://daringfireball.net/projects/markdown/">Markdown</a> . Cada uno ofrece un estilo distinto como se explica
+en este artíulo: <a class="reference external" href="https://jasonstitt.com/markdown-vs-rst-pelican">Markdown vs Pelican</a>.
+El diseño del sitio se construye con ayuda del motor de plantillas Jinja2.
+Procedamos a instalarlo.</p>
+<!-- readmore -->
+<div class="section" id="instalacion">
+<h2>Instalación</h2>
+<p>Pelican está escrito en Python, por lo que para instalarlo basta con usar pip.
+Para evitar problemas, podéis usar <tt class="docutils literal">pyenv</tt>, <tt class="docutils literal">virtualenv</tt>, o <tt class="docutils literal">conda</tt>.</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">source</span> activate blog
+<span class="gp">(blog) $</span> pip install pelican
+</pre></div>
+<p>Una vez, instalado pelican, creamos un nuevo proyecto. El comando
+<em>pelican-quickstart</em> nos facilita el trabajo mediante un asistente que nos
+pregunta por la configuración deseada (nombre del sitio, autor, servidor ftp,
+etc.). Personalmente, yo activo el Makefile y el Devserver.</p>
+<p>Escribamos pues nuestro primer post. Usaremos el lenguaje de marcado
+<em>ReStructuredText</em>.</p>
+<div class="section" id="post-rst">
+<h3>post.rst</h3>
+<div class="highlight"><pre><span></span><span class="gh">Mi primer post</span>
+<span class="gh">##############</span>
+
+<span class="nc">:date:</span> <span class="nf">2013-09-03 16:28</span>
+<span class="nc">:slug:</span> <span class="nf">first-post</span>
+<span class="nc">:category:</span> <span class="nf">python</span>
+<span class="nc">:tags:</span> <span class="nf">blog, post, first, me, pelican</span>
+
+<span class="gs">**ReStructuredText is awesome**</span>
+</pre></div>
+<p>Después de guardarlo en <em>content</em>, volvemos al directorio raíz y ejecutamos las
+siguientes órdenes:</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span> make html
+<span class="gp">$</span> make serve
+</pre></div>
+<p><em>make html</em> genera los archivos en la carpeta <em>output</em> y <em>make serve</em> inicia un
+pequeño servidor local en localhost:8000 para poder ver nuestro sitio.</p>
+<p>Así es como tendrá que quedarnos</p>
+<img alt="Magnifica imagen de muestra" src="http://localhost:8000/images/screenshot.png" style="width: 740px;" />
+<p>Por defecto se utiliza el tema <tt class="docutils literal">notmyidea</tt>, pero puedes <a class="reference external" href="http://pelicanthemes.com">descargar otros</a>
+o crear uno (más información en la propia <a class="reference external" href="http://docs.getpelican.com/en/stable/">Documentación de Pelican</a>)</p>
+<p>Hasta aquí el pequeño tutorial de instalación. Un saludo!</p>
+</div>
+</div>
+
+	</div>
+	<div id="back-to-home"><a href="/">&laquo; Back to Home</a></div>
+			<hr>
+		</article>
+
+		<footer>
+			<p>Ola</p>
+		</footer>
+	</div>
+
+
+</body>
+</html>

@@ -7,14 +7,9 @@
 * 6/20/2012
 */
 
-@font-face {
-    font-family: "Fontin";
-    src: url(Fontin.ttf);
-}
-
 // Theme Variables
 
-$main-font: "Fontin", sans-serif;
+$main-font: "Menlo", monospace;
 $code-font: "Menlo", monospace;
 
 $accent-colour: #FF8000;
@@ -49,7 +44,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 body {
 	background: #fff;
-	font: 16px/23px $main-font;
+	font: 13px/23px $main-font;
 	color: #222;
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-size-adjust: 100%;
@@ -177,18 +172,17 @@ textarea, code, pre, tt {
 
 	font-family: $code-font, monospace!important;
 	color: #000;
-	font-size: 0.9em;
 	background: #eee;
 
 }
 
 tt {
-	font-size: 0.8em;
+	font-size: 0.9em;
 }
 
 pre {
 
-	padding: 8px 30px;
+	padding: 10px 20px;
 	margin: 15px auto;
 	line-height: 1.5;
 	border-style:solid;
@@ -372,7 +366,7 @@ aside div {
 	}
 
 	aside {
-		max-width: 280px;
+		max-width: 285px;
 		margin: 0 auto;
 		padding-top: 5px;
 		vertical-align: middle;
