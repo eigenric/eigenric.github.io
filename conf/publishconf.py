@@ -27,6 +27,16 @@ CATEGORY_SAVE_AS = ''
 AUTHOR_SAVE_AS = ''
 TAG_SAVE_AS = ''
 
+# Disable feed except atom.xml
+
+FEED_ATOM = 'atom.xml'
+FEED_RSS = None
+FEED_ALL_ATOM = None
+CATEGORY_FEED_ATOM = None
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
+
 # Pneumatic Config
 
 BIO_TEXT = "Ceci n'est pas moi"
@@ -40,7 +50,7 @@ GOOGLE_ANALYTICS = "UA-16479483-12"
 SOCIAL_ICONS = [
         ('http://www.github.com/pwaqo', 'GitHub', 'fa-github'),
         ('mailto:pwaqostao@gmail.com', 'Email', 'fa-envelope'),
-        ('/feeds/all.rss.xml', 'Feed', 'fa-rss')
+        ('/atom.xml', 'Feed', 'fa-rss')
 ]
 
 SIDEBAR_LINKS = [
