@@ -74,6 +74,18 @@ PLUGINS = [
         'plugins.neighbors.neighbors',
         'plugins.sitemap.sitemap'
 ]
+
+# 404.html Page
+
+templates = ['404.html']
+TEMPLATE_PAGES = {page: page for page in templates}
+
+# Robots and extras
+
+STATIC_PATHS = ['images', 'extra']
+extras = ['CNAME', 'robots.txt']
+EXTRA_PATH_METADATA = {'extra/%s' % name: {'path': name} for name in extras}
+
 SITEMAP = {
     'format': 'xml',
     'priorities': {
