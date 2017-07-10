@@ -20,10 +20,12 @@ PAGE_SAVE_AS = '{slug}/index.html'
 ARCHIVES_URL = 'archive'
 ARCHIVES_SAVE_AS = 'archive/index.html'
 
-# Feed
+# Disable authors, categories, tags
 
-FEED_RSS = 'feeds/all.rss.xml'
-CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
+DIRECT_TEMPLATES = ['index', 'archives']
+CATEGORY_SAVE_AS = ''
+AUTHOR_SAVE_AS = ''
+TAG_SAVE_AS = ''
 
 # Pneumatic Config
 
