@@ -62,14 +62,13 @@ SIDEBAR_LINKS = [
         "<a href='/archive/'>Archivo</a>"
 ]
 
-FOOTER_TEXT = (
-     "Con <icon class='icon fa fa-heart'></icon>"
-     " por <a target='_blank' href='http://github.com/pwaqo'>pwaqo</a> gracias a "
+FOOTER_TEXT = ( "Con <icon class='icon fa fa-heart'></icon> gracias a"
      " <a target='_blank' href='http://www.getpelican.com'>Pelican</a>"
      " y a <a target='_blank' href='http://www.python.org'>Python</a><br>"
      " Obra licenciada bajo <a target='_blank'"
      " href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>"
      "<img src='https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png'></a>"
+     "<br> by <a target='_blank' href='http://github.com/pwaqo'>Pwaqo</a>"
 )
 
 PLUGINS = [
