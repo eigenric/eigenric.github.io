@@ -76,7 +76,7 @@
 
 		<article>
 	<h1 class="title"><a href="/hi-pelican" title="Permalink to Hi Pelican">Hi Pelican</a></h1>
-	<time class="date" datetime="2017-07-10 19:40:26.330247+02:00">10 de julio de 2017</time>
+	<time class="date" datetime="2017-07-10 20:08:41.157623+02:00">10 de julio de 2017</time>
 	<div class="content">
 		<p>Nuevo blog gracias a <a class="reference external" href="http://www.getpelican.com">Pelican</a>, un sencillo generador de sitios estáticos
 escrito en python. ¿Le echas un vistazo?</p>
@@ -94,12 +94,11 @@ Para evitar problemas, podéis usar <tt class="docutils literal">pyenv</tt>, <tt
 <div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">source</span> activate blog
 <span class="gp">(blog) $</span> pip install pelican
 </pre></div>
-<p>Una vez, instalado pelican, creamos un nuevo proyecto. El comando
-<em>pelican-quickstart</em> nos facilita el trabajo mediante un asistente que nos
+<p>Una vez, instalado pelican, creamos un nuevo proyecto. El comando <tt class="docutils literal"><span class="pre">pelican-quickstart</span></tt> nos facilita el trabajo mediante un asistente que nos
 pregunta por la configuración deseada (nombre del sitio, autor, servidor ftp,
 etc.). Personalmente, yo activo el Makefile y el Devserver.</p>
 <p>Escribamos pues nuestro primer post. Usaremos el lenguaje de marcado
-<em>ReStructuredText</em>.</p>
+<tt class="docutils literal">ReStructuredText</tt>.</p>
 <div class="section" id="post-rst">
 <h3>post.rst</h3>
 <div class="highlight"><pre><span></span><span class="gh">Mi primer post</span>
@@ -112,12 +111,12 @@ etc.). Personalmente, yo activo el Makefile y el Devserver.</p>
 
 <span class="gs">**ReStructuredText is awesome**</span>
 </pre></div>
-<p>Después de guardarlo en <em>content</em>, volvemos al directorio raíz y ejecutamos las
+<p>Después de guardarlo en <tt class="docutils literal">content</tt>, volvemos al directorio raíz y ejecutamos las
 siguientes órdenes:</p>
 <div class="highlight"><pre><span></span><span class="gp">$</span> make html
 <span class="gp">$</span> make serve
 </pre></div>
-<p><em>make html</em> genera los archivos en la carpeta <em>output</em> y <em>make serve</em> inicia un
+<p><tt class="docutils literal">make html</tt> genera los archivos en la carpeta <tt class="docutils literal">output</tt> y <tt class="docutils literal">make serve</tt> inicia un
 pequeño servidor local en localhost:8000 para poder ver nuestro sitio.</p>
 <p>Así es como tendrá que quedarnos</p>
 <img alt="Magnifica imagen de muestra" src="http://ricardoruiz.ml/images/screenshot.png" style="width: 740px;" />
