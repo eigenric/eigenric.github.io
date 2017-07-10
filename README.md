@@ -1,6 +1,6 @@
 # Pwaqo
 
-Content and Pelican configurations for my own blog http://pwaqo.github.io
+Content and Pelican configurations for my own blog http://pwaqo.ml
 
 I use my customized [Pneumatic theme](http://github.com/pwaqo/pneumatic) with the
 [Summary](https://github.com/getpelican/pelican-plugins/tree/master/summary)
