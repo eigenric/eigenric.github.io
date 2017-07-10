@@ -244,9 +244,10 @@ pre {
   border-style: solid;
   border-width: 1px;
   border-color: #bbb;
+  overflow-x: auto;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003200}}
+@media -sass-debug-info{filename{}line{font-family:\00003201}}
 code, tt {
   padding: 1px 4px 1px 4px;
   border-style: solid;
@@ -254,7 +255,7 @@ code, tt {
   border-color: #bbb;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003209}}
+@media -sass-debug-info{filename{}line{font-family:\00003210}}
 .codehilitetable {
   font: 0.85em/1.5 "Menlo", monospace;
   overflow-x: auto;
@@ -263,12 +264,12 @@ code, tt {
   border-radius: 2px;
   padding: 0.8em 0;
 }
-@media -sass-debug-info{filename{}line{font-family:\00003217}}
+@media -sass-debug-info{filename{}line{font-family:\00003218}}
 .codehilitetable tbody tr {
   display: block;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003220}}
+@media -sass-debug-info{filename{}line{font-family:\00003221}}
 .linenos {
   border-right: 1px solid #3d3d3d;
   padding: 0 0.7em;
@@ -282,12 +283,12 @@ code, tt {
   user-select: none;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003233}}
+@media -sass-debug-info{filename{}line{font-family:\00003234}}
 .codehilite {
   margin: 0 1em 0 3.5em;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003237}}
+@media -sass-debug-info{filename{}line{font-family:\00003238}}
 .admonition {
   background: #fafafa;
   margin: 20px 0;
@@ -296,22 +297,22 @@ code, tt {
   border-width: 1px 0;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003245}}
+@media -sass-debug-info{filename{}line{font-family:\00003246}}
 .admonition-title {
   margin: 12px 0;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003250}}
+@media -sass-debug-info{filename{}line{font-family:\00003251}}
 div.math {
   overflow-x: scroll;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003261}}
+@media -sass-debug-info{filename{}line{font-family:\00003262}}
 html, body {
   height: 100%;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003265}}
+@media -sass-debug-info{filename{}line{font-family:\00003266}}
 .container {
   position: relative;
   width: 900px;
@@ -319,187 +320,187 @@ html, body {
   padding-top: 50px;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003272}}
+@media -sass-debug-info{filename{}line{font-family:\00003273}}
 article img {
   max-width: 95%;
   margin: 0 auto;
   display: block;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003278}}
+@media -sass-debug-info{filename{}line{font-family:\00003279}}
 footer p {
   margin: 12px 0;
   padding-bottom: 10px;
   text-align: center;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003284}}
+@media -sass-debug-info{filename{}line{font-family:\00003285}}
 aside div {
   margin: 12px 0;
   text-align: center;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003289}}
+@media -sass-debug-info{filename{}line{font-family:\00003290}}
 #avatar {
   margin: 0 auto;
   display: block;
   width: 140px;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003295}}
+@media -sass-debug-info{filename{}line{font-family:\00003296}}
 #name {
-  font-size: 1.8em;
+  font-size: 1.65em;
   line-height: 1.35;
   letter-spacing: -0.5px;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003301}}
+@media -sass-debug-info{filename{}line{font-family:\00003302}}
 #bio {
-  font-size: 0.85em;
+  font-size: 0.95em;
   line-height: 1.5;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003306}}
+@media -sass-debug-info{filename{}line{font-family:\00003307}}
 #sidebar-links {
   color: #aaa;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003310}}
+@media -sass-debug-info{filename{}line{font-family:\00003311}}
 #sidebar-divider {
   display: none;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003314}}
+@media -sass-debug-info{filename{}line{font-family:\00003315}}
 .title {
   float: left;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003318}}
+@media -sass-debug-info{filename{}line{font-family:\00003319}}
 .date {
   float: right;
   display: block;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003323}}
+@media -sass-debug-info{filename{}line{font-family:\00003324}}
 .content {
   clear: both;
   overflow: hidden;
 }
-@media -sass-debug-info{filename{}line{font-family:\00003327}}
+@media -sass-debug-info{filename{}line{font-family:\00003328}}
 .content hr {
   margin: 25px 10px;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003330}}
+@media -sass-debug-info{filename{}line{font-family:\00003331}}
 .summary p {
   margin-bottom: 6px;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003334}}
+@media -sass-debug-info{filename{}line{font-family:\00003335}}
 #view-archives {
   overflow: auto;
   text-align: right;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003339}}
+@media -sass-debug-info{filename{}line{font-family:\00003340}}
 #back-to-home, #related-articles {
   overflow: auto;
   margin-top: 20px;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003344}}
+@media -sass-debug-info{filename{}line{font-family:\00003345}}
 #next-neighbour {
   float: left;
 }
 
-@media -sass-debug-info{filename{}line{font-family:\00003345}}
+@media -sass-debug-info{filename{}line{font-family:\00003346}}
 #prev-neighbour {
   float: right;
 }
 
 @media only screen and (min-width: 960px) {
-@media -sass-debug-info{filename{}line{font-family:\00003351}}
+@media -sass-debug-info{filename{}line{font-family:\00003352}}
   aside, article, footer {
     margin: 0 10px;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003353}}
+@media -sass-debug-info{filename{}line{font-family:\00003354}}
   aside {
     float: left;
     width: 160px;
     position: fixed;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003359}}
+@media -sass-debug-info{filename{}line{font-family:\00003360}}
   article, footer {
     float: right;
     width: 640px;
   }
 }
 @media only screen and (max-width: 959px) {
-@media -sass-debug-info{filename{}line{font-family:\00003368}}
+@media -sass-debug-info{filename{}line{font-family:\00003369}}
   .container {
     padding-top: 3px;
     width: 90%;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003373}}
+@media -sass-debug-info{filename{}line{font-family:\00003374}}
   aside {
     max-width: 280px;
     margin: 0 auto;
     padding-top: 5px;
     vertical-align: middle;
   }
-@media -sass-debug-info{filename{}line{font-family:\00003379}}
+@media -sass-debug-info{filename{}line{font-family:\00003380}}
   aside div {
     margin: 5px 0;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003382}}
+@media -sass-debug-info{filename{}line{font-family:\00003383}}
   #avatar {
     float: left;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003383}}
+@media -sass-debug-info{filename{}line{font-family:\00003384}}
   #social .icon {
     padding: 0 1px;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003384}}
+@media -sass-debug-info{filename{}line{font-family:\00003385}}
   article {
     margin-top: 14px;
   }
 }
 @media only screen and (max-width: 767px) {
-@media -sass-debug-info{filename{}line{font-family:\00003388}}
+@media -sass-debug-info{filename{}line{font-family:\00003389}}
   .title, .date {
     text-align: center;
     float: none;
     line-height: 1.25;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003394}}
+@media -sass-debug-info{filename{}line{font-family:\00003395}}
   #sidebar-divider {
     display: block;
   }
 }
 @media only print {
-@media -sass-debug-info{filename{}line{font-family:\00003398}}
+@media -sass-debug-info{filename{}line{font-family:\00003399}}
   footer, aside, #disqus_thread, #related-articles, #back-to-home {
     display: none !important;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003402}}
+@media -sass-debug-info{filename{}line{font-family:\00003403}}
   .container {
     width: 85%;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003403}}
+@media -sass-debug-info{filename{}line{font-family:\00003404}}
   p a:after {
     content: " [" attr(href) "]";
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003404}}
+@media -sass-debug-info{filename{}line{font-family:\00003405}}
   .linenos {
     border-right: none;
   }
