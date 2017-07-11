@@ -4,7 +4,7 @@
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
 	<title>Hi Pelican | Ricardø Ruiz</title>
-	<meta name="description" content="Nuevo blog gracias a Pelican, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo?">
+	<meta name="description" content="Nuevo blog gracias a Pelican, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo? En Pelican, los posts se pueden escribir con dos lenguajes de marcado ligeros: ReStructuredText o Markdown . Cada uno ofrece un estilo distinto como se explica en este artíulo: Markdown vs Pelican. El …">
 	<meta name="author" content="Ricardo Ruiz">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,14 +15,14 @@
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="">
 	<meta property="og:title" content="Hi Pelican">
-	<meta property="og:description" content="Nuevo blog gracias a Pelican, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo?">
-	<meta property="og:image" content="http://ricardoruiz.ml/images/icons/avatar.png">
+	<meta property="og:description" content="Nuevo blog gracias a Pelican, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo? En Pelican, los posts se pueden escribir con dos lenguajes de marcado ligeros: ReStructuredText o Markdown . Cada uno ofrece un estilo distinto como se explica en este artíulo: Markdown vs Pelican. El …">
+	<meta property="og:image" content="http://localhost:8000/images/icons/avatar.png">
 	<meta property="og:type" content="article">
-	<meta property="og:url" content="http://ricardoruiz.ml/hi-pelican">
+	<meta property="og:url" content="http://localhost:8000/drafts/hi-pelican.html">
 
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?39966684" rel="stylesheet">
-	<link rel="stylesheet" href="https://use.fontawesome.com/d6199a8f5e.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- Favicons -->
 	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
@@ -59,7 +59,7 @@
 		<aside>
 			<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
 			<div id="name"><a href="/">Ricardø Ruiz</a></div>
-			<div id="bio">Python and Math enthusiast</div>
+			<div id="bio">Python and Math enthusiast.</div>
 
 			<div id="sidebar-links">
 				<a href='/me/'>Acerca</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='/archive/'>Archivo</a>
@@ -67,6 +67,7 @@
 
 			<div id="social">
 				<a href="http://www.github.com/pwaqo" title="GitHub" class="icon fa fa-github"></a>
+				<a href="http://t.me/pwaqo" title="Telegram" class="icon fa fa-telegram"></a>
 				<a href="mailto:pwaqostao@gmail.com" title="Email" class="icon fa fa-envelope"></a>
 				<a href="/atom.xml" title="Feed" class="icon fa fa-rss"></a>
 			</div>
@@ -75,7 +76,7 @@
 		</aside>
 
 		<article>
-	<h1 class="title"><a href="/hi-pelican" title="Permalink to Hi Pelican">Hi Pelican</a></h1>
+	<h1 class="title"><a href="/drafts/hi-pelican.html" title="Permalink to Hi Pelican">Hi Pelican</a></h1>
 	<time class="date" datetime="2017-07-10 20:24:39+02:00">10 de julio de 2017</time>
 	<div class="content">
 		<p>Nuevo blog gracias a <a class="reference external" href="http://www.getpelican.com">Pelican</a>, un sencillo generador de sitios estáticos
@@ -119,7 +120,7 @@ siguientes órdenes:</p>
 <p><tt class="docutils literal">make html</tt> genera los archivos en la carpeta <tt class="docutils literal">output</tt> y <tt class="docutils literal">make serve</tt> inicia un
 pequeño servidor local en localhost:8000 para poder ver nuestro sitio.</p>
 <p>Así es como tendrá que quedarnos</p>
-<img alt="Magnifica imagen de muestra" src="http://ricardoruiz.ml/images/screenshot.png" style="width: 740px;" />
+<img alt="Magnifica imagen de muestra" src="http://localhost:8000/images/screenshot.png" style="width: 740px;" />
 <p>Por defecto se utiliza el tema <tt class="docutils literal">notmyidea</tt>, pero puedes <a class="reference external" href="http://pelicanthemes.com">descargar otros</a>
 o crear uno (más información en la propia <a class="reference external" href="http://docs.getpelican.com/en/stable/">Documentación de Pelican</a>)</p>
 <p>Hasta aquí el pequeño tutorial de instalación. Un saludo!</p>
@@ -129,41 +130,14 @@ o crear uno (más información en la propia <a class="reference external" href="
 	</div>
 
 
-	<hr>
-
-	<!-- Disqus -->
-	<div id="disqus_thread"></div>
-	<script>
-	var disqus_config = function() {
-		this.page.url = 'http://ricardoruiz.ml/hi-pelican';
-		this.page.identifier = 'hi-pelican';
-	};
-
-	(function() {
-		var d = document, s = d.createElement('script');
-		s.src = '//www-pwaqo-tk.disqus.com/embed.js';
-		s.setAttribute('data-timestamp', +new Date());
-		(d.head || d.body).appendChild(s);
-	})();
-	</script>
 			<hr>
 		</article>
 
 		<footer>
-			<p>Con <icon class='icon fa fa-heart'></icon> por <a target='_blank' href='http://github.com/pwaqo'>pwaqo</a> gracias a  <a target='_blank' href='http://www.getpelican.com'>Pelican</a> y a <a target='_blank' href='http://www.python.org'>Python</a><br> Obra licenciada bajo <a target='_blank' href='http://creativecommons.org/licenses/by-nc-sa/4.0/'><img src='https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png'></a></p>
+			<p>Con <icon class='icon fa fa-heart'></icon> gracias a <a target='_blank' href='http://www.getpelican.com'>Pelican</a> y a <a target='_blank' href='http://www.python.org'>Python</a><br> Obra licenciada bajo <a target='_blank' href='http://creativecommons.org/licenses/by-nc-sa/4.0/'><img src='https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png'></a><br> by <a target='_blank' href='http://github.com/pwaqo'>Pwaqo</a></p>
 		</footer>
 	</div>
 
-	<!-- Google Analytics -->
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-16479483-12', '');
-		ga('send', 'pageview');
-	</script>
 
 </body>
 </html>

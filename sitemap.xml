@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://ricardoruiz.ml/</loc>
-<lastmod>2017-07-10T20:12:45-00:00</lastmod>
+<lastmod>2017-07-11T21:39:48-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ricardoruiz.ml/404.html</loc>
-<lastmod>2017-07-10T20:12:45-00:00</lastmod>
+<lastmod>2017-07-11T21:39:48-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ricardoruiz.ml/me</loc>
-<lastmod>2017-07-10T19:40:26+02:00</lastmod>
+<lastmod>2017-07-10T20:24:39+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://ricardoruiz.ml/hi-pelican</loc>
-<lastmod>2017-07-10T20:08:41+02:00</lastmod>
+<lastmod>2017-07-10T20:24:39+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
