@@ -76,8 +76,14 @@ PLUGINS = [
         #'plugins.read_more_link.read_more_link']
         'plugins.assets.assets',
         'plugins.neighbors.neighbors',
-        'plugins.sitemap.sitemap'
+        'plugins.sitemap.sitemap',
+        'plugins.render_math'
 ]
+
+MATH_JAX = {
+        # 'auto_insert': False,
+        # 'mathjax_font': 'typewriter'
+}
 
 # 404.html Page
 
