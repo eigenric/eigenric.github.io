@@ -1,7 +1,6 @@
 Math is awesome
 ###############
 
-:slug: math-is-awesome
 :status: draft
 
 I really think mathematics is a beautiful branch of the kwnowledge. It's not
