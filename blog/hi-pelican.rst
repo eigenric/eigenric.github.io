@@ -1,7 +1,6 @@
 Hi Pelican
 ##########
 
-:slug: hi-pelican
 :tags: python, pelican, static, blog
 
 Nuevo blog gracias a Pelican_, un sencillo generador de sitios estáticos
