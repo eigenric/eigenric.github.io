@@ -1,3 +1,3 @@
 User-agent: *
-Disallow: /feeds/*
+Disallow: /drafts/*
 Sitemap: http://ricardoruiz.ml/sitemap.xml
