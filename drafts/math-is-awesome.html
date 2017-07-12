@@ -39,9 +39,9 @@
 	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
 	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
 
-	<meta name="theme-color" content="">
+	<meta name="theme-color" content="#1e2327">
 
-	<meta name="msapplication-TileColor" content="">
+	<meta name="msapplication-TileColor" content="#1e2327">
 	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
 	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
 	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
@@ -59,7 +59,7 @@
 		<aside>
 			<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
 			<div id="name"><a href="/">Ricardø Ruiz</a></div>
-			<div id="bio">Python and Math enthusiast</div>
+			<div id="bio">Python and Math enthusiast.</div>
 
 			<div id="sidebar-links">
 				<a href='/me/'>Acerca</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='/archive/'>Archivo</a>
@@ -67,6 +67,7 @@
 
 			<div id="social">
 				<a href="http://www.github.com/pwaqo" title="GitHub" class="icon fa fa-github"></a>
+				<a href="http://t.me/pwaqo" title="Telegram" class="icon fa fa-telegram"></a>
 				<a href="mailto:pwaqostao@gmail.com" title="Email" class="icon fa fa-envelope"></a>
 				<a href="/atom.xml" title="Feed" class="icon fa fa-rss"></a>
 			</div>
@@ -76,7 +77,7 @@
 
 		<article>
 	<h1 class="title"><a href="/drafts/math-is-awesome.html" title="Permalink to Math is awesome">Math is awesome</a></h1>
-	<time class="date" datetime="2017-07-11 21:54:06.137008+02:00">11 de julio de 2017</time>
+	<time class="date" datetime="2017-07-12 17:49:22.022335+02:00">12 de julio de 2017</time>
 	<div class="content">
 		<p>I really think mathematics is a beautiful branch of the kwnowledge. It's not
 just useful but plenful of harmony. Why am I writing this?</p>
@@ -85,21 +86,81 @@ just useful but plenful of harmony. Why am I writing this?</p>
 that uses <tt class="docutils literal">Katex</tt> rendering because it's faster. But, at the moment, i'm
 gonna use the mainstream <tt class="docutils literal">Mathjax</tt>.</p>
 <p>So, we can define the factorial thanks to the pi notation:</p>
-<div class="formula">
-<span class="limits"><sup class="limit"><i>n</i></sup><span class="limit">∏</span><sub class="limit"><i>i</i> = 1</sub></span><i>i</i> = <i>n</i>!
+<div class="math">
+\begin{equation*}
+\prod_{i=1}^n i = n!
+\end{equation*}
 </div>
 <p>Isn't it the most beautiful equation you have seen in your entire life?</p>
 <blockquote>
 Yes, it is.</blockquote>
 <p>Ejemplo de renderizado:</p>
-<div class="formula">
-<i>f</i>(<i>x</i>) = <span class="limits"><sup class="limit">∞</sup><span class="limit">⌠</span><span class="limit">⌡</span><sub class="limit"> − ∞</sub></span><i>f̂</i>(<i>ξ</i>) <i>e</i><sup>2<i>π</i><i>i</i><i>ξ</i><i>x</i></sup>
+<div class="math">
+\begin{equation*}
+f(x) = \int_{-\infty}^\infty \hat f(\xi)\,e^{2 \pi i \xi x}
+\end{equation*}
 </div>
 <p>Y para probar un poquito...</p>
-<div class="formula">
-<span class="fraction"><span class="ignored">(</span><span class="numerator">1</span><span class="ignored">)/(</span><span class="denominator"><i>n</i></span><span class="ignored">)</span></span><span class="limits"><sup class="limit"><i>n</i></sup><span class="limit">⎲</span><span class="limit">⎳</span><sub class="limit"><i>i</i> = 1</sub></span><i>x</i><sub><i>i</i></sub> = <span class="fraction"><span class="ignored">(</span><span class="numerator"><i>x</i><sub>1</sub> + <i>x</i><sub>2</sub> + … + <i>x</i><sub><i>n</i></sub></span><span class="ignored">)/(</span><span class="denominator"><i>n</i></span><span class="ignored">)</span></span>
+<div class="math">
+\begin{equation*}
+\frac{1}{n} \sum_{i=1}^n x_i = \frac{x_1 + x_2 + \dots + x_n}{n}
+\end{equation*}
 </div>
+<script type='text/javascript'>if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
 
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
 	</div>
 
 
@@ -107,7 +168,7 @@ Yes, it is.</blockquote>
 		</article>
 
 		<footer>
-			<p>Con <icon class='icon fa fa-heart'></icon> por <a target='_blank' href='http://github.com/pwaqo'>pwaqo</a> gracias a  <a target='_blank' href='http://www.getpelican.com'>Pelican</a> y a <a target='_blank' href='http://www.python.org'>Python</a><br> Obra licenciada bajo <a target='_blank' href='http://creativecommons.org/licenses/by-nc-sa/4.0/'><img src='https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png'></a></p>
+			<p>Con <icon class='icon fa fa-heart'></icon> gracias a <a target='_blank' href='http://www.getpelican.com'>Pelican</a> y a <a target='_blank' href='http://www.python.org'>Python</a><br> Obra licenciada bajo <a target='_blank' href='http://creativecommons.org/licenses/by-nc-sa/4.0/'><img src='https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png'></a><br> by <a target='_blank' href='http://github.com/pwaqo'>Pwaqo</a></p>
 		</footer>
 	</div>
 
