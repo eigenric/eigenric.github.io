@@ -41,17 +41,19 @@ AUTHOR_FEED_RSS = None
 
 # Pneumatic Config
 
-BIO_TEXT = "Python and Math enthusiast"
+BIO_TEXT = "Python and Math enthusiast."
 SITE_AUTHOR = "Ricardo Ruiz"
 FA_EMBED_CODE = "d6199a8f5e"
 ICONS_PATH = "images/icons"
-INDEX_DESCRIPTION = "Personal blog of Ricardo Ruiz, alias pwaqo"
+INDEX_DESCRIPTION = "Personal blog of Ricardo Ruiz"
+THEME_COLOR = "#1e2327"
 
 DISQUS_SITENAME = "www-pwaqo-tk"
 GOOGLE_ANALYTICS = "UA-16479483-12"
 
 SOCIAL_ICONS = [
         ('http://www.github.com/pwaqo', 'GitHub', 'fa-github'),
+        ('http://t.me/pwaqo', 'Telegram', 'fa-telegram'),
         ('mailto:pwaqostao@gmail.com', 'Email', 'fa-envelope'),
         ('/atom.xml', 'Feed', 'fa-rss')
 ]
@@ -61,14 +63,13 @@ SIDEBAR_LINKS = [
         "<a href='/archive/'>Archivo</a>"
 ]
 
-FOOTER_TEXT = (
-     "Con <icon class='icon fa fa-heart'></icon>"
-     " por <a target='_blank' href='http://github.com/pwaqo'>pwaqo</a> gracias a "
+FOOTER_TEXT = ( "Con <icon class='icon fa fa-heart'></icon> gracias a"
      " <a target='_blank' href='http://www.getpelican.com'>Pelican</a>"
      " y a <a target='_blank' href='http://www.python.org'>Python</a><br>"
      " Obra licenciada bajo <a target='_blank'"
      " href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>"
      "<img src='https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png'></a>"
+     "<br> by <a target='_blank' href='http://github.com/pwaqo'>Pwaqo</a>"
 )
 
 PLUGINS = [
@@ -76,8 +77,14 @@ PLUGINS = [
         #'plugins.read_more_link.read_more_link']
         'plugins.assets.assets',
         'plugins.neighbors.neighbors',
-        'plugins.sitemap.sitemap'
+        'plugins.sitemap.sitemap',
+        'plugins.render_math'
 ]
+
+MATH_JAX = {
+        # 'auto_insert': False,
+        # 'mathjax_font': 'typewriter'
+}
 
 # 404.html Page
 
