@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ricardø Ruiz</title><link href="http://ricardoruiz.ml/" rel="alternate"></link><link href="http://ricardoruiz.ml/atom.xml" rel="self"></link><id>http://ricardoruiz.ml/</id><updated>2017-07-12T17:47:48+02:00</updated><entry><title>Hi Pelican</title><link href="http://ricardoruiz.ml/hi-pelican" rel="alternate"></link><published>2017-07-12T17:47:48+02:00</published><updated>2017-07-12T17:47:48+02:00</updated><author><name>Ricardo Ruiz</name></author><id>tag:ricardoruiz.ml,2017-07-12:/hi-pelican</id><summary type="html">&lt;p&gt;Nuevo blog gracias a &lt;a class="reference external" href="http://www.getpelican.com"&gt;Pelican&lt;/a&gt;, un sencillo generador de sitios estáticos
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ricardø Ruiz</title><link href="http://ricardoruiz.ml/" rel="alternate"></link><link href="http://ricardoruiz.ml/atom.xml" rel="self"></link><id>http://ricardoruiz.ml/</id><updated>2017-08-30T18:26:30+02:00</updated><entry><title>Hi Pelican</title><link href="http://ricardoruiz.ml/hi-pelican" rel="alternate"></link><published>2016-07-18T13:27:43+02:00</published><updated>2017-08-30T18:26:30+02:00</updated><author><name>Ricardo Ruiz</name></author><id>tag:ricardoruiz.ml,2016-07-18:/hi-pelican</id><summary type="html">&lt;p&gt;Nuevo blog gracias a &lt;a class="reference external" href="http://www.getpelican.com"&gt;Pelican&lt;/a&gt;, un sencillo generador de sitios estáticos
 escrito en python. ¿Le echas un vistazo?&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;Nuevo blog gracias a &lt;a class="reference external" href="http://www.getpelican.com"&gt;Pelican&lt;/a&gt;, un sencillo generador de sitios estáticos
 escrito en python. ¿Le echas un vistazo?&lt;/p&gt;
@@ -17,7 +17,7 @@ Para evitar problemas, podéis usar &lt;tt class="docutils literal"&gt;pyenv&lt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;source&lt;/span&gt; activate blog
 &lt;span class="gp"&gt;(blog) $&lt;/span&gt; pip install pelican
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Una vez, instalado pelican, creamos un nuevo proyecto. El comando &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-quickstart&lt;/span&gt;&lt;/tt&gt; nos facilita el trabajo mediante un asistente que nos
+&lt;p&gt;Una vez instalado pelican, creamos un nuevo proyecto. El comando &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-quickstart&lt;/span&gt;&lt;/tt&gt; nos facilita el trabajo mediante un asistente que nos
 pregunta por la configuración deseada (nombre del sitio, autor, servidor ftp,
 etc.). Personalmente, yo activo el Makefile y el Devserver.&lt;/p&gt;
 &lt;p&gt;Escribamos pues nuestro primer post. Usaremos el lenguaje de marcado
