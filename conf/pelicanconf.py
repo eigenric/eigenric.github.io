@@ -8,7 +8,7 @@ SITEURL = 'http://localhost:8000'
 PATH = '../blog'
 TIMEZONE = 'Europe/Madrid'
 DEFAULT_LANG = u'es'
-DEFAULT_DATE = 'fs'
+#DEFAULT_DATE = 'fs'
 DEFAULT_DATE_FORMAT = '%d de %B de %Y'
 
 # Permalinks
@@ -78,7 +78,8 @@ PLUGINS = [
         'plugins.assets.assets',
         'plugins.neighbors.neighbors',
         'plugins.sitemap.sitemap',
-        'plugins.render_math'
+        'plugins.render_math',
+        'plugins.filetime_from_git'
 ]
 
 MATH_JAX = {
