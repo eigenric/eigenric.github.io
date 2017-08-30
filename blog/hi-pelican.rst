@@ -34,7 +34,7 @@ Para evitar problemas, podéis usar ``pyenv``, ``virtualenv``, o ``conda``.
     $ source activate blog
     (blog) $ pip install pelican
 
-Una vez, instalado pelican, creamos un nuevo proyecto. El comando ``pelican-quickstart`` nos facilita el trabajo mediante un asistente que nos
+Una vez instalado pelican, creamos un nuevo proyecto. El comando ``pelican-quickstart`` nos facilita el trabajo mediante un asistente que nos
 pregunta por la configuración deseada (nombre del sitio, autor, servidor ftp,
 etc.). Personalmente, yo activo el Makefile y el Devserver.
 
