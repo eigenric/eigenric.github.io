@@ -59,8 +59,8 @@ SOCIAL_ICONS = [
 ]
 
 SIDEBAR_LINKS = [
-        "<a href='/me/'>Acerca</a>",
-        "<a href='/archive/'>Archivo</a>"
+        "<a href='/me/'>About</a>",
+        "<a href='/archive/'>Archive</a>"
 ]
 
 FOOTER_TEXT = ( "Con <icon class='icon fa fa-heart'></icon> gracias a"
