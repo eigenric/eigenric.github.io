@@ -1,6 +1,6 @@
 # Pelican Basics
 
-THEME='pneumatic'
+THEME = 'pneumatic'
 AUTHOR = 'Ricardo Ruiz'
 SITENAME = "Ricardø Ruiz"
 SITEURL = 'http://localhost:8000'
@@ -8,7 +8,7 @@ SITEURL = 'http://localhost:8000'
 PATH = '../blog'
 TIMEZONE = 'Europe/Madrid'
 DEFAULT_LANG = u'es'
-#DEFAULT_DATE = 'fs'
+# DEFAULT_DATE = 'fs'
 DEFAULT_DATE_FORMAT = '%d de %B de %Y'
 
 # Permalinks
@@ -63,18 +63,19 @@ SIDEBAR_LINKS = [
         "<a href='/archive/'>Archive</a>"
 ]
 
-FOOTER_TEXT = ( "Con <icon class='icon fa fa-heart'></icon> gracias a"
-     " <a target='_blank' href='http://www.getpelican.com'>Pelican</a>"
-     " y a <a target='_blank' href='http://www.python.org'>Python</a><br>"
-     " Obra licenciada bajo <a target='_blank'"
-     " href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>"
-     "<img src='https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png'></a>"
-     "<br> by <a target='_blank' href='http://github.com/pwaqo'>Pwaqo</a>"
+FOOTER_TEXT = (
+    "Con <icon class='icon fa fa-heart'></icon> gracias a"
+    " <a target='_blank' href='http://www.getpelican.com'>Pelican</a>"
+    " y a <a target='_blank' href='http://www.python.org'>Python</a><br>"
+    " Obra licenciada bajo <a target='_blank'"
+    " href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>"
+    "<img src='https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png'></a>"
+    "<br> by <a target='_blank' href='http://github.com/pwaqo'>Pwaqo</a>"
 )
 
 PLUGINS = [
         'plugins.summary.summary',
-        #'plugins.read_more_link.read_more_link']
+        # 'plugins.read_more_link.read_more_link',
         'plugins.assets.assets',
         'plugins.neighbors.neighbors',
         'plugins.sitemap.sitemap',
@@ -110,8 +111,9 @@ SITEMAP = {
         'indexes': 'daily',
         'pages': 'monthly'
     },
-	'exclude': ['tag', 'category', 'author', 'tags', 'categories']
+    'exclude': ['tag', 'category', 'author', 'tags', 'categories']
 }
 
-SUMMARY_END_MARKER = "<!-- readmore -->" # In rST .. readmore
-#READ_MORE_LINK_FORMAT = "<a class='more' href='%s/{url}'>{text}</a>" % SITEURL
+SUMMARY_END_MARKER = "<!-- readmore -->"  # In rST .. readmore
+# READ_MORE_LINK_FORMAT = "<a class='more'
+# href='%s/{url}'>{text}</a>" % SITEURL
