@@ -1,7 +1,7 @@
 # Pelican Basics
 
 THEME = 'pneumatic'
-AUTHOR = 'Ricardo Ruiz'
+AUTHOR = 'Ricardo Ruiz Fernández de Alba'
 SITENAME = "Ricardø Ruiz"
 SITEURL = 'http://localhost:8000'
 
@@ -42,7 +42,7 @@ AUTHOR_FEED_RSS = None
 # Pneumatic theme
 
 BIO_TEXT = "Python and Math enthusiast."
-SITE_AUTHOR = "Ricardo Ruiz"
+SITE_AUTHOR = AUTHOR
 FA_EMBED_CODE = ""
 ICONS_PATH = "images/icons"
 INDEX_DESCRIPTION = "Personal blog of Ricardo Ruiz"
