@@ -54,7 +54,7 @@ THEME_COLOR = "#1e2327"
 SOCIAL_ICONS = [
         ('http://www.github.com/pwaqo', 'GitHub', 'fa-github'),
         ('http://stackoverflow.com/u/8401085', 'SO', 'fa-stack-overflow'),
-        ('mailto:pwaqostao@gmail.com', 'Email', 'fa-envelope'),
+        ('mailto:ricardoruizfdez@gmail.com', 'Email', 'fa-envelope'),
         ('/atom.xml', 'Feed', 'fa-rss')
 ]
 
