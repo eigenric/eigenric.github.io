@@ -2,8 +2,7 @@
 
 Content and Pelican configurations for my own blog http://ricardoruiz.ml
 
-I use my customized [Pneumatic theme](http://github.com/pwaqo/pneumatic) with the
-[Summary](https://github.com/getpelican/pelican-plugins/tree/master/summary)
+I use my customized [Pneumatic theme](http://github.com/pwaqo/pneumatic) with the [Summary Plugin](https://github.com/getpelican/pelican-plugins/tree/master/summary).
 
 I've made some changes in the default `Makefile` and `develop_server.sh` scripts
 to avoid showing the `pelican.pid` `svr.pid` and to focus on the content (in `blog` folder).
