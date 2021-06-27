@@ -4,7 +4,7 @@
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
 	<title>Hi Pelican | Ricardø Ruiz</title>
-	<meta name="description" content="Nuevo blog gracias a Pelican, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo?">
+	<meta name="description" content="Nuevo blog gracias a Pelican, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo? En Pelican, los posts se pueden escribir con dos lenguajes de marcado ligeros: ReStructuredText o Markdown . Cada uno ofrece un estilo distinto como se explica en este artíulo: Markdown vs ReStructuredText. El …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,13 +15,13 @@
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="">
 	<meta property="og:title" content="Hi Pelican">
-	<meta property="og:description" content="Nuevo blog gracias a Pelican, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo?">
+	<meta property="og:description" content="Nuevo blog gracias a Pelican, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo? En Pelican, los posts se pueden escribir con dos lenguajes de marcado ligeros: ReStructuredText o Markdown . Cada uno ofrece un estilo distinto como se explica en este artíulo: Markdown vs ReStructuredText. El …">
 	<meta property="og:image" content="http://ricardoruiz.ml/images/icons/avatar.png">
 	<meta property="og:type" content="article">
 	<meta property="og:url" content="http://ricardoruiz.ml/hi-pelican">
 
 	<!-- Stylesheets and Web Fonts -->
-	<link href="/theme/style.min.css?404ec5b5" rel="stylesheet">
+	<link href="/theme/style.min.css?39966684" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/d6199a8f5e.css">
 
 	<!-- Favicons -->
@@ -68,7 +68,7 @@
 			<div id="social">
 				<a href="http://www.github.com/pwaqo" title="GitHub" class="icon fa fa-github"></a>
 				<a href="http://stackoverflow.com/u/8401085" title="SO" class="icon fa fa-stack-overflow"></a>
-				<a href="mailto:pwaqostao@gmail.com" title="Email" class="icon fa fa-envelope"></a>
+				<a href="mailto:ricardoruizfdez@gmail.com" title="Email" class="icon fa fa-envelope"></a>
 				<a href="/atom.xml" title="Feed" class="icon fa fa-rss"></a>
 			</div>
 
@@ -77,58 +77,67 @@
 
 		<article>
 	<h1 class="title"><a href="/hi-pelican" title="Permalink to Hi Pelican">Hi Pelican</a></h1>
-	<time class="date" datetime="2016-07-18 13:27:43+02:00">18 de julio de 2016</time>
+	<time class="date" datetime="2021-02-01 11:48:11.855454+01:00">01 de febrero de 2021</time>
 	<div class="content">
-		<p>Nuevo blog gracias a <a class="reference external" href="http://www.getpelican.com">Pelican</a>, un sencillo generador de sitios estáticos
-escrito en python. ¿Le echas un vistazo?</p>
+		<p>Nuevo blog gracias a <a href="http://www.getpelican.com">Pelican</a>, un sencillo
+generador de sitios estáticos escrito en python. ¿Le echas un vistazo?</p>
 <!-- readmore -->
-<p>En Pelican, los posts se pueden escribir con dos lenguajes de marcado ligeros:
-<a class="reference external" href="http://code.nabla.net/es/rest.html">ReStructuredText</a> o <a class="reference external" href="http://daringfireball.net/projects/markdown/">Markdown</a> . Cada uno ofrece un estilo distinto como se explica
-en este artíulo: <a class="reference external" href="https://jasonstitt.com/markdown-vs-rst-pelican">Markdown vs Pelican</a>.
-El diseño del sitio se construye con ayuda del motor de plantillas Jinja2.
-Procedamos a instalarlo.</p>
-<!-- readmore -->
-<div class="section" id="instalacion">
+
+<p>En Pelican, los posts se pueden escribir con dos lenguajes de marcado
+ligeros: <a href="http://code.nabla.net/es/rest.html">ReStructuredText</a> o
+<a href="http://daringfireball.net/projects/markdown/">Markdown</a> . Cada uno
+ofrece un estilo distinto como se explica en este artíulo: <a href="https://jasonstitt.com/markdown-vs-rst-pelican">Markdown vs
+ReStructuredText</a>. El diseño del
+sitio se construye con ayuda del motor de plantillas Jinja2. Procedamos
+a instalarlo.</p>
 <h2>Instalación</h2>
-<p>Pelican está escrito en Python, por lo que para instalarlo basta con usar pip.
-Para evitar problemas, podéis usar <tt class="docutils literal">pyenv</tt>, <tt class="docutils literal">virtualenv</tt>, o <tt class="docutils literal">conda</tt>.</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">source</span> activate blog
-<span class="gp">(blog) $</span> pip install pelican
-</pre></div>
-<p>Una vez instalado pelican, creamos un nuevo proyecto. El comando <tt class="docutils literal"><span class="pre">pelican-quickstart</span></tt> nos facilita el trabajo mediante un asistente que nos
-pregunta por la configuración deseada (nombre del sitio, autor, servidor ftp,
-etc.). Personalmente, yo activo el Makefile y el Devserver.</p>
+<p>Pelican está escrito en Python, por lo que para instalarlo basta con
+usar pip. Para evitar problemas, podéis usar <code>pyenv</code>, <code>virtualenv</code>, o
+<code>conda</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">source</span> activate blog
+<span class="gp gp-VirtualEnv">(blog)</span> <span class="gp">$ </span>pip install pelican
+</code></pre></div>
+
+<p>Una vez instalado pelican, creamos un nuevo proyecto. El comando
+<code>pelican-quickstart</code> nos facilita el trabajo mediante un asistente que
+nos pregunta por la configuración deseada (nombre del sitio, autor,
+servidor ftp, etc.). Personalmente, yo activo el Makefile y el
+Devserver.</p>
 <p>Escribamos pues nuestro primer post. Usaremos el lenguaje de marcado
-<tt class="docutils literal">ReStructuredText</tt>.</p>
-<div class="section" id="post-rst">
+<code>ReStructuredText</code>.</p>
 <h3>post.rst</h3>
-<div class="highlight"><pre><span></span><span class="gh">Mi primer post</span>
+<div class="highlight"><pre><span></span><code><span class="gh">Mi primer post</span>
 <span class="gh">##############</span>
 
-<span class="nc">:date:</span> <span class="nf">2013-09-03 16:28</span>
-<span class="nc">:slug:</span> <span class="nf">first-post</span>
-<span class="nc">:category:</span> <span class="nf">python</span>
-<span class="nc">:tags:</span> <span class="nf">blog, post, first, me, pelican</span>
+<span class="nc">:date:</span> 2013-09-03 16:28
+<span class="nc">:slug:</span> first-post
+<span class="nc">:category:</span> python
+<span class="nc">:tags:</span> blog, post, first, me, pelican
 
 <span class="gs">**ReStructuredText is awesome**</span>
-</pre></div>
-<p>Después de guardarlo en <tt class="docutils literal">content</tt>, volvemos al directorio raíz y ejecutamos las
-siguientes órdenes:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> make html
-<span class="gp">$</span> make serve
-</pre></div>
-<p><tt class="docutils literal">make html</tt> genera los archivos en la carpeta <tt class="docutils literal">output</tt> y <tt class="docutils literal">make serve</tt> inicia un
-pequeño servidor local en localhost:8000 para poder ver nuestro sitio.</p>
-<p>Así es como tendrá que quedarnos</p>
-<img alt="Magnifica imagen de muestra" src="http://ricardoruiz.ml/images/screenshot.png" style="width: 740px;" />
-<p>Por defecto se utiliza el tema <tt class="docutils literal">notmyidea</tt>, pero puedes <a class="reference external" href="http://pelicanthemes.com">descargar otros</a>
-o crear uno (más información en la propia <a class="reference external" href="http://docs.getpelican.com/en/stable/">Documentación de Pelican</a>)</p>
-<p>Hasta aquí el pequeño tutorial de instalación. Un saludo!</p>
-</div>
-</div>
+</code></pre></div>
 
+<p>Después de guardarlo en <code>content</code>, volvemos al directorio raíz y
+ejecutamos las siguientes órdenes:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>make html
+<span class="gp">$ </span>make serve
+</code></pre></div>
+
+<p><code>make html</code> genera los archivos en la carpeta <code>output</code> y <code>make serve</code>
+inicia un pequeño servidor local en localhost:8000 para poder ver
+nuestro sitio.</p>
+<p>Así es como tendrá que quedarnos</p>
+<p><img alt="Magnifica imagen de muestra" src="%7Cfilename%7C/images/screenshot.png" width="740px"></p>
+<p>Por defecto se utiliza el tema <code>notmyidea</code>, pero puedes <a href="http://pelicanthemes.com">descargar
+otros</a> o crear uno (más información en la
+propia <a href="http://docs.getpelican.com/en/stable/">Documentación de
+Pelican</a>)</p>
+<p>Hasta aquí el pequeño tutorial de instalación. Un saludo!</p>
 	</div>
 
+	<div id="related-articles">
+		<a href="/math-is-awesome" id="prev-neighbour">Math is awesome &raquo;</a>
+	</div>
 
 	<hr>
 
