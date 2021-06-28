@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ricardø Ruiz</title><link href="http://pwaqo.github.io/" rel="alternate"></link><link href="http://pwaqo.github.io/atom.xml" rel="self"></link><id>http://pwaqo.github.io/</id><updated>2021-02-01T11:48:11+01:00</updated><entry><title>Hi Pelican</title><link href="http://pwaqo.github.io/hi-pelican" rel="alternate"></link><published>2021-02-01T11:48:11+01:00</published><updated>2021-02-01T11:48:11+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:pwaqo.github.io,2021-02-01:/hi-pelican</id><summary type="html">&lt;p&gt;Nuevo blog gracias a &lt;a href="http://www.getpelican.com"&gt;Pelican&lt;/a&gt;, un sencillo
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ricardø Ruiz</title><link href="http://pwaqo.github.io/" rel="alternate"></link><link href="http://pwaqo.github.io/atom.xml" rel="self"></link><id>http://pwaqo.github.io/</id><updated>2021-06-28T02:04:26+02:00</updated><entry><title>Hi Pelican</title><link href="http://pwaqo.github.io/hi-pelican" rel="alternate"></link><published>2021-06-28T02:04:26+02:00</published><updated>2021-06-28T02:03:49+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:pwaqo.github.io,2021-06-28:/hi-pelican</id><summary type="html">&lt;p&gt;Nuevo blog gracias a &lt;a href="http://www.getpelican.com"&gt;Pelican&lt;/a&gt;, un sencillo
 generador de sitios estáticos escrito en python. ¿Le echas un vistazo?&lt;/p&gt;
 &lt;!-- readmore --&gt;
 
@@ -32,17 +32,13 @@ nos pregunta por la configuración deseada (nombre del sitio, autor,
 servidor ftp, etc.). Personalmente, yo activo el Makefile y el
 Devserver.&lt;/p&gt;
 &lt;p&gt;Escribamos pues nuestro primer post. Usaremos el lenguaje de marcado
-&lt;code&gt;ReStructuredText&lt;/code&gt;.&lt;/p&gt;
-&lt;h3&gt;post.rst&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gh"&gt;Mi primer post&lt;/span&gt;
-&lt;span class="gh"&gt;##############&lt;/span&gt;
+&lt;code&gt;Markdown&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;post.md&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Title: Mi primer post
+Tags: blog, post, first, me, pelican
+Date: 2013-09-03 16:28
 
-&lt;span class="nc"&gt;:date:&lt;/span&gt; 2013-09-03 16:28
-&lt;span class="nc"&gt;:slug:&lt;/span&gt; first-post
-&lt;span class="nc"&gt;:category:&lt;/span&gt; python
-&lt;span class="nc"&gt;:tags:&lt;/span&gt; blog, post, first, me, pelican
-
-&lt;span class="gs"&gt;**ReStructuredText is awesome**&lt;/span&gt;
+&lt;span class="gs"&gt;**Markdown is awesome**&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Después de guardarlo en &lt;code&gt;content&lt;/code&gt;, volvemos al directorio raíz y
@@ -60,7 +56,7 @@ nuestro sitio.&lt;/p&gt;
 otros&lt;/a&gt; o crear uno (más información en la
 propia &lt;a href="http://docs.getpelican.com/en/stable/"&gt;Documentación de
 Pelican&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;Hasta aquí el pequeño tutorial de instalación. Un saludo!&lt;/p&gt;</content><category term="misc"></category><category term="python"></category><category term="pelican"></category><category term="static"></category><category term="blog"></category></entry><entry><title>Math is awesome</title><link href="http://pwaqo.github.io/math-is-awesome" rel="alternate"></link><published>2021-02-01T11:37:16+01:00</published><updated>2021-02-01T11:37:16+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:pwaqo.github.io,2021-02-01:/math-is-awesome</id><summary type="html">&lt;p&gt;I really think mathematics is a beautiful branch of the kwnowledge. It's
+&lt;p&gt;Hasta aquí el pequeño tutorial de instalación. Un saludo!&lt;/p&gt;</content><category term="misc"></category><category term="python"></category><category term="pelican"></category><category term="static"></category><category term="blog"></category></entry><entry><title>Math is awesome</title><link href="http://pwaqo.github.io/math-is-awesome" rel="alternate"></link><published>2021-06-28T02:04:26+02:00</published><updated>2021-06-28T02:04:26+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:pwaqo.github.io,2021-06-28:/math-is-awesome</id><summary type="html">&lt;p&gt;I really think mathematics is a beautiful branch of the kwnowledge. It's
 not just useful but plenful of harmony. Why am I writing this?&lt;/p&gt;
 &lt;p&gt;I think it's to prove my new math plugin. I have to create a new plugin
 that uses &lt;code&gt;Katex&lt;/code&gt; rendering because it's faster. But, at the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I really think mathematics is a beautiful branch of the kwnowledge. It's
