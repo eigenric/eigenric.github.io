@@ -3,7 +3,7 @@
 THEME = 'pneumatic'
 AUTHOR = 'Ricardo Ruiz Fernández de Alba'
 SITENAME = "Ricardø Ruiz"
-SITEURL = 'http://ricardoruiz.ml'
+SITEURL = 'http://pwaqo.github.io'
 
 PATH = '../blog'
 TIMEZONE = 'Europe/Madrid'
