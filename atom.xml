@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ricardø Ruiz</title><link href="http://pwaqo.github.io/" rel="alternate"></link><link href="http://pwaqo.github.io/atom.xml" rel="self"></link><id>http://pwaqo.github.io/</id><updated>2021-06-28T02:14:23+02:00</updated><entry><title>Hi Pelican</title><link href="http://pwaqo.github.io/hi-pelican" rel="alternate"></link><published>2021-06-28T02:04:26+02:00</published><updated>2021-06-28T02:03:49+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:pwaqo.github.io,2021-06-28:/hi-pelican</id><summary type="html">&lt;p&gt;Nuevo blog gracias a &lt;a href="http://www.getpelican.com"&gt;Pelican&lt;/a&gt;, un sencillo
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ricardø Ruiz</title><link href="http://pwaqo.github.io/" rel="alternate"></link><link href="http://pwaqo.github.io/atom.xml" rel="self"></link><id>http://pwaqo.github.io/</id><updated>2021-06-28T02:04:26+02:00</updated><entry><title>Hi Pelican</title><link href="http://pwaqo.github.io/hi-pelican" rel="alternate"></link><published>2021-06-28T02:04:26+02:00</published><updated>2021-06-28T02:03:49+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:pwaqo.github.io,2021-06-28:/hi-pelican</id><summary type="html">&lt;p&gt;Nuevo blog gracias a &lt;a href="http://www.getpelican.com"&gt;Pelican&lt;/a&gt;, un sencillo
 generador de sitios estáticos escrito en python. ¿Le echas un vistazo?&lt;/p&gt;
 &lt;!-- readmore --&gt;
 
@@ -56,76 +56,4 @@ nuestro sitio.&lt;/p&gt;
 otros&lt;/a&gt; o crear uno (más información en la
 propia &lt;a href="http://docs.getpelican.com/en/stable/"&gt;Documentación de
 Pelican&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;Hasta aquí el pequeño tutorial de instalación. Un saludo!&lt;/p&gt;</content><category term="misc"></category><category term="python"></category><category term="pelican"></category><category term="static"></category><category term="blog"></category></entry><entry><title>Math is awesome</title><link href="http://pwaqo.github.io/math-is-awesome" rel="alternate"></link><published>2021-06-28T02:04:26+02:00</published><updated>2021-06-28T02:14:23+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:pwaqo.github.io,2021-06-28:/math-is-awesome</id><summary type="html">&lt;p&gt;I really think mathematics is a beautiful branch of the kwnowledge. It's
-not just useful but plenful of harmony. Why am I writing this?&lt;/p&gt;
-&lt;p&gt;I think it's to prove my new math plugin. I have to create a new plugin
-that uses &lt;code&gt;Katex&lt;/code&gt; rendering because it's faster. But, at the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I really think mathematics is a beautiful branch of the kwnowledge. It's
-not just useful but plenful of harmony. Why am I writing this?&lt;/p&gt;
-&lt;p&gt;I think it's to prove my new math plugin. I have to create a new plugin
-that uses &lt;code&gt;Katex&lt;/code&gt; rendering because it's faster. But, at the moment, i'm
-gonna use the mainstream &lt;code&gt;Mathjax&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;So, we can define the factorial thanks to the pi notation:&lt;/p&gt;
-&lt;div class="math"&gt;$$\prod_{i=1}^n i = n!$$&lt;/div&gt;
-&lt;p&gt;Isn't it the most beautiful equation you have seen in your entire life?&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Yes, it is.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Ejemplo de renderizado:&lt;/p&gt;
-&lt;div class="math"&gt;$$f(x) = \int_{-\infty}^\infty \hat f(\xi)\,e^{2 \pi i \xi x}$$&lt;/div&gt;
-&lt;p&gt;Y para probar un poquito...&lt;/p&gt;
-&lt;div class="math"&gt;$$\frac{1}{n} \sum_{i=1}^n x_i = \frac{x_1 + x_2 + \dots + x_n}{n}$$&lt;/div&gt;
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width &lt; 768) ? "left" : align;
-        indent = (screen.width &lt; 768) ? "0em" : indent;
-        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-&lt;/script&gt;</content><category term="misc"></category></entry></feed>
+&lt;p&gt;Hasta aquí el pequeño tutorial de instalación. Un saludo!&lt;/p&gt;</content><category term="misc"></category><category term="python"></category><category term="pelican"></category><category term="static"></category><category term="blog"></category></entry></feed>
