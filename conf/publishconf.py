@@ -3,7 +3,7 @@
 THEME = 'pneumatic'
 AUTHOR = 'Ricardo Ruiz Fernández de Alba'
 SITENAME = "Ricardø Ruiz"
-SITEURL = 'http://pwaqo.github.io'
+SITEURL = 'https://eigenric.me'
 
 PATH = '../blog'
 TIMEZONE = 'Europe/Madrid'
@@ -41,7 +41,7 @@ AUTHOR_FEED_RSS = None
 
 # Pneumatic Config
 
-BIO_TEXT = "Python and Math enthusiast."
+BIO_TEXT = "Mathematics & Computer Science"
 SITE_AUTHOR = AUTHOR
 FA_EMBED_CODE = "d6199a8f5e"
 ICONS_PATH = "images/icons"
@@ -52,7 +52,7 @@ DISQUS_SITENAME = "www-pwaqo-tk"
 GOOGLE_ANALYTICS = "UA-16479483-12"
 
 SOCIAL_ICONS = [
-        ('http://www.github.com/pwaqo', 'GitHub', 'fa-github'),
+        ('http://www.github.com/eigenric', 'GitHub', 'fa-github'),
         ('http://stackoverflow.com/u/8401085', 'SO', 'fa-stack-overflow'),
         ('mailto:ricardoruizfdez@gmail.com', 'Email', 'fa-envelope'),
         ('/atom.xml', 'Feed', 'fa-rss')
@@ -70,7 +70,7 @@ FOOTER_TEXT = (
     " Obra licenciada bajo <a target='_blank'"
     " href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>"
     "<img src='https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png'></a>"
-    "<br> by <a target='_blank' href='http://github.com/pwaqo'>Pwaqo</a>"
+    "<br> by <a target='_blank' href='http://github.com/eigenric'>eigenric</a>"
 )
 
 PLUGINS = [
