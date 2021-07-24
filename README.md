@@ -1,6 +1,6 @@
-# ricardoruiz.ml
+# eigenric.me
 
-Content and Pelican configurations for my own blog http://ricardoruiz.ml
+Content and Pelican configurations for my own blog http://eigenric.me
 
 I use my customized [Pneumatic theme](http://github.com/pwaqo/pneumatic) with the [Summary Plugin](https://github.com/getpelican/pelican-plugins/tree/master/summary).
 
@@ -16,10 +16,10 @@ If you want to use this Makefile to upload your work via ftp:
 2. Create into `conf` a file called ftp with the next data
 
 ```bash
-	export FTP_HOST=
-	export FTP_USER=a
-	export FTP_TARGET_DIR=
-	export FTP_PASSWORD=
+export FTP_HOST=
+export FTP_USER=a
+export FTP_TARGET_DIR=
+export FTP_PASSWORD=
 ```
 3. Execute
 
