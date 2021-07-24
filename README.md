@@ -18,7 +18,7 @@ $ poetry install
 2. Clone [Pelican plugins](https://github.com/getpelican/pelican-plugins):
 
 ```console
-$ https://github.com/getpelican/pelican-plugins plugins
+$ git clone --recursive https://github.com/getpelican/pelican-plugins plugins
 ```
 
 3. Install [Sass](https://sass-lang.com/) command with `npm`:
