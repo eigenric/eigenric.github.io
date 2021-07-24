@@ -24,8 +24,8 @@ export FTP_PASSWORD=
 3. Execute
 
 ```console
-	$ source conf/ftp
-	$ make ftp_upload
+$ source conf/ftp
+$ make ftp_upload
 ```
 
 ## Github Pages Upload
@@ -36,9 +36,9 @@ export FTP_PASSWORD=
 4. Execute
 
 ```console
-    $ make publish
-    $ ghp-import .output
-    $ git push origin gh-pages:master
+$ make publish
+$ ghp-import .output
+$ git push origin gh-pages:master
 ```
 
 ## License
