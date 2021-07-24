@@ -7,25 +7,18 @@ I use my customized [Pneumatic theme](http://github.com/eigenric/pneumatic) with
 I've made some changes in the default `Makefile` and `develop_server.sh` scripts
 to avoid showing the `pelican.pid` `svr.pid` and to focus on the content (in `blog` folder).
 
+## Dependencies
 
-## Ftp Upload
-
-If you want to use this Makefile to upload your work via ftp:
-
-1. Install lftp `sudo apt-get install lftp`
-2. Create into `conf` a file called ftp with the next data
-
-```bash
-export FTP_HOST=
-export FTP_USER=a
-export FTP_TARGET_DIR=
-export FTP_PASSWORD=
-```
-3. Execute
+Use [Poetry](https://python-poetry.org/) to install project dependencies:
 
 ```console
-$ source conf/ftp
-$ make ftp_upload
+$ poetry install
+```
+
+Install [Sass](https://sass-lang.com/) command with `npm`:
+
+```console
+$ npm install sass
 ```
 
 ## Github Pages Upload
@@ -39,6 +32,27 @@ $ make ftp_upload
 $ make publish
 $ ghp-import .output
 $ git push origin gh-pages:master
+```
+
+## FTP Upload
+
+If you want to use this Makefile to upload your work via ftp:
+
+1. Install lftp `sudo apt-get install lftp`
+2. Create into `conf` a file called ftp with the next data
+
+```bash
+export FTP_HOST=
+export FTP_USER=a
+export FTP_TARGET_DIR=
+export FTP_PASSWORD=
+```
+
+3. Execute
+
+```console
+$ source conf/ftp
+$ make ftp_upload
 ```
 
 ## License
