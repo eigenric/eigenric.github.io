@@ -9,13 +9,19 @@ to avoid showing the `pelican.pid` `svr.pid` and to focus on the content (in `bl
 
 ## Dependencies
 
-Use [Poetry](https://python-poetry.org/) to install project dependencies:
+1. Use [Poetry](https://python-poetry.org/) to install project dependencies:
 
 ```console
 $ poetry install
 ```
 
-Install [Sass](https://sass-lang.com/) command with `npm`:
+2. Clone [Pelican plugins](https://github.com/getpelican/pelican-plugins):
+
+```console
+$ https://github.com/getpelican/pelican-plugins plugins
+```
+
+3. Install [Sass](https://sass-lang.com/) command with `npm`:
 
 ```console
 $ npm install sass
