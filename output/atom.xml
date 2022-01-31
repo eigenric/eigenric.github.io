@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2022-01-31T16:48:14+01:00</updated><entry><title>Hi Pelican</title><link href="https://eigenric.me/hi-pelican" rel="alternate"></link><published>2021-06-28T02:04:26+02:00</published><updated>2022-01-31T16:48:14+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2021-06-28:/hi-pelican</id><summary type="html">&lt;p&gt;Nuevo blog gracias a &lt;a href="http://www.getpelican.com"&gt;Pelican&lt;/a&gt;, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo?&lt;/p&gt;
+&lt;p&gt;En Pelican, los posts se pueden escribir con dos lenguajes de marcado ligeros: &lt;a href="http://code.nabla.net/es/rest.html"&gt;ReStructuredText&lt;/a&gt; o &lt;a href="http://daringfireball.net/projects/markdown/"&gt;Markdown&lt;/a&gt;. Cada uno ofrece un estilo distinto como se explica en este artículo: &lt;a href="https://jasonstitt.com/markdown-vs-rst-pelican"&gt;Markdown vs ReStructuredText&lt;/a&gt;. El …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Nuevo blog gracias a &lt;a href="http://www.getpelican.com"&gt;Pelican&lt;/a&gt;, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo?&lt;/p&gt;
+&lt;p&gt;En Pelican, los posts se pueden escribir con dos lenguajes de marcado ligeros: &lt;a href="http://code.nabla.net/es/rest.html"&gt;ReStructuredText&lt;/a&gt; o &lt;a href="http://daringfireball.net/projects/markdown/"&gt;Markdown&lt;/a&gt;. Cada uno ofrece un estilo distinto como se explica en este artículo: &lt;a href="https://jasonstitt.com/markdown-vs-rst-pelican"&gt;Markdown vs ReStructuredText&lt;/a&gt;. El diseño del sitio se construye con ayuda del motor de plantillas Jinja2. Procedamos a instalarlo.&lt;/p&gt;
+&lt;h2&gt;Instalación&lt;/h2&gt;
+&lt;p&gt;Pelican está escrito en Python, por lo que para instalarlo basta con usar pip. Para evitar problemas, podéis usar &lt;code&gt;pyenv&lt;/code&gt;, &lt;code&gt;virtualenv&lt;/code&gt;, o &lt;code&gt;conda&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;source&lt;/span&gt; activate blog
+&lt;span class="gp gp-VirtualEnv"&gt;(blog)&lt;/span&gt; &lt;span class="gp"&gt;$ &lt;/span&gt;pip install pelican
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Una vez instalado pelican, creamos un nuevo proyecto. El comando &lt;code&gt;pelican-quickstart&lt;/code&gt; nos facilita el trabajo mediante un asistente que nos pregunta por la configuración deseada (nombre del sitio, autor, servidor ftp, etc.). Personalmente, yo activo el Makefile y el Devserver.&lt;/p&gt;
+&lt;p&gt;Escribamos pues nuestro primer post. Usaremos el lenguaje de marcado &lt;code&gt;ReStructuredText&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;post.rst&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gh"&gt;Mi primer post&lt;/span&gt;
+&lt;span class="gh"&gt;##############&lt;/span&gt;
+
+&lt;span class="nc"&gt;:date:&lt;/span&gt; 2013-09-03 16:28
+&lt;span class="nc"&gt;:slug:&lt;/span&gt; first-post
+&lt;span class="nc"&gt;:category:&lt;/span&gt; python
+&lt;span class="nc"&gt;:tags:&lt;/span&gt; blog, post, first, me, pelican
+
+&lt;span class="gs"&gt;**ReStructuredText is awesome**&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Después de guardarlo en &lt;code&gt;content&lt;/code&gt;, volvemos al directorio raíz y ejecutamos las siguientes órdenes:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;make html
+&lt;span class="gp"&gt;$ &lt;/span&gt;make serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;make html&lt;/code&gt; genera los archivos en la carpeta &lt;code&gt;output&lt;/code&gt; y &lt;code&gt;make serve&lt;/code&gt; inicia un pequeño servidor local en localhost:8000 para poder ver nuestro sitio.&lt;/p&gt;
+&lt;p&gt;Así es como tendrá que quedarnos&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Magnifica imagen de muestra" src="https://eigenric.me/images/screenshot.png" width="740px"&gt;&lt;/p&gt;
+&lt;p&gt;Por defecto se utiliza el tema &lt;code&gt;notmyidea&lt;/code&gt;, pero puedes &lt;a href="http://pelicanthemes.com"&gt;descargar otros&lt;/a&gt; o crear uno (más información en la propia &lt;a href="http://docs.getpelican.com/en/stable/"&gt;Documentación de Pelican&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Hasta aquí el pequeño tutorial de instalación. Un saludo!&lt;/p&gt;</content><category term="misc"></category><category term="python"></category><category term="pelican"></category><category term="static"></category><category term="blog"></category></entry></feed>

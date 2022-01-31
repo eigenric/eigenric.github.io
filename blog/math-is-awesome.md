@@ -1,4 +1,6 @@
 Title: Math is awesome
+Date: 2016-02-03
+Status: Hidden
 
 I really think mathematics is a beautiful branch of the kwnowledge. It's
 not just useful but plenful of harmony. Why am I writing this?
