@@ -18,7 +18,7 @@ INDEX_URL = 'blog'
 INDEX_SAVE_AS = 'blog/index.html'
 
 ARTICLE_URL = '{date:%Y}/{date:%m}/{slug}'
-ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{slug}.html'
+ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{slug}.html'
 
 #ARTICLE_URL = '{slug}/'
 #ARTICLE_SAVE_AS = '{slug}/index.html'
