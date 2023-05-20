@@ -6,19 +6,19 @@ authors = ["Ricardo Ruiz <ricardoruizfdez@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.8"
-pelican = "^4.7.1"
-cssmin = "^0.2.0"
-webassets = "^2.0"
-libsass = "^0.21.0"
-Markdown = "^3.3.4"
-typogrify = "^2.0.7"
-beautifulsoup4 = "^4.9.3"
-lxml = "^4.9.1"
+python = "^3.11"
+pelican = "*"
+cssmin = "*"
+webassets = "*"
+libsass = "*"
+Markdown = "*"
+typogrify = "*"
+beautifulsoup4 = "*"
+lxml = "*"
 
 [tool.poetry.dev-dependencies]
-invoke = "^1.6.0"
-livereload = "^2.6.3"
+invoke = "*"
+livereload = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
