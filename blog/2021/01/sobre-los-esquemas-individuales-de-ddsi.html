@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Sobre los esquemas individuales de DDSI | eigenℝic</title>
+	<meta name="description" content="He ojeado completamente el Tema 3. Trata de Normalización fundamentalmente. Hay distintos algoritmos, me suena el de Heath. Requiere paso a tablas. Proceso de Normalización: Análisis Preliminar Calcular claves candidatas …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Sobre los esquemas individuales de DDSI">
+	<meta property="og:description" content="He ojeado completamente el Tema 3. Trata de Normalización fundamentalmente. Hay distintos algoritmos, me suena el de Heath. Requiere paso a tablas. Proceso de Normalización: Análisis Preliminar Calcular claves candidatas …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/blog/2021/01/sobre-los-esquemas-individuales-de-ddsi">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,15 +119,79 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en 2017</h1>
+	<h1 class="title"><a href="/blog/2021/01/sobre-los-esquemas-individuales-de-ddsi" title="Permalink to Sobre los esquemas individuales de DDSI">Sobre los esquemas individuales de DDSI</a></h1>
+	<time class="date" datetime="2021-01-15 00:00:00+01:00">15 ene 2021</time>
 	<div class="content">
-			<h2><a class="no-dec" href="/2017/08/">agosto</a></h2>
-			<ul>
-				<li><a class="no-dec" href="/blog/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>He ojeado completamente el Tema 3. Trata de
+Normalización fundamentalmente. Hay distintos
+algoritmos, me suena el de Heath. Requiere paso a
+tablas.</p>
+<p>Proceso de Normalización:</p>
+<p>Análisis Preliminar</p>
+<ol>
+<li>Calcular claves candidatas. Algoritmo de
+cálculo de clvaes candidatas</li>
+<li>Atributos independientes: cuales no aparecen en
+las dependencias. Conjunto Independientes:</li>
+<li>Atributos que unicamente aparecen a la
+izquierda. Conjunto Izq.</li>
+<li>Atributos que unicamente aparecen a la
+derecha. Conjunto Der.¡</li>
+<li>Atributos que aparecen a la Izq y a la Derecha:</li>
+</ol>
+<p>Conjunto de atributos - Ind - Izq - Der</p>
+<ol>
+<li>
+<p>Equivalencias entre parejas de atributos:
+existe una dependencia funcional del primero al
+segundo (X a Y) y otra del segun al primero (Y a
+X). No hay equivalencias en el ejemplo por faltar
+C-&gt; E.</p>
+</li>
+<li>
+<p>Cálculo de claves candidatas.</p>
+</li>
+</ol>
+<p>A partir de una clave candidata se puede obtener
+el resto de la relación. La clave candidata
+determina funcionalmente al resto de la relación.
+También se determina a sí misma y al resto del
+conjunto de atributos que no pertenecen a la
+propia clave. Por tanto determina a la relación
+total.</p>
+<ol>
+<li>Eliminar atributos independientes.</li>
+<li>Eliminar equivalencias</li>
+<li>Elegir candidato como sólo el que este a la
+izquierda.
+Tenemos comprobar que el candidato es clave.</li>
+</ol>
+<p>Clausura transitiva del conjunto de atributos
+respecto de las dependencias funcionales. El
+conjunto de atributos al que se puede llegar desde
+dicho conjunto al que se calcula el cierre. El
+conjunto de atributos implicado de alguna manera
+por los atributos del conjunto al que se calcula el cierre.</p>
+<p>La dependencia del conjunto del que se calcula el
+cierre al atributo que pertenece a dicho cierre se
+cumple. Sin determinar el conjunto de axiomas
+reglas para llegar a dicho resultado.</p>
+<p>Si la parte de la izquierda aparece en el conjunto
+se añade la parte derecha.</p>
+<p>Como la clausura transitiva no coincide en este
+caso con el conjunto de la relación, no es una
+clave candidata para la relación sin dependientes
+ni equivalentes.</p>
+<ol>
+<li>Atributos que están a la izquierda y a la
+derecha.</li>
+</ol>
+<p>Si en el paso 3, ya he conseguido una clave,
+cualquier combinación </p>
+<p>Kp'= Kp x (A,B,C,E) - Kp+</p>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+
 			<hr>
 		</article>
 

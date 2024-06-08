@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Hi Pelican | eigenℝic</title>
+	<meta name="description" content="Nuevo blog gracias a Pelican, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo? En Pelican, los posts se pueden escribir con dos lenguajes de marcado …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Hi Pelican">
+	<meta property="og:description" content="Nuevo blog gracias a Pelican, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo? En Pelican, los posts se pueden escribir con dos lenguajes de marcado …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/blog/2013/09/hi-pelican">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,15 +119,47 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en 2017</h1>
+	<h1 class="title"><a href="/blog/2013/09/hi-pelican" title="Permalink to Hi Pelican">Hi Pelican</a></h1>
+	<time class="date" datetime="2013-09-12 00:00:00+02:00">12 sep 2013</time>
 	<div class="content">
-			<h2><a class="no-dec" href="/2017/08/">agosto</a></h2>
-			<ul>
-				<li><a class="no-dec" href="/blog/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>Nuevo blog gracias a <a href="http://www.getpelican.com">Pelican</a>, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo?</p>
+<p>En Pelican, los posts se pueden escribir con dos lenguajes de marcado ligeros: <a href="http://code.nabla.net/es/rest.html">ReStructuredText</a> o <a href="http://daringfireball.net/projects/markdown/">Markdown</a>. Cada uno ofrece un estilo distinto como se explica en este artículo: <a href="https://jasonstitt.com/markdown-vs-rst-pelican">Markdown vs ReStructuredText</a>. El diseño del sitio se construye con ayuda del motor de plantillas Jinja2. Procedamos a instalarlo.</p>
+<h2>Instalación</h2>
+<p>Pelican está escrito en Python, por lo que para instalarlo basta con usar pip. Para evitar problemas, podéis usar <code>pyenv</code>, <code>virtualenv</code>, o <code>conda</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>blog
+<span class="gp gp-VirtualEnv">(blog)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>pelican
+</code></pre></div>
+
+<p>Una vez instalado pelican, creamos un nuevo proyecto. El comando <code>pelican-quickstart</code> nos facilita el trabajo mediante un asistente que nos pregunta por la configuración deseada (nombre del sitio, autor, servidor ftp, etc.). Personalmente, yo activo el Makefile y el Devserver.</p>
+<p>Escribamos pues nuestro primer post. Usaremos el lenguaje de marcado <code>ReStructuredText</code>.</p>
+<h3>post.rst</h3>
+<div class="highlight"><pre><span></span><code><span class="gh">Mi primer post</span>
+<span class="gh">##############</span>
+
+<span class="nc">:date:</span> 2013-09-03 16:28
+<span class="nc">:slug:</span> first-post
+<span class="nc">:category:</span> python
+<span class="nc">:tags:</span> blog, post, first, me, pelican
+
+<span class="gs">**ReStructuredText is awesome**</span>
+</code></pre></div>
+
+<p>Después de guardarlo en <code>content</code>, volvemos al directorio raíz y ejecutamos las siguientes órdenes:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>make<span class="w"> </span>html
+<span class="gp">$ </span>make<span class="w"> </span>serve
+</code></pre></div>
+
+<p><code>make html</code> genera los archivos en la carpeta <code>output</code> y <code>make serve</code> inicia un pequeño servidor local en localhost:8000 para poder ver nuestro sitio.</p>
+<p>Así es como tendrá que quedarnos</p>
+<p><img alt="Magnifica imagen de muestra" src="https://eigenric.me/images/screenshot.png" width="740px"></p>
+<p>Por defecto se utiliza el tema <code>notmyidea</code>, pero puedes <a href="http://pelicanthemes.com">descargar otros</a> o crear uno (más información en la propia <a href="http://docs.getpelican.com/en/stable/">Documentación de Pelican</a>).</p>
+<p>Hasta aquí el pequeño tutorial de instalación. Un saludo!</p>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+	<div id="related-articles">
+		<a class="no-dec no-dec-h" href="/blog/2017/08/tipo-de-datos-frozenset-python" id="next-neighbour">&laquo; Tipo de datos Frozenset - Python</a>
+	</div>
+
 			<hr>
 		</article>
 

@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Cruzada colorida en org-mode emacs | eigenℝic</title>
+	<meta name="description" content="Tras seguir el tutorial de m42 para escribir apuntes de matemáticas en org-mode, configuramos correctamente el entorno para escribir. Recordando los atajos básicos: C-c C-x C-l: renderiza las imágenes C-c …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Cruzada colorida en org-mode emacs">
+	<meta property="og:description" content="Tras seguir el tutorial de m42 para escribir apuntes de matemáticas en org-mode, configuramos correctamente el entorno para escribir. Recordando los atajos básicos: C-c C-x C-l: renderiza las imágenes C-c …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/blog/2017/10/cruzada-colorida-en-org-mode-emacs">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,15 +119,51 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en 2017</h1>
+	<h1 class="title"><a href="/blog/2017/10/cruzada-colorida-en-org-mode-emacs" title="Permalink to Cruzada colorida en org-mode emacs">Cruzada colorida en org-mode emacs</a></h1>
+	<time class="date" datetime="2017-10-10 00:00:00+02:00">10 oct 2017</time>
 	<div class="content">
-			<h2><a class="no-dec" href="/2017/08/">agosto</a></h2>
-			<ul>
-				<li><a class="no-dec" href="/blog/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>Tras seguir el tutorial de m42 para escribir apuntes de matemáticas en org-mode,
+configuramos correctamente el entorno para escribir.</p>
+<p>Recordando los atajos básicos:</p>
+<p>C-c C-x C-l: renderiza las imágenes C-c C-c: desactiva la previsualización, y
+permite ver de nuevo el código.</p>
+<p>El problema parte de el tema predeterminado que uso en emacs (uno oscuro). El
+color de la tipografía en las imágenes renderizadas por dvipng, era el correcto
+una vez se borraba la carpeta cache .ltxpng (modificada por mí para que esté
+oculta con un .).</p>
+<p>Sin embargo, al modificar las opciones de renderizado mediante la orden</p>
+<h1>+SETUPFILE: <ruta del archivo setup></h1>
+<p>¡Las imágenes de dvipng volvían a tener la tipografía de color negro!</p>
+<p>Investigando un poco por Internet:</p>
+<ul>
+<li>https://emacs.stackexchange.com/questions/33993/</li>
+</ul>
+<p>Esta pregunta es idéntica a nuestro problema.</p>
+<p>La respuesta es añadir: \AtBeginDocument{\color{red}} como header en
+org-format-latex-header.</p>
+<p>Esto, sin duda funciona, y nos hemos creado una chapuza para el momento, en la
+cual, si bien utilizamos el SETUPFILE, este no contiene la orden para cambiar la
+fuente a blanco, sino que es contenida en un</p>
+<h1>+LATEX_HEADER</h1>
+<p>Así, pues podemos comentar/descomentar esto mediante un espacio entre # y + para
+ir alternando entre los dos modos.</p>
+<p>Esta chapuza debería cambiarse eventualmente.</p>
+<p>Por otro lado, la documentación oficial de org-mode, nos informa acerca de las
+posibles configuraciones de exportación:</p>
+<p>http://orgmode.org/manual/Export-settings.html</p>
+<p>Para un aventurero futuro, le recomendamos que investigue en:</p>
+<p>/home/ricardo/.emacs.d/elpa/latex-math-preview-0.7.2</p>
+<p>y, en concreto, ejecute:</p>
+<p>cat latex-math-preview.el | grep -i color</p>
+<p>¡Suerte!</p>
+<p>¡Dios santo, sólo hacía falta modificar las ordenes</p>
+<h1>+latex_header</h1>
+<p>por #+latex_header_extra!</p>
+<p>¡Y venía indicado en el post de m42!</p>
+<p>En fin, caso cerrado</p>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+
 			<hr>
 		</article>
 

@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Disparador | eigenℝic</title>
+	<meta name="description" content="Nos disponemos a esbozar el disparador de la restricción semántica 4.4.2. El producto a valorar debe aparecer en el historial de compra del cliente. La tabla a la …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Disparador">
+	<meta property="og:description" content="Nos disponemos a esbozar el disparador de la restricción semántica 4.4.2. El producto a valorar debe aparecer en el historial de compra del cliente. La tabla a la …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/blog/2021/01/disparador">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,15 +119,100 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en 2017</h1>
+	<h1 class="title"><a href="/blog/2021/01/disparador" title="Permalink to Disparador">Disparador</a></h1>
+	<time class="date" datetime="2021-01-21 00:00:00+01:00">21 ene 2021</time>
 	<div class="content">
-			<h2><a class="no-dec" href="/2017/08/">agosto</a></h2>
-			<ul>
-				<li><a class="no-dec" href="/blog/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>Nos disponemos a esbozar el disparador de la
+restricción semántica 4.4.2. El producto a valorar
+debe aparecer en el historial de compra del
+cliente.</p>
+<p>La tabla a la que iría vinculado seria la tabla de
+valoración. </p>
+<p>En primer lugar, debemos especificar que es el
+historial de compra del cliente. Disponemos de
+CarritoPagado y CarritoFinalizado. Entiendo que el
+historia ya es lo que ya está pagado.</p>
+<p>Antes de que un cliente con cierto DNI valore un
+producto debemos comprobar si el carritocliente
+cuyo IDcompra se encuentre en carritopagado.</p>
+<p>¿Cómo obtener el Historial de compra?</p>
+<p>Disponemos de las tablas CarritoCliente.
+CarritoPagado. DetallesCarrito. Necesitamos los
+DetallesCarrito de todos los CarritosPagados</p>
+<p>Se nos ocurre lo siguiente:</p>
+<p>SELECT x.nombre, x.artista, y.unidadescomprar FROM
+PRODUCTO x, DetallesCarrito y WHERE x.nref =
+y.nref AND y.idcompra IN (SELECT idcompra FROM
+CarritoPagado)</p>
+<p>Estor resulta en los nombre, artista de los
+productos pagados.</p>
+<p>SELECT x.nombre, x.artista, z.dni FROM Producto x,
+DetallesCarrito y, CarritoCliente z WHERE
+x.nref=y.nref AND z.dni= AND z.idcompra=y.idcompra
+AND y.idcompra IN (SELECT idcompra FROM
+Carritopagado)</p>
+<p>Actualmente hemos conseguido obtener el historial
+de compra mediante INNER JOINS DE 3 Tabals:</p>
+<p>select d.nombre, d.artista
+from
+    CarritoCliente a
+        inner join
+    CarritoPagado b
+        on a.idcompra = b.idcompra
+        inner join 
+    DetallesCarrito c
+        on b.idcompra = c.idcompra
+       inner join
+    Producto d
+        on d.nref = c.nref
+WHERE
+    a.DNI = '97867564F'</p>
+<p>Nos falta el disparador, que lanza error si no
+esta en el historial.</p>
+<p>Esbozo del disparador:</p>
+<p>INSERT INTO Valoracion (DNI, NRef, Valoracion)
+    values ('14443545G','0000002-V',4);
+CREATE OR REPLACE TRIGGER no_puede_valorar
+BEFORE INSERT ON Valoracion
+FOR EACH ROW <br>
+    BEGIN
+        IF (:new.NRef NOT IN (SELECT nref INTO historial_compra
+                                FROM CarritoCliente a
+                                    inner join
+                                CarritoPagado b
+                                    on a.idcompra = b.idcompra
+                                    inner join 
+                                DetallesCarrito c
+                                    on b.idcompra = c.idcompra
+                                WHERE a.DNI = :new.DNI)) THEN
+            RAISE_APPLICATION_ERROR(-20603,'No se puede valorar un producto que no ha sido comprado');
+        END IF;
+    END;</p>
+<p>Me responden de StackOverflow:</p>
+<p>CREATE OR REPLACE TRIGGER NOPUEDEVALORAR
+  BEFORE INSERT ON Valoracion
+  FOR EACH ROW <br>
+DECLARE
+  l_exists NUMBER(1) := 0;
+BEGIN
+  SELECT MAX(1)
+    INTO l_exists
+    FROM dual
+    WHERE EXISTS (SELECT nref FROM CarritoCliente a
+                  INNER JOIN CarritoPagado b 
+                     ON a.idcompra = b.idcompra
+                  INNER JOIN DetallesCarrito c<br>
+                     ON b.idcompra = c.idcompra
+                  WHERE a.dni = :NEW.dni
+                    AND c.nref = :NEW.nref
+                 );
+  IF l_exists = 0 THEN
+     RAISE_APPLICATION_ERROR(-20603,'Cant rate a not bought product');
+  END IF;
+END;</p>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+
 			<hr>
 		</article>
 

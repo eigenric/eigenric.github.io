@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Restaurar manjaro | eigenℝic</title>
+	<meta name="description" content="Si el sistema no arranca es posible acceder mediante el GRUB. Para ello, pulsamos F12 repetidamente antes de iniciar. Seleccionamos la opción de arranque de Manjaro linux y seguimos pulsando …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Restaurar manjaro">
+	<meta property="og:description" content="Si el sistema no arranca es posible acceder mediante el GRUB. Para ello, pulsamos F12 repetidamente antes de iniciar. Seleccionamos la opción de arranque de Manjaro linux y seguimos pulsando …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/blog/2019/03/restaurar-manjaro">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,15 +119,31 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en 2017</h1>
+	<h1 class="title"><a href="/blog/2019/03/restaurar-manjaro" title="Permalink to Restaurar manjaro">Restaurar manjaro</a></h1>
+	<time class="date" datetime="2019-03-13 00:00:00+01:00">13 mar 2019</time>
 	<div class="content">
-			<h2><a class="no-dec" href="/2017/08/">agosto</a></h2>
-			<ul>
-				<li><a class="no-dec" href="/blog/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>Si el sistema no arranca es posible acceder mediante el GRUB. Para ello,
+pulsamos <code>F12</code> repetidamente antes de iniciar.</p>
+<p>Seleccionamos la opción de arranque de Manjaro linux y seguimos pulsando f12
+hasta acceder al GRUB. Una vez allí pulsamos e para modificar una de las
+opciones de arranque y añadimos 3 al final de la orden <code>linux</code> correspondiente
+que carga el núcleo. Eso permitirá acceder vía terminal al SO.</p>
+<p>Guardamos los cambios mediante <code>Ctrl+x</code> y accedemos.  Solo faltaría actualizar el
+sistema mediante</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pacman<span class="w"> </span>-Syu
+</code></pre></div>
+
+<p>La conexión wifi se mantiene. Y también es posible compartir Wifi vía USB, sin
+tener que lanzar ningún comando.</p>
+<p>En el caso particular de ser alguna librería .so truncada es posible eliminarla
+y reinstalarla.  También es recomendable eliminar el directorio de caché
+asociado <code>/var/lib/pacman/local/nombre-paquete</code>.</p>
+<p>En el caso de estar pacman bloqueado, eliminar el archivo de bloqueo:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>rm<span class="w"> </span>/var/lib/pacman/db.lck
+</code></pre></div>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+
 			<hr>
 		</article>
 

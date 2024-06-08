@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Borrar directorio de $PATH en fish | eigenℝic</title>
+	<meta name="description" content="Basta utilizar las siguientes funciones en el archivo de configuración de fish (~/.config/fish/config.fish): function addpaths set -U fish_user_paths $fish_user_paths $argv echo "Updated PATH: $PATH" end function removepath …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Borrar directorio de $PATH en fish">
+	<meta property="og:description" content="Basta utilizar las siguientes funciones en el archivo de configuración de fish (~/.config/fish/config.fish): function addpaths set -U fish_user_paths $fish_user_paths $argv echo "Updated PATH: $PATH" end function removepath …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/blog/2017/09/borrar-directorio-de-path-en-fish">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,15 +119,29 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en 2017</h1>
+	<h1 class="title"><a href="/blog/2017/09/borrar-directorio-de-path-en-fish" title="Permalink to Borrar directorio de $PATH en fish">Borrar directorio de $PATH en fish</a></h1>
+	<time class="date" datetime="2017-09-07 00:00:00+02:00">7 sep 2017</time>
 	<div class="content">
-			<h2><a class="no-dec" href="/2017/08/">agosto</a></h2>
-			<ul>
-				<li><a class="no-dec" href="/blog/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>Basta utilizar las siguientes funciones en el archivo de configuración de fish
+(<code>~/.config/fish/config.fish</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span> addpaths
+    <span class="k">set</span> -U fish_user_paths <span class="nv">$fish_user_paths</span> <span class="nv">$argv</span>
+    <span class="k">echo</span> <span class="s2">&quot;Updated PATH: </span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="k">end</span>
+
+<span class="k">function</span> removepath
+    <span class="k">if</span> <span class="k">set</span> -l index <span class="o">(</span><span class="nb">contains</span> -i <span class="nv">$argv</span><span class="o">[</span>1<span class="o">]</span> <span class="nv">$PATH</span><span class="o">)</span>
+        <span class="k">set</span> --erase --universal
+fish_user_paths<span class="o">[</span><span class="nv">$index</span><span class="o">]</span>
+        <span class="k">echo</span> <span class="s2">&quot;Updated PATH: </span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+    <span class="k">else</span>
+        <span class="k">echo</span> <span class="s2">&quot;</span><span class="nv">$argv</span><span class="s2">[1] not found in PATH: </span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+
 			<hr>
 		</article>
 

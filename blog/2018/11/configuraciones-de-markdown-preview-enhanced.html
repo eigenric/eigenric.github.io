@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Configuraciones de markdown-preview-enhanced | eigenℝic</title>
+	<meta name="description" content="El manual de este plugin es bastante completo: [https://shd101wyy.github.io/markdown-preview-enhanced/]s Configuraciones en Vscode: File->Preferences->Settings (Ctrl+,) Extensiones->Markdown-preview-enhanced Por defecto, viene KaTex pero debemos elegir …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Configuraciones de markdown-preview-enhanced">
+	<meta property="og:description" content="El manual de este plugin es bastante completo: [https://shd101wyy.github.io/markdown-preview-enhanced/]s Configuraciones en Vscode: File->Preferences->Settings (Ctrl+,) Extensiones->Markdown-preview-enhanced Por defecto, viene KaTex pero debemos elegir …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/blog/2018/11/configuraciones-de-markdown-preview-enhanced">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,15 +119,45 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en 2017</h1>
+	<h1 class="title"><a href="/blog/2018/11/configuraciones-de-markdown-preview-enhanced" title="Permalink to Configuraciones de markdown-preview-enhanced">Configuraciones de markdown-preview-enhanced</a></h1>
+	<time class="date" datetime="2018-11-18 00:00:00+01:00">18 nov 2018</time>
 	<div class="content">
-			<h2><a class="no-dec" href="/2017/08/">agosto</a></h2>
-			<ul>
-				<li><a class="no-dec" href="/blog/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>El manual de este plugin es bastante completo:</p>
+<p>[https://shd101wyy.github.io/markdown-preview-enhanced/]s</p>
+<p>Configuraciones en Vscode: File-&gt;Preferences-&gt;Settings (Ctrl+,)
+Extensiones-&gt;Markdown-preview-enhanced</p>
+<p>Por defecto, viene KaTex pero debemos elegir Mathjax para poder previsualizar
+las // correctamente. A Katex todavía le falta madurez.</p>
+<p>Para cambiarlo, vamos a las settings de vscode</p>
+<p>Cambiamos:</p>
+<p>Math Rendering Option: MathJax MermaidTheme: dark (Grafiquitos) Print
+background: atom-dark</p>
+<p>Cambio de Tipografía de Mathjax</p>
+<p>En la página de manual encontramos:</p>
+<p>[https://shd101wyy.github.io/markdown-preview-enhanced/#/math]</p>
+<p>You can Also modify the MathJax config by cmd-shift-p then choose Markdown
+Preview Enhanced: Open Mathjax config command</p>
+<p>Luego, ejecutamos tal instruccion:</p>
+<p>Nos encontramos con lo siguiente:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">extensions</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;tex2jax.js&#39;</span><span class="p">],</span><span class="w"> </span>
+<span class="w">     </span><span class="nx">jax</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;input/TeX&#39;</span><span class="p">,</span><span class="s1">&#39;output/HTML-CSS&#39;</span><span class="p">],</span><span class="w"> </span>
+<span class="w">     </span><span class="nx">messageStyle</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;none&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">     </span><span class="nx">tex2jax</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">processEnvironments</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">processEscapes</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">TeX</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">extensions</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;AMSmath.js&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;AMSsymbols.js&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;noErrors.js&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;noUndefined.js&#39;</span><span class="p">]</span><span class="w"> </span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span>
+<span class="w">    </span><span class="s1">&#39;HTML-CSS&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">availableFonts</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;TeX&#39;</span><span class="p">],</span><span class="w"> </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">70</span><span class="w"> </span><span class="c1">// Añadido }</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Listo</p>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+
 			<hr>
 		</article>
 

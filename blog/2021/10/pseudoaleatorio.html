@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Pseudoaleatorio | eigenℝic</title>
+	<meta name="description" content="Es conocido que los ordenadores no pueden producir verdaderos número aleatorios. Es por ello que se habla de generadores de números pseudoaleatorios. Aprendiendo Rust para resolver el Advent of Code …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Pseudoaleatorio">
+	<meta property="og:description" content="Es conocido que los ordenadores no pueden producir verdaderos número aleatorios. Es por ello que se habla de generadores de números pseudoaleatorios. Aprendiendo Rust para resolver el Advent of Code …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/blog/2021/10/pseudoaleatorio">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,15 +119,49 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en 2017</h1>
+	<h1 class="title"><a href="/blog/2021/10/pseudoaleatorio" title="Permalink to Pseudoaleatorio">Pseudoaleatorio</a></h1>
+	<time class="date" datetime="2021-10-09 00:00:00+02:00">9 oct 2021</time>
 	<div class="content">
-			<h2><a class="no-dec" href="/2017/08/">agosto</a></h2>
-			<ul>
-				<li><a class="no-dec" href="/blog/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>Es conocido que los ordenadores no
+pueden producir verdaderos número aleatorios. Es por ello que se habla de
+generadores de números pseudoaleatorios.</p>
+<p>Aprendiendo Rust para resolver el Advent of Code 2020 con programación
+funcional.</p>
+<p>Me he encontrado en la situación de generar una lista números tal que sólo dos
+de ellos sumen 2020.</p>
+<p>Itertools combinations nos da una primera solución sencilla para datos pequeños.
+Itertools está disponible tanto en Python como en Rust.</p>
+<p>Curiosamente, he generado una lista de 10_000 valores entre 0 a 20_000, gracias
+a randint y sólo dos de ellos suman 2020.</p>
+<p>¿Cual era la probabilidad de que pasara esto?</p>
+<p>Investigando, randint sigue una distribución uniforme (discreta). Es decir la
+P(X=x) del rango es 1/20_000.</p>
+<p>Ahora, como calculamos la probabilidad de que la suma de dos números tenga
+cierto valor?</p>
+<p>Conjeturamos que la variable aleatoria suma X+Y de dos uniformes es la que mide
+tal caracteristica.</p>
+<p>Es la uniforme reproductiva? Es decir, cual es PMF de una suma de uniformes?</p>
+<p>P(X=x) = 1/n</p>
+<p>P(Y=y) = 1/n</p>
+<p>P(X+Y=z)  = 1/(b-a)</p>
+<h2>2012 + 8 -&gt; 4.04e-5 1020 + 1000 -&gt; 4.04e-2</h2>
+<p>De 10_000 números entre 0 y 200_000 uniformemente distribuidos. Es decir que
+P(X=x) = 1/2e5,</p>
+<p>cúal es la probabilidad de que exactamente una pareja sume 2020?</p>
+<p>Cuantas parejas hay? 10_000C2 = 50M Cuantas parejas suman 2020?</p>
+<p>0,2020 1,2019 ...  1009,1011</p>
+<p>1010 posibles parejas que suman 2020!</p>
+<p>La probabilidad de que salgan una pareja particular generados dos de forma
+uniforme en rango 0, 2e6</p>
+<p>1/200_000^2 = 1/4e10 = 2.5e-11</p>
+<p>Luego este es la probabilidad de exito</p>
+<p>B(50M, 2.5e-100)</p>
+<p>P(Y=y) = 2.5e-11 * 0.999999999975**9_999</p>
+<p>= 2.49e-11</p>
+<p>E[Y] = 5e7 * 2.49e-11 = 0.001</p>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+
 			<hr>
 		</article>
 

@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>El Problema de la Familia | eigenℝic</title>
+	<meta name="description" content="Hemos sustituido una clase de MAC por empezar a pensar y codificar el problema de la Familia de IC en Clips. Hemos leido por encima (bastante) el código original y …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="El Problema de la Familia">
+	<meta property="og:description" content="Hemos sustituido una clase de MAC por empezar a pensar y codificar el problema de la Familia de IC en Clips. Hemos leido por encima (bastante) el código original y …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/blog/2021/03/el-problema-de-la-familia">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,15 +119,62 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en 2017</h1>
+	<h1 class="title"><a href="/blog/2021/03/el-problema-de-la-familia" title="Permalink to El Problema de la Familia">El Problema de la Familia</a></h1>
+	<time class="date" datetime="2021-03-18 00:00:00+01:00">18 mar 2021</time>
 	<div class="content">
-			<h2><a class="no-dec" href="/2017/08/">agosto</a></h2>
-			<ul>
-				<li><a class="no-dec" href="/blog/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>Hemos sustituido una clase de MAC por empezar a pensar y codificar el problema
+de la Familia de IC en Clips. Hemos leido por encima (bastante) el código
+original y hemos intentando modificarlo para responder a la pregunta. </p>
+<p>¿quiénes son los abuelos de Ricardo?</p>
+<p>Obviamente, para ello hemos tenido que introducir todos los nombres de mi
+familia y las relaciones Padre-Hijo, Esposos, que son suficientes para deducir
+el resto con las reglas adecuadas.</p>
+<p>El código original se basa en introducir dos nombres y devolver la relación que
+existe entre ellos.</p>
+<p>En cambio, el problema pedido quiere que el sistema responda a la pregunta
+anteriormente mencionada y a las dos siguientes:</p>
+<ul>
+<li>¿quiénes son los yernos de Teresa?  - ¿Quiénes son los hijos de Lidia?</li>
+</ul>
+<p>Yo interpreto esto como una regla Abuelos, otra yernos y otra hijos que, al
+introducir cierto nombre, te devuelva los abuelos, yernos e hijos,
+respectivamente de ese nombre. En caso de no existir debería indicar que algo.</p>
+<p>Para el problema de abuelos, hemos intentado copiar el código existente que
+obtenía la relación a partir de los nombres. En particular, hablamos de un
+fragmento que pregunta:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">defrule</span><span class="w"> </span><span class="n">pregunta</span><span class="w"> </span><span class="p">(</span><span class="n">declare</span><span class="w"> </span><span class="p">(</span><span class="n">salience</span><span class="w"> </span><span class="mh">10000</span><span class="p">))</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">printout</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="s">&quot;Dime el nombre</span>
+<span class="n">de</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">Familai</span><span class="w"> </span><span class="n">Ruiz</span><span class="w"> </span><span class="n">Fda</span><span class="w"> </span><span class="n">sobre</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">quieres</span><span class="w"> </span><span class="n">obtener</span><span class="w"> </span><span class="n">sus</span><span class="w"> </span><span class="nl">abuelos:</span><span class="w"> </span><span class="s">&quot;</span>
+<span class="n">crlf</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="n">primerapersona</span><span class="w"> </span><span class="p">(</span><span class="n">read</span><span class="p">))))</span><span class="w"> </span>
+</code></pre></div>
+
+<p>y lee "asertando" el hecho (primerapersona <nombre-leido>)</p>
+<p>Esto es copiado del fragmento de las pregunta y pregunta2 que, en el código
+original, preguntan el primero y segundo nombre. Asertando los hechos</p>
+<p>(primera persona <primer-nombre-leido>) (segunda persona <segundo-nombre-leido>)</p>
+<p>En teoría, un hecho sirve para disparar un regla y por ello queremos definir la
+regla abuelos, que dada una primera persona leída, devolvería los abuelos de
+esta persona.</p>
+<p>El código que hemos escrito luce así:</p>
+<div class="highlight"><pre><span></span><code><span class="n">defrule</span><span class="w"> </span><span class="n">abuelos</span><span class="w"> </span><span class="o">?</span><span class="n">f</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="n">razonar</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">primerapersona</span><span class="w"> </span><span class="o">?</span><span class="n">x</span><span class="p">)</span><span class="w">  </span><span class="p">(</span><span class="nf">Relacion </span><span class="p">(</span><span class="n">tipo</span><span class="w"> </span><span class="o">?</span><span class="n">r</span><span class="p">)</span>
+<span class="p">(</span><span class="n">sujeto</span><span class="w"> </span><span class="o">?</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">objeto</span><span class="w"> </span><span class="o">?</span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nf">test </span><span class="p">(</span><span class="n">eq</span><span class="w"> </span><span class="o">?</span><span class="n">r</span><span class="w"> </span><span class="n">ABUELO</span><span class="p">))</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">printout</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">?</span><span class="n">y</span><span class="w"> </span><span class="s">&quot; es &quot;</span><span class="w"> </span><span class="o">?</span><span class="n">r</span><span class="w"> </span><span class="s">&quot; de</span>
+<span class="s">&quot;</span><span class="w"> </span><span class="o">?</span><span class="n">x</span><span class="w"> </span><span class="n">crlf</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">retract</span><span class="w"> </span><span class="o">?</span><span class="n">f</span><span class="p">)</span><span class="w">   </span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+
+<p>Lo de razonar, es una diferencia encontrada entre los códigos originales y la
+versión parando que no sabemos cual es la diferencia. En teoría el primero
+calcula cosas demás que se evitan en el segundo, pero no hemos visualizado esto
+en la práctica.</p>
+<p>Lo que intentamos hacer en el código, es que se requieran los tres primeros
+hechos para que se devuelva lo segundo. Así, lo primero es que se haya asertado
+el (primerapersona ?x).</p>
+<p>Este será el objeto del cual queremos obtener sus abuelos.  Para ello,
+requerimos que exista un hecho Relación de tipo ?r, con un sujeto ?y y objeto el
+?x leído tal que ?r sea ABUELO. </p>
+<p>En tal caso imprimimos que ?y es ABUELO de ?x.  Eliminamos lo guardado en ?f,
+desconociendo un poco por qué.</p>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+
 			<hr>
 		</article>
 

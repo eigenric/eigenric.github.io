@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Mutacion de segmento | eigenℝic</title>
+	<meta name="description" content="Dado un vector de tamaño n. Seleccionamos un número r entre 0 y n-1 ambos inclusive. Para un v dado, hallamos el segmento. [r, (r+v) % n -1] Podemos encontrarnos …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Mutacion de segmento">
+	<meta property="og:description" content="Dado un vector de tamaño n. Seleccionamos un número r entre 0 y n-1 ambos inclusive. Para un v dado, hallamos el segmento. [r, (r+v) % n -1] Podemos encontrarnos …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/blog/2021/06/mutacion-de-segmento">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,15 +119,38 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en 2017</h1>
+	<h1 class="title"><a href="/blog/2021/06/mutacion-de-segmento" title="Permalink to Mutacion de segmento">Mutacion de segmento</a></h1>
+	<time class="date" datetime="2021-06-06 00:00:00+02:00">6 jun 2021</time>
 	<div class="content">
-			<h2><a class="no-dec" href="/2017/08/">agosto</a></h2>
-			<ul>
-				<li><a class="no-dec" href="/blog/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>Dado un vector de tamaño n. Seleccionamos un número r entre 0 y n-1 ambos
+inclusive.</p>
+<p>Para un v dado, hallamos el segmento.</p>
+<p>[r, (r+v) % n -1]</p>
+<p>Podemos encontrarnos con una situación en la que </p>
+<p>con n = 8, r = 6, v=4. Calculamos el final del
+segmento, como [(r+v) % n]-1 = 2 - 1 = 1.</p>
+<p>Es decir el segmento son los</p>
+<p>[0,1,2,3,4,5,6,7]
+ _ _         _ _
+Son las dos ultimas posiciones del vector y las
+dos primeras. Para ver que un número está ahí,
+basta ver que </p>
+<p>i &gt;= a or i &lt;= b</p>
+<p>que sabemos que es justo lo contrario </p>
+<p>i &gt; b and i &lt; a </p>
+<p>i \in ]b, a[</p>
+<p>lo cual para numeros naturales equivale a decir
+que</p>
+<p>i \in [b+1, a-1]</p>
+<p>(i &gt;= a and i &lt;= b) or (i &gt;= a or i &lt;= b)</p>
+<p>i&gt;= a a</p>
+<p>(a &lt; b and (i &gt;= a and i &lt;= b))
+ or
+(b &gt;= a and (i &gt;= a or i &lt;= b)</p>
+<hr>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+
 			<hr>
 		</article>
 

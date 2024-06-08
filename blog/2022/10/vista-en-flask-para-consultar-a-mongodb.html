@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Vista en Flask para consultar a MongoDB | eigenℝic</title>
+	<meta name="description" content="En el contexto de la asignatura DAI (Desarrollo de Aplicaciones para Internet), se nos pide realizar una pequeña aplicación web que consulte una base de datos de recetas de cócteles …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Vista en Flask para consultar a MongoDB">
+	<meta property="og:description" content="En el contexto de la asignatura DAI (Desarrollo de Aplicaciones para Internet), se nos pide realizar una pequeña aplicación web que consulte una base de datos de recetas de cócteles …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/blog/2022/10/vista-en-flask-para-consultar-a-mongodb">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,15 +119,42 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en 2017</h1>
+	<h1 class="title"><a href="/blog/2022/10/vista-en-flask-para-consultar-a-mongodb" title="Permalink to Vista en Flask para consultar a MongoDB">Vista en Flask para consultar a MongoDB</a></h1>
+	<time class="date" datetime="2022-10-28 00:00:00+02:00">28 oct 2022</time>
 	<div class="content">
-			<h2><a class="no-dec" href="/2017/08/">agosto</a></h2>
-			<ul>
-				<li><a class="no-dec" href="/blog/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>En el contexto de la asignatura DAI (Desarrollo de Aplicaciones para Internet),
+se nos pide realizar una pequeña aplicación web que consulte una base de datos
+de recetas de cócteles. La base de datos es MongoDB y la aplicación web se construye con Flask en la primera versión y Flask Restful en la segunda.</p>
+<p>Unos de los ejercicios consiste en elaborar una vista que devuelva las recetas
+que contengan cierto ingrediente. Los ingredientes son una lista interior a las
+recetas. Vodka es un elemento de los ingredientes.</p>
+<p>El truco es hacer ingredients.name y luego comprobar que son iguales con el
+operador $eq</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/recetas_con/&lt;bebida&gt;&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">mongo_recetas_con</span><span class="p">(</span><span class="n">bebida</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Devuelve las recetas con cierta bebida en sus ingredientes&quot;&quot;&quot;</span>
+
+    <span class="n">recetas_con_bebida</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">recipes</span><span class="o">.</span><span class="n">find</span><span class="p">({</span>
+        <span class="s2">&quot;ingredients.name&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$eq&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">bebida</span><span class="p">)</span> <span class="p">}</span>
+    <span class="p">}</span> <span class="p">)</span>    
+
+    <span class="n">lista_recetas</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">receta</span> <span class="ow">in</span> <span class="n">recetas_con_bebida</span><span class="p">:</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">receta</span><span class="p">)</span>
+        <span class="n">lista_recetas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">receta</span><span class="p">)</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;len&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista_recetas</span><span class="p">),</span>
+        <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">lista_recetas</span>
+    <span class="p">}</span>
+
+    <span class="n">resJson</span> <span class="o">=</span> <span class="n">dumps</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">resJson</span><span class="p">,</span> <span class="n">mimetype</span><span class="o">=</span><span class="s2">&quot;application/json&quot;</span><span class="p">)</span>
+</code></pre></div>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+
 			<hr>
 		</article>
 

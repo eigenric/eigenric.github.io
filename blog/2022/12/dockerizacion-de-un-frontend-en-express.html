@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Dockerización de un frontend en Express | eigenℝic</title>
+	<meta name="description" content="A partir de la API REST construida con Flask encapsulada en un contenedor docker cuyo build es el dockerfile de /app el cual ejecuta docker compose que ejecuta el servidor …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Dockerización de un frontend en Express">
+	<meta property="og:description" content="A partir de la API REST construida con Flask encapsulada en un contenedor docker cuyo build es el dockerfile de /app el cual ejecuta docker compose que ejecuta el servidor …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/blog/2022/12/dockerizacion-de-un-frontend-en-express">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,15 +119,66 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en 2017</h1>
+	<h1 class="title"><a href="/blog/2022/12/dockerizacion-de-un-frontend-en-express" title="Permalink to Dockerización de un frontend en Express">Dockerización de un frontend en Express</a></h1>
+	<time class="date" datetime="2022-12-16 00:00:00+01:00">16 dic 2022</time>
 	<div class="content">
-			<h2><a class="no-dec" href="/2017/08/">agosto</a></h2>
-			<ul>
-				<li><a class="no-dec" href="/blog/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>A partir de la API REST construida con Flask encapsulada en un contenedor docker
+cuyo build es el dockerfile de /app el cual ejecuta docker compose que ejecuta el servidor flask en <code>localhost:8000/api/recipes</code> y devuelve un json,</p>
+<p>Necesito construir un frontend en Javascript que se acople a esta api
+(obtenga los objetos via llamada Ajax o fetch ).</p>
+<h2>Pasos dados</h2>
+<p>A medida que hemos investigado por internet hemos concluido con un intento
+satisfactorio de <code>hola mundo</code>via express con lo siguientes:</p>
+<p>Creación de una carpeta frontent separada de <code>app</code>.  </p>
+<p>Un Servicio especializado en <code>docker compose</code> para el frontend llamado frontend
+y con las siguientes características:</p>
+<p><code>build: ./frontend</code> se encarga de construir el contenedor via el <code>dockerfile</code> de la
+carpeta <code>frontend</code>.</p>
+<p>Depende de <code>app</code> pues requiere que la api este funcionando (que requiere de mongo)
+para hacer llamadas a esta.</p>
+<p><code>Volúmenes: ./frontend/frontend</code></p>
+<p>Esto hace que la carpeta <code>./frontend</code> se copie a la raíz del contenedor en
+frontend donde estarán los archivos js index que corresponden al frontend</p>
+<p>Tendremos que tratar con boostrap de nuevo para hacer una single app vía
+modals lo más sencillo posible.</p>
+<h2>Problemas:</h2>
+<ul>
+<li>El puerto 5000 colapsa con la api flask asi que lo tendremos en el puerto 3000.</li>
+<li>Fallo de nodejs al buscar express como módulo</li>
+</ul>
+<p>Intuición: alguna ruta relacionada con la instalación de express no queda clara.
+Esto viene de <code>require('express')</code></p>
+<p>Idea del orden de ejecución:</p>
+<p>Se ejecuta docker compose teniendo a frontend como servicio el cual se construye
+llamado a su <code>dockerfile.</code></p>
+<p>El dockerfile requiere de la imagen de node 19
+como viene en el txt:</p>
+<ol>
+<li>Se crea una carpeta node_modules en <code>/frontend</code>
+del contenedor y se le da permisos para el grupo node
+a todo <code>/frontend</code>
+<code>/frontend</code> refiere al volumen el cual deberia
+haberse copiado integramente de la carpeta
+frontend conteniendo los archivos:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="o">-</span><span class="w"> </span><span class="nx">index</span><span class="p">.</span><span class="nx">html</span>
+<span class="o">-</span><span class="w"> </span><span class="kn">package</span><span class="p">.</span><span class="nx">json</span>
+<span class="o">-</span><span class="w"> </span><span class="nx">server</span><span class="p">.</span><span class="nx">js</span>
+</code></pre></div>
+
+<p>El fundamental es el archivo <code>server.js</code> el cual
+iniciaria el servidor express.
+<code>Suponiendo que los archivos estan en</code>/frontend<code>el
+contenedor
+Se habria creado ademas una carpeta</code>node_module``</p>
+<p>Luego se copia<code>`package*.json</code> a esta carpeta </p>
+<p>Hemos conseguido que se renderice quitando el tema de los permisos y siguiendo
+la mismas directrices
+que el <code>Dockerfile</code>eneral a todo <code>/frontend.</code></p>
+<p><img alt="Dockerizacion de un frontend en Express" src="/images/dockerizacion-express.png"></p>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+
 			<hr>
 		</article>
 
