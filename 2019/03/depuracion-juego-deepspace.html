@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en agosto 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Depuración juego Deepspace | eigenℝic</title>
+	<meta name="description" content="Nos encontramos en el desarrollo del juego deepspace. Práctica para el examen del jueves de la asignatura PDOO. Estamos en particular en el desarrollo del constructor de la clase SpaceStation …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Depuración juego Deepspace">
+	<meta property="og:description" content="Nos encontramos en el desarrollo del juego deepspace. Práctica para el examen del jueves de la asignatura PDOO. Estamos en particular en el desarrollo del constructor de la clase SpaceStation …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/2019/03/depuracion-juego-deepspace">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,14 +119,43 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en agosto 2017</h1>
+	<h1 class="title"><a href="/2019/03/depuracion-juego-deepspace" title="Permalink to Depuración juego Deepspace">Depuración juego Deepspace</a></h1>
+	<time class="date" datetime="2019-03-23 00:00:00+01:00">23 mar 2019</time>
 	<div class="content">
-			<ul>
-				<li><a class="no-dec" href="/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>Nos encontramos en el desarrollo del juego deepspace. Práctica para el examen
+del jueves de la asignatura PDOO. Estamos en particular en el desarrollo del
+constructor de la clase <code>SpaceStation</code>.</p>
+<p>Vale, al parecer nos acabamos de enterar de cómo obtener los atributos
+necesarios.</p>
+<p>Lo que nos sorprendía era el hecho de que el constructor tomara únicamente un
+nombre un objeto <code>SuppliesPackag</code> cuando luego la cantidad de atributos
+existentes era mucho mayor.</p>
+<p>Comprendemos ahora que el objeto SuppliesPackage está compuesto por todas las
+cosas que necesitamos (<code>ammoPower</code>, <code>fuelUnits</code>, <code>shieldPower</code>).</p>
+<p>Nos faltaría obtener el atributo nMedals de alguna parte. Sólo nos aparece en la
+clase <code>Loot</code>. Sin embargo, la clase SpaceStation parece no tener dependencias de
+esta clase.</p>
+<p>Otra cosa por determinar es la implementación de las dependencias 0..1?
+Suponemos que a priori el atributo está a nil hasta que se indique lo contrario.</p>
+<p>Nos estamos haciendo un cacao con el método adjust así que vamos a intentar
+descifrar lo que significa.</p>
+<p>En primer lugar, la clase <code>Damage</code>puede estar compuesta por (una lista de
+weaponstype, un número de shields, nº weapons -1) o bien por (un número de
+weapons y número de shields weapons==[]).</p>
+<p>El método <code>adjust</code> toma una lista de <code>Weapon</code> y una lista de <code>shieldBoosters</code>.</p>
+<p>Devuelve una copia del objeto modificado. Según dice, ajustado a las colecciones
+de armas y potenciadores de escudos de parámetros).</p>
+<p>Se supone que la copia está reducida.</p>
+<p>Damage: pérdida</p>
+<p>No puede implicar la pérdida de . == En la clase Damage no deben existir los
+atributos que no estén en las colecciones de los parámetros.  == Deolver una
+copia del objeto cuyos <code>weaponType</code> sea la diferencia entre el objeto actual y los
+tipos suministrados por el parámetros.</p>
+<p>Lo mismo con los <code>ShieldBoosters</code>(sin embargo no hay atributo de lista de
+shieldBooster lo cual implicaría un <code>nShields</code> que sea la longitud del filtrado).</p>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+
 			<hr>
 		</article>
 

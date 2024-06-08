@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en agosto 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Tipo de datos Frozenset - Python | eigenℝic</title>
+	<meta name="description" content="He descubierto un nuevo tipo de conjunto en python, el frozenset. La diferencia con el conjunto normal tipo <class 'set'> es que el frozenset es inmutable. Esto es, una vez …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Tipo de datos Frozenset - Python">
+	<meta property="og:description" content="He descubierto un nuevo tipo de conjunto en python, el frozenset. La diferencia con el conjunto normal tipo <class 'set'> es que el frozenset es inmutable. Esto es, una vez …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/2017/08/tipo-de-datos-frozenset-python">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,14 +119,60 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en agosto 2017</h1>
+	<h1 class="title"><a href="/2017/08/tipo-de-datos-frozenset-python" title="Permalink to Tipo de datos Frozenset - Python">Tipo de datos Frozenset  - Python</a></h1>
+	<time class="date" datetime="2017-08-14 00:00:00+02:00">14 ago 2017</time>
 	<div class="content">
-			<ul>
-				<li><a class="no-dec" href="/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>He descubierto un nuevo tipo de conjunto en python, el <code>frozenset</code>. La diferencia
+con el conjunto normal tipo <code>&lt;class 'set'&gt;</code> es que el <code>frozenset</code> es <strong>inmutable</strong>. 
+Esto es, una vez creado no se puede modificar.</p>
+<div class="highlight"><pre><span></span><code><span class="n">foo</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">foo</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;frozenset&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;add&#39;</span>
+
+<span class="n">foo</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;frozenset&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;remove&#39;</span>
+</code></pre></div>
+
+<p>A pesar de que no se pueden modificar, se pueden realizar operaciones de conjuntos tales
+como unión, intersección, diferencia, etc.</p>
+<h2>Unión</h2>
+<p>Para realizar la unión de dos <code>frozenset</code> se utiliza el operador <code>|</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">bar</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="n">bar</span> <span class="o">|</span> <span class="n">foo</span>
+
+<span class="o">&gt;</span> <span class="nb">frozenset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+</code></pre></div>
+
+<h2>Intersección</h2>
+<p>Para realizar la intersección de dos <code>frozenset</code> se utiliza el operador <code>&amp;</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">bar</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="n">bar</span> <span class="o">&amp;</span> <span class="n">foo</span>
+
+<span class="o">&gt;</span> <span class="nb">frozenset</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+
+<h2>Diferencia</h2>
+<p>Para realizar la diferencia de dos <code>frozenset</code> se utiliza el operador <code>-</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">bar</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="n">bar</span> <span class="o">-</span> <span class="n">foo</span>
+
+<span class="o">&gt;</span> <span class="nb">frozenset</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Puedes obtener más información en la <a href="https://docs.python.org/3/library/stdtypes.html#frozenset" target="_blank">Documentación oficial</a>.</p>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+	<div id="related-articles">
+		<a class="no-dec no-dec-h" href="/2017/08/una-odisea-de-depuracion-top-down-con-vim" id="next-neighbour">&laquo; Una odisea de depuración top-down con Vim.</a>
+		<a class="no-dec no-dec-h" href="/2013/09/hi-pelican" id="prev-neighbour">Hi Pelican &raquo;</a>
+	</div>
+
 			<hr>
 		</article>
 

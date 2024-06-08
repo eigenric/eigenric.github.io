@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en agosto 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Acortar enlaces vía cli | eigenℝic</title>
+	<meta name="description" content="Hemos implementado un pequeño script para acortar enlaces via cli. Para ello, hemos añadido a nuestro .bashrc PATH=$HOME/bin:$PATH Lo sourceamos (source ~/.bashrc) El script consiste en lo …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Acortar enlaces vía cli">
+	<meta property="og:description" content="Hemos implementado un pequeño script para acortar enlaces via cli. Para ello, hemos añadido a nuestro .bashrc PATH=$HOME/bin:$PATH Lo sourceamos (source ~/.bashrc) El script consiste en lo …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/2017/11/acortar-enlaces-via-cli">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,14 +119,35 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en agosto 2017</h1>
+	<h1 class="title"><a href="/2017/11/acortar-enlaces-via-cli" title="Permalink to Acortar enlaces vía cli">Acortar enlaces vía cli</a></h1>
+	<time class="date" datetime="2017-11-13 00:00:00+01:00">13 nov 2017</time>
 	<div class="content">
-			<ul>
-				<li><a class="no-dec" href="/2017/08/tipo-de-datos-frozenset-python">Tipo de datos Frozenset  - Python</a> &raquo; 14 ago 2017</li>
-				<li><a class="no-dec" href="/2017/08/una-odisea-de-depuracion-top-down-con-vim">Una odisea de depuración top-down con Vim.</a> &raquo; 27 ago 2017</li>
-			</ul>
+		<p>Hemos implementado un pequeño script para acortar enlaces via cli.</p>
+<p>Para ello, hemos añadido a nuestro <code>.bashrc</code></p>
+<div class="highlight"><pre><span></span><code>PATH=$HOME/bin:$PATH
+</code></pre></div>
+
+<p>Lo sourceamos (<code>source ~/.bashrc</code>)</p>
+<p>El script consiste en lo siguiente:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="s2">&quot;https://api-ssl.bitly.com/v3/shorten?login=pwaqo&amp;apiKey=R_e5a7e92e55df4be68b59bcc3f3df80c6&amp;longUrl=http%3A%2F%2F</span><span class="nv">$1</span><span class="s2">&amp;format=txt&quot;</span>
+</code></pre></div>
+
+<p>Problemas:</p>
+<ul>
+<li>
+<p>Estamos usando un mecanismo de autenticación
+  desactualizado
+  https://dev.bitly.com/links.html</p>
+</li>
+<li>
+<p>Sería ideal que la URL fuera convertida
+  automáticamente a formato de parámetro
+  (con los %3F y esas cosas).</p>
+</li>
+</ul>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+
 			<hr>
 		</article>
 
