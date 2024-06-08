@@ -21,7 +21,7 @@
 	<meta property="og:url" content="https://eigenric.me/2013/09/hi-pelican">
 
 	<!-- Stylesheets and Web Fonts -->
-	<link href="/theme/style.min.css?245aed9c" rel="stylesheet">
+	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,700|Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -79,6 +79,9 @@
 						<li>
 							<a class="no-dec no-dec-h bold" href="/blog">Blog</a>
 						</li>
+						<li>
+							<a class="no-dec no-dec-h bold" href="/archive">Archive</a>
+						</li>
 
 					<li>
 					
@@ -99,7 +102,8 @@
 
 			<div id="sidebar-links">
 					<a class="no-dec no-dec-h bold" href="/">Home</a>
- &nbsp;&nbsp;|&nbsp;&nbsp; 					<a class="no-dec no-dec-h bold" href="/blog">Blog</a>
+ | 					<a class="no-dec no-dec-h bold" href="/blog">Blog</a>
+ | 					<a class="no-dec no-dec-h bold" href="/archive">Archive</a>
 			</div>
 
 			<div id="social">
@@ -122,8 +126,8 @@
 <p>En Pelican, los posts se pueden escribir con dos lenguajes de marcado ligeros: <a href="http://code.nabla.net/es/rest.html">ReStructuredText</a> o <a href="http://daringfireball.net/projects/markdown/">Markdown</a>. Cada uno ofrece un estilo distinto como se explica en este artículo: <a href="https://jasonstitt.com/markdown-vs-rst-pelican">Markdown vs ReStructuredText</a>. El diseño del sitio se construye con ayuda del motor de plantillas Jinja2. Procedamos a instalarlo.</p>
 <h2>Instalación</h2>
 <p>Pelican está escrito en Python, por lo que para instalarlo basta con usar pip. Para evitar problemas, podéis usar <code>pyenv</code>, <code>virtualenv</code>, o <code>conda</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">source</span> activate blog
-<span class="gp gp-VirtualEnv">(blog)</span> <span class="gp">$ </span>pip install pelican
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>blog
+<span class="gp gp-VirtualEnv">(blog)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>pelican
 </code></pre></div>
 
 <p>Una vez instalado pelican, creamos un nuevo proyecto. El comando <code>pelican-quickstart</code> nos facilita el trabajo mediante un asistente que nos pregunta por la configuración deseada (nombre del sitio, autor, servidor ftp, etc.). Personalmente, yo activo el Makefile y el Devserver.</p>
@@ -141,8 +145,8 @@
 </code></pre></div>
 
 <p>Después de guardarlo en <code>content</code>, volvemos al directorio raíz y ejecutamos las siguientes órdenes:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>make html
-<span class="gp">$ </span>make serve
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>make<span class="w"> </span>html
+<span class="gp">$ </span>make<span class="w"> </span>serve
 </code></pre></div>
 
 <p><code>make html</code> genera los archivos en la carpeta <code>output</code> y <code>make serve</code> inicia un pequeño servidor local en localhost:8000 para poder ver nuestro sitio.</p>
@@ -152,16 +156,28 @@
 <p>Hasta aquí el pequeño tutorial de instalación. Un saludo!</p>
 	</div>
 
+	<div id="related-articles">
+		<a class="no-dec no-dec-h" href="/2017/08/tipo-de-datos-frozenset-python" id="next-neighbour">&laquo; Tipo de datos Frozenset - Python</a>
+	</div>
 
 			<hr>
 		</article>
 
 		<footer>
-			<p>© 2021 por Ricardo Ruiz con <i class='icon fa fa-heart' aria-hidden='true'></i> gracias a <a class='no-dec' target='_blank' href='http://www.getpelican.com'>Pelican</a> y <a class='no-dec' target='_blank' href='http://github.com/eigenric/pneumatic'>Pneumatic theme.</a><br><a class='no-dec' target='_blank' href='http://github.com/eigenric/eigenric.github.io'>Contenido</a> bajo licencia <a class='no-dec no-dec-h' target='_blank' href='https://creativecommons.org/licenses/by-sa/4.0/'> <i class='fab fa-creative-commons' aria-hidden='true'></i> <i class='fab fa-creative-commons-by' aria-hidden='true'></i> <i class='fab fa-creative-commons-sa' aria-hidden='true'></i></a></p>
+			<p>© 2024 por Ricardo Ruiz con <i class='icon fa fa-heart' aria-hidden='true'></i> gracias a <a class='no-dec' target='_blank' href='http://www.getpelican.com'>Pelican</a> y <a class='no-dec' target='_blank' href='http://github.com/eigenric/pneumatic'>Pneumatic theme.</a><br><a class='no-dec' target='_blank' href='http://github.com/eigenric/eigenric.github.io'>Contenido</a> bajo licencia <a class='no-dec no-dec-h' target='_blank' href='https://creativecommons.org/licenses/by-sa/4.0/'> <i class='fab fa-creative-commons' aria-hidden='true'></i> <i class='fab fa-creative-commons-by' aria-hidden='true'></i> <i class='fab fa-creative-commons-sa' aria-hidden='true'></i></a></p>
 		</footer>
 	</div>
 
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PR6EXV7JWN"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
+		gtag('config', 'G-PR6EXV7JWN');
+	</script>
+	
 
 	<script>
 		function adjustScrollBar() {

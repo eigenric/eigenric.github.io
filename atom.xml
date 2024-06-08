@@ -1,11 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2013-09-12T00:00:00+02:00</updated><entry><title>Hi Pelican</title><link href="https://eigenric.me/2013/09/hi-pelican" rel="alternate"></link><published>2013-09-12T00:00:00+02:00</published><updated>2013-09-12T00:00:00+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2013-09-12:/2013/09/hi-pelican</id><summary type="html">&lt;p&gt;Nuevo blog gracias a &lt;a href="http://www.getpelican.com"&gt;Pelican&lt;/a&gt;, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo?&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2017-08-27T00:00:00+02:00</updated><entry><title>Una odisea de depuración top-down con Vim.</title><link href="https://eigenric.me/2017/08/una-odisea-de-depuracion-top-down-con-vim" rel="alternate"></link><published>2017-08-27T00:00:00+02:00</published><updated>2017-08-27T00:00:00+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2017-08-27:/2017/08/una-odisea-de-depuracion-top-down-con-vim</id><summary type="html">&lt;p&gt;&lt;img alt="Jrnl" src="/images/jrnl.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://jrnl.sh/en/stable/" target="_blank"&gt;Jrnl&lt;/a&gt; es un proyecto que permite a las personas llevar un diario desde la línea de comandos. Proporciona una plataforma segura y fácil de usar para escribir y organizar tus …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Jrnl" src="/images/jrnl.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://jrnl.sh/en/stable/" target="_blank"&gt;Jrnl&lt;/a&gt; es un proyecto que permite a las personas llevar un diario desde la línea de comandos. Proporciona una plataforma segura y fácil de usar para escribir y organizar tus pensamientos, recuerdos y experiencias.&lt;/p&gt;
+&lt;p&gt;Por otro lado, &lt;a href="https://termux.com/" target="_blank"&gt;Termux&lt;/a&gt; es una aplicación de terminal de código abierto para dispositivos Android que permite a los usuarios ejecutar comandos y acceder a un entorno similar a una terminal de Linux en sus dispositivos móviles.&lt;/p&gt;
+&lt;p&gt;En este post, describiré el proceso que seguí para configurar un número de columnas fijo cuando VIM abriese ficheros de tipo JRNL y así escribir desde el teléfono gracias a termux. Y cómo durante el proceso encontré un bug en una &lt;a href="https://github.com/raimon49/requirements.txt.vim" target="_blank"&gt;biblioteca externa que acabé corrigiendo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Yo utilizaba VIM con mi configuración antigua de &lt;code&gt;~/.vimrc&lt;/code&gt;, la siguiente línea:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;au&lt;/span&gt; &lt;span class="nb"&gt;BufRead&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;BufNewFile&lt;/span&gt; *.txt &lt;span class="k"&gt;setlocal&lt;/span&gt; &lt;span class="nb"&gt;tw&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;El problema consistía en que ahora mi &lt;code&gt;~/.vimrc&lt;/code&gt; venía dado por &lt;a href="https://vim-bootstrap.com/" target="_blank"&gt;Vim-bootstrap&lt;/a&gt;, un generador de configuraciones de Vim.&lt;/p&gt;
+&lt;p&gt;Investigando, descubrí un método para ver el fichero en el que una variable en VIM fue asigada por última vez.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="k"&gt;verbose&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nb"&gt;tw&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Así pues, en nuestro caso es el &lt;code&gt;vim.vim&lt;/code&gt; del &lt;code&gt;ftplugin&lt;/code&gt;. Por cierto, para cargar el &lt;code&gt;.vimrc&lt;/code&gt;sin reiniciar VIM
+se puede usar &lt;code&gt;:so ~/.vim/vimrc&lt;/code&gt; o si se está en el propio archvo &lt;code&gt;:so %&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Si no usamos el archivo &lt;code&gt;~/.vim/vimrc&lt;/code&gt; de &lt;em&gt;Vim-Bootstrap&lt;/em&gt;, podemos trabajar más facilmente con la depuración de VIM.&lt;/p&gt;
+&lt;p&gt;Cómo no era capaz de encontrar el fallo, acabé &lt;a href="https://stackoverflow.com/questions/45905694/execute-a-line-in-vimrc-at-the-end" target="_blank"&gt;preguntando en Stackoverflow&lt;/a&gt;. Donde comuniqué lo que había intentado y cuál era mi hipótesis.&lt;/p&gt;
+&lt;p&gt;Tuve la suerte de que me respondieran e intenté reproducir sus instruciones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Escribo en vimrc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;au&lt;/span&gt; &lt;span class="nb"&gt;BufRead&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;BufNewFile&lt;/span&gt; jrnl*.txt &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="k"&gt;filetype&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;jrnl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Añado en la carpeta  &lt;code&gt;~/.vim/ftplugin&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nb"&gt;formatoptions&lt;/span&gt;&lt;span class="p"&gt;+=&lt;/span&gt;&lt;span class="k"&gt;t&lt;/span&gt;
+&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nb"&gt;textwidth&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Entonces, comenté todos los plugins y compruebo que funcionaba sin los plugins de &lt;code&gt;Vim-bootstrap&lt;/code&gt;. Posteriormente, fui añadiendo uno a uno los plugins para encontrar el que generaba el problema.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;¡Capturé la biblioteca culpable!&lt;/strong&gt; El plugin requirements.txt.vim es el encargado de sobreescribir la configuración. Cuando está activo, Vim no llama  &lt;code&gt;~/.vim/after/ftplugin/jrnl.vim&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Inspeccionando el código de requirements.txt.vim
+vemos que la &lt;em&gt;línea 37&lt;/em&gt; contiene lo siguiente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;au&lt;/span&gt; &lt;span class="nb"&gt;BufNewFile&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;BufRead&lt;/span&gt; *.{txt&lt;span class="p"&gt;,&lt;/span&gt;ini} &lt;span class="k"&gt;if&lt;/span&gt;
+s:isRequirementsFile&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nb"&gt;ft&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;requirements
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Es decir, que la función &lt;code&gt;isRequirementsFile()&lt;/code&gt; es
+llamada cada vez que se ejecuta un &lt;code&gt;*.txt.&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;!&lt;/span&gt; s:isRequirementsFile&lt;span class="p"&gt;()&lt;/span&gt;
+     &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;l&lt;/span&gt;:filename &lt;span class="p"&gt;=&lt;/span&gt; expand&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;%:p&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; Requirements_matched_filename&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;l&lt;/span&gt;:filename&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;endfunction&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;!&lt;/span&gt; Requirements_matched_filename&lt;span class="p"&gt;(&lt;/span&gt;filename&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="k"&gt;a&lt;/span&gt;:filename &lt;span class="p"&gt;=~&lt;/span&gt;# &lt;span class="s1"&gt;&amp;#39;\v.*require(ment)?s\.(txt|in)$&amp;#39;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;endif&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="k"&gt;a&lt;/span&gt;:filename &lt;span class="p"&gt;=~&lt;/span&gt;# &lt;span class="s1"&gt;&amp;#39;\vrequire(ment)?s/.*\.(txt|in)$&amp;#39;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;endif&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="k"&gt;a&lt;/span&gt;:filename &lt;span class="p"&gt;=~&lt;/span&gt;# &lt;span class="s1"&gt;&amp;#39;\vconstraints\.(txt|in)$&amp;#39;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;endif&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; len&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;g&lt;/span&gt;:requirements#detect_filename_pattern&lt;span class="p"&gt;)&lt;/span&gt;
+        \ &amp;amp;&amp;amp; &lt;span class="k"&gt;a&lt;/span&gt;:filename &lt;span class="p"&gt;=~&lt;/span&gt;# &lt;span class="k"&gt;g&lt;/span&gt;:requirements#detect_filename_pattern
+         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+     &lt;span class="k"&gt;endif&lt;/span&gt;
+
+     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;span class="k"&gt;endfunction&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Como vemos, esta función crea una variable &lt;code&gt;filename&lt;/code&gt; que contiene la ruta completa del archivo. Devuelve el resultado de aplicarle la función &lt;code&gt;Requirements_matched_filename&lt;/code&gt; a la ruta. Comprobamos que la función &lt;code&gt;isReq&lt;/code&gt; devolvía 0. Por
+lo tanto, el &lt;em&gt;bug parecía inencontrable...&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Fue entonces cuando se me ocurrió la, quizás obvia pero efectiva, idea de &lt;a href="https://vimdoc.sourceforge.net/htmldoc/syntax.html" target="_blank"&gt;leer la documentación de la sintaxis de vim&lt;/a&gt; y nos sorprendemos al ver que a la instrucción&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;au&lt;/span&gt; &lt;span class="nb"&gt;BufNewFile&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;BufRead&lt;/span&gt; *.{txt&lt;span class="p"&gt;,&lt;/span&gt;ini} &lt;span class="k"&gt;if&lt;/span&gt; 
+    s:isRequirementsFile&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nb"&gt;ft&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;requirements
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;¡le faltaba un endif!&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;au&lt;/span&gt; &lt;span class="nb"&gt;BufNewFile&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;BufRead&lt;/span&gt; *.{txt&lt;span class="p"&gt;,&lt;/span&gt;ini} &lt;span class="k"&gt;if&lt;/span&gt;
+ s:isRequirementsFile&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nb"&gt;ft&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;requirements &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="k"&gt;endif&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;En efecto, la simple ausencia de un &lt;code&gt;endif&lt;/code&gt; en uno de los plugins de configuración estaba sobreescribiendo nuestra orden.&lt;/p&gt;
+&lt;p&gt;Luego, me propuse a escribir un &lt;a href="https://github.com/raimon49/requirements.txt.vim/pull/6" target="_blank"&gt;Pull Request&lt;/a&gt; que fue aceptado inmediatamente.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Comentario del futuro:&lt;/strong&gt;
+   La nueva versión de JRNL abre los archivos en
+   formato &lt;code&gt;.jrnl&lt;/code&gt;. Ahora basta con cambiar el &lt;code&gt;au BufNewFil&lt;/code&gt; a &lt;code&gt;*.jrnl&lt;/code&gt; para que
+   funcione.&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="8ago"></category><category term="jrnl"></category><category term="vim"></category><category term="depuracion"></category></entry><entry><title>Tipo de datos Frozenset - Python</title><link href="https://eigenric.me/2017/08/tipo-de-datos-frozenset-python" rel="alternate"></link><published>2017-08-14T00:00:00+02:00</published><updated>2017-08-14T00:00:00+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2017-08-14:/2017/08/tipo-de-datos-frozenset-python</id><summary type="html">&lt;p&gt;He descubierto un nuevo tipo de conjunto en python, el &lt;code&gt;frozenset&lt;/code&gt;. La diferencia
+con el conjunto normal tipo &lt;code&gt;&amp;lt;class 'set'&amp;gt;&lt;/code&gt; es que el &lt;code&gt;frozenset&lt;/code&gt; es &lt;strong&gt;inmutable&lt;/strong&gt;. 
+Esto es, una vez …&lt;/p&gt;</summary><content type="html">&lt;p&gt;He descubierto un nuevo tipo de conjunto en python, el &lt;code&gt;frozenset&lt;/code&gt;. La diferencia
+con el conjunto normal tipo &lt;code&gt;&amp;lt;class 'set'&amp;gt;&lt;/code&gt; es que el &lt;code&gt;frozenset&lt;/code&gt; es &lt;strong&gt;inmutable&lt;/strong&gt;. 
+Esto es, una vez creado no se puede modificar.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;frozenset&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ne"&gt;AttributeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;frozenset&amp;#39;&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt; &lt;span class="n"&gt;attribute&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;add&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;remove&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ne"&gt;AttributeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;frozenset&amp;#39;&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt; &lt;span class="n"&gt;attribute&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;remove&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;A pesar de que no se pueden modificar, se pueden realizar operaciones de conjuntos tales
+como unión, intersección, diferencia, etc.&lt;/p&gt;
+&lt;h2&gt;Unión&lt;/h2&gt;
+&lt;p&gt;Para realizar la unión de dos &lt;code&gt;frozenset&lt;/code&gt; se utiliza el operador &lt;code&gt;|&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;bar&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;frozenset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;frozenset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;bar&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;frozenset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Intersección&lt;/h2&gt;
+&lt;p&gt;Para realizar la intersección de dos &lt;code&gt;frozenset&lt;/code&gt; se utiliza el operador &lt;code&gt;&amp;amp;&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;bar&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;frozenset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;frozenset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;bar&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;frozenset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Diferencia&lt;/h2&gt;
+&lt;p&gt;Para realizar la diferencia de dos &lt;code&gt;frozenset&lt;/code&gt; se utiliza el operador &lt;code&gt;-&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;bar&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;frozenset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;frozenset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;bar&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;frozenset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Puedes obtener más información en la &lt;a href="https://docs.python.org/3/library/stdtypes.html#frozenset" target="_blank"&gt;Documentación oficial&lt;/a&gt;.&lt;/p&gt;</content><category term="8ago"></category><category term="python"></category><category term="tipos"></category></entry><entry><title>Hi Pelican</title><link href="https://eigenric.me/2013/09/hi-pelican" rel="alternate"></link><published>2013-09-12T00:00:00+02:00</published><updated>2013-09-12T00:00:00+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2013-09-12:/2013/09/hi-pelican</id><summary type="html">&lt;p&gt;Nuevo blog gracias a &lt;a href="http://www.getpelican.com"&gt;Pelican&lt;/a&gt;, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo?&lt;/p&gt;
 &lt;p&gt;En Pelican, los posts se pueden escribir con dos lenguajes de marcado …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Nuevo blog gracias a &lt;a href="http://www.getpelican.com"&gt;Pelican&lt;/a&gt;, un sencillo generador de sitios estáticos escrito en python. ¿Le echas un vistazo?&lt;/p&gt;
 &lt;p&gt;En Pelican, los posts se pueden escribir con dos lenguajes de marcado ligeros: &lt;a href="http://code.nabla.net/es/rest.html"&gt;ReStructuredText&lt;/a&gt; o &lt;a href="http://daringfireball.net/projects/markdown/"&gt;Markdown&lt;/a&gt;. Cada uno ofrece un estilo distinto como se explica en este artículo: &lt;a href="https://jasonstitt.com/markdown-vs-rst-pelican"&gt;Markdown vs ReStructuredText&lt;/a&gt;. El diseño del sitio se construye con ayuda del motor de plantillas Jinja2. Procedamos a instalarlo.&lt;/p&gt;
 &lt;h2&gt;Instalación&lt;/h2&gt;
 &lt;p&gt;Pelican está escrito en Python, por lo que para instalarlo basta con usar pip. Para evitar problemas, podéis usar &lt;code&gt;pyenv&lt;/code&gt;, &lt;code&gt;virtualenv&lt;/code&gt;, o &lt;code&gt;conda&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;source&lt;/span&gt; activate blog
-&lt;span class="gp gp-VirtualEnv"&gt;(blog)&lt;/span&gt; &lt;span class="gp"&gt;$ &lt;/span&gt;pip install pelican
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;activate&lt;span class="w"&gt; &lt;/span&gt;blog
+&lt;span class="gp gp-VirtualEnv"&gt;(blog)&lt;/span&gt; &lt;span class="gp"&gt;$ &lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;pelican
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Una vez instalado pelican, creamos un nuevo proyecto. El comando &lt;code&gt;pelican-quickstart&lt;/code&gt; nos facilita el trabajo mediante un asistente que nos pregunta por la configuración deseada (nombre del sitio, autor, servidor ftp, etc.). Personalmente, yo activo el Makefile y el Devserver.&lt;/p&gt;
@@ -23,12 +158,12 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Después de guardarlo en &lt;code&gt;content&lt;/code&gt;, volvemos al directorio raíz y ejecutamos las siguientes órdenes:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;make html
-&lt;span class="gp"&gt;$ &lt;/span&gt;make serve
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;make&lt;span class="w"&gt; &lt;/span&gt;html
+&lt;span class="gp"&gt;$ &lt;/span&gt;make&lt;span class="w"&gt; &lt;/span&gt;serve
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;code&gt;make html&lt;/code&gt; genera los archivos en la carpeta &lt;code&gt;output&lt;/code&gt; y &lt;code&gt;make serve&lt;/code&gt; inicia un pequeño servidor local en localhost:8000 para poder ver nuestro sitio.&lt;/p&gt;
 &lt;p&gt;Así es como tendrá que quedarnos&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Magnifica imagen de muestra" src="https://eigenric.me/images/screenshot.png" width="740px"&gt;&lt;/p&gt;
 &lt;p&gt;Por defecto se utiliza el tema &lt;code&gt;notmyidea&lt;/code&gt;, pero puedes &lt;a href="http://pelicanthemes.com"&gt;descargar otros&lt;/a&gt; o crear uno (más información en la propia &lt;a href="http://docs.getpelican.com/en/stable/"&gt;Documentación de Pelican&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;Hasta aquí el pequeño tutorial de instalación. Un saludo!&lt;/p&gt;</content><category term="misc"></category><category term="python"></category><category term="pelican"></category><category term="static"></category><category term="blog"></category></entry></feed>
+&lt;p&gt;Hasta aquí el pequeño tutorial de instalación. Un saludo!&lt;/p&gt;</content><category term="2013"></category><category term="python"></category><category term="pelican"></category><category term="static"></category><category term="blog"></category></entry></feed>
