@@ -16,9 +16,9 @@
 	<meta name="twitter:site" content="">
 	<meta property="og:title" content="Una odisea de depuración top-down con Vim.">
 	<meta property="og:description" content="Jrnl es un proyecto que permite a las personas llevar un diario desde la línea de comandos. Proporciona una plataforma segura y fácil de usar para escribir y organizar tus …">
-	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:image" content="http://localhost:8000/images/icons/avatar.png">
 	<meta property="og:type" content="article">
-	<meta property="og:url" content="https://eigenric.me/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">
+	<meta property="og:url" content="http://localhost:8000/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">
 
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
@@ -126,7 +126,7 @@
 <p><a href="https://jrnl.sh/en/stable/" target="_blank">Jrnl</a> es un proyecto que permite a las personas llevar un diario desde la línea de comandos. Proporciona una plataforma segura y fácil de usar para escribir y organizar tus pensamientos, recuerdos y experiencias.</p>
 <p>Por otro lado, <a href="https://termux.com/" target="_blank">Termux</a> es una aplicación de terminal de código abierto para dispositivos Android que permite a los usuarios ejecutar comandos y acceder a un entorno similar a una terminal de Linux en sus dispositivos móviles.</p>
 <p>En este post, describiré el proceso que seguí para configurar un número de columnas fijo cuando VIM abriese ficheros de tipo JRNL y así escribir desde el teléfono gracias a termux. Y cómo durante el proceso encontré un bug en una <a href="https://github.com/raimon49/requirements.txt.vim" target="_blank">biblioteca externa que acabé corrigiendo</a></p>
-<p>Yo utilizaba VIM con mi configuración antigua de <code>~/.vimrc</code>, la siguiente línea:</p>
+<p>Yo utilizaba VIM con mi configuración antigua de <code>~/.vimrc</code>, conteniendo la siguiente línea:</p>
 <div class="highlight"><pre><span></span><code><span class="k">au</span> <span class="nb">BufRead</span><span class="p">,</span><span class="nb">BufNewFile</span> *.txt <span class="k">setlocal</span> <span class="nb">tw</span><span class="p">=</span><span class="m">50</span>
 </code></pre></div>
 
@@ -135,28 +135,22 @@
 <div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">verbose</span> <span class="k">set</span> <span class="nb">tw</span>
 </code></pre></div>
 
-<p>Así pues, en nuestro caso es el <code>vim.vim</code> del <code>ftplugin</code>. Por cierto, para cargar el <code>.vimrc</code>sin reiniciar VIM
-se puede usar <code>:so ~/.vim/vimrc</code> o si se está en el propio archvo <code>:so %</code>.</p>
+<p>Así pues, en nuestro caso es el <code>vim.vim</code> del <code>ftplugin</code>. Por cierto, para cargar el <code>.vimrc</code> sin reiniciar VIM se puede usar <code>:so ~/.vim/vimrc</code> o si se está en el propio archvo <code>:so %</code>.</p>
 <p>Si no usamos el archivo <code>~/.vim/vimrc</code> de <em>Vim-Bootstrap</em>, podemos trabajar más facilmente con la depuración de VIM.</p>
 <p>Cómo no era capaz de encontrar el fallo, acabé <a href="https://stackoverflow.com/questions/45905694/execute-a-line-in-vimrc-at-the-end" target="_blank">preguntando en Stackoverflow</a>. Donde comuniqué lo que había intentado y cuál era mi hipótesis.</p>
-<p>Tuve la suerte de que me respondieran e intenté reproducir sus instruciones:</p>
-<ul>
-<li>Escribo en vimrc</li>
-</ul>
+<p>Tuve la suerte de que me respondieran e intenté reproducir sus instrucciones:</p>
+<p>Escribo en <code>~/.vimrc</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">au</span> <span class="nb">BufRead</span><span class="p">,</span> <span class="nb">BufNewFile</span> jrnl*.txt <span class="k">set</span> <span class="k">filetype</span><span class="p">=</span>jrnl
 </code></pre></div>
 
-<ul>
-<li>Añado en la carpeta  <code>~/.vim/ftplugin</code></li>
-</ul>
+<p>Añado en la carpeta  <code>~/.vim/ftplugin</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">set</span> <span class="nb">formatoptions</span><span class="p">+=</span><span class="k">t</span>
 <span class="k">set</span> <span class="nb">textwidth</span><span class="p">=</span><span class="m">50</span>
 </code></pre></div>
 
 <p>Entonces, comenté todos los plugins y compruebo que funcionaba sin los plugins de <code>Vim-bootstrap</code>. Posteriormente, fui añadiendo uno a uno los plugins para encontrar el que generaba el problema.</p>
-<p><strong>¡Capturé la biblioteca culpable!</strong> El plugin requirements.txt.vim es el encargado de sobreescribir la configuración. Cuando está activo, Vim no llama  <code>~/.vim/after/ftplugin/jrnl.vim</code></p>
-<p>Inspeccionando el código de requirements.txt.vim
-vemos que la <em>línea 37</em> contiene lo siguiente:</p>
+<p><strong>¡Capturé la biblioteca culpable!</strong> El plugin requirements.txt.vim era el encargado de sobreescribir la configuración. Cuando está activo, Vim no llama  <code>~/.vim/after/ftplugin/jrnl.vim</code></p>
+<p>Inspeccionando el código de requirements.txt.vim vemos que la <em>línea 37</em> contiene lo siguiente:</p>
 <div class="highlight"><pre><span></span><code><span class="k">au</span> <span class="nb">BufNewFile</span><span class="p">,</span><span class="nb">BufRead</span> *.{txt<span class="p">,</span>ini} <span class="k">if</span>
 s:isRequirementsFile<span class="p">()</span> <span class="p">|</span> <span class="k">set</span> <span class="nb">ft</span><span class="p">=</span>requirements
 </code></pre></div>
@@ -191,8 +185,7 @@ llamada cada vez que se ejecuta un <code>*.txt.</code></p>
 <span class="k">endfunction</span>
 </code></pre></div>
 
-<p>Como vemos, esta función crea una variable <code>filename</code> que contiene la ruta completa del archivo. Devuelve el resultado de aplicarle la función <code>Requirements_matched_filename</code> a la ruta. Comprobamos que la función <code>isReq</code> devolvía 0. Por
-lo tanto, el <em>bug parecía inencontrable...</em></p>
+<p>Como vemos, esta función crea una variable <code>filename</code> que contiene la ruta completa del archivo. Devuelve el resultado de aplicarle la función <code>Requirements_matched_filename</code> a la ruta. Comprobamos que la función <code>isReq</code> devolvía 0. Por lo tanto, el <em>bug parecía inencontrable...</em></p>
 <p>Fue entonces cuando se me ocurrió la, quizás obvia pero efectiva, idea de <a href="https://vimdoc.sourceforge.net/htmldoc/syntax.html" target="_blank">leer la documentación de la sintaxis de vim</a> y nos sorprendemos al ver que a la instrucción</p>
 <div class="highlight"><pre><span></span><code><span class="k">au</span> <span class="nb">BufNewFile</span><span class="p">,</span><span class="nb">BufRead</span> *.{txt<span class="p">,</span>ini} <span class="k">if</span> 
     s:isRequirementsFile<span class="p">()</span> <span class="p">|</span> <span class="k">set</span> <span class="nb">ft</span><span class="p">=</span>requirements
@@ -209,8 +202,8 @@ lo tanto, el <em>bug parecía inencontrable...</em></p>
 <blockquote>
 <p><strong>Comentario del futuro:</strong>
    La nueva versión de JRNL abre los archivos en
-   formato <code>.jrnl</code>. Ahora basta con cambiar el <code>au BufNewFil</code> a <code>*.jrnl</code> para que
-   funcione.</p>
+   formato <code>.jrnl</code>. Ahora basta con cambiar el <code>au BufNewFil</code> a <code>*.jrnl</code> para obtener
+   el mismo efecto.</p>
 </blockquote>
 	</div>
 
@@ -226,15 +219,6 @@ lo tanto, el <em>bug parecía inencontrable...</em></p>
 		</footer>
 	</div>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PR6EXV7JWN"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'G-PR6EXV7JWN');
-	</script>
 	
 
 	<script>
