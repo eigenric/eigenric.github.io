@@ -20,6 +20,15 @@ Afortunadamente, existen herramientas como Taskwarrior que están diseñadas par
 
 - **Integraciones:** Se integra con otras herramientas y servicios, como calendarios y correos electrónicos, para sincronizar tareas y maximizar la eficiencia.
 
+# Instalación
+
+Taskwarrior está disponible en la mayoría de los repositorios de las
+distribuciones de Linux. También puedes instalarlo en macOS via Homebrew: 
+
+```shell
+$ brew install task
+```
+
 # Ejemplos Básicos de Uso
 
 Añadir una tarea:
