@@ -4,6 +4,7 @@ Tags: python, tipos
 
 He descubierto un nuevo tipo de conjunto en python, el `frozenset`. La diferencia
 con el conjunto normal tipo `<class 'set'>` es que el `frozenset` es **inmutable**. 
+Esto es, una vez creado no se puede modificar.
 
 ```python
 foo = frozenset([1,2,3,4])
