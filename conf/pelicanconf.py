@@ -17,8 +17,8 @@ DEFAULT_DATE_FORMAT = '%-d %b %Y'
 INDEX_URL = 'blog'
 INDEX_SAVE_AS = 'blog/index.html'
 
-ARTICLE_URL = '{date:%Y}/{date:%m}/{slug}'
-ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{slug}.html'
+ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{slug}'
+ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{slug}.html'
 
 #ARTICLE_URL = '{slug}/'
 #ARTICLE_SAVE_AS = '{slug}/index.html'
@@ -72,10 +72,11 @@ SOCIAL_ICONS = [
 SIDEBAR_LINKS = [
         ("", "Home"),
         ("blog", "Blog"),
+        ("archive", "Archive")
 ]
 
 FOOTER_TEXT = (
-    "© 2021 por Ricardo Ruiz con"
+    "© 2024 por Ricardo Ruiz con"
     " <i class='icon fa fa-heart' aria-hidden='true'></i> gracias a"
     " <a class='no-dec' target='_blank' href='http://www.getpelican.com'>Pelican</a>"
     " y <a class='no-dec' target='_blank' href='http://github.com/eigenric/pneumatic'>Pneumatic theme.</a><br>"
@@ -92,7 +93,7 @@ PLUGINS = [
         'plugins.neighbors.neighbors',
         'plugins.sitemap.sitemap',
         'plugins.render_math', 
-        'pelican_youtube'
+        'plugins.pelican_youtube',
 ]
 
 MATH_JAX = {

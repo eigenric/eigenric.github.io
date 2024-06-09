@@ -58,7 +58,7 @@ INDEX_DESCRIPTION = "Personal blog of Ricardo Ruiz"
 THEME_COLOR = "#1e2327"
 
 # DISQUS_SITENAME = ""
-# GOOGLE_ANALYTICS = ""
+GOOGLE_ANALYTICS = "G-PR6EXV7JWN"
 
 SOCIAL_ICONS = [
         ('http://www.github.com/eigenric', 'GitHub', 'fa-github'),
@@ -72,10 +72,11 @@ SOCIAL_ICONS = [
 SIDEBAR_LINKS = [
         ("", "Home"),
         ("blog", "Blog"),
+        ("archive", "Archive")
 ]
 
 FOOTER_TEXT = (
-    "© 2021 por Ricardo Ruiz con"
+    "© 2024 por Ricardo Ruiz con"
     " <i class='icon fa fa-heart' aria-hidden='true'></i> gracias a"
     " <a class='no-dec' target='_blank' href='http://www.getpelican.com'>Pelican</a>"
     " y <a class='no-dec' target='_blank' href='http://github.com/eigenric/pneumatic'>Pneumatic theme.</a><br>"
@@ -92,6 +93,7 @@ PLUGINS = [
         'plugins.neighbors.neighbors',
         'plugins.sitemap.sitemap',
         'plugins.render_math',
+        'plugins.pelican_youtube',
 ]
 
 MATH_JAX = {
