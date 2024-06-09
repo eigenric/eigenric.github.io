@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2017-09-01T00:00:00+02:00</updated><entry><title>Sé un guerrero de la productividad con Taskwarrior</title><link href="https://eigenric.me/2017/09/se-un-guerrero-de-la-productividad-con-taskwarrior" rel="alternate"></link><published>2017-09-01T00:00:00+02:00</published><updated>2017-09-01T00:00:00+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2017-09-01:/2017/09/se-un-guerrero-de-la-productividad-con-taskwarrior</id><summary type="html">&lt;p&gt;En el vertiginoso mundo de hoy, la gestión del tiempo y las tareas se ha convertido en una habilidad esencial para alcanzar tus objetivos. Afortunadamente, existen herramientas como Taskwarrior que …&lt;/p&gt;</summary><content type="html">&lt;p&gt;En el vertiginoso mundo de hoy, la gestión del tiempo y las tareas se ha convertido en una habilidad esencial para alcanzar tus objetivos. Afortunadamente, existen herramientas como Taskwarrior que están diseñadas para ayudarnos a organizar nuestras responsabilidades diarias y maximizar nuestra productividad.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2017-09-01T00:00:00+02:00</updated><entry><title>Sé un guerrero de la productividad con Taskwarrior</title><link href="https://eigenric.me/2017/09/se-un-guerrero-de-la-productividad-con-taskwarrior" rel="alternate"></link><published>2017-09-01T00:00:00+02:00</published><updated>2017-09-01T00:00:00+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2017-09-01:/2017/09/se-un-guerrero-de-la-productividad-con-taskwarrior</id><summary type="html">&lt;p&gt;En el vertiginoso mundo de hoy, la gestión del tiempo y las tareas se ha convertido en una habilidad esencial para alcanzar tus objetivos. &lt;/p&gt;
+&lt;p&gt;Afortunadamente, existen herramientas como Taskwarrior que …&lt;/p&gt;</summary><content type="html">&lt;p&gt;En el vertiginoso mundo de hoy, la gestión del tiempo y las tareas se ha convertido en una habilidad esencial para alcanzar tus objetivos. &lt;/p&gt;
+&lt;p&gt;Afortunadamente, existen herramientas como Taskwarrior que están diseñadas para ayudarnos a organizar nuestras responsabilidades diarias y maximizar nuestra productividad.&lt;/p&gt;
 &lt;h2&gt;¿Qué es Taskwarrior?&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://taskwarrior.org/" target="_blank"&gt;Taskwarrior&lt;/a&gt; es un potente administrador de tareas de línea de comandos que te permite mantener un registro de tus actividades, establecer plazos, priorizar tareas y mucho más. Su enfoque minimalista lo hace ideal para usuarios que prefieren la eficiencia sobre la complejidad.&lt;/p&gt;
 &lt;h2&gt;Características&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Interfaz de línea de comandos (CLI):&lt;/strong&gt; Aunque puede parecer intimidante al principio, la interfaz de línea de comandos de Taskwarrior es sorprendentemente intuitiva una vez que te acostumbras a ella. Te permite agregar, editar y completar tareas con comandos simples y rápidos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Interfaz de línea de comandos (CLI):&lt;/strong&gt; Su interfaz de usuario basada en comandos es intuitiva una vez que te acostumbras, facilitando la agregación, edición y finalización de tareas.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Gestión flexible de tareas:&lt;/strong&gt; Taskwarrior te permite etiquetar, priorizar y organizar tus tareas de acuerdo con tus necesidades específicas. Puedes asignar etiquetas a tus tareas para categorizarlas y filtrarlas fácilmente más tarde.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Gestión flexible de tareas:&lt;/strong&gt; Permite etiquetar, priorizar y organizar tareas según tus necesidades, ofreciendo una personalización completa.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Plazos y recordatorios:&lt;/strong&gt; Con Taskwarrior, nunca más olvidarás una fecha límite importante. Puedes establecer plazos para tus tareas y recibir recordatorios automáticos para asegurarte de cumplir con tus compromisos a tiempo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Plazos y recordatorios:&lt;/strong&gt; No más fechas límite olvidadas; Taskwarrior te permite establecer plazos y recibir recordatorios automáticos para mantenerte en el buen camino.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Integraciones:&lt;/strong&gt; Taskwarrior se integra fácilmente con otras herramientas y servicios, lo que te permite sincronizar tus tareas con calendarios, correos electrónicos y más. Esta funcionalidad te permite tener una visión más completa de tu carga de trabajo y maximizar tu eficiencia.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Integraciones:&lt;/strong&gt; Se integra con otras herramientas y servicios, como calendarios y correos electrónicos, para sincronizar tareas y maximizar la eficiencia.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1&gt;Ejemplos Básicos de Uso&lt;/h1&gt;
@@ -43,7 +45,7 @@
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;modify&lt;span class="w"&gt; &lt;/span&gt;priority:H
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;(También se puede usar &lt;code&gt;task x mod&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;Notemos como taskwarrior es capaz de asignar prioridades a las tareas. En este caso, la tarea 1 ha sido marcada con prioridad alta. Esto permite a los usuarios completar las tareas más importantes primero.&lt;/p&gt;
 &lt;p&gt;Añadir una tarea con fecha de vencimiento y etiqueta:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Comprar leche&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;due:tomorrow&lt;span class="w"&gt; &lt;/span&gt;+compras
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -54,7 +56,14 @@
 
 &lt;p&gt;&lt;a href="/images/taskwarrior-2.png" target="_blank"&gt;&lt;img src="/images/taskwarrior-2.png" alt="Taskwarrior example" width="100%" height="100%"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Para desbloquear todo el potencial de Taskwarrior, sugerimos revisar la
-&lt;a href="https://taskwarrior.org/docs/" target="_blank"&gt;documentación oficial&lt;/a&gt;. Encontrarás una guía completa que te ayudará a aprovechar al máximo esta herramienta.&lt;/p&gt;</content><category term="9sep"></category><category term="productividad"></category><category term="taskwarrior"></category><category term="tareas"></category></entry><entry><title>Una odisea de depuración top-down con Vim.</title><link href="https://eigenric.me/2017/08/una-odisea-de-depuracion-top-down-con-vim" rel="alternate"></link><published>2017-08-27T00:00:00+02:00</published><updated>2017-08-27T00:00:00+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2017-08-27:/2017/08/una-odisea-de-depuracion-top-down-con-vim</id><summary type="html">&lt;p&gt;&lt;img alt="Jrnl" src="/images/jrnl.png"&gt;&lt;/p&gt;
+&lt;a href="https://taskwarrior.org/docs/" target="_blank"&gt;documentación oficial&lt;/a&gt;. Encontrarás una guía completa que te ayudará a aprovechar al máximo esta herramienta. &lt;/p&gt;
+&lt;h2&gt;Referencias&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://lamiradadelreplicante.com/2018/04/30/administra-tu-lista-de-tareas-con-taskwarrior/" target="_blank"&gt;La Mirada del Replicante - Administra tu lista de tareas con Taskwarrior&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://debianhackers.net/taskwarrior-un-guerrero-en-tu-terminal/" target="_blank"&gt;DebianHackers - Taskwarrior: Un guerrero en tu terminal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://taskwarrior.org/docs/" target="_blank"&gt;Documentación oficial&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/GothenburgBitFactory/taskwarrior" target="_blank"&gt;Taskwarrior en GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="9sep"></category><category term="productividad"></category><category term="taskwarrior"></category><category term="tareas"></category></entry><entry><title>Una odisea de depuración top-down con Vim.</title><link href="https://eigenric.me/2017/08/una-odisea-de-depuracion-top-down-con-vim" rel="alternate"></link><published>2017-08-27T00:00:00+02:00</published><updated>2017-08-27T00:00:00+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2017-08-27:/2017/08/una-odisea-de-depuracion-top-down-con-vim</id><summary type="html">&lt;p&gt;&lt;img alt="Jrnl" src="/images/jrnl.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://jrnl.sh/en/stable/" target="_blank"&gt;Jrnl&lt;/a&gt; es un proyecto que permite a las personas llevar un diario desde la línea de comandos. Proporciona una plataforma segura y fácil de usar para escribir y organizar tus …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Jrnl" src="/images/jrnl.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://jrnl.sh/en/stable/" target="_blank"&gt;Jrnl&lt;/a&gt; es un proyecto que permite a las personas llevar un diario desde la línea de comandos. Proporciona una plataforma segura y fácil de usar para escribir y organizar tus pensamientos, recuerdos y experiencias.&lt;/p&gt;
 &lt;p&gt;Por otro lado, &lt;a href="https://termux.com/" target="_blank"&gt;Termux&lt;/a&gt; es una aplicación de terminal de código abierto para dispositivos Android que permite a los usuarios ejecutar comandos y acceder a un entorno similar a una terminal de Linux en sus dispositivos móviles.&lt;/p&gt;
