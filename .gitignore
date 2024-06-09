@@ -9,3 +9,5 @@ conf/ftp
 *.pyc
 *.save
 *.pid
+
+output
