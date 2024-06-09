@@ -2,23 +2,21 @@ Title: Sé un guerrero de la productividad con Taskwarrior
 Date: 2017-09-01
 Tags: productividad, taskwarrior, tareas
 
-[Taskwarrior](https://taskwarrior.org/){:target=_blank} es una herramienta de línea de comandos para la gestión de tareas, diseñada para ser potente, flexible y personalizable. Ideal para usuarios que prefieren trabajar en terminal, permite capturar, rastrear y organizar tareas de manera eficiente.
+En el vertiginoso mundo de hoy, la gestión del tiempo y las tareas se ha convertido en una habilidad esencial para alcanzar tus objetivos. Afortunadamente, existen herramientas como Taskwarrior que están diseñadas para ayudarnos a organizar nuestras responsabilidades diarias y maximizar nuestra productividad.
 
-# Características
+## ¿Qué es Taskwarrior?
 
-- **Flexibilidad**: Permite crear, editar y organizar tareas de manera flexible, asignando fechas de vencimiento, prioridades, etiquetas y notas.
+[Taskwarrior](https://taskwarrior.org/){:target=_blank} es un potente administrador de tareas de línea de comandos que te permite mantener un registro de tus actividades, establecer plazos, priorizar tareas y mucho más. Su enfoque minimalista lo hace ideal para usuarios que prefieren la eficiencia sobre la complejidad.
 
-- **Interfaz de Línea de Comandos**: no requiere de altos recursos, pudiendo trabajar offline y sincronizar tareas posteriormente.
+## Características
 
-- **Personalización:** Es altamente personalizable, permitiendo configurar listas de proyectos, contextos y etiquetas según las necesidades individuales.
+- **Interfaz de línea de comandos (CLI):** Aunque puede parecer intimidante al principio, la interfaz de línea de comandos de Taskwarrior es sorprendentemente intuitiva una vez que te acostumbras a ella. Te permite agregar, editar y completar tareas con comandos simples y rápidos.
 
-- **Gestión de Proyectos:** Organiza tareas en proyectos para un seguimiento claro de actividades, asignando tareas específicas a cada proyecto.
+- **Gestión flexible de tareas:** Taskwarrior te permite etiquetar, priorizar y organizar tus tareas de acuerdo con tus necesidades específicas. Puedes asignar etiquetas a tus tareas para categorizarlas y filtrarlas fácilmente más tarde.
 
-- **Priorización y Filtrado:** Permite priorizar y filtrar tareas según diversos criterios, como fecha de vencimiento, prioridad y etiquetas.
+- **Plazos y recordatorios:** Con Taskwarrior, nunca más olvidarás una fecha límite importante. Puedes establecer plazos para tus tareas y recibir recordatorios automáticos para asegurarte de cumplir con tus compromisos a tiempo.
 
-- **Recordatorios y Alertas:** Configura recordatorios y alertas para no perder plazos importantes.
-
-- **Integración:**  Se integra con otras herramientas y servicios mediante complementos y scripts personalizados.
+- **Integraciones:** Taskwarrior se integra fácilmente con otras herramientas y servicios, lo que te permite sincronizar tus tareas con calendarios, correos electrónicos y más. Esta funcionalidad te permite tener una visión más completa de tu carga de trabajo y maximizar tu eficiencia.
 
 # Ejemplos Básicos de Uso
 
@@ -31,7 +29,7 @@ $ task add "Leer el capítulo 1 del libro de historia"
 Añadir una tarea con proyecto:
 
 ```shell
-$ task add "Escribir post sobre taskwarriorblog" project:blog
+$ task add "Escribir post taskwarrior" project:blog
 ```
 
 Listar tareas:
@@ -45,6 +43,8 @@ Listar tareas de un proyecto:
 ```shell
 $ task project:blog list
 ```
+
+<a href="/images/taskwarrior-1.png" target="_blank"><img src="/images/taskwarrior.png" alt="Taskwarrior example" width="100%" height="100%"></a>
 
 Completar una tarea:
 
@@ -72,7 +72,7 @@ Filtrar tareas por etiqueta:
 task +compras list
 ```
 
-![Taskwarrior](/images/taskwarrior.png)
+<a href="/images/taskwarrior-2.png" target="_blank"><img src="/images/taskwarrior-2.png" alt="Taskwarrior example" width="100%" height="100%"></a>
 
 Para desbloquear todo el potencial de Taskwarrior, sugerimos revisar la
 [documentación oficial](https://taskwarrior.org/docs/){:target=_blank}. Encontrarás una guía completa que te ayudará a aprovechar al máximo esta herramienta.
