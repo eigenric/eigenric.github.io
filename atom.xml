@@ -19,6 +19,12 @@
 &lt;p&gt;&lt;strong&gt;Integraciones:&lt;/strong&gt; Se integra con otras herramientas y servicios, como calendarios y correos electrónicos, para sincronizar tareas y maximizar la eficiencia.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h1&gt;Instalación&lt;/h1&gt;
+&lt;p&gt;Taskwarrior está disponible en la mayoría de los repositorios de las
+distribuciones de Linux. También puedes instalarlo en macOS via Homebrew: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;brew&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;task
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 &lt;h1&gt;Ejemplos Básicos de Uso&lt;/h1&gt;
 &lt;p&gt;Añadir una tarea:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Leer el capítulo 1 del libro de historia&amp;quot;&lt;/span&gt;
