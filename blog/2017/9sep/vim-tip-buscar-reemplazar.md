@@ -1,6 +1,6 @@
-Title: Vim Tip - Buscar y remplazar
+Title: Vim Tip - Buscar y reemplazar
 Date: 2017-09-02
-Tags: vim, buscar, remplazar
+Tags: vim, buscar, reemplazar
 
 ![Vim](/images/vim.png)
 
