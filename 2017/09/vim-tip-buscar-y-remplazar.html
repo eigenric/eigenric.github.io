@@ -3,13 +3,23 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Archivo en septiembre 2017 | eigenℝic</title>
-	<meta name="description" content="">
+	<title>Vim Tip - Buscar y remplazar | eigenℝic</title>
+	<meta name="description" content="Como comentamos en un post anterior, Vim es un editor de texto potente y versátil muy popular entre los desarrolladores. Si alguna vez has necesitado buscar y sustituir texto en …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="robots" content="noindex">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Vim Tip - Buscar y remplazar">
+	<meta property="og:description" content="Como comentamos en un post anterior, Vim es un editor de texto potente y versátil muy popular entre los desarrolladores. Si alguna vez has necesitado buscar y sustituir texto en …">
+	<meta property="og:image" content="https://eigenric.me/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://eigenric.me/2017/09/vim-tip-buscar-y-remplazar">
+
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,14 +119,39 @@
 		</aside>
 
 		<article>
-	<h1>Archivo en septiembre 2017</h1>
+	<h1 class="title"><a href="/2017/09/vim-tip-buscar-y-remplazar" title="Permalink to Vim Tip - Buscar y remplazar">Vim Tip - Buscar y remplazar</a></h1>
+	<time class="date" datetime="2017-09-02 00:00:00+02:00">2 sep 2017</time>
 	<div class="content">
-			<ul>
-				<li><a class="no-dec" href="/2017/09/se-un-guerrero-de-la-productividad-con-taskwarrior">Sé un guerrero de la productividad con Taskwarrior</a> &raquo; 1 sep 2017</li>
-				<li><a class="no-dec" href="/2017/09/vim-tip-buscar-y-remplazar">Vim Tip - Buscar y remplazar</a> &raquo; 2 sep 2017</li>
-			</ul>
+		<p><img alt="Vim" src="/images/vim.png"></p>
+<p>Como comentamos en un <a href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim">post anterior</a>, <a href="https://www.vim.org/" target="_blank">Vim</a> es un editor de texto potente y versátil muy popular entre los desarrolladores. </p>
+<p>Si alguna vez has necesitado buscar y sustituir texto en un archivo sin interfaz gráfica, Vim tiene una serie de comandos que pueden facilitar esta tarea.</p>
+<p>Para sustituir <strong>en todo el archivo</strong>, puedes usar el siguiente comando:</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>%s<span class="sr">/foo/</span>bar/<span class="k">g</span>
+</code></pre></div>
+
+<p>En este comando, <code>%</code> significa que la sustitución debe realizarse en todo el archivo. <code>s</code> es el comando de sustitución. <code>foo</code> es la cadena de texto que Vim buscará, y <code>bar</code> es la cadena de texto con la que <code>foo</code> será reemplazado. <code>g</code> significa que la sustitución debe realizarse globalmente en cada línea, es decir, sustituirá todas las ocurrencias de <code>foo</code> y no solo la primera en cada línea.</p>
+<p>Si solo quieres sustituir <strong>en la línea actual</strong>, puedes usar este comando:</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>s<span class="sr">/foo/</span>bar/<span class="k">g</span>
+</code></pre></div>
+
+<p>Este comando es similar al anterior, pero sin el <code>%</code>, por lo que la sustitución solo se realiza en la línea actual.</p>
+<p>Para <strong>distinguir entre mayúsculas y minúsculas</strong>, puedes agregar la opción <code>i</code> al final del comando:</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>%s<span class="sr">/foo/</span>bar/gi
+</code></pre></div>
+
+<p>Así, <code>foo</code>, <code>Foo</code>, <code>FOO</code>, etc., serán reemplazados por <code>bar</code>.</p>
+<p>Finalmente, si deseas <strong>confirmar cada sustitución</strong>, puedes agregar la opción <code>c</code> al final del comando:</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>%s<span class="sr">/foo/</span>bar/gc
+</code></pre></div>
+
+<p>Vim te preguntará si deseas sustituir cada ocurrencia de <code>foo</code> con <code>bar</code>. Puedes responder <code>y</code> para confirmar, <code>n</code> para omitir o <code>a</code> para reemplazar todas las ocurrencias restantes.</p>
+<p>Más información sobre los comandos de sustitución de Vim y otras características avanzadas se pueden encontrar en la <a href="https://vimdoc.sourceforge.net/htmldoc/usr_12.html" target="_blank">documentación oficial</a> o en <a href="https://vim.fandom.com/wiki/Search_and_replace" target="_blank">la siguiente wiki</a>.</p>
 	</div>
-	<div id="back-to-home"><a class="no-dec no-dec-h" href="/">&laquo; Volver a inicio</a></div>
+
+	<div id="related-articles">
+		<a class="no-dec no-dec-h" href="/2017/09/se-un-guerrero-de-la-productividad-con-taskwarrior" id="prev-neighbour">Sé un guerrero de la productividad con Taskwarrior &raquo;</a>
+	</div>
+
 			<hr>
 		</article>
 
