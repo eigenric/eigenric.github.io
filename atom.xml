@@ -75,7 +75,7 @@ distribuciones de Linux. También puedes instalarlo en macOS via Homebrew: &lt;/
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;project:blog&lt;span class="w"&gt; &lt;/span&gt;list
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href="/images/taskwarrior-1.png" target="_blank"&gt;&lt;img src="/images/taskwarrior.png" alt="Taskwarrior example" width="100%" height="100%"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/images/taskwarrior-1.png" target="_blank"&gt;&lt;img src="/images/taskwarrior-1.png" alt="Taskwarrior example" width="100%" height="100%"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Completar una tarea:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;task&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
