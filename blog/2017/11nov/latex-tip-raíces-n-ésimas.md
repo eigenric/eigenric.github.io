@@ -2,7 +2,7 @@ Title: Latex Tip - Raíces n-ésimas
 Date: 2017-11-13
 Tags: LaTeX
 
-¿Alguna vez has necesitado representar raíces n-ésimas en LaTeX?
+¿Alguna vez has necesitado representar raíces n-ésimas?
 
 En LaTeX puedes hacerlo mediante el comando `\sqrt[n]{x}`. 
 
