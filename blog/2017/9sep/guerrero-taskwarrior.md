@@ -55,7 +55,7 @@ Listar tareas de un proyecto:
 $ task project:blog list
 ```
 
-<a href="/images/taskwarrior-1.png" target="_blank"><img src="/images/taskwarrior.png" alt="Taskwarrior example" width="100%" height="100%"></a>
+<a href="/images/taskwarrior-1.png" target="_blank"><img src="/images/taskwarrior-1.png" alt="Taskwarrior example" width="100%" height="100%"></a>
 
 Completar una tarea:
 
