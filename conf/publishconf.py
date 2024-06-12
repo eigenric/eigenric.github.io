@@ -14,11 +14,13 @@ DEFAULT_DATE_FORMAT = '%-d %b %Y'
 
 # Permalinks
 
-INDEX_URL = 'blog'
-INDEX_SAVE_AS = 'blog/index.html'
+RELATIVE_URLS = True
 
-ARTICLE_URL = '{date:%Y}/{date:%m}/{slug}'
-ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{slug}.html'
+INDEX_URL = 'blog'
+INDEX_SAVE_AS = 'blog.html'
+
+ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{slug}'
+ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{slug}.html'
 
 #ARTICLE_URL = '{slug}/'
 #ARTICLE_SAVE_AS = '{slug}/index.html'
@@ -27,8 +29,8 @@ PAGE_SAVE_AS = '{slug}/index.html'
 
 ARCHIVES_URL = 'archive'
 ARCHIVES_SAVE_AS = 'archive/index.html'
-YEAR_ARCHIVE_SAVE_AS = '{date:%Y}/index.html'
-MONTH_ARCHIVE_SAVE_AS = '{date:%Y}/{date:%m}/index.html'
+YEAR_ARCHIVE_SAVE_AS = 'blog/{date:%Y}/index.html'
+MONTH_ARCHIVE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/index.html'
 
 # Disable authors, categories, tags
 
