@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>Depuración final DeepSpace | eigenℝic</title>
+	<meta name="description" content="Nos encontramos en el V Centenario y nos vemos en la necesidad de depurar finiquitando la Práctica 5, es decir, la incorporación de una interfaz gráfica al juego Deepspace desarrollado …">
+	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Depuración final DeepSpace">
+	<meta property="og:description" content="Nos encontramos en el V Centenario y nos vemos en la necesidad de depurar finiquitando la Práctica 5, es decir, la incorporación de una interfaz gráfica al juego Deepspace desarrollado …">
+	<meta property="og:image" content="http://localhost:8000/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="http://localhost:8000/blog/2019/05/depuracion-final-deepspace">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,700|Source+Code+Pro" rel="stylesheet" type="text/css">
+	<script src="https://kit.fontawesome.com/a4053f556f.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css" crossorigin="anonymous">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+
+	<meta name="theme-color" content="#1e2327">
+
+	<meta name="msapplication-TileColor" content="#1e2327">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<div class="state-indicator"></div>
+		<aside>
+			<div id="bar-title">
+				<i class="fas fa-bars btn-open"></i>
+				<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.jpg"></a>
+				<div id="name"><a class="no-dec no-dec-h bold" href="/">eigenℝic</a></div>
+			</div>
+			<div id="bio">Maths & <br>Computer Science</div>
+			<div id="bio-mob">Maths & Computer Science</div>
+
+			<div class="zeynep">
+				<ul>
+					<a href="/"><img id="avatar-mob" alt="Site Avatar" src="/images/icons/avatar.jpg"></a>
+
+						<li>
+							<a class="no-dec no-dec-h bold" href="/">Home</a>
+						</li>
+						<li>
+							<a class="no-dec no-dec-h bold" href="/blog">Blog</a>
+						</li>
+						<li>
+							<a class="no-dec no-dec-h bold" href="/archive">Archive</a>
+						</li>
+
+					<li>
+					
+						<a class="social-i" target="_blank" href="http://www.github.com/eigenric"><i class="icon fa fa-github"></i></a>
+					
+						<a class="social-i" target="_blank" href="http://stackoverflow.com/u/8401085"><i class="icon fa fa-stack-overflow"></i></a>
+					
+						<a class="social-i" target="_blank" href="https://www.linkedin.com/in/ricardo-ruiz-fern%C3%A1ndez-de-alba-617253147/"><i class="icon fa fa-linkedin"></i></a>
+					
+						<a class="social-i" target="_blank" href="http://twitter.com/eigenric"><i class="icon fa fa-twitter"></i></a>
+					
+						<a class="social-i" target="_blank" href="mailto:ricardoruizfdez@gmail.com"><i class="icon fa fa-envelope"></i></a>
+					
+						<a class="social-i" target="_blank" href="/atom.xml"><i class="icon fa fa-rss"></i></a>
+					</li>
+				</ul>
+			</div>
+
+			<div id="sidebar-links">
+					<a class="no-dec no-dec-h bold" href="/">Home</a>
+ | 					<a class="no-dec no-dec-h bold" href="/blog">Blog</a>
+ | 					<a class="no-dec no-dec-h bold" href="/archive">Archive</a>
+			</div>
+
+			<div id="social">
+				<a href="http://www.github.com/eigenric" target="_blank" title="GitHub" class="icon fa fa-github"></a>
+				<a href="http://stackoverflow.com/u/8401085" target="_blank" title="SO" class="icon fa fa-stack-overflow"></a>
+				<a href="https://www.linkedin.com/in/ricardo-ruiz-fern%C3%A1ndez-de-alba-617253147/" target="_blank" title="Linkedin" class="icon fa fa-linkedin"></a>
+				<a href="http://twitter.com/eigenric" target="_blank" title="Twitter" class="icon fa fa-twitter"></a>
+				<a href="mailto:ricardoruizfdez@gmail.com" target="_blank" title="Email" class="icon fa fa-envelope"></a>
+				<a href="/atom.xml" target="_blank" title="Feed" class="icon fa fa-rss"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/blog/2019/05/depuracion-final-deepspace" title="Permalink to Depuración final DeepSpace">Depuración final DeepSpace</a></h1>
+	<time class="date" datetime="2019-05-28 00:00:00+02:00">28 may 2019</time>
+	<div class="content">
+		<p>Nos encontramos en el V Centenario y nos vemos en la necesidad de depurar
+finiquitando la Práctica 5, es decir, la incorporación de una interfaz gráfica
+al juego <code>Deepspace</code> desarrollado en Prácticas anteriores.</p>
+<p>Se seguirá el Modelo-Vista-Controlador.  Sintetizando, el controlador hace de
+intermediario entre la vista y el modelo. Puede haber varias vistas para un
+único modelo-controlador.</p>
+<p>La idea es que las vistas respeten la API declarada por el controlador y se
+adapten a ella, representando los elementos del modelo (manipulados) de la forma
+deseable.</p>
+<p>Así pues, a lo largo de todas las prácticas hemos usado la Vista <code>TextView</code>
+ofrecida por el profesor.  Ahora hemos creado una vista principal <code>MainView</code> que
+descibre la Ventana Principal. Es una clase que hereda de <code>JFrame</code>. En esta vista,
+se incluyen 2 paneles (heredan de la clase <code>JPanel</code>), uno para SpaceStation y otro
+para <code>Enemy</code>. A estos paneles se les añade con <code>.add()</code> las vistas respectivas
+(<code>SpaceStationView</code> y <code>EnemyView</code>).</p>
+<p>Cuando se actualiza la vista de <code>MainView</code>, se sustituye el <code>SpaceStationView</code> por
+la <code>currentStation</code> que tenga <code>GameUniverse</code> (el modelo del juego). El Enemigo va
+cambiado de acuerdo a las cartas que fueron instanciadas en <code>CardDeck</code>.</p>
+<p>Disponemos de 5 botones asociados con ciertos comportamientos. Los botones
+Combatir, Salir, Siguiente turno, Equipar, Descartar y Descartar Hangar
+Completo.</p>
+<p>Iremos encontrando los Bugs con una metodología sistemática que nunca falla
+hasta eliminarlos por completo.</p>
+<p>Bug. equipar no funciona:</p>
+<p>Cuando ciertos elementos de combate están seleccionados y se pulsa Equipar
+(Montar), estos elementos no se montán.</p>
+<p>El método controlador de equipar se ejecuta como confirma haber añadido "Botón
+pulsado" en el método y este habiéndose mostrado por pantalla.</p>
+<p>Por tanto, el resto del código también se ha ejecutado, incluyendo los mensajes
+que deberían haberse mostrado para elementos en el for. Como no se han mostrado,
+los Arrays que se recorrían estaban vacíos.</p>
+<p>Esto reduce el bug a que <code>getSelectedWeaponsFromHangar()</code> y
+<code>getSelectedShieldsFromHangar()</code> devuelven Arrays vacíos y no los arrays de las
+posiciones de enteros que deberían mostrar.</p>
+<p>Estos dos métodos son realmente un wrapper que llaman a los métodos del mismo
+nombre de la clase <code>HangarView</code>.</p>
+<p>Comprobaremos el funcionamiento de estos métodos en esta clase para encontrar el
+fallo.</p>
+<p>El código de <code>getSelectedWeapons</code> realiza lo siguiente:</p>
+<p>Creamos un array vacío de Integer. Inicializamos un contador i a 0.</p>
+<p>Recorremos los componentes de <code>jPanelHangar</code>, el cual es el panel que incluye el
+<code>jScrollPanel1</code>.  Creemos que los elementos se añaden a <code>jPanelHangar</code> y no a
+<code>ScrollPanel</code>. Estamos en lo cierto, como se observa en el método <code>setHangar</code>.</p>
+<p>Estos componentes son de la clase Componente.  Realizamos un casting
+(DownCasting) de cada uno de estos componentes a la clase <code>CombatElementView</code> la
+cual realmente implementa el método <code>isSelected()</code> el cual únicamente devuelve ese
+atributo <code>selected=0</code> que recordamos que está a true como confirma el color de los
+<code>Weapons</code>. (solo se muestra el color si son opacos y sólo son opacos sin está
+<code>selected</code> a <code>true</code>).</p>
+<p>Además para confirmar que son Weapons debemos añadir otra condición y es que i &lt;
+nWeapons.  Recordamos que nWeapons es un atributo privado de instancia de esta
+clase <code>HangarView</code>, el cual se actualiza en <code>setHangar</code> al número elementos que
+tenga la lista weapons de <code>WeaponsToU</code> devuelta por la función <code>HangarToUI::getWeapons()</code></p>
+<p>Análogamente para <code>nShields.</code></p>
+<p>Así pues, el hangar contiene <code>nWeapons</code> weapons y <code>nShields</code> shields, y <code>nWeapons +
+nShields &lt;= capacity</code> (es decir el número máximo de elementos del hangar). La
+idea, es que primero se insertar <code>nWeapons</code> Weapons y luego <code>nShields</code> Shields.</p>
+<p>Luego, si obtenemos cada uno de estos componentes, solo bastará controlar el
+índice para saber si estamos ante un <code>Weapon</code> o un <code>Shield</code>.</p>
+<p>Como vemos, tenemos un <code>println</code> dentro de este <code>if</code>, el cual debería mostrarse en
+la llamada a esta funciona. Com` no se muestra, determinamos que esta condición
+nunca se cumple y se devuelve un Array vacío.</p>
+<p>El bug se reduce a ver por qué no se cumple la condición. Es bastante obvio que
+<code>isSelected()</code> tiene que ser <code>true</code>, por tanto veremos por qué <code>i</code> nunca es menor que
+nWeapons.</p>
+<p>Debido a que el Hangar está lleno de elementos, determinamos que se ha ejecutado
+la función <code>setHangar</code> la cual rellena el hangar de <code>WeaponView</code> y
+<code>ShieldBoosterView.</code></p>
+<p>En primer lugar, vamos a printear el valor de nWeapons en el for para ver que
+nuestras suposiciones parciales son ciertas.</p>
+<p>Como curiosidad, se ha mostrado lo de nWeapons en <code>SelctedWeapon</code>: 0 dos veces.
+Nos preguntamo si es que hemos seleccionado dos Weapons en lugar de 1 y por
+tanto el número de mensajes mostrados depende del número de armas seleccionadas
+(lo cual no debería ocurrir).</p>
+<p>Observamos que ya se pulse Equipar teniendo montado un Weapon o un
+ShieldBooster, se muestra lo de 0 dos veces.</p>
+<p>Nos extraña porque mount sólo llama a <code>SelectedWeapons</code> una vez.</p>
+<p>Comprobaremos usando un nWeapons en <code>ShieldBooster</code>.  Según parece, ni siquiera
+entra en el for, luego por tanto getComponents devuelve un Array vacío.</p>
+<p>Es quizás que <code>jPanelHangar</code> no sea el elemento adecuado, sino el Scroll.</p>
+<p>Sustituimos el código por <code>jScrollPanel</code> por probar suerte.</p>
+<p>Confirmamos que con <code>jScrollPanel</code> se entra en el for y por tanto los
+getComponents() no es vacío.</p>
+<p>Se realiza solo una iteración y acto seguido da error. El error es:</p>
+<p><code>JViewport</code>no puede ser convertido a <code>CombatElementView</code>.</p>
+<p>Procederemos a leer la información sobre un <code>ScrollPanel</code> del ejemplo propuesto
+por el profesor.</p>
+<p>Al parecer el problema es la creación de 2 hangares. cuantas veces se
+llega al constructor de Hangar.</p>
+<p>Al parecer llamar a <code>updateView</code> en la creación del botón es incorrecto.</p>
+<p>El fallo estaba en el seteo al hangar. Se creaba uno nuevo y se añadia lo cual
+es un gran error.</p>
+	</div>
+
+
+			<hr>
+		</article>
+
+		<footer>
+			<p>© 2024 por Ricardo Ruiz con <i class='icon fa fa-heart' aria-hidden='true'></i> gracias a <a class='no-dec' target='_blank' href='http://www.getpelican.com'>Pelican</a> y <a class='no-dec' target='_blank' href='http://github.com/eigenric/pneumatic'>Pneumatic theme.</a><br><a class='no-dec' target='_blank' href='http://github.com/eigenric/eigenric.github.io'>Contenido</a> bajo licencia <a class='no-dec no-dec-h' target='_blank' href='https://creativecommons.org/licenses/by-sa/4.0/'> <i class='fab fa-creative-commons' aria-hidden='true'></i> <i class='fab fa-creative-commons-by' aria-hidden='true'></i> <i class='fab fa-creative-commons-sa' aria-hidden='true'></i></a></p>
+		</footer>
+	</div>
+
+	
+
+	<script>
+		function adjustScrollBar() {
+			var state = window.getComputedStyle(
+				document.querySelector(".state-indicator"), ":before"
+			).getPropertyValue("z-index");
+
+			if (state == "1" || state == "2") {
+				var scrollbar_width = window.innerWidth - document.documentElement.clientWidth;
+				container = document.getElementsByClassName("container")[0]
+				original_width = window.getComputedStyle(container).getPropertyValue("width");
+
+				if (scrollbar_width != "0") {
+					container.style.width = parseInt(original_width, 10) - scrollbar_width + "px";
+				}
+
+				var specialMargin = document.querySelectorAll("article, footer");
+				specialMargin.forEach(function(element) {
+					element.style.setProperty("margin", "0px " + -scrollbar_width + "px 0px 0px");
+				});
+			}
+//			document.documentElement.sty.setProperty('--scrollbar-width', (window.innerWidth - document.documentElement.clientWidth) + "px");
+		};
+
+		window.onload = adjustScrollBar;
+		window.onchange = adjustScrollBar;
+	</script>
+
+	   <div class="zeynep-overlay"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="/theme/js/zeynep.min.js"></script>
+
+    <script>
+      $(function() {
+        // init zeynepjs side menu
+        var zeynep = $('.zeynep').zeynep({
+          opened: function () {
+            // log
+            console.log('the side menu opened')
+          },
+          closed: function () {
+            // log
+            console.log('the side menu closed')
+          }
+        })
+
+        // dynamically bind 'closing' event
+        zeynep.on('closing', function () {
+          // log
+          console.log('this event is dynamically binded')
+        })
+
+        // handle zeynepjs overlay click
+        $('.zeynep-overlay').on('click', function () {
+          zeynep.close()
+        })
+
+        // open zeynepjs side menu
+        $('.btn-open').on('click', function () {
+          zeynep.open()
+        })
+      })
+    </script>
+</body>
+</html>
