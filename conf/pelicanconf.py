@@ -123,8 +123,11 @@ GOOGLE_FONTS = [
 # Robots and extras
 
 STATIC_PATHS = ['images', 'extra']
-extras = ['CNAME', 'robots.txt']
+extras = ['CNAME', 'robots.txt', 'google6275c7be0bd2f1e6.html']
 EXTRA_PATH_METADATA = {'extra/%s' % name: {'path': name} for name in extras}
+
+ARTICLE_EXCLUDES = ['extra']
+PAGE_EXCLUDES = ['extra']   
 
 SITEMAP = {
     'format': 'xml',
