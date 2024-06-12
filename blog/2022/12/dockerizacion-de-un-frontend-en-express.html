@@ -3,18 +3,22 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>eigenℝic</title>
-	<meta name="description" content="Personal blog of Ricardo Ruiz">
+	<title>Dockerización de un frontend en Express | eigenℝic</title>
+	<meta name="description" content="A partir de la API REST construida con Flask encapsulada en un contenedor docker cuyo build es el dockerfile de /app el cual ejecuta docker compose que ejecuta el servidor …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<!-- Open Graph -->
-	<meta property="og:title" content="eigenℝic">
-	<meta property="og:description" content="Personal blog of Ricardo Ruiz">
-	<meta property="og:image" content="./images/icons/avatar.png">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content=".">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Dockerización de un frontend en Express">
+	<meta property="og:description" content="A partir de la API REST construida con Flask encapsulada en un contenedor docker cuyo build es el dockerfile de /app el cual ejecuta docker compose que ejecuta el servidor …">
+	<meta property="og:image" content="../../../images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="../../../blog/2022/12/dockerizacion-de-un-frontend-en-express">
 
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
@@ -117,39 +121,66 @@
 		</aside>
 
 		<article>
-		<h1 class="title"><a href="blog/2017/11/latex-tip-raices-n-esimas" title="Latex Tip - Raíces n-ésimas">Latex Tip - Raíces n-ésimas</a></h1>
-		<time class="date" datetime="2017-11-13 00:00:00+01:00">13 nov 2017</time>
-		<div class="content summary">
-				<p>
-					¿Alguna vez has necesitado representar raíces n-ésimas? En LaTeX puedes hacerlo mediante el comando \sqrt[n]{x}. Así, n representa el índice de la raíz y x es el radicando <a class='no-dec readmore' href='blog/2017/11/latex-tip-raices-n-esimas'>&#8230;</a>
-				</p>
-<!--			<p>¿Alguna vez has necesitado representar raíces n-ésimas? En LaTeX puedes hacerlo mediante el comando \sqrt[n]{x}. Así, n representa el índice de la raíz y x es el radicando&nbsp;&#8230;</p> -->
-		</div>
-<br>		<h1 class="title"><a href="blog/2017/09/vim-tip-buscar-y-reemplazar" title="Vim Tip - Buscar y reemplazar">Vim Tip - Buscar y reemplazar</a></h1>
-		<time class="date" datetime="2017-09-02 00:00:00+02:00">2 sep 2017</time>
-		<div class="content summary">
-				<p>
-					Como comentamos en un post anterior, Vim es un editor de texto potente y versátil muy popular entre los desarrolladores. Si alguna vez has necesitado buscar y sustituir texto en <a class='no-dec readmore' href='blog/2017/09/vim-tip-buscar-y-reemplazar'>&#8230;</a>
-				</p>
-<!--			<p>Como comentamos en un post anterior, Vim es un editor de texto potente y versátil muy popular entre los desarrolladores. Si alguna vez has necesitado buscar y sustituir texto en&nbsp;&#8230;</p> -->
-		</div>
-<br>		<h1 class="title"><a href="blog/2017/09/se-un-guerrero-de-la-productividad-con-taskwarrior" title="Sé un guerrero de la productividad con Taskwarrior">Sé un guerrero de la productividad con Taskwarrior</a></h1>
-		<time class="date" datetime="2017-09-01 00:00:00+02:00">1 sep 2017</time>
-		<div class="content summary">
-				<p>
-					En el vertiginoso mundo de hoy, la gestión del tiempo y las tareas se ha convertido en una habilidad esencial para alcanzar tus objetivos. Afortunadamente, existen herramientas como Taskwarrior que <a class='no-dec readmore' href='blog/2017/09/se-un-guerrero-de-la-productividad-con-taskwarrior'>&#8230;</a>
-				</p>
-<!--			<p>En el vertiginoso mundo de hoy, la gestión del tiempo y las tareas se ha convertido en una habilidad esencial para alcanzar tus objetivos. Afortunadamente, existen herramientas como Taskwarrior que&nbsp;&#8230;</p> -->
-		</div>
-<br>		<h1 class="title"><a href="blog/2017/08/una-odisea-de-depuracion-top-down-con-vim" title="Una odisea de depuración top-down con Vim.">Una odisea de depuración top-down con Vim.</a></h1>
-		<time class="date" datetime="2017-08-27 00:00:00+02:00">27 ago 2017</time>
-		<div class="content summary">
-				<p>
-					Jrnl es un proyecto que permite a las personas llevar un diario desde la línea de comandos. Proporciona una plataforma segura y fácil de usar para escribir y organizar tus <a class='no-dec readmore' href='blog/2017/08/una-odisea-de-depuracion-top-down-con-vim'>&#8230;</a>
-				</p>
-<!--			<p>Jrnl es un proyecto que permite a las personas llevar un diario desde la línea de comandos. Proporciona una plataforma segura y fácil de usar para escribir y organizar tus&nbsp;&#8230;</p> -->
-		</div>
-	<div id="view-archives"><a class="no-dec no-dec-h" href="/archive/">Posts anteriores &raquo;</a></div>
+	<h1 class="title"><a href="/blog/2022/12/dockerizacion-de-un-frontend-en-express" title="Permalink to Dockerización de un frontend en Express">Dockerización de un frontend en Express</a></h1>
+	<time class="date" datetime="2022-12-16 00:00:00+01:00">16 dic 2022</time>
+	<div class="content">
+		<p>A partir de la API REST construida con Flask encapsulada en un contenedor docker
+cuyo build es el dockerfile de /app el cual ejecuta docker compose que ejecuta el servidor flask en <code>localhost:8000/api/recipes</code> y devuelve un json,</p>
+<p>Necesito construir un frontend en Javascript que se acople a esta api
+(obtenga los objetos via llamada Ajax o fetch ).</p>
+<h2>Pasos dados</h2>
+<p>A medida que hemos investigado por internet hemos concluido con un intento
+satisfactorio de <code>hola mundo</code>via express con lo siguientes:</p>
+<p>Creación de una carpeta frontent separada de <code>app</code>.  </p>
+<p>Un Servicio especializado en <code>docker compose</code> para el frontend llamado frontend
+y con las siguientes características:</p>
+<p><code>build: ./frontend</code> se encarga de construir el contenedor via el <code>dockerfile</code> de la
+carpeta <code>frontend</code>.</p>
+<p>Depende de <code>app</code> pues requiere que la api este funcionando (que requiere de mongo)
+para hacer llamadas a esta.</p>
+<p><code>Volúmenes: ./frontend/frontend</code></p>
+<p>Esto hace que la carpeta <code>./frontend</code> se copie a la raíz del contenedor en
+frontend donde estarán los archivos js index que corresponden al frontend</p>
+<p>Tendremos que tratar con boostrap de nuevo para hacer una single app vía
+modals lo más sencillo posible.</p>
+<h2>Problemas:</h2>
+<ul>
+<li>El puerto 5000 colapsa con la api flask asi que lo tendremos en el puerto 3000.</li>
+<li>Fallo de nodejs al buscar express como módulo</li>
+</ul>
+<p>Intuición: alguna ruta relacionada con la instalación de express no queda clara.
+Esto viene de <code>require('express')</code></p>
+<p>Idea del orden de ejecución:</p>
+<p>Se ejecuta docker compose teniendo a frontend como servicio el cual se construye
+llamado a su <code>dockerfile.</code></p>
+<p>El dockerfile requiere de la imagen de node 19
+como viene en el txt:</p>
+<ol>
+<li>Se crea una carpeta node_modules en <code>/frontend</code>
+del contenedor y se le da permisos para el grupo node
+a todo <code>/frontend</code>
+<code>/frontend</code> refiere al volumen el cual deberia
+haberse copiado integramente de la carpeta
+frontend conteniendo los archivos:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="o">-</span><span class="w"> </span><span class="nx">index</span><span class="p">.</span><span class="nx">html</span>
+<span class="o">-</span><span class="w"> </span><span class="kn">package</span><span class="p">.</span><span class="nx">json</span>
+<span class="o">-</span><span class="w"> </span><span class="nx">server</span><span class="p">.</span><span class="nx">js</span>
+</code></pre></div>
+
+<p>El fundamental es el archivo <code>server.js</code> el cual
+iniciaria el servidor express.
+<code>Suponiendo que los archivos estan en</code>/frontend<code>el
+contenedor
+Se habria creado ademas una carpeta</code>node_module``</p>
+<p>Luego se copia<code>`package*.json</code> a esta carpeta </p>
+<p>Hemos conseguido que se renderice quitando el tema de los permisos y siguiendo
+la mismas directrices
+que el <code>Dockerfile</code>eneral a todo <code>/frontend.</code></p>
+<p><img alt="Dockerizacion de un frontend en Express" src="/images/dockerizacion-express.png"></p>
+	</div>
+
+
 			<hr>
 		</article>
 

@@ -3,18 +3,22 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>eigenℝic</title>
-	<meta name="description" content="Personal blog of Ricardo Ruiz">
+	<title>Vista en Flask para consultar a MongoDB | eigenℝic</title>
+	<meta name="description" content="En el contexto de la asignatura DAI (Desarrollo de Aplicaciones para Internet), se nos pide realizar una pequeña aplicación web que consulte una base de datos de recetas de cócteles …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<!-- Open Graph -->
-	<meta property="og:title" content="eigenℝic">
-	<meta property="og:description" content="Personal blog of Ricardo Ruiz">
-	<meta property="og:image" content="./images/icons/avatar.png">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content=".">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Vista en Flask para consultar a MongoDB">
+	<meta property="og:description" content="En el contexto de la asignatura DAI (Desarrollo de Aplicaciones para Internet), se nos pide realizar una pequeña aplicación web que consulte una base de datos de recetas de cócteles …">
+	<meta property="og:image" content="../../../images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="../../../blog/2022/10/vista-en-flask-para-consultar-a-mongodb">
 
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
@@ -117,39 +121,42 @@
 		</aside>
 
 		<article>
-		<h1 class="title"><a href="blog/2017/11/latex-tip-raices-n-esimas" title="Latex Tip - Raíces n-ésimas">Latex Tip - Raíces n-ésimas</a></h1>
-		<time class="date" datetime="2017-11-13 00:00:00+01:00">13 nov 2017</time>
-		<div class="content summary">
-				<p>
-					¿Alguna vez has necesitado representar raíces n-ésimas? En LaTeX puedes hacerlo mediante el comando \sqrt[n]{x}. Así, n representa el índice de la raíz y x es el radicando <a class='no-dec readmore' href='blog/2017/11/latex-tip-raices-n-esimas'>&#8230;</a>
-				</p>
-<!--			<p>¿Alguna vez has necesitado representar raíces n-ésimas? En LaTeX puedes hacerlo mediante el comando \sqrt[n]{x}. Así, n representa el índice de la raíz y x es el radicando&nbsp;&#8230;</p> -->
-		</div>
-<br>		<h1 class="title"><a href="blog/2017/09/vim-tip-buscar-y-reemplazar" title="Vim Tip - Buscar y reemplazar">Vim Tip - Buscar y reemplazar</a></h1>
-		<time class="date" datetime="2017-09-02 00:00:00+02:00">2 sep 2017</time>
-		<div class="content summary">
-				<p>
-					Como comentamos en un post anterior, Vim es un editor de texto potente y versátil muy popular entre los desarrolladores. Si alguna vez has necesitado buscar y sustituir texto en <a class='no-dec readmore' href='blog/2017/09/vim-tip-buscar-y-reemplazar'>&#8230;</a>
-				</p>
-<!--			<p>Como comentamos en un post anterior, Vim es un editor de texto potente y versátil muy popular entre los desarrolladores. Si alguna vez has necesitado buscar y sustituir texto en&nbsp;&#8230;</p> -->
-		</div>
-<br>		<h1 class="title"><a href="blog/2017/09/se-un-guerrero-de-la-productividad-con-taskwarrior" title="Sé un guerrero de la productividad con Taskwarrior">Sé un guerrero de la productividad con Taskwarrior</a></h1>
-		<time class="date" datetime="2017-09-01 00:00:00+02:00">1 sep 2017</time>
-		<div class="content summary">
-				<p>
-					En el vertiginoso mundo de hoy, la gestión del tiempo y las tareas se ha convertido en una habilidad esencial para alcanzar tus objetivos. Afortunadamente, existen herramientas como Taskwarrior que <a class='no-dec readmore' href='blog/2017/09/se-un-guerrero-de-la-productividad-con-taskwarrior'>&#8230;</a>
-				</p>
-<!--			<p>En el vertiginoso mundo de hoy, la gestión del tiempo y las tareas se ha convertido en una habilidad esencial para alcanzar tus objetivos. Afortunadamente, existen herramientas como Taskwarrior que&nbsp;&#8230;</p> -->
-		</div>
-<br>		<h1 class="title"><a href="blog/2017/08/una-odisea-de-depuracion-top-down-con-vim" title="Una odisea de depuración top-down con Vim.">Una odisea de depuración top-down con Vim.</a></h1>
-		<time class="date" datetime="2017-08-27 00:00:00+02:00">27 ago 2017</time>
-		<div class="content summary">
-				<p>
-					Jrnl es un proyecto que permite a las personas llevar un diario desde la línea de comandos. Proporciona una plataforma segura y fácil de usar para escribir y organizar tus <a class='no-dec readmore' href='blog/2017/08/una-odisea-de-depuracion-top-down-con-vim'>&#8230;</a>
-				</p>
-<!--			<p>Jrnl es un proyecto que permite a las personas llevar un diario desde la línea de comandos. Proporciona una plataforma segura y fácil de usar para escribir y organizar tus&nbsp;&#8230;</p> -->
-		</div>
-	<div id="view-archives"><a class="no-dec no-dec-h" href="/archive/">Posts anteriores &raquo;</a></div>
+	<h1 class="title"><a href="/blog/2022/10/vista-en-flask-para-consultar-a-mongodb" title="Permalink to Vista en Flask para consultar a MongoDB">Vista en Flask para consultar a MongoDB</a></h1>
+	<time class="date" datetime="2022-10-28 00:00:00+02:00">28 oct 2022</time>
+	<div class="content">
+		<p>En el contexto de la asignatura DAI (Desarrollo de Aplicaciones para Internet),
+se nos pide realizar una pequeña aplicación web que consulte una base de datos
+de recetas de cócteles. La base de datos es MongoDB y la aplicación web se construye con Flask en la primera versión y Flask Restful en la segunda.</p>
+<p>Unos de los ejercicios consiste en elaborar una vista que devuelva las recetas
+que contengan cierto ingrediente. Los ingredientes son una lista interior a las
+recetas. Vodka es un elemento de los ingredientes.</p>
+<p>El truco es hacer ingredients.name y luego comprobar que son iguales con el
+operador $eq</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/recetas_con/&lt;bebida&gt;&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">mongo_recetas_con</span><span class="p">(</span><span class="n">bebida</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Devuelve las recetas con cierta bebida en sus ingredientes&quot;&quot;&quot;</span>
+
+    <span class="n">recetas_con_bebida</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">recipes</span><span class="o">.</span><span class="n">find</span><span class="p">({</span>
+        <span class="s2">&quot;ingredients.name&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$eq&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">bebida</span><span class="p">)</span> <span class="p">}</span>
+    <span class="p">}</span> <span class="p">)</span>    
+
+    <span class="n">lista_recetas</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">receta</span> <span class="ow">in</span> <span class="n">recetas_con_bebida</span><span class="p">:</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">receta</span><span class="p">)</span>
+        <span class="n">lista_recetas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">receta</span><span class="p">)</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;len&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista_recetas</span><span class="p">),</span>
+        <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">lista_recetas</span>
+    <span class="p">}</span>
+
+    <span class="n">resJson</span> <span class="o">=</span> <span class="n">dumps</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">resJson</span><span class="p">,</span> <span class="n">mimetype</span><span class="o">=</span><span class="s2">&quot;application/json&quot;</span><span class="p">)</span>
+</code></pre></div>
+	</div>
+
+
 			<hr>
 		</article>
 
