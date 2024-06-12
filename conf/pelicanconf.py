@@ -92,8 +92,9 @@ PLUGINS = [
         'plugins.assets.assets',
         'plugins.neighbors.neighbors',
         'plugins.sitemap.sitemap',
-        'plugins.render_math', 
+#        'plugins.render_math', 
         'plugins.pelican_youtube',
+        'pelican_katex',
 ]
 
 MATH_JAX = {
