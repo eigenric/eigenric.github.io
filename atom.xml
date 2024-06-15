@@ -6,6 +6,10 @@
 &lt;p&gt;Para instalar la extensión, abre el apartado de extensiones en Visual Studio Code y busca &lt;em&gt;Markdown Preview Enhanced&lt;/em&gt;. Haz click en instalar.&lt;/p&gt;
 &lt;h2&gt;Configuración de la extensión&lt;/h2&gt;
 &lt;p&gt;Una vez instalado, busca &lt;em&gt;Markdown Preview Enhanced&lt;/em&gt; en tus extensiones, haz clic sobre su icono de configuración (Administrar) y selecciona &lt;em&gt;Configuración de la extensión&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Exportar a PDF&lt;/h2&gt;
+&lt;p&gt;Es posible exportar el documento Markdown a PDF mediante Pandoc. Para ello, necesitas tener instalado Pandoc en tu sistema y configurar la ruta de acceso en la configuración de la extensión.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Pandoc" src="/images/pandoc.png"&gt;&lt;/p&gt;
+&lt;p&gt;Una vez configurado, puedes exportar el documento haciendo click derecho sobre la vista preview y seleccionando &lt;em&gt;Export &amp;gt; Pandoc&lt;/em&gt;.&lt;/p&gt;
 &lt;h2&gt;Cambiar el tema a oscuro&lt;/h2&gt;
 &lt;p&gt;Busca la opción &lt;em&gt;Preview-theme&lt;/em&gt; y selecciona el tema &lt;code&gt;atom-dark.css&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Tema Oscuro" src="/images/markdown-preview.png"&gt;&lt;/p&gt;
