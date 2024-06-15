@@ -14,6 +14,14 @@ Para instalar la extensión, abre el apartado de extensiones en Visual Studio Co
 
 Una vez instalado, busca *Markdown Preview Enhanced* en tus extensiones, haz clic sobre su icono de configuración (Administrar) y selecciona *Configuración de la extensión*.
 
+## Exportar a PDF
+
+Es posible exportar el documento Markdown a PDF mediante Pandoc. Para ello, necesitas tener instalado Pandoc en tu sistema y configurar la ruta de acceso en la configuración de la extensión.
+
+![Pandoc](/images/pandoc.png)
+
+Una vez configurado, puedes exportar el documento haciendo click derecho sobre la vista preview y seleccionando *Export > Pandoc*.
+
 ## Cambiar el tema a oscuro
 
 Busca la opción *Preview-theme* y selecciona el tema `atom-dark.css`.
