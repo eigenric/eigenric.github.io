@@ -3,8 +3,8 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Renderiza matemáticas en Visual Studio Code | eigenℝic</title>
-	<meta name="description" content="Para mejorar la experiencia de visualización de tus documentos Markdown en Visual Studio Code, puedes utilizar el plugin Markdown Preview Enhanced. Este plugin te permite previsualizar tus documentos Markdown con …">
+	<title>Rvalue y Lvalues en C++11 | eigenℝic</title>
+	<meta name="description" content="En el siguiente fragmento de código, nos encontramos con un error al intentar compilar: template <class T> T& Stackl<T>::pop() { return lista.pop_front(); } ./include/stackl.cpp:6:28: error …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,11 +14,11 @@
 	<meta name="twitter:creator" content="">
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="">
-	<meta property="og:title" content="Renderiza matemáticas en Visual Studio Code">
-	<meta property="og:description" content="Para mejorar la experiencia de visualización de tus documentos Markdown en Visual Studio Code, puedes utilizar el plugin Markdown Preview Enhanced. Este plugin te permite previsualizar tus documentos Markdown con …">
-	<meta property="og:image" content="../../../images/icons/avatar.png">
+	<meta property="og:title" content="Rvalue y Lvalues en C++11">
+	<meta property="og:description" content="En el siguiente fragmento de código, nos encontramos con un error al intentar compilar: template <class T> T& Stackl<T>::pop() { return lista.pop_front(); } ./include/stackl.cpp:6:28: error …">
+	<meta property="og:image" content="http://localhost:8000/images/icons/avatar.png">
 	<meta property="og:type" content="article">
-	<meta property="og:url" content="../../../blog/2018/11/renderiza-matematicas-en-visual-studio-code">
+	<meta property="og:url" content="http://localhost:8000/blog/2018/11/rvalue-y-lvalues-en-c11">
 
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
@@ -121,35 +121,62 @@
 		</aside>
 
 		<article>
-	<h1 class="title"><a href="/blog/2018/11/renderiza-matematicas-en-visual-studio-code" title="Permalink to Renderiza matemáticas en Visual Studio Code">Renderiza matemáticas en Visual Studio Code</a></h1>
-	<time class="date" datetime="2018-11-18 00:00:00+01:00">18 nov 2018</time>
+	<h1 class="title"><a href="/blog/2018/11/rvalue-y-lvalues-en-c11" title="Permalink to Rvalue y Lvalues en C++11">Rvalue y Lvalues en C++11</a></h1>
+	<time class="date" datetime="2018-11-19 00:00:00+01:00">19 nov 2018</time>
 	<div class="content">
-		<p><img alt="Ecuaciones" src="/images/ecuaciones.png"></p>
-<p>Para mejorar la experiencia de visualización de tus documentos Markdown en <em>Visual Studio Code</em>, puedes utilizar el plugin <a href="https://shd101wyy.github.io/markdown-preview-enhanced" target="_blank">Markdown Preview Enhanced</a>. Este plugin te permite previsualizar tus documentos Markdown con una amplia gama de opciones de personalización, incluyendo soporte para fórmulas matemáticas, </p>
-<h2>Instalación</h2>
-<p>Para instalar la extensión, abre el apartado de extensiones en Visual Studio Code y busca <em>Markdown Preview Enhanced</em>. Haz click en instalar.</p>
-<h2>Configuración de la extensión</h2>
-<p>Una vez instalado, busca <em>Markdown Preview Enhanced</em> en tus extensiones, haz clic sobre su icono de configuración (Administrar) y selecciona <em>Configuración de la extensión</em>.</p>
-<h2>Exportar a PDF</h2>
-<p>Es posible exportar el documento Markdown a PDF mediante Pandoc. Para ello, necesitas tener instalado Pandoc en tu sistema y configurar la ruta de acceso en la configuración de la extensión.</p>
-<p><img alt="Pandoc" src="/images/pandoc.png"></p>
-<p>Una vez configurado, puedes exportar el documento haciendo click derecho sobre la vista preview y seleccionando <em>Export &gt; Pandoc</em>.</p>
-<h2>Cambiar el tema a oscuro</h2>
-<p>Busca la opción <em>Preview-theme</em> y selecciona el tema <code>atom-dark.css</code>.</p>
-<p><img alt="Tema Oscuro" src="/images/markdown-preview.png"></p>
-<h2>Cambiar el motor de renderizado de fórmulas matemáticas</h2>
-<p>Por defecto, Markdown Preview Enhanced utiliza KaTex para la renderización de fórmulas matemáticas. Sin embargo, puedes optar por cambiar a MathJax para una visualización menos rápida pero más precisa de las fórmulas, especialmente si estás utilizando notaciones complejas que KaTex aún no soporta completamente.</p>
-<p>Busca la opción <em>Math Rendering Option</em> y selecciona <em>MathJax</em>.</p>
-<p><img alt="MathJax" src="/images/renderizado.png"></p>
-<p>Más información sobre las opciones de configuración de Markdown Preview Enhanced en la <a href="https://shd101wyy.github.io/markdown-preview-enhanced/#/config" target="_blank">documentación oficial</a>.</p>
-<blockquote>
-<p>Pd: Ahora se puede editar directamente en el modo de vista previa. ¡Genial!</p>
-</blockquote>
+		<p>En el siguiente fragmento de código, nos encontramos con un error al intentar compilar:</p>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Stackl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">lista</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="o">./</span><span class="n">include</span><span class="o">/</span><span class="n">stackl</span><span class="o">.</span><span class="n">cpp</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="w"> </span><span class="n">error</span><span class="p">:</span><span class="w"> </span><span class="n">invalid</span><span class="w"> </span><span class="n">initialization</span><span class="w"> </span>
+<span class="n">of</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="k">const</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="s1">&#39;int&amp;&#39;</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">rvalue</span><span class="w"> </span><span class="n">of</span><span class="w"> </span>
+<span class="n">type</span><span class="w"> </span><span class="s1">&#39;void&#39;</span>
+</code></pre></div>
+
+<p>Este error se produce porque <code>lista.pop_front()</code> retorna un rvalue, lo que implica que no es posible inicializar una referencia no constante (en este caso, <code>int&amp;</code>) con un rvalue de tipo <code>void</code>.</p>
+<p>Es importante comprender que en C++, cada expresión se clasifica como lvalue o rvalue:</p>
+<ul>
+<li>
+<p><strong>Lvalues</strong> son aquellos objetos que persisten más allá de la expresión en la que se utilizan. Ejemplos de lvalues incluyen variables nombradas (<code>obj</code>), el resultado de la desreferenciación de un puntero (<code>*ptr</code>), el acceso a elementos de un arreglo (<code>ptr[index]</code>), y el incremento de una variable (<code>++x</code>).</p>
+</li>
+<li>
+<p><strong>Rvalues</strong>, por otro lado, son temporales que no persisten después de la expresión actual. Algunos ejemplos son literales numéricos (<code>1729</code>), el resultado de una operación aritmética (<code>x+y</code>), la creación de un objeto temporal (<code>std::string("now")</code>), y el incremento de una variable en una expresión (<code>x++</code>).</p>
+</li>
+</ul>
+<p>Para poder utilizar el operador de dirección (<code>&amp;</code>), es necesario que el objeto en cuestión sea un lvalue. De lo contrario, estamos tratando con un rvalue.</p>
+<p>Con la introducción de C++11, se añadió el concepto de referencia a rvalue (<code>&amp;&amp;</code>), lo que permite una manipulación más eficiente de los rvalues y habilita la optimización de la semántica de movimiento, entre otras características avanzadas de este lenguaje.</p>
+<p>Para corregir el error en el código, habría que modificar el método <code>pop()</code> para que no intente devolver un valor de un método que devuelve <code>void</code>. Una solución sería cambiar el diseño de <code>pop()</code> para que simplemente ejecute <code>pop_front()</code> sin intentar devolver un valor. Si quisiera devolver el valor que está siendo eliminado, habría que almacenar temporalmente el valor antes de eliminarlo y luego devolver ese valor:</p>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lista</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">out_of_range</span><span class="p">(</span><span class="s">&quot;Stack underflow&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// Almacena temporalmente el valor a devolver</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">valor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lista</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Elimina el elemento del frente de la lista</span>
+<span class="w">    </span><span class="n">lista</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Devuelve el valor almacenado</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">valor</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Este enfoque asume que <code>lista</code> es una estructura de datos que permite acceso al primer elemento (<code>front()</code>) y que tiene un método para eliminar el primer elemento (<code>pop_front()</code>), pero que <code>pop_front()</code> no devuelve el elemento eliminado. También se añade una comprobación para asegurar que la lista no esté vacía antes de intentar eliminar un elemento, lanzando una excepción si se intenta hacer <code>pop()</code> en una lista vacía.</p>
+<p>Más información sobre lvalues y rvalues en C++ en</p>
+<h2>Referencias</h2>
+<ul>
+<li><a href="https://hardfloat.es/blog/2021/02/08/entendiendo-rvalues-y-lvalues.html">Hardfloat Blog - Ralues y Lvalues</a></li>
+<li><a href="https://es.stackoverflow.com/questions/914/diferencias-entre-rvalue-y-lvalue">Stackoverflow - Diferenciaes entre rvalues y lvalue</a></li>
+<li><a href="https://www.ibm.com/docs/es/i/7.5?topic=operators-lvalues-rvalues">IBM - Lvalues y Rvalues</a></li>
+</ul>
 	</div>
 
 	<div id="related-articles">
-		<a class="no-dec no-dec-h" href="/blog/2018/11/rvalues-y-lvalues-en-c11" id="next-neighbour">&laquo; Rvalues y Lvalues en C++11</a>
-		<a class="no-dec no-dec-h" href="/blog/2018/03/cc-tip-aritmetica-de-punteros" id="prev-neighbour">C/C++ Tip - Aritmética de punteros &raquo;</a>
+		<a class="no-dec no-dec-h" href="/blog/2018/11/renderiza-matematicas-en-visual-studio-code" id="prev-neighbour">Renderiza matemáticas en Visual Studio Code &raquo;</a>
 	</div>
 
 			<hr>
@@ -160,15 +187,6 @@
 		</footer>
 	</div>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PR6EXV7JWN"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'G-PR6EXV7JWN');
-	</script>
 	
 
 	<script>
