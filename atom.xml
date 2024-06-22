@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2018-11-19T00:00:00+01:00</updated><entry><title>Rvalues y Lvalues en C++11</title><link href="https://eigenric.me/blog/2018/11/rvalues-y-lvalues-en-c11" rel="alternate"></link><published>2018-11-19T00:00:00+01:00</published><updated>2018-11-19T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2018-11-19:/blog/2018/11/rvalues-y-lvalues-en-c11</id><summary type="html">&lt;p&gt;En este artículo, exploramos el manejo de rvalues y lvalues en C++11, desentrañando un error común de compilación y ofreciendo una solución para corregirlo.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2019-03-13T00:00:00+01:00</updated><entry><title>Restaurar Arch Linux tras instalación fallida.</title><link href="https://eigenric.me/blog/2019/03/restaurar-arch-linux-tras-instalacion-fallida" rel="alternate"></link><published>2019-03-13T00:00:00+01:00</published><updated>2019-03-13T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2019-03-13:/blog/2019/03/restaurar-arch-linux-tras-instalacion-fallida</id><summary type="html">&lt;p&gt;En ocasiones, después de una instalación fallida de paquetes, el sistema operativo Arch Linux o Manjaro puede no arrancar correctamente. Afortunadamente, es posible solucionar estos problemas y restaurar el sistema …&lt;/p&gt;</summary><content type="html">&lt;p&gt;En ocasiones, después de una instalación fallida de paquetes, el sistema operativo Arch Linux o Manjaro puede no arrancar correctamente. Afortunadamente, es posible solucionar estos problemas y restaurar el sistema utilizando el GRUB y algunos comandos básicos. A continuación, se detallan los pasos para realizar esta recuperación.&lt;/p&gt;
+&lt;h2&gt;Acceder al Sistema mediante GRUB&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Reinicia tu computadora y pulsa &lt;code&gt;F12&lt;/code&gt; repetidamente antes de que el sistema inicie.&lt;/li&gt;
+&lt;li&gt;Selecciona la opción de arranque de Arch Linux Linux y sigue pulsando &lt;code&gt;F12&lt;/code&gt; hasta acceder al GRUB.&lt;/li&gt;
+&lt;li&gt;En el menú de GRUB, selecciona la opción de arranque que deseas modificar y pulsa &lt;code&gt;e&lt;/code&gt; para editarla.&lt;/li&gt;
+&lt;li&gt;Añade un &lt;code&gt;3&lt;/code&gt; al final de la línea que comienza con &lt;code&gt;linux&lt;/code&gt;, que es la línea que carga el núcleo. Esto permitirá acceder al sistema operativo vía terminal.&lt;/li&gt;
+&lt;li&gt;Guarda los cambios pulsando &lt;code&gt;Ctrl+x&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Actualizar el Sistema&lt;/h2&gt;
+&lt;p&gt;Una vez que hayas accedido al sistema vía terminal, actualiza el sistema con el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;pacman&lt;span class="w"&gt; &lt;/span&gt;-Syu
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Manejo de Librerías Truncadas&lt;/h2&gt;
+&lt;p&gt;En el caso de que una librería &lt;code&gt;.so&lt;/code&gt; esté truncada, puedes eliminarla y reinstalarla. Además, es recomendable eliminar el directorio de caché asociado en &lt;code&gt;/var/lib/pacman/local/nombre-paquete&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Eliminar el Archivo de Bloqueo de Pacman&lt;/h2&gt;
+&lt;p&gt;Si pacman está bloqueado, elimina el archivo de bloqueo con el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;rm&lt;span class="w"&gt; &lt;/span&gt;/var/lib/pacman/db.lck
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Siguiendo estos pasos, deberías poder restaurar tu sistema Arch Linux y resolver los problemas causados por instalaciones fallidas de paquetes.&lt;/p&gt;</content><category term="2019"></category></entry><entry><title>Como resolver errores de claves GPG - Pacman</title><link href="https://eigenric.me/blog/2019/03/como-resolver-errores-de-claves-gpg-pacman" rel="alternate"></link><published>2019-03-04T00:00:00+01:00</published><updated>2019-03-04T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2019-03-04:/blog/2019/03/como-resolver-errores-de-claves-gpg-pacman</id><summary type="html">&lt;p&gt;Durante la instalación de programas en Arch Linux o Manjaro, es posible que te enfrentes a errores relacionados con la aceptación de claves GPG. Estos errores pueden interrumpir la instalación …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Durante la instalación de programas en Arch Linux o Manjaro, es posible que te enfrentes a errores relacionados con la aceptación de claves GPG. Estos errores pueden interrumpir la instalación y son causados por claves no confiables o no encontradas en el sistema.&lt;/p&gt;
+&lt;h2&gt;Ejemplo de Error de Clave GPG&lt;/h2&gt;
+&lt;p&gt;Imaginemos que intentas instalar el paquete &lt;code&gt;example-package&lt;/code&gt; usando &lt;code&gt;pacman&lt;/code&gt; y encuentras el siguiente error:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;error:&lt;span class="w"&gt; &lt;/span&gt;example-package:&lt;span class="w"&gt; &lt;/span&gt;signature&lt;span class="w"&gt; &lt;/span&gt;from&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;John Doe &amp;lt;johndoe@example.com&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;unknown&lt;span class="w"&gt; &lt;/span&gt;trust&lt;span class="w"&gt; &lt;/span&gt;error:&lt;span class="w"&gt; &lt;/span&gt;
+failed&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt;  &lt;/span&gt;transaction&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;invalid&lt;span class="w"&gt; &lt;/span&gt;or&lt;span class="w"&gt; &lt;/span&gt;corrupted&lt;span class="w"&gt; &lt;/span&gt;package
+&lt;span class="o"&gt;(&lt;/span&gt;PGP&lt;span class="w"&gt; &lt;/span&gt;signature&lt;span class="o"&gt;))&lt;/span&gt;
+Errors&lt;span class="w"&gt; &lt;/span&gt;occurred,&lt;span class="w"&gt; &lt;/span&gt;no&lt;span class="w"&gt; &lt;/span&gt;packages&lt;span class="w"&gt; &lt;/span&gt;were&lt;span class="w"&gt; &lt;/span&gt;upgraded.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;El mensaje de error indica que la firma del paquete example-package es de una clave GPG que no está reconocida como confiable. El ID de la clave problemática es 12345678.&lt;/p&gt;
+&lt;h2&gt;Resolución del Error&lt;/h2&gt;
+&lt;p&gt;Para resolver este problema, sigue estos pasos:&lt;/p&gt;
+&lt;p&gt;Ejecuta el siguiente comando, reemplazando 12345678 con el ID de la clave problemática que se mostró en el mensaje de error:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;gpg&lt;span class="w"&gt; &lt;/span&gt;--recv-key&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;12345678&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Este comando descargará y añadirá la clave GPG a tu sistema, permitiendo que la instalación del programa continúe sin problemas.&lt;/p&gt;
+&lt;p&gt;Una vez que la clave se haya descargado correctamente, intenta instalar el paquete de nuevo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;pacman&lt;span class="w"&gt; &lt;/span&gt;-S&lt;span class="w"&gt; &lt;/span&gt;example-package
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Siguiendo estos pasos, deberías poder resolver el error de clave GPG y completar la instalación del paquete sin inconvenientes.&lt;/p&gt;</content><category term="2019"></category><category term="pacman"></category><category term="linux"></category><category term="gpg"></category><category term="arch"></category><category term="manjaro"></category></entry><entry><title>Rvalues y Lvalues en C++11</title><link href="https://eigenric.me/blog/2018/11/rvalues-y-lvalues-en-c11" rel="alternate"></link><published>2018-11-19T00:00:00+01:00</published><updated>2018-11-19T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2018-11-19:/blog/2018/11/rvalues-y-lvalues-en-c11</id><summary type="html">&lt;p&gt;En este artículo, exploramos el manejo de rvalues y lvalues en C++11, desentrañando un error común de compilación y ofreciendo una solución para corregirlo.&lt;/p&gt;
 &lt;p&gt;En particular, nos encontramos con …&lt;/p&gt;</summary><content type="html">&lt;p&gt;En este artículo, exploramos el manejo de rvalues y lvalues en C++11, desentrañando un error común de compilación y ofreciendo una solución para corregirlo.&lt;/p&gt;
 &lt;p&gt;En particular, nos encontramos con el siguiente error de compilación:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;template&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nc"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;

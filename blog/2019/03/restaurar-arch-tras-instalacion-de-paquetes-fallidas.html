@@ -3,8 +3,8 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Markdown-preview-enhanced | eigenℝic</title>
-	<meta name="description" content="El plugin markdown-enhanced-preview no se muestra al lanzar la orden correspondiente (Markdown-preview-enhanced > Open Preview) Buscaremos algún problema / issue similar en su Github para intentar solucionar el problema. Se ha lanzado …">
+	<title>Restaurar Arch tras instalación de paquetes fallidas. | eigenℝic</title>
+	<meta name="description" content="En ocasiones, después de una instalación fallida de paquetes, el sistema operativo Arch Linux o Manjaro puede no arrancar correctamente. Afortunadamente, es posible solucionar estos problemas y restaurar el sistema …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,11 +14,11 @@
 	<meta name="twitter:creator" content="">
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="">
-	<meta property="og:title" content="Markdown-preview-enhanced">
-	<meta property="og:description" content="El plugin markdown-enhanced-preview no se muestra al lanzar la orden correspondiente (Markdown-preview-enhanced > Open Preview) Buscaremos algún problema / issue similar en su Github para intentar solucionar el problema. Se ha lanzado …">
+	<meta property="og:title" content="Restaurar Arch tras instalación de paquetes fallidas.">
+	<meta property="og:description" content="En ocasiones, después de una instalación fallida de paquetes, el sistema operativo Arch Linux o Manjaro puede no arrancar correctamente. Afortunadamente, es posible solucionar estos problemas y restaurar el sistema …">
 	<meta property="og:image" content="http://localhost:8000/images/icons/avatar.png">
 	<meta property="og:type" content="article">
-	<meta property="og:url" content="http://localhost:8000/blog/2019/03/markdown-preview-enhanced">
+	<meta property="og:url" content="http://localhost:8000/blog/2019/03/restaurar-arch-tras-instalacion-de-paquetes-fallidas">
 
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
@@ -121,29 +121,38 @@
 		</aside>
 
 		<article>
-	<h1 class="title"><a href="/blog/2019/03/markdown-preview-enhanced" title="Permalink to Markdown-preview-enhanced">Markdown-preview-enhanced</a></h1>
+	<h1 class="title"><a href="/blog/2019/03/restaurar-arch-tras-instalacion-de-paquetes-fallidas" title="Permalink to Restaurar Arch tras instalación de paquetes fallidas.">Restaurar Arch tras instalación de paquetes fallidas.</a></h1>
 	<time class="date" datetime="2019-03-13 00:00:00+01:00">13 mar 2019</time>
 	<div class="content">
-		<p>El plugin markdown-enhanced-preview no se muestra al lanzar la orden
-correspondiente (Markdown-preview-enhanced &gt; Open Preview)</p>
-<p>Buscaremos algún problema / issue similar en su Github para intentar solucionar
-el problema.</p>
-<p>Se ha lanzado una release hace 3 días (0.15.9).  Quizás sea para solucionar el
-Bug actual.</p>
-<p>Al ejecutar el comando:</p>
-<p>$ code --list-extensions --show-versions</p>
-<p>se muestra que la versión local del plugin es la 0.3.12</p>
-<p>Esto se hace bastante extraño teniendo en cuenta que no existe tal release en
-Github (ya que de la 0.3.9 pasa a la 0.4).</p>
-<p>Según se documenta en la siguiente Issue:</p>
-<p>https://github.com/shd101wyy/markdown-preview-enhanced/issues/1076</p>
-<p>Una de las funciones que usa la extensión está anticuada en la nueva versión de
-vscode y deja inutilizable la extensión.</p>
-<p>Según informa el creador de la extensión, ha publicado una nueva versión (0.3.12
-que debería arreglar el problema).</p>
-<p>Problema arreglado</p>
+		<p>En ocasiones, después de una instalación fallida de paquetes, el sistema operativo Arch Linux o Manjaro puede no arrancar correctamente. Afortunadamente, es posible solucionar estos problemas y restaurar el sistema utilizando el GRUB y algunos comandos básicos. A continuación, se detallan los pasos para realizar esta recuperación.</p>
+<h2>Acceder al Sistema mediante GRUB</h2>
+<ol>
+<li>Reinicia tu computadora y pulsa <code>F12</code> repetidamente antes de que el sistema inicie.</li>
+<li>Selecciona la opción de arranque de Manjaro Linux y sigue pulsando <code>F12</code> hasta acceder al GRUB.</li>
+<li>En el menú de GRUB, selecciona la opción de arranque que deseas modificar y pulsa <code>e</code> para editarla.</li>
+<li>Añade un <code>3</code> al final de la línea que comienza con <code>linux</code>, que es la línea que carga el núcleo. Esto permitirá acceder al sistema operativo vía terminal.</li>
+<li>Guarda los cambios pulsando <code>Ctrl+x</code>.</li>
+</ol>
+<h2>Actualizar el Sistema</h2>
+<p>Una vez que hayas accedido al sistema vía terminal, actualiza el sistema con el siguiente comando:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-Syu
+</code></pre></div>
+
+<h2>Conexión WiFi y Compartir WiFi vía USB</h2>
+<p>La conexión WiFi se mantendrá activa durante el proceso. También es posible compartir WiFi vía USB sin necesidad de ejecutar comandos adicionales.</p>
+<h2>Manejo de Librerías Truncadas</h2>
+<p>En el caso de que una librería <code>.so</code> esté truncada, puedes eliminarla y reinstalarla. Además, es recomendable eliminar el directorio de caché asociado en <code>/var/lib/pacman/local/nombre-paquete</code>.</p>
+<h2>Eliminar el Archivo de Bloqueo de Pacman</h2>
+<p>Si pacman está bloqueado, elimina el archivo de bloqueo con el siguiente comando:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>/var/lib/pacman/db.lck
+</code></pre></div>
+
+<p>Siguiendo estos pasos, deberías poder restaurar tu sistema Manjaro y resolver los problemas causados por instalaciones fallidas de paquetes.</p>
 	</div>
 
+	<div id="related-articles">
+		<a class="no-dec no-dec-h" href="/blog/2019/03/como-resolver-errores-de-claves-gpg-pacman" id="prev-neighbour">Como resolver errores de claves GPG - Pacman &raquo;</a>
+	</div>
 
 			<hr>
 		</article>

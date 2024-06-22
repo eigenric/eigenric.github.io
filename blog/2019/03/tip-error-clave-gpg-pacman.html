@@ -3,8 +3,8 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Markdown-preview-enhanced | eigenℝic</title>
-	<meta name="description" content="El plugin markdown-enhanced-preview no se muestra al lanzar la orden correspondiente (Markdown-preview-enhanced > Open Preview) Buscaremos algún problema / issue similar en su Github para intentar solucionar el problema. Se ha lanzado …">
+	<title>Tip Error Clave GPG - Pacman | eigenℝic</title>
+	<meta name="description" content="Durante la instalación de programas en Arch Linux o Manjaro, es posible que te enfrentes a errores relacionados con la aceptación de claves GPG. Estos errores pueden interrumpir la instalación …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,11 +14,11 @@
 	<meta name="twitter:creator" content="">
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="">
-	<meta property="og:title" content="Markdown-preview-enhanced">
-	<meta property="og:description" content="El plugin markdown-enhanced-preview no se muestra al lanzar la orden correspondiente (Markdown-preview-enhanced > Open Preview) Buscaremos algún problema / issue similar en su Github para intentar solucionar el problema. Se ha lanzado …">
+	<meta property="og:title" content="Tip Error Clave GPG - Pacman">
+	<meta property="og:description" content="Durante la instalación de programas en Arch Linux o Manjaro, es posible que te enfrentes a errores relacionados con la aceptación de claves GPG. Estos errores pueden interrumpir la instalación …">
 	<meta property="og:image" content="http://localhost:8000/images/icons/avatar.png">
 	<meta property="og:type" content="article">
-	<meta property="og:url" content="http://localhost:8000/blog/2019/03/markdown-preview-enhanced">
+	<meta property="og:url" content="http://localhost:8000/blog/2019/03/tip-error-clave-gpg-pacman">
 
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
@@ -121,29 +121,39 @@
 		</aside>
 
 		<article>
-	<h1 class="title"><a href="/blog/2019/03/markdown-preview-enhanced" title="Permalink to Markdown-preview-enhanced">Markdown-preview-enhanced</a></h1>
-	<time class="date" datetime="2019-03-13 00:00:00+01:00">13 mar 2019</time>
+	<h1 class="title"><a href="/blog/2019/03/tip-error-clave-gpg-pacman" title="Permalink to Tip Error Clave GPG - Pacman">Tip Error Clave GPG - Pacman</a></h1>
+	<time class="date" datetime="2019-03-04 00:00:00+01:00">4 mar 2019</time>
 	<div class="content">
-		<p>El plugin markdown-enhanced-preview no se muestra al lanzar la orden
-correspondiente (Markdown-preview-enhanced &gt; Open Preview)</p>
-<p>Buscaremos algún problema / issue similar en su Github para intentar solucionar
-el problema.</p>
-<p>Se ha lanzado una release hace 3 días (0.15.9).  Quizás sea para solucionar el
-Bug actual.</p>
-<p>Al ejecutar el comando:</p>
-<p>$ code --list-extensions --show-versions</p>
-<p>se muestra que la versión local del plugin es la 0.3.12</p>
-<p>Esto se hace bastante extraño teniendo en cuenta que no existe tal release en
-Github (ya que de la 0.3.9 pasa a la 0.4).</p>
-<p>Según se documenta en la siguiente Issue:</p>
-<p>https://github.com/shd101wyy/markdown-preview-enhanced/issues/1076</p>
-<p>Una de las funciones que usa la extensión está anticuada en la nueva versión de
-vscode y deja inutilizable la extensión.</p>
-<p>Según informa el creador de la extensión, ha publicado una nueva versión (0.3.12
-que debería arreglar el problema).</p>
-<p>Problema arreglado</p>
+		<p>Durante la instalación de programas en Arch Linux o Manjaro, es posible que te enfrentes a errores relacionados con la aceptación de claves GPG. Estos errores pueden interrumpir la instalación y son causados por claves no confiables o no encontradas en el sistema.</p>
+<h2>Ejemplo de Error de Clave GPG</h2>
+<p>Imaginemos que intentas instalar el paquete <code>example-package</code> usando <code>pacman</code> y encuentras el siguiente error:</p>
+<div class="highlight"><pre><span></span><code>error:<span class="w"> </span>example-package:<span class="w"> </span>signature<span class="w"> </span>from<span class="w"> </span>
+<span class="s2">&quot;John Doe &lt;johndoe@example.com&gt;&quot;</span><span class="w"> </span>is<span class="w"> </span>unknown<span class="w"> </span>trust<span class="w"> </span>error:<span class="w"> </span>
+failed<span class="w"> </span>to<span class="w"> </span>commit<span class="w">  </span>transaction<span class="w"> </span><span class="o">(</span>invalid<span class="w"> </span>or<span class="w"> </span>corrupted<span class="w"> </span>package
+<span class="o">(</span>PGP<span class="w"> </span>signature<span class="o">))</span>
+Errors<span class="w"> </span>occurred,<span class="w"> </span>no<span class="w"> </span>packages<span class="w"> </span>were<span class="w"> </span>upgraded.
+</code></pre></div>
+
+<p>El mensaje de error indica que la firma del paquete example-package es de una clave GPG que no está reconocida como confiable. El ID de la clave problemática es 12345678.</p>
+<h2>Resolución del Error</h2>
+<p>Para resolver este problema, sigue estos pasos:</p>
+<p>Abre una terminal.</p>
+<p>Ejecuta el siguiente comando, reemplazando 12345678 con el ID de la clave problemática que se mostró en el mensaje de error:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>gpg<span class="w"> </span>--recv-key<span class="w"> </span><span class="m">12345678</span>
+</code></pre></div>
+
+<p>Este comando descargará y añadirá la clave GPG a tu sistema, permitiendo que la instalación del programa continúe sin problemas.</p>
+<p>Una vez que la clave se haya descargado correctamente, intenta instalar el paquete de nuevo:</p>
+<div class="highlight"><pre><span></span><code>Copiar<span class="w"> </span>código
+$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>example-package
+</code></pre></div>
+
+<p>Siguiendo estos pasos, deberías poder resolver el error de clave GPG y completar la instalación del paquete sin inconvenientes.</p>
 	</div>
 
+	<div id="related-articles">
+		<a class="no-dec no-dec-h" href="/blog/2018/11/rvalues-y-lvalues-en-c11" id="prev-neighbour">Rvalues y Lvalues en C++11 &raquo;</a>
+	</div>
 
 			<hr>
 		</article>
