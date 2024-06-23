@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2019-03-13T00:00:00+01:00</updated><entry><title>Restaurar Arch Linux tras instalación fallida.</title><link href="https://eigenric.me/blog/2019/03/restaurar-arch-linux-tras-instalacion-fallida" rel="alternate"></link><published>2019-03-13T00:00:00+01:00</published><updated>2019-03-13T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2019-03-13:/blog/2019/03/restaurar-arch-linux-tras-instalacion-fallida</id><summary type="html">&lt;p&gt;En ocasiones, después de una instalación fallida de paquetes, el sistema operativo Arch Linux o Manjaro puede no arrancar correctamente. Afortunadamente, es posible solucionar estos problemas y restaurar el sistema …&lt;/p&gt;</summary><content type="html">&lt;p&gt;En ocasiones, después de una instalación fallida de paquetes, el sistema operativo Arch Linux o Manjaro puede no arrancar correctamente. Afortunadamente, es posible solucionar estos problemas y restaurar el sistema utilizando el GRUB y algunos comandos básicos. A continuación, se detallan los pasos para realizar esta recuperación.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2019-03-16T00:00:00+01:00</updated><entry><title>Extensión pomodoro en Gnome</title><link href="https://eigenric.me/blog/2019/03/extension-pomodoro-en-gnome" rel="alternate"></link><published>2019-03-16T00:00:00+01:00</published><updated>2019-03-16T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2019-03-16:/blog/2019/03/extension-pomodoro-en-gnome</id><summary type="html">&lt;p&gt;El método Pomodoro es una técnica de gestión del tiempo desarrollada por Francesco Cirillo a finales de los años 80. Su nombre proviene del temporizador de cocina con forma de …&lt;/p&gt;</summary><content type="html">&lt;p&gt;El método Pomodoro es una técnica de gestión del tiempo desarrollada por Francesco Cirillo a finales de los años 80. Su nombre proviene del temporizador de cocina con forma de tomate (pomodoro en italiano) que utilizó Cirillo durante sus estudios universitarios. La técnica se basa en dividir el tiempo de trabajo en intervalos de 25 minutos, conocidos como "pomodoros", separados por breves descansos. Después de completar cuatro pomodoros, se toma un descanso más largo.&lt;/p&gt;
+&lt;h2&gt;Beneficios del método Pomodoro:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Aumento de la concentración&lt;/strong&gt;: Al trabajar en intervalos cortos, se mejora la atención y se evita la fatiga mental.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mejora de la productividad&lt;/strong&gt;: La técnica ayuda a mantener un ritmo constante de trabajo y a evitar la procrastinación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gestión eficiente del tiempo&lt;/strong&gt;: Permite una mejor planificación y evaluación del tiempo dedicado a cada tarea.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Existe &lt;a href="https://extensions.gnome.org/extension/53/pomodoro/" target="_blank"&gt;una extensión del entorno escritorio Gnome&lt;/a&gt; para poner en práctica el método Pomodoro es una herramienta útil para gestionar el tiempo y mejorar la productividad. &lt;/p&gt;
+&lt;p&gt;A continuación, se detallan los pasos para instalar y solucionar problemas comunes al usar la extensión Pomodoro en Gnome Manjaro&lt;/p&gt;
+&lt;h2&gt;Instalación&lt;/h2&gt;
+&lt;p&gt;Para instalar la extensión Pomodoro en Gnome Manjaro, utiliza el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;yay&lt;span class="w"&gt; &lt;/span&gt;-S&lt;span class="w"&gt; &lt;/span&gt;gnome-extension-pomodoro
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Posibles problemas y soluciones&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Falta de dependencia &lt;code&gt;aclocal&lt;/code&gt;&lt;/strong&gt;:&lt;br&gt;
+   Si encuentras errores relacionados con la falta de &lt;code&gt;aclocal&lt;/code&gt;, instala &lt;code&gt;automake&lt;/code&gt; para resolver el problema:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;pacman&lt;span class="w"&gt; &lt;/span&gt;-S&lt;span class="w"&gt; &lt;/span&gt;automake
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Problemas al iniciar el programa&lt;/strong&gt;:&lt;br&gt;
+   Si el programa se cuelga al iniciarlo, intenta salir y volver a entrar a la sesión de Gnome.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Problemas con la extensión de Gnome&lt;/strong&gt;:&lt;br&gt;
+   En algunos casos, puede haber problemas específicos con la extensión Pomodoro. Si encuentras errores similares a los descritos en &lt;a href="https://github.com/codito/gnome-pomodoro/issues/332"&gt;este informe de problemas&lt;/a&gt;, sigue estos pasos:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mueve la carpeta de la extensión a una ubicación temporal:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;mv&lt;span class="w"&gt; &lt;/span&gt;~/.local/share/gnome-shell/extensions/pomodoro@arun.codito.in/&lt;span class="w"&gt; &lt;/span&gt;/tmp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Estos pasos deberían ayudarte a instalar y usar la extensión Pomodoro sin problemas en Gnome Manjaro. Si continúas teniendo problemas, revisa &lt;a href="https://gnomepomodoro.org/" target="_blank"&gt;la documentación oficial&lt;/a&gt; y los informes de problemas en GitHub para encontrar más soluciones.&lt;/p&gt;</content><category term="2019"></category><category term="gnome"></category><category term="pomodoro"></category><category term="manjaro"></category></entry><entry><title>Restaurar Arch Linux tras instalación fallida.</title><link href="https://eigenric.me/blog/2019/03/restaurar-arch-linux-tras-instalacion-fallida" rel="alternate"></link><published>2019-03-13T00:00:00+01:00</published><updated>2019-03-13T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2019-03-13:/blog/2019/03/restaurar-arch-linux-tras-instalacion-fallida</id><summary type="html">&lt;p&gt;En ocasiones, después de una instalación fallida de paquetes, el sistema operativo Arch Linux o Manjaro puede no arrancar correctamente. Afortunadamente, es posible solucionar estos problemas y restaurar el sistema …&lt;/p&gt;</summary><content type="html">&lt;p&gt;En ocasiones, después de una instalación fallida de paquetes, el sistema operativo Arch Linux o Manjaro puede no arrancar correctamente. Afortunadamente, es posible solucionar estos problemas y restaurar el sistema utilizando el GRUB y algunos comandos básicos. A continuación, se detallan los pasos para realizar esta recuperación.&lt;/p&gt;
 &lt;h2&gt;Acceder al Sistema mediante GRUB&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Reinicia tu computadora y pulsa &lt;code&gt;F12&lt;/code&gt; repetidamente antes de que el sistema inicie.&lt;/li&gt;

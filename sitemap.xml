@@ -5,28 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://eigenric.me/blog</loc>
-<lastmod>2024-06-22T15:11:17-00:00</lastmod>
+<lastmod>2024-06-23T13:47:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://eigenric.me/archive</loc>
-<lastmod>2024-06-22T15:11:17-00:00</lastmod>
+<lastmod>2024-06-23T13:47:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://eigenric.me/404.html</loc>
-<lastmod>2024-06-22T15:11:17-00:00</lastmod>
+<lastmod>2024-06-23T13:47:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://eigenric.me/</loc>
-<lastmod>2024-06-22T15:11:17-00:00</lastmod>
+<lastmod>2024-06-23T13:47:33-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://eigenric.me/blog/2019/03/extension-pomodoro-en-gnome</loc>
+<lastmod>2019-03-16T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
