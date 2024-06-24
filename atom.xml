@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2019-03-16T00:00:00+01:00</updated><entry><title>Extensión pomodoro en Gnome</title><link href="https://eigenric.me/blog/2019/03/extension-pomodoro-en-gnome" rel="alternate"></link><published>2019-03-16T00:00:00+01:00</published><updated>2019-03-16T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2019-03-16:/blog/2019/03/extension-pomodoro-en-gnome</id><summary type="html">&lt;p&gt;El método Pomodoro es una técnica de gestión del tiempo desarrollada por Francesco Cirillo a finales de los años 80. Su nombre proviene del temporizador de cocina con forma de …&lt;/p&gt;</summary><content type="html">&lt;p&gt;El método Pomodoro es una técnica de gestión del tiempo desarrollada por Francesco Cirillo a finales de los años 80. Su nombre proviene del temporizador de cocina con forma de tomate (pomodoro en italiano) que utilizó Cirillo durante sus estudios universitarios. La técnica se basa en dividir el tiempo de trabajo en intervalos de 25 minutos, conocidos como "pomodoros", separados por breves descansos. Después de completar cuatro pomodoros, se toma un descanso más largo.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2019-03-23T00:00:00+01:00</updated><entry><title>Depuración juego Deepspace - PDOO</title><link href="https://eigenric.me/blog/2019/03/depuracion-juego-deepspace-pdoo" rel="alternate"></link><published>2019-03-23T00:00:00+01:00</published><updated>2019-03-23T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2019-03-23:/blog/2019/03/depuracion-juego-deepspace-pdoo</id><summary type="html">&lt;p&gt;La Programación Orientada a Objetos (POO) es un paradigma de programación que utiliza "objetos" para representar datos y métodos. Estos objetos son instancias de clases, que definen las propiedades y …&lt;/p&gt;</summary><content type="html">&lt;p&gt;La Programación Orientada a Objetos (POO) es un paradigma de programación que utiliza "objetos" para representar datos y métodos. Estos objetos son instancias de clases, que definen las propiedades y comportamientos de los objetos. La POO facilita la modularidad, la reutilización de código y la abstracción, permitiendo a los desarrolladores crear sistemas complejos de manera más manejable.&lt;/p&gt;
+&lt;h2&gt;Práctica Deepspace: Desarrollo de la clase &lt;code&gt;SpaceStation&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Nos encontramos en el desarrollo del juego &lt;strong&gt;Deepspace&lt;/strong&gt;, específicamente trabajando en la práctica para el examen de la asignatura de Programación Orientada a Objetos (PDOO). Actualmente, estamos enfocados en el constructor de la clase &lt;code&gt;SpaceStation&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Constructor de &lt;code&gt;SpaceStation&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Inicialmente, nos sorprendió que el constructor de &lt;code&gt;SpaceStation&lt;/code&gt; tomara únicamente un nombre y un objeto &lt;code&gt;SuppliesPackage&lt;/code&gt;, a pesar de que la clase parece tener muchos más atributos. Ahora comprendemos que el objeto &lt;code&gt;SuppliesPackage&lt;/code&gt; incluye todos los suministros necesarios (&lt;code&gt;ammoPower&lt;/code&gt;, &lt;code&gt;fuelUnits&lt;/code&gt;, &lt;code&gt;shieldPower&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Sin embargo, aún nos falta determinar cómo obtener el atributo &lt;code&gt;nMedals&lt;/code&gt;. Hemos identificado que este atributo aparece en la clase &lt;code&gt;Loot&lt;/code&gt;, pero &lt;code&gt;SpaceStation&lt;/code&gt; no parece tener dependencias directas de esta clase.&lt;/p&gt;
+&lt;h3&gt;Dependencias y Atributos Iniciales&lt;/h3&gt;
+&lt;p&gt;Otra cuestión es la implementación de las dependencias con multiplicidad 0..1. Suponemos que, a priori, dichos atributos se inicializan con &lt;code&gt;nil&lt;/code&gt; hasta que se indique lo contrario.&lt;/p&gt;
+&lt;h3&gt;Método &lt;code&gt;adjust&lt;/code&gt; en la Clase &lt;code&gt;Damage&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;El método &lt;code&gt;adjust&lt;/code&gt; es una fuente de confusión, así que vamos a desglosarlo y entender su funcionalidad.&lt;/p&gt;
+&lt;p&gt;La clase &lt;code&gt;Damage&lt;/code&gt; puede estar compuesta de dos maneras:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Una lista de &lt;code&gt;weaponTypes&lt;/code&gt;, un número de &lt;code&gt;shields&lt;/code&gt; y un número de armas (&amp;gt;= -1).&lt;/li&gt;
+&lt;li&gt;Un número de &lt;code&gt;weapons&lt;/code&gt; y un número de &lt;code&gt;shields&lt;/code&gt;, donde &lt;code&gt;weapons == []&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;El método &lt;code&gt;adjust&lt;/code&gt; toma una lista de &lt;code&gt;Weapon&lt;/code&gt; y una lista de &lt;code&gt;ShieldBoosters&lt;/code&gt;. Devuelve una copia del objeto &lt;code&gt;Damage&lt;/code&gt; modificado, ajustado según las colecciones de armas y potenciadores de escudos proporcionados como parámetros.&lt;/p&gt;
+&lt;h3&gt;Ajuste de &lt;code&gt;Damage&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;El objetivo del ajuste es que la instancia de &lt;code&gt;Damage&lt;/code&gt; resultante no pueda implicar la pérdida de más armas o escudos de los que realmente se tienen. En otras palabras, los atributos de &lt;code&gt;Damage&lt;/code&gt; deben coincidir con los tipos y cantidades presentes en las colecciones de los parámetros.&lt;/p&gt;
+&lt;h3&gt;Pasos para implementar &lt;code&gt;adjust&lt;/code&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Para armas (&lt;code&gt;weaponTypes&lt;/code&gt;):&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Comparar la lista de tipos de armas actuales con la lista proporcionada.&lt;/li&gt;
+&lt;li&gt;Crear una lista con los tipos de armas que están tanto en el objeto &lt;code&gt;Damage&lt;/code&gt; como en la lista de parámetros.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;La nueva lista será la diferencia entre los tipos de armas actuales y los tipos suministrados.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Para escudos (&lt;code&gt;ShieldBoosters&lt;/code&gt;):&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;No hay un atributo de lista de &lt;code&gt;shieldBoosters&lt;/code&gt;, por lo que trabajamos con &lt;code&gt;nShields&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nShields&lt;/code&gt; debe ser ajustado a la longitud de la lista de &lt;code&gt;ShieldBoosters&lt;/code&gt; proporcionada como parámetro, si es menor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Ejemplo&lt;/h3&gt;
+&lt;p&gt;Supongamos que &lt;code&gt;Damage&lt;/code&gt; tiene 3 tipos de armas y 2 escudos:
+- &lt;code&gt;Damage.weaponTypes = ["laser", "missile", "plasma"]&lt;/code&gt;
+- &lt;code&gt;Damage.nShields = 2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Y se llama al método &lt;code&gt;adjust&lt;/code&gt; con:
+- &lt;code&gt;weapons = ["laser", "ion"]&lt;/code&gt;
+- &lt;code&gt;shieldBoosters = ["basic", "advanced"]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;El resultado ajustado será:
+- &lt;code&gt;Damage.weaponTypes = ["laser"]&lt;/code&gt; (ya que "missile" y "plasma" no están en los parámetros)
+- &lt;code&gt;Damage.nShields = 2&lt;/code&gt; (ya que el número de escudos en los parámetros no es menor)&lt;/p&gt;
+&lt;h3&gt;Conclusión&lt;/h3&gt;
+&lt;p&gt;En conclusión, la clase &lt;code&gt;Damage&lt;/code&gt; ajustada reflejará únicamente las armas y escudos presentes en los parámetros, asegurando que no se requiera perder más recursos de los disponibles.&lt;/p&gt;
+&lt;p&gt;Puedes consultar &lt;a href="https://github.com/eigenric/deepspace" target="_blank"&gt;el repositorio completo de la práctica en Ruby&lt;/a&gt; para más detalles.&lt;/p&gt;</content><category term="2019"></category></entry><entry><title>Extensión pomodoro en Gnome</title><link href="https://eigenric.me/blog/2019/03/extension-pomodoro-en-gnome" rel="alternate"></link><published>2019-03-16T00:00:00+01:00</published><updated>2019-03-16T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2019-03-16:/blog/2019/03/extension-pomodoro-en-gnome</id><summary type="html">&lt;p&gt;El método Pomodoro es una técnica de gestión del tiempo desarrollada por Francesco Cirillo a finales de los años 80. Su nombre proviene del temporizador de cocina con forma de …&lt;/p&gt;</summary><content type="html">&lt;p&gt;El método Pomodoro es una técnica de gestión del tiempo desarrollada por Francesco Cirillo a finales de los años 80. Su nombre proviene del temporizador de cocina con forma de tomate (pomodoro en italiano) que utilizó Cirillo durante sus estudios universitarios. La técnica se basa en dividir el tiempo de trabajo en intervalos de 25 minutos, conocidos como "pomodoros", separados por breves descansos. Después de completar cuatro pomodoros, se toma un descanso más largo.&lt;/p&gt;
 &lt;h2&gt;Beneficios del método Pomodoro:&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Aumento de la concentración&lt;/strong&gt;: Al trabajar en intervalos cortos, se mejora la atención y se evita la fatiga mental.&lt;/li&gt;
