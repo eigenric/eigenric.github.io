@@ -1,4 +1,4 @@
-Title: Depuración final Deepspace - PDOO
+Title: Depuración juego Deepspace - PDOO (II)
 Date: 2019-05-28
 Tags: deepspace, pdoo, java
 
