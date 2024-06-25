@@ -1,6 +1,6 @@
 Title: Depuración juego Deepspace - PDOO
 Date: 2019-03-23
-Tags: 
+Tags: deepspace, pdoo, ruby
 
 La Programación Orientada a Objetos (POO) es un paradigma de programación que utiliza "objetos" para representar datos y métodos. Estos objetos son instancias de clases, que definen las propiedades y comportamientos de los objetos. La POO facilita la modularidad, la reutilización de código y la abstracción, permitiendo a los desarrolladores crear sistemas complejos de manera más manejable.
 
