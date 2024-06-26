@@ -1,5 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2019-03-23T00:00:00+01:00</updated><entry><title>Depuración juego Deepspace - PDOO</title><link href="https://eigenric.me/blog/2019/03/depuracion-juego-deepspace-pdoo" rel="alternate"></link><published>2019-03-23T00:00:00+01:00</published><updated>2019-03-23T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2019-03-23:/blog/2019/03/depuracion-juego-deepspace-pdoo</id><summary type="html">&lt;p&gt;La Programación Orientada a Objetos (POO) es un paradigma de programación que utiliza "objetos" para representar datos y métodos. Estos objetos son instancias de clases, que definen las propiedades y …&lt;/p&gt;</summary><content type="html">&lt;p&gt;La Programación Orientada a Objetos (POO) es un paradigma de programación que utiliza "objetos" para representar datos y métodos. Estos objetos son instancias de clases, que definen las propiedades y comportamientos de los objetos. La POO facilita la modularidad, la reutilización de código y la abstracción, permitiendo a los desarrolladores crear sistemas complejos de manera más manejable.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2020-05-22T00:00:00+02:00</updated><entry><title>Búsqueda en anchura en un Grafo</title><link href="https://eigenric.me/blog/2020/05/busqueda-en-anchura-en-un-grafo" rel="alternate"></link><published>2020-05-22T00:00:00+02:00</published><updated>2020-05-22T00:00:00+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2020-05-22:/blog/2020/05/busqueda-en-anchura-en-un-grafo</id><summary type="html">&lt;p&gt;La Búsqueda en Anchura (BFS) es un algoritmo fundamental utilizado en teoría de grafos para explorar y recorrer los nodos de un grafo nivel por nivel. Este método es especialmente …&lt;/p&gt;</summary><content type="html">&lt;p&gt;La Búsqueda en Anchura (BFS) es un algoritmo fundamental utilizado en teoría de grafos para explorar y recorrer los nodos de un grafo nivel por nivel. Este método es especialmente útil para encontrar la ruta más corta en términos de número de aristas entre dos nodos en grafos no ponderados.&lt;/p&gt;
+&lt;h2&gt;Descripción del Algoritmo&lt;/h2&gt;
+&lt;p&gt;El algoritmo BFS utiliza una cola y un conjunto de nodos generados para realizar la búsqueda. Comienza añadiendo el nodo raíz a la cola y al conjunto de nodos generados. Luego, mientras la cola no esté vacía y el nodo actual no sea el nodo destino, se realiza el siguiente procedimiento:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Se extrae el primer elemento de la cola y se añade al conjunto de nodos generados.&lt;/li&gt;
+&lt;li&gt;Se generan los hijos del nodo actual a través de las acciones posibles (GiroDerecha, GiroIzquierda y Avanzar).&lt;/li&gt;
+&lt;li&gt;Se actualiza el vector de secuencia de cada nodo hijo con las acciones necesarias para llegar a él desde el nodo actual.&lt;/li&gt;
+&lt;li&gt;Los nodos hijos se añaden a la cola si no están ya en el conjunto de nodos generados, utilizando una función de comparación (ComparaEstados) para verificar su existencia.&lt;/li&gt;
+&lt;li&gt;No se genera un nodo de avance si hay obstáculos delante (muros, etc.).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Una vez que la búsqueda encuentra el nodo destino, el algoritmo finaliza. La progresión de la búsqueda se puede ilustrar con el siguiente ejemplo de un grafo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;          1
+     /    |    \ 
+  2       3      4
+ / \     / \    /
+5  6   7   8   9
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;La secuencia de exploración sería:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Este enfoque garantiza la búsqueda por niveles, explorando todos los nodos de un nivel antes de pasar al siguiente.&lt;/p&gt;
+&lt;h2&gt;Determinación del Plan de Acciones&lt;/h2&gt;
+&lt;p&gt;Una vez que la búsqueda ha finalizado exitosamente encontrando el nodo destino, el plan de acciones para llegar a él se puede determinar siguiendo las secuencias de acciones almacenadas en cada nodo.&lt;/p&gt;
+&lt;p&gt;Por ejemplo, si el destino es el nodo 5, podríamos tener las siguientes secuencias:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nodo 2: Secuencia = [GiroDerecha]&lt;/li&gt;
+&lt;li&gt;Nodo 3: Secuencia = [GiroIzquierda]&lt;/li&gt;
+&lt;li&gt;Nodo 4: Secuencia = [Avanzar]&lt;/li&gt;
+&lt;li&gt;Nodo 5: Secuencia = [GiroDerecha]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para ilustrar este proceso, consideremos la siguiente estructura del grafo y las acciones:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Nodo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Nodo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;GiroDerecha&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;Nodo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Nodo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;GiroDerecha&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;La secuencia total de acciones para llegar al nodo 5 desde el nodo 1 sería:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;[GiroDerecha, GiroDerecha]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;De esta manera, al almacenar y seguir las secuencias de acciones en cada nodo, podemos reconstruir fácilmente el plan de acciones necesario para alcanzar el nodo destino.&lt;/p&gt;
+&lt;h2&gt;Implementación del Algoritmo en Pseudocódigo&lt;/h2&gt;
+&lt;p&gt;A continuación se presenta una implementación en pseudocódigo del algoritmo BFS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;BFS&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;inicio, destino&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;cola&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Queue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;generados&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Set&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;inicio&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;secuencia&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;cola&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;enqueue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inicio&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;generados&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inicio&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;not&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cola&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isEmpty&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;nodo_actual&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cola&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dequeue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nodo_actual&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;destino&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nodo_actual&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;secuencia&lt;/span&gt;
+
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;hijos&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;generar_hijos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nodo_actual&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;hijo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;hijos&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;not&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;generados&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contains&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hijo&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="n"&gt;hijo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;secuencia&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nodo_actual&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;secuencia&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;accion_para_llegar_a&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hijo&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="n"&gt;cola&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;enqueue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hijo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="n"&gt;generados&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hijo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;None&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Implementación y Aplicaciones&lt;/h2&gt;
+&lt;p&gt;El BFS es útil para encontrar el camino más corto en grafos no ponderados, y es utilizado en aplicaciones como:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Redes de pares (P2P) para localizar nodos vecinos.&lt;/li&gt;
+&lt;li&gt;Motores de búsqueda y crawlers web para indexar páginas web.&lt;/li&gt;
+&lt;li&gt;Sistemas de navegación para encontrar rutas.&lt;/li&gt;
+&lt;li&gt;Difusión en redes para propagar información eficientemente.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Referencias&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/tutorial/" target="_blank"&gt;HackerEarth: Breadth First Search (BFS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.khanacademy.org/computing/computer-science/algorithms/breadth-first-search/a/breadth-first-search" target="_blank"&gt;Khan Academy: Breadth-First Search&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.devsenv.com/algorithms/breadth-first-search" target="_blank"&gt;DevsEnv: Breadth First Search Algorithm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.guru99.com/breadth-first-search-algorithm.html" target="_blank"&gt;Guru99: Breadth First Search (BFS) Algorithm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="2020"></category></entry><entry><title>Depuración juego Deepspace - PDOO (II)</title><link href="https://eigenric.me/blog/2019/05/depuracion-juego-deepspace-pdoo-ii" rel="alternate"></link><published>2019-05-28T00:00:00+02:00</published><updated>2019-05-28T00:00:00+02:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2019-05-28:/blog/2019/05/depuracion-juego-deepspace-pdoo-ii</id><summary type="html">&lt;p&gt;Me encuentro en el V Centenario con la necesidad de depurar finiquitando la
+Práctica 5, es decir, la incorporación de una interfaz gráfica al juego
+&lt;code&gt;Deepspace&lt;/code&gt; desarrollado en Prácticas anteriores …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Me encuentro en el V Centenario con la necesidad de depurar finiquitando la
+Práctica 5, es decir, la incorporación de una interfaz gráfica al juego
+&lt;code&gt;Deepspace&lt;/code&gt; desarrollado en Prácticas anteriores en el contexto de la asignatura
+de Programación y Diseño Orientado a Objetos.&lt;/p&gt;
+&lt;p&gt;Se seguirá el Modelo-Vista-Controlador.  Sintetizando, el controlador hace de
+intermediario entre la vista y el modelo. Puede haber varias vistas para un
+único modelo-controlador.&lt;/p&gt;
+&lt;p&gt;La idea es que las vistas respeten la API declarada por el controlador y se
+adapten a ella, representando los elementos del modelo (manipulados) de la forma
+deseable.&lt;/p&gt;
+&lt;p&gt;Así pues, a lo largo de todas las prácticas hemos usado la Vista &lt;code&gt;TextView&lt;/code&gt;
+ofrecida por el profesor.  Ahora hemos creado una vista principal &lt;code&gt;MainView&lt;/code&gt; que
+descibre la Ventana Principal. Es una clase que hereda de &lt;code&gt;JFrame&lt;/code&gt;. En esta vista,
+se incluyen 2 paneles (heredan de la clase &lt;code&gt;JPanel&lt;/code&gt;), uno para SpaceStation y otro
+para &lt;code&gt;Enemy&lt;/code&gt;. A estos paneles se les añade con &lt;code&gt;.add()&lt;/code&gt; las vistas respectivas
+(&lt;code&gt;SpaceStationView&lt;/code&gt; y &lt;code&gt;EnemyView&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Cuando se actualiza la vista de &lt;code&gt;MainView&lt;/code&gt;, se sustituye el &lt;code&gt;SpaceStationView&lt;/code&gt; por
+la &lt;code&gt;currentStation&lt;/code&gt; que tenga &lt;code&gt;GameUniverse&lt;/code&gt; (el modelo del juego). El Enemigo va
+cambiado de acuerdo a las cartas que fueron instanciadas en &lt;code&gt;CardDeck&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Disponemos de 5 botones asociados con ciertos comportamientos. Los botones
+Combatir, Salir, Siguiente turno, Equipar, Descartar y Descartar Hangar
+Completo.&lt;/p&gt;
+&lt;p&gt;Iremos encontrando los Bugs con una metodología sistemática que nunca falla
+hasta eliminarlos por completo.&lt;/p&gt;
+&lt;h2&gt;Bug #1 - Equipar no funciona&lt;/h2&gt;
+&lt;p&gt;Cuando ciertos elementos de combate están seleccionados y se pulsa Equipar
+(Montar), estos elementos no se montán.&lt;/p&gt;
+&lt;p&gt;El método controlador de equipar se ejecuta como confirma haber añadido "Botón
+pulsado" en el método y este habiéndose mostrado por pantalla.&lt;/p&gt;
+&lt;p&gt;Por tanto, el resto del código también se ha ejecutado, incluyendo los mensajes
+que deberían haberse mostrado para elementos en el for. Como no se han mostrado,
+los Arrays que se recorrían estaban vacíos.&lt;/p&gt;
+&lt;p&gt;Esto reduce el bug a que &lt;code&gt;getSelectedWeaponsFromHangar()&lt;/code&gt; y
+&lt;code&gt;getSelectedShieldsFromHangar()&lt;/code&gt; devuelven Arrays vacíos y no los arrays de las
+posiciones de enteros que deberían mostrar.&lt;/p&gt;
+&lt;p&gt;Estos dos métodos son realmente un wrapper que llaman a los métodos del mismo
+nombre de la clase &lt;code&gt;HangarView&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Comprobaremos el funcionamiento de estos métodos en esta clase para encontrar el
+fallo.&lt;/p&gt;
+&lt;p&gt;El código de &lt;code&gt;getSelectedWeapons&lt;/code&gt; realiza lo siguiente:&lt;/p&gt;
+&lt;p&gt;Creamos un array vacío de Integer. Inicializamos un contador i a 0.&lt;/p&gt;
+&lt;p&gt;Recorremos los componentes de &lt;code&gt;jPanelHangar&lt;/code&gt;, el cual es el panel que incluye el
+&lt;code&gt;jScrollPanel1&lt;/code&gt;.  Creemos que los elementos se añaden a &lt;code&gt;jPanelHangar&lt;/code&gt; y no a
+&lt;code&gt;ScrollPanel&lt;/code&gt;. Estamos en lo cierto, como se observa en el método &lt;code&gt;setHangar&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Estos componentes son de la clase Componente.  Realizamos un casting
+(DownCasting) de cada uno de estos componentes a la clase &lt;code&gt;CombatElementView&lt;/code&gt; la
+cual realmente implementa el método &lt;code&gt;isSelected()&lt;/code&gt; el cual únicamente devuelve ese
+atributo &lt;code&gt;selected=0&lt;/code&gt; que recordamos que está a true como confirma el color de los
+&lt;code&gt;Weapons&lt;/code&gt;. (solo se muestra el color si son opacos y sólo son opacos sin está
+&lt;code&gt;selected&lt;/code&gt; a &lt;code&gt;true&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Además para confirmar que son Weapons debemos añadir otra condición y es que i &amp;lt;
+nWeapons.  Recordamos que nWeapons es un atributo privado de instancia de esta
+clase &lt;code&gt;HangarView&lt;/code&gt;, el cual se actualiza en &lt;code&gt;setHangar&lt;/code&gt; al número elementos que
+tenga la lista weapons de &lt;code&gt;WeaponsToU&lt;/code&gt; devuelta por la función &lt;code&gt;HangarToUI::getWeapons()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Análogamente para &lt;code&gt;nShields.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Así pues, el hangar contiene &lt;code&gt;nWeapons&lt;/code&gt; weapons y &lt;code&gt;nShields&lt;/code&gt; shields, y &lt;code&gt;nWeapons +
+nShields &amp;lt;= capacity&lt;/code&gt; (es decir el número máximo de elementos del hangar). La
+idea, es que primero se insertar &lt;code&gt;nWeapons&lt;/code&gt; Weapons y luego &lt;code&gt;nShields&lt;/code&gt; Shields.&lt;/p&gt;
+&lt;p&gt;Luego, si obtenemos cada uno de estos componentes, solo bastará controlar el
+índice para saber si estamos ante un &lt;code&gt;Weapon&lt;/code&gt; o un &lt;code&gt;Shield&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Como vemos, tenemos un &lt;code&gt;println&lt;/code&gt; dentro de este &lt;code&gt;if&lt;/code&gt;, el cual debería mostrarse en
+la llamada a esta funciona. Com` no se muestra, determinamos que esta condición
+nunca se cumple y se devuelve un Array vacío.&lt;/p&gt;
+&lt;p&gt;El bug se reduce a ver por qué no se cumple la condición. Es bastante obvio que
+&lt;code&gt;isSelected()&lt;/code&gt; tiene que ser &lt;code&gt;true&lt;/code&gt;, por tanto veremos por qué &lt;code&gt;i&lt;/code&gt; nunca es menor que
+nWeapons.&lt;/p&gt;
+&lt;p&gt;Debido a que el Hangar está lleno de elementos, determinamos que se ha ejecutado
+la función &lt;code&gt;setHangar&lt;/code&gt; la cual rellena el hangar de &lt;code&gt;WeaponView&lt;/code&gt; y
+&lt;code&gt;ShieldBoosterView.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;En primer lugar, vamos a printear el valor de nWeapons en el for para ver que
+nuestras suposiciones parciales son ciertas.&lt;/p&gt;
+&lt;p&gt;Como curiosidad, se ha mostrado lo de nWeapons en &lt;code&gt;SelctedWeapon&lt;/code&gt;: 0 dos veces.
+Nos preguntamo si es que hemos seleccionado dos Weapons en lugar de 1 y por
+tanto el número de mensajes mostrados depende del número de armas seleccionadas
+(lo cual no debería ocurrir).&lt;/p&gt;
+&lt;p&gt;Observamos que ya se pulse Equipar teniendo montado un Weapon o un
+ShieldBooster, se muestra lo de 0 dos veces.&lt;/p&gt;
+&lt;p&gt;Nos extraña porque mount sólo llama a &lt;code&gt;SelectedWeapons&lt;/code&gt; una vez.&lt;/p&gt;
+&lt;p&gt;Comprobaremos usando un nWeapons en &lt;code&gt;ShieldBooster&lt;/code&gt;.  Según parece, ni siquiera
+entra en el for, luego por tanto getComponents devuelve un Array vacío.&lt;/p&gt;
+&lt;p&gt;Es quizás que &lt;code&gt;jPanelHangar&lt;/code&gt; no sea el elemento adecuado, sino el Scroll.&lt;/p&gt;
+&lt;p&gt;Sustituimos el código por &lt;code&gt;jScrollPanel&lt;/code&gt; por probar suerte.&lt;/p&gt;
+&lt;p&gt;Confirmamos que con &lt;code&gt;jScrollPanel&lt;/code&gt; se entra en el for y por tanto los
+getComponents() no es vacío.&lt;/p&gt;
+&lt;p&gt;Se realiza solo una iteración y acto seguido da error. El error es:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;JViewport&lt;/code&gt;no puede ser convertido a &lt;code&gt;CombatElementView&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Procederemos a leer la información sobre un &lt;code&gt;ScrollPanel&lt;/code&gt; del ejemplo propuesto
+por el profesor.&lt;/p&gt;
+&lt;p&gt;Al parecer el problema es la creación de 2 hangares. cuantas veces se
+llega al constructor de Hangar.&lt;/p&gt;
+&lt;p&gt;Al parecer llamar a &lt;code&gt;updateView&lt;/code&gt; en la creación del botón es incorrecto.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;¡El fallo estaba en el seteo al hangar! Se creaba uno nuevo y se añadia lo cual es un gran error.&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="2019"></category><category term="deepspace"></category><category term="pdoo"></category><category term="java"></category></entry><entry><title>Depuración juego Deepspace - PDOO</title><link href="https://eigenric.me/blog/2019/03/depuracion-juego-deepspace-pdoo" rel="alternate"></link><published>2019-03-23T00:00:00+01:00</published><updated>2019-03-23T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2019-03-23:/blog/2019/03/depuracion-juego-deepspace-pdoo</id><summary type="html">&lt;p&gt;La Programación Orientada a Objetos (POO) es un paradigma de programación que utiliza "objetos" para representar datos y métodos. Estos objetos son instancias de clases, que definen las propiedades y …&lt;/p&gt;</summary><content type="html">&lt;p&gt;La Programación Orientada a Objetos (POO) es un paradigma de programación que utiliza "objetos" para representar datos y métodos. Estos objetos son instancias de clases, que definen las propiedades y comportamientos de los objetos. La POO facilita la modularidad, la reutilización de código y la abstracción, permitiendo a los desarrolladores crear sistemas complejos de manera más manejable.&lt;/p&gt;
 &lt;h2&gt;Práctica Deepspace: Desarrollo de la clase &lt;code&gt;SpaceStation&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;Nos encontramos en el desarrollo del juego &lt;strong&gt;Deepspace&lt;/strong&gt;, específicamente trabajando en la práctica para el examen de la asignatura de Programación Orientada a Objetos (PDOO). Actualmente, estamos enfocados en el constructor de la clase &lt;code&gt;SpaceStation&lt;/code&gt;.&lt;/p&gt;
 &lt;h3&gt;Constructor de &lt;code&gt;SpaceStation&lt;/code&gt;&lt;/h3&gt;
@@ -43,7 +221,7 @@
 - &lt;code&gt;Damage.nShields = 2&lt;/code&gt; (ya que el número de escudos en los parámetros no es menor)&lt;/p&gt;
 &lt;h3&gt;Conclusión&lt;/h3&gt;
 &lt;p&gt;En conclusión, la clase &lt;code&gt;Damage&lt;/code&gt; ajustada reflejará únicamente las armas y escudos presentes en los parámetros, asegurando que no se requiera perder más recursos de los disponibles.&lt;/p&gt;
-&lt;p&gt;Puedes consultar &lt;a href="https://github.com/eigenric/deepspace" target="_blank"&gt;el repositorio completo de la práctica en Ruby&lt;/a&gt; para más detalles.&lt;/p&gt;</content><category term="2019"></category></entry><entry><title>Extensión pomodoro en Gnome</title><link href="https://eigenric.me/blog/2019/03/extension-pomodoro-en-gnome" rel="alternate"></link><published>2019-03-16T00:00:00+01:00</published><updated>2019-03-16T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2019-03-16:/blog/2019/03/extension-pomodoro-en-gnome</id><summary type="html">&lt;p&gt;El método Pomodoro es una técnica de gestión del tiempo desarrollada por Francesco Cirillo a finales de los años 80. Su nombre proviene del temporizador de cocina con forma de …&lt;/p&gt;</summary><content type="html">&lt;p&gt;El método Pomodoro es una técnica de gestión del tiempo desarrollada por Francesco Cirillo a finales de los años 80. Su nombre proviene del temporizador de cocina con forma de tomate (pomodoro en italiano) que utilizó Cirillo durante sus estudios universitarios. La técnica se basa en dividir el tiempo de trabajo en intervalos de 25 minutos, conocidos como "pomodoros", separados por breves descansos. Después de completar cuatro pomodoros, se toma un descanso más largo.&lt;/p&gt;
+&lt;p&gt;Puedes consultar &lt;a href="https://github.com/eigenric/deepspace" target="_blank"&gt;el repositorio completo de la práctica en Ruby&lt;/a&gt; para más detalles.&lt;/p&gt;</content><category term="2019"></category><category term="deepspace"></category><category term="pdoo"></category><category term="ruby"></category></entry><entry><title>Extensión pomodoro en Gnome</title><link href="https://eigenric.me/blog/2019/03/extension-pomodoro-en-gnome" rel="alternate"></link><published>2019-03-16T00:00:00+01:00</published><updated>2019-03-16T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2019-03-16:/blog/2019/03/extension-pomodoro-en-gnome</id><summary type="html">&lt;p&gt;El método Pomodoro es una técnica de gestión del tiempo desarrollada por Francesco Cirillo a finales de los años 80. Su nombre proviene del temporizador de cocina con forma de …&lt;/p&gt;</summary><content type="html">&lt;p&gt;El método Pomodoro es una técnica de gestión del tiempo desarrollada por Francesco Cirillo a finales de los años 80. Su nombre proviene del temporizador de cocina con forma de tomate (pomodoro en italiano) que utilizó Cirillo durante sus estudios universitarios. La técnica se basa en dividir el tiempo de trabajo en intervalos de 25 minutos, conocidos como "pomodoros", separados por breves descansos. Después de completar cuatro pomodoros, se toma un descanso más largo.&lt;/p&gt;
 &lt;h2&gt;Beneficios del método Pomodoro:&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Aumento de la concentración&lt;/strong&gt;: Al trabajar en intervalos cortos, se mejora la atención y se evita la fatiga mental.&lt;/li&gt;
