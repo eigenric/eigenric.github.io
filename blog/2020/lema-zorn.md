@@ -20,39 +20,36 @@ En lo siguiente $(X, \leq)$ es un conjunto preordenado o proset.
 
 Se dice que $C \subset X$ es una **cadena de $X$** sii por def $(C, \leq)$ es totalmente ordenado.
 
-Sea $S \subset X$. Diremos que $m \in S$ es un **elemento maximal** (resp. **minimal**) cuando no hay elemento de $S$ (estrictamente) mayor (respectivamente estrictamente menor).
+Sea $S \subset X$. Diremos que $m \in S$ es un **elemento maximal** (resp. **minimal**) cuando no hay elemento de $S$ (estrictamente) mayor (respectivamente estrictamente menor). Formalmente, $m$ es maximal en $S$ si para todo $s \in S$ si $m \leq s$ entonces $m = s$. Análogamente para el minimal.
 
-Sea $S \subset X$. Diremos que $m \in S$ es el **máximo** (resp. **mínimo**) cuando es mayor (resp. menor) que todos los elementos de $S$:
+Sea $S \subset X$. Diremos que $m \in S$ es el **máximo** (resp. **mínimo**) cuando es mayor (resp. menor) que todos los elementos de $S$. Formalmente, $m$ es máximo en $S$ si para todo $s \in S$ $s \leq m$. Análogamente para el mínimo.
 
 **Observación:** el elemento maximal/minimal no tiene por qué ser único. No confundir con el máximo/mínimo. Éste es mayor/menor que todos (y por tanto comparable) lo cual no tiene por que suceder con el elemento maximal/minimal.
 
-**Proposición** Si $S \subset X$ tiene máximo (resp. mínimo) entonces también es elemento maximal (resp. minimal).
+**Proposición.** Si $S \subset X$ es un conjunto parcialmente ordenado o poset y tiene máximo (resp. mínimo) entonces es el único elemento maximal (resp. minimal).
 
-> **Dem** 
-Sea $m \in S$, si $s \in S$ tal que $m \leq s$  > necesariamente por ser $m$ máximo $s \leq m$.
-Sea $m' \in S$, si $s \in S$ tal que $s \leq m'$ necesariamente por ser $m'$ mínimo $m '\leq s$.
+**Dem.**
+> Sea $m \in S$, si $s \in S$ tal que $m \leq s$   necesariamente por ser $m$ máximo $s \leq m$ y por tanto por la propiedad antisimétrica de los posets $m = s$ ($m$ es maximal, pues no hay elemento estrictimente mayor). $\square$
 
-**Proposición** Si $S \subset X$ es poset y tiene máximo entonces es el único elemento maximal.
+>Sea $m' \in S$, si $s \in S$ tal que $s \leq m'$ necesariamente por ser $m'$ mínimo $m '\leq s$ y por la propiedad antisimétrica de los posets, $m' = s$. ($m'$ es minimal pues no hay elemento estrictamente menor) $\square$
 
-> **Dem**
-Sea $n \in S$ máximo, entonces $n \geq m$ y $m \geq n$ luego $m = n$.
-Sea $n' \in S$ mínimo, entonces $n' \leq n$ y $n \leq n$ luego $n = n'$.
+>Para la unicidad, sea $m$ el máximo de $S$. Supongamos que existe otro elemento $m' \in S$ tal que $m'$ es maximal. Por ser $m$ el máximo, $m' \leq m$. Pero $m'$ es maximal, lo que implica que no puede haber un elemento mayor que $m'$, entonces $m = m'$. Por lo tanto, $m$ es el único elemento maximal. $\square$
+Anaálogamente para el mínimo.
 
-> **Proposición** Si $S \subset X$ es toset y tiene un elemento maximal (resp. minimal) entonces coincide con el máximo (resp. mínimo).
+**Proposición** Si $S \subset X$ es un conjunto totalmente ordenado o toset y tiene un elemento maximal (resp. minimal) entonces coincide con el máximo (resp. mínimo).
 
-**Dem**
+> **Dem.**
 Sea $m \in S$ un elemento maximal entonces no existe elemento estrictamente mayor que él. Como $S$ es toset todos los elementos son comparables y por tanto todos son menores que $m$. La unicidad se da por ser poset en particular.
 Sea $n \in S$ un elemento minimal entonces no existe elemento estrictamente menor que él. Como $S$ es toset todos los elementos son comparables y por tanto todos son mayores que $n$.
 
+**Definición.** Se dice que $A \subset X$ es un conjunto **bien ordenado** cuando es totalmente ordenado y todo subconjunto suyo no vacío tiene mínimo.  La clase de subconjuntos de $X$ bien ordenados se denota como $Well(X)$
 
-> **Def.**: Se dice que $A \subset X$ es un conjunto **bien ordenado** cuando es totalmente ordenado y todo subconjunto suyo no vacío tiene mínimo.  La clase de subconjuntos de $X$ bien ordenados se denota  $Well(X)$
-
-> **Def.** $S \subseteq X$ es un **conjunto cerrado inferiormente** en $X$ si para cualquier $u \in S$, si $v \in X$ tal que $v \leq u$ entonces $v \in S$. 
+**Definición.** $S \subseteq X$ es un **conjunto cerrado inferiormente** en $X$ si para cualquier $u \in S$, si $v \in X$ tal que $v \leq u$ entonces $v \in S$. 
 
 **Observación:** Todo conjunto es cerrado inferiormente en sí mismo.
 
 
-> **Def.** Si $C$ es cadena de $X$ y $x \in C$, entonces llamamos **segmento inicial** de $x$ en $C$ a los elementos de $C$ estrictamente menores que $x$.
+**Definición.** Si $C$ es cadena de $X$ y $x \in C$, entonces llamamos **segmento inicial** de $x$ en $C$ a los elementos de $C$ estrictamente menores que $x$.
 $$
     I_c(x) = \{y \in C : y \lt x\}
 $$
