@@ -1,7 +1,6 @@
 Title: Demostración del Lema de Zorn
 Date: 2020-07-01
 Tags: demostración, lema, zorn
-Status: Draft
 
 Es un Lema básico en Teoría de Conjuntos que permite probar la existencia de bases de Espacios Vectoriales, entre otros resultados de Álgebra abstracta.
 
@@ -64,7 +63,7 @@ En efecto, sea $u \in I_c(x)$ entonces $u \lt x$. Si $v \in X$ tal que $v \leq u
 
 ## Teorema (Lema de Zorn). 
 
-> **Lema de Zorn.** Si $(X, \leq)$ es proset en el que toda cadena está acotada superiormente. Entonces $(X, \leq)$ tiene un elemento maximal.
+**Lema de Zorn. Si $(X, \leq)$ es proset en el que toda cadena está acotada superiormente. Entonces $(X, \leq)$ tiene un elemento maximal.**
 
 Supongamos que $(X, \leq)$ no tiene elemento maximal y lleguemos a contradicción. Sea $C$ una cadena en $X$, y por hipótesis $u \in X$ una cota superior de $C$. Como no hay elemento maximal, necesariamente existe $v \in X$ tal que $u \lt v$. Luego $C$ admite una **cota superior estricta.**
 
@@ -82,83 +81,87 @@ $$
 
 Los conjuntos f-inductivos cumplen el siguiente **lema de comparación**.
 
-> **Lema:** Si $A, B \subset X$ son f-inductivos y $A \neq B$, entonces uno de los dos es segmento inicial del otro.
+**Lema de Comparación.** Si $A, B \subset X$ son f-inductivos y $A \neq B$, entonces uno es cerrado inferiormente en el otro.
 
 **Dem**.
 
-Como $A \neq B$ podemos asumir sin pérdida de generalidad que $A \setminus B \neq \emptyset$.
+> Sean $A \neq B$ subconjuntos f-inductivos en $X$.  
 
-Sea $x = \min(A \setminus B)$, probaremos que $B$ es segmento inicial de $x$ en $A$
+> Sea $I$ la unión de todos los subconjuntos cerrados inferiormente (ci) en $A$ y en $B$ (en ambos).
 
-$$I_A(x) = B$$
-
-
-$\boxed{\subset}\;\;$
-
-Sea $y \in I_A(x)$ entonces $y \in A$ tal que $y \lt x$. Como $x = \min(A \setminus B)$. Si $y \notin B$ entonces $y \in A \setminus B$ siendo menor que el mínimo. Luego $y \in B$
-
-
-$\boxed{\supset}\;\;$
-
-Supongamos $B \setminus I_A(x) \neq \emptyset$ y lleguemos a contradicción.
-
-Sea $y = \min(B \setminus I_A(x))$.
-Sea $z = \min(A \setminus I_B(y))$.
-
-**Lema de Cierre.** Dado cualquier $u \in I_B(y)$, si $v \in A$ y $v \lt u$ entonces:
-
-- $v \lt y$  (por def. de $I_B(y)$)
-- $v \in B$ 
-
-Luego $v \in I_B(y)$
-
-> **Dem**.
-Basta ver que $v \in B$.
-Como $u \in I_B(y)$, $u \in B$ y $u \lt y$. 
-Por def. $y = \min(B \setminus I_A(x))$, luego si $u \notin I_A(x)$, entonces $u \in B \setminus I_A(x)$  siendo menor que el mínimo.
-Por tanto $u \in I_A(x)$
-Como $v \in A$ tal que $v \lt u$, es claro que $v \in I_A(x) \subset B$. $\square$
-
-
-Con este resultado podemos probar que
-$$
-I_A(z) = I_B(y)
+> $$
+I = \bigcup_{S \ ci \ A, B}S \subset A \cap B
 $$
 
-- $I_A(z) \subset I_B(y)$
+> Sea $u \in I$ entonces existe $S_u$ cerrado inferiormente en $A$ y en $B$ tal que $u \in S_u$.
+Si $v \in A \cup B$, y $v \lt u$ entonces por ser $S_u$ cerrado inferiormente en $A$ y en $B$ se sigue que $v \in S_u \subset I$.
+> Luego $I$ es cerrado inferiormente en $A$ y en $B$.
+Además es maximal entre estos conjuntos pues cualquier $S$ c.i en $A$ y en $B$ está contenido en $I$.
 
-Sea $u \in I_A(z)$, entonces $u \in A$ tal que $u \lt z$.
-Como $z = \min(A \setminus I_B(y))$, si $u \notin I_B(y)$ entonces $u \in A \setminus I_B(y)$ siendo menor que el mínimo.
-Por tanto $u \in I_B(y)$
+> Supongamos que $I \subsetneq A$ y $I \subsetneq B$ y lleguemos a contradicción.
 
+> Sea $y = \min(A \setminus I)$
+> Sea $z = \min(B \setminus I)$
 
-- $I_A(z) \supset I_B(y)$
+> Entonces,
 
-Sea $u \in I_B(y)$ entonces $u \in I_A(x)$ (por def. de $y$), luego $u \in A$ y podemos compararlo con $z$.
-Es claro que $u \neq z$ por def de $z$.
-Además si $z \lt u$, por el *Lema de Cierre*, se tendría que $z \in I_B(y)$ contradiciendo la def. de $z$.
-Por tanto $u \lt z$. Como $u \in A$, se sigue que $u \in I_A(z)$.
+> $$I_A(y) = I = I_B(z)$$
 
-Además, $z \leq x$ por ser
+> $\boxed{I_A(y) \subset I}\;\;$
+> Sea $u \in I_A(y)$ entonces $u \lt y$. Como $y = \min(A \setminus I)$ necesariamente $u \in I$.
 
-$$ A \setminus B \subset A \setminus I_B(y)$$
+> $\boxed{I_A(y) \supset I}\;\;$
+Sea $u \in I \subsetneq A$ luego puedo compararlo con $y$.
+> Es claro que $u \neq y$ porque $y \notin I$.
+> Si $y \lt u$, entonces por ser $I$ cerrado inferiormente en $A$ se tendría $y \in I$ en contra de la def. de $y$.
+> Necesariamente $u \lt y$. Luego $u \in I_A(y)$.
 
-Usando la **f-inductividad** de $A$ y $B$ tendríamos que 
+> Análogo para la otra igualdad y observamos que $I$ es segmento inicial de $A$ y de $B$ (más fuerte que c.i)
 
-$z = f(I_A(z)) = f(I_B(y)) = y$
+> Por $f$-inductividad:
 
-Y como $y \in B$ no puede ser $z = x$ (ya que $x \notin B$ por def.).
-Por tanto, $z \lt x$ y concluimos que 
-$$y = z \in I_A(x)$$
+> $$
+y = f(I) = z
+$$
 
-en contra de la def. de $y$.
+> Si consideramos
+$$
+I' = I \cup \{y\} = I \cup \{z\} 
+$$
 
-Esto implica $B \setminus I_A(x) = \emptyset$ o equivalentemente $B \subset I_A(x)$. $\square$.
+> Sea $u \in A \cup B$ tal que $u \lt y = z$, necesariamente $u \in I_A(y) =  I_B(z) = I \subset I'$. Por ser $I$ c.i en $A$ y en $B$, esto prueba que $I'$ también lo es.
 
+> Luego $I \cup \{y\} = I \cup \{z\}$ debería estar necesariamente en la unión $I$ obteniendo $y=z \in I$. **Contradicción.**
+
+> Por tanto, $I = A$ o $I = B$, luego uno es cerrado inferiormente en el otro. $\square$
 
 Aplicando el **Lema de comparación** a la colección de conjuntos $f$-inductivos llegamos a que es totalmente ordenada por la inclusión de conjuntos cerrados inferiormente.
 
-La unión $U$ de todos ellos es por el **Lema de Union de c.c.i** un conjunto bien ordenado. ($U \in Well(X)$)
+**Lema de Union de Conjuntos c.i.** 
+- Sea $\{ P_\alpha: \alpha \in A\}$ una colección de subconjuntos de $X$, cada uno con un buen-orden $\leq_\alpha$, tal que para cualquier $\alpha, \beta$, uno de $P_\alpha$, $P_\beta$ (cada uno con su orden) es cerrado inferiormente en el otro. 
+- Sea $P$ la unión $\cup_\alpha \ P_\alpha$, con el orden $x \leq y$ sii por def. $x \leq_\alpha y$ en algún $P_\alpha$ que contenga a ambos. 
+
+Entonces $P$ está bien ordenado por $\leq$, con cada $P_\alpha$ cerrado inferiormente en $P$
+
+**Dem**
+
+> - Observamos que $\leq$ está bien definido y es un orden total. Sean $x, y \in P$, entonces $x \in P_\alpha$ e $y \in P_\beta$ para ciertos $\alpha, \beta$, donde uno de $P_\alpha, P_\beta$ es segmento inicial del otro. Sin pérdida de generalidad, suponemos $P_\alpha \subset P_\beta$ entonces $x, y$ son comparables en $P_\beta$.
+
+> - Sea $u \in P_\alpha$ y $v \in P$, entonces $v \in P_\beta$ para cierto $\beta$. Supongamos además $v \leq u$. Por hipótesis, uno de $P_\alpha, P_\beta$ es cerrado inferiormente en el otro. Si $P_\alpha$ es c.i en $P_\beta$, se sigue que $v \in P_\alpha$. Por el contrario, si $P_\beta$ es c.i en $P_\alpha$ trivialmente $v \in P_\alpha$. Luego cada $P_\alpha$ es cerrado inferiormente en $P$.
+
+> - Si $\emptyset \neq T \subset P$  entonces $T \cap P_\alpha \neq \emptyset$ para cierto $\alpha$ luego hay un mínimo $t \in T \cap P_\alpha$ con respecto a $\leq_\alpha$. Este $t$ es mínimo en $T$ con respecto a $\leq$.  Para $s \in T$ con $s \leq t$, por ser $P_\alpha$ c.i en $P$ necesariamente $s \in P_\alpha$.
+Así $s \in T \cap P_\alpha$ y por def. de mínimo $t \leq_\alpha s$. Por tanto, $t \leq s$. $\square$
+
+**Corolario** 
+En las condiciones del lema anterior, se verifica que para cualquier $x \in P$ de donde $x \in P_\alpha$
+$$
+I_{P_\alpha}(x) = I_P(x)
+$$
+**Dem.**
+> Sea $y \in I_{P_\alpha}(x)$ entonces $y \in P_\alpha \subset P$ tal que $y \lt x$. Luego $y \in I_P(x)$.
+> Sea $y \in I_P(x)$ entonces $y \in P$ tal que $y \lt x$. Como $P_\alpha$ es c.c.i en $P$ por el **Lema de Union de c.i**, se tiene que $y \in P_\alpha$ y por tanto $y \in I_{P_\alpha}(x)$ $\square$
+
+Así, la unión $U$ de todos los conjuntos f-inductivos es por **el Lema de Unión de c.c.i** un conjunto bien ordenado. ($U \in Well(X)$).
 
 Además, sea 
 $$
@@ -186,31 +189,5 @@ $$
 f(I_{U'}(f(U))) = f(U)
 $$
 
-concluyendo que $U \cup \{f(U)\}$ es un conjunto $f$-inductivo que estaría necesariamente en el maximal obteniendo $f(U) \in U$ en contra de la def. $f(U)$ como cota superior estricta de $U$. $\square$
+concluyendo que $U' = U \cup \{f(U)\}$ es un conjunto $f$-inductivo que estaría necesariamente en el maximal obteniendo $f(U) \in U$ en contra de la def. $f(U)$ como cota superior estricta de $U$. $\square$
 
-> **Lema de Union de c.c.i** 
-> - Sea $P_\alpha$ una colección de subconjuntos de $X$, cada uno con un buen-orden $\leq_\alpha$, tal que para cualquier $\alpha, \beta$, uno de $P_\alpha$, $P_\beta$ (cada uno con su orden) es cerrado inferiormente en el otro. 
-> - Sea $P$ la unión $\cup_\alpha \ P_\alpha$, con el orden $x \leq y$ sii por def. $x \leq_\alpha y$ en algún $P_\alpha$ que contenga a ambos. 
-
-> Entonces $P$ está bien ordenado por $\leq$, con cada $P_\alpha$ cerrado inferiormente en $P$
-
-**Dem**
-
-Observamos que $\leq$ está bien definido y es un orden total. Sean $x, y \in P$, entonces $x \in P_\alpha$ e $y \in P_\beta$ para ciertos $\alpha, \beta$, donde uno de $P_\alpha, P_\beta$ es segmento inicial del otro. Sin pérdida de generalidad, suponemos $P_\alpha \subset P_\beta$ entonces $x, y$ son comparables en $P_\beta$.
-
-Sea $u \in P_\alpha$ y $v \in P$, entonces $v \in P_\beta$ para cierto $\beta$. Supongamos además $v \leq u$. Por hipótesis, uno de $P_\alpha, P_\beta$ es cerrado inferiormente en el otro. Si $P_\alpha$ es c.i en $P_\beta$, se sigue que $v \in P_\alpha$. Por el contrario, si $P_\beta$ es c.i en $P_\alpha$ trivialmente $v \in P_\alpha$. Luego cada $P_\alpha$ es cerrado inferiormente en $P$:
-
-Si $\emptyset \neq T \subset P$  entonces $T \cap P_\alpha \neq \emptyset$ para cierto $\alpha$ luego hay un mínimo $t \in T \cap P_\alpha$ con respecto a $\leq_\alpha$. Este $t$ es mínimo en $T$ con respecto a $\leq$.  Para $s \in T$ con $s \leq t$, por ser $P_\alpha$ c.i en $P$ necesariamente $s \in P_\alpha$.
-Así $s \in T \cap P_\alpha$ y por def. de mínimo $t \leq_\alpha s$. Por tanto, $t \leq s$. $\square$
-
-**Observación**: realmente hemos probado que $t$ es un elemento minimal en $(T, \leq)$ pero esto es equivalente a ser el mínimo por el orden total de $\leq$.
-
-> **Corolario** 
-En las condiciones del lema anterior, se verifica que para cualquier $x \in P$ de donde $x \in P_\alpha$
-$$
-I_{P_\alpha}(x) = I_P(x)
-$$
-
-
-- Sea $y \in I_{P_\alpha}(x)$ entonces $y \in P_\alpha \subset P$ tal que $y \lt x$. Luego $y \in I_P(x)$.
-- Sea $y \in I_P(x)$ entonces $y \in P$ tal que $y \lt x$. Como $P_\alpha$ es c.c.i en $P$ por el **Lema de Union de c.i**, se tiene que $y \in P_\alpha$ y por tanto $y \in I_{P_\alpha}(x)$..
