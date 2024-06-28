@@ -1,6 +1,7 @@
 Title: Depuración juego Deepspace - PDOO (II)
 Date: 2019-05-28
 Tags: deepspace, pdoo, java
+Status: Hidden
 
 Me encuentro en el V Centenario con la necesidad de depurar finiquitando la
 Práctica 5, es decir, la incorporación de una interfaz gráfica al juego
