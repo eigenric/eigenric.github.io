@@ -3,7 +3,7 @@
 THEME = 'pneumatic'
 AUTHOR = 'Ricardo Ruiz Fernández de Alba'
 SITENAME = "eigenℝic"
-SITEURL = 'http://localhost:8000'
+SITEURL = 'https://localhost:8000'
 
 PATH = 'blog'
 OUTPUT_PATH = '.output'
@@ -13,6 +13,8 @@ DEFAULT_LANG = u'es'
 DEFAULT_DATE_FORMAT = '%-d %b %Y'
 
 # Permalinks
+
+RELATIVE_URLS = True
 
 INDEX_URL = 'blog'
 INDEX_SAVE_AS = 'blog.html'
@@ -92,13 +94,12 @@ FOOTER_TEXT = (
 
 PLUGINS = [
         'plugins.summary.summary',
- #       'plugins.read_more_link.read_more_link',
         'plugins.assets.assets',
         'plugins.neighbors.neighbors',
         'plugins.sitemap.sitemap',
-#        'plugins.render_math', 
         'plugins.pelican_youtube',
         'pelican_katex',
+        'pelican_toggle'
 ]
 
 MATH_JAX = {
