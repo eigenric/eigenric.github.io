@@ -1,6 +1,7 @@
-Title: Demostración del Lema de Zorn
+Title: Demostración del Lema de Zorn - Sin Toggle
 Date: 2020-07-01
 Tags: demostración, lema, zorn
+Status: Hidden
 
 Es un Lema básico en Teoría de Conjuntos que permite probar la existencia de bases de Espacios Vectoriales, entre otros resultados de Álgebra abstracta.
 
@@ -27,7 +28,7 @@ Sea $S \subset X$. Diremos que $m \in S$ es el **máximo** (resp. **mínimo**) c
 
 **Proposición.** Si $S \subset X$ es un conjunto parcialmente ordenado o poset y tiene máximo (resp. mínimo) entonces es el único elemento maximal (resp. minimal).
 
-**Dem.**
+{% toggle %}
 > -  Sea $m \in S$, si $s \in S$ tal que $m \leq s$   necesariamente por ser $m$ máximo $s \leq m$ y por tanto por la propiedad antisimétrica de los posets $m = s$ ($m$ es maximal, pues no hay elemento estrictimente mayor). $\square$
 
 > - Sea $m' \in S$, si $s \in S$ tal que $s \leq m'$ necesariamente por ser $m'$ mínimo $m '\leq s$ y por la propiedad antisimétrica de los posets, $m' = s$. ($m'$ es minimal pues no hay elemento estrictamente menor) $\square$
@@ -35,12 +36,14 @@ Sea $S \subset X$. Diremos que $m \in S$ es el **máximo** (resp. **mínimo**) c
 > - Para la unicidad, sea $m$ el máximo de $S$. Supongamos que existe otro elemento $m' \in S$ tal que $m'$ es maximal. Por ser $m$ el máximo, $m' \leq m$. Pero $m'$ es maximal, lo que implica que no puede haber un elemento mayor que $m'$, entonces $m = m'$. Por lo tanto, $m$ es el único elemento maximal. $\square$
 
 > - Análogamente para el mínimo.
+{% end_toggle %}
 
 **Proposición** Si $S \subset X$ es un conjunto totalmente ordenado o toset y tiene un elemento maximal (resp. minimal) entonces coincide con el máximo (resp. mínimo).
 
-> **Dem.**
+{% toggle %}
 Sea $m \in S$ un elemento maximal entonces no existe elemento estrictamente mayor que él. Como $S$ es toset todos los elementos son comparables y por tanto todos son menores que $m$. La unicidad se da por ser poset en particular.
 Sea $n \in S$ un elemento minimal entonces no existe elemento estrictamente menor que él. Como $S$ es toset todos los elementos son comparables y por tanto todos son mayores que $n$.
+{% end_toggle %}
 
 **Definición.** Se dice que $A \subset X$ es un conjunto **bien ordenado** cuando es totalmente ordenado y todo subconjunto suyo no vacío tiene mínimo.  La clase de subconjuntos de $X$ bien ordenados se denota como $Well(X)$
 
@@ -83,8 +86,7 @@ Los conjuntos f-inductivos cumplen el siguiente **lema de comparación**.
 
 **Lema de Comparación.** Si $A, B \subset X$ son f-inductivos y $A \neq B$, entonces uno es cerrado inferiormente en el otro.
 
-**Dem**.
-
+{% toggle %}
 > Sean $A \neq B$ subconjuntos f-inductivos en $X$.  
 
 > Sea $I$ la unión de todos los subconjuntos cerrados inferiormente (ci) en $A$ y en $B$ (en ambos).
@@ -134,6 +136,7 @@ $$
 > Luego $I \cup \{y\} = I \cup \{z\}$ debería estar necesariamente en la unión $I$ obteniendo $y=z \in I$. **Contradicción.**
 
 > Por tanto, $I = A$ o $I = B$, luego uno es cerrado inferiormente en el otro. $\square$
+{% end_toggle %}
 
 Aplicando el **Lema de comparación** a la colección de conjuntos $f$-inductivos llegamos a que es totalmente ordenada por la inclusión de conjuntos cerrados inferiormente.
 
@@ -143,7 +146,7 @@ Aplicando el **Lema de comparación** a la colección de conjuntos $f$-inductivo
 
 Entonces $P$ está bien ordenado por $\leq$, con cada $P_\alpha$ cerrado inferiormente en $P$
 
-**Dem**
+{% toggle %}
 
 > - Observamos que $\leq$ está bien definido y es un orden total. Sean $x, y \in P$, entonces $x \in P_\alpha$ e $y \in P_\beta$ para ciertos $\alpha, \beta$, donde uno de $P_\alpha, P_\beta$ es segmento inicial del otro. Sin pérdida de generalidad, suponemos $P_\alpha \subset P_\beta$ entonces $x, y$ son comparables en $P_\beta$.
 
@@ -157,9 +160,11 @@ En las condiciones del lema anterior, se verifica que para cualquier $x \in P$ d
 $$
 I_{P_\alpha}(x) = I_P(x)
 $$
-**Dem.**
+
+{% toggle %}
 > Sea $y \in I_{P_\alpha}(x)$ entonces $y \in P_\alpha \subset P$ tal que $y \lt x$. Luego $y \in I_P(x)$.
 > Sea $y \in I_P(x)$ entonces $y \in P$ tal que $y \lt x$. Como $P_\alpha$ es c.c.i en $P$ por el **Lema de Union de c.i**, se tiene que $y \in P_\alpha$ y por tanto $y \in I_{P_\alpha}(x)$ $\square$
+{% end_toggle %}
 
 Así, la unión $U$ de todos los conjuntos f-inductivos es por **el Lema de Unión de c.c.i** un conjunto bien ordenado. ($U \in Well(X)$).
 
@@ -190,4 +195,3 @@ f(I_{U'}(f(U))) = f(U)
 $$
 
 concluyendo que $U' = U \cup \{f(U)\}$ es un conjunto $f$-inductivo que estaría necesariamente en el maximal obteniendo $f(U) \in U$ en contra de la def. $f(U)$ como cota superior estricta de $U$. $\square$
-
