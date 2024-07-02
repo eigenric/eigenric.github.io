@@ -35,12 +35,15 @@ El objetivo del ajuste es que la instancia de `Damage` resultante no pueda impli
 
 ### Pasos para implementar `adjust`
 
-1. **Para armas (`weaponTypes`):**
-   - Comparar la lista de tipos de armas actuales con la lista proporcionada.
-   - Crear una lista con los tipos de armas que están tanto en el objeto `Damage` como en la lista de parámetros.
-   - La nueva lista será la diferencia entre los tipos de armas actuales y los tipos suministrados.
 
-2. **Para escudos (`ShieldBoosters`):**
+- **Para armas (`weaponTypes`):**
+
+   * Comparar la lista de tipos de armas actuales con la lista proporcionada.
+   * Crear una lista con los tipos de armas que están tanto en el objeto `Damage` como en la lista de parámetros.
+   * La nueva lista será la diferencia entre los tipos de armas actuales y los tipos suministrados.
+
+- **Para escudos (`ShieldBoosters`):**
+
    - No hay un atributo de lista de `shieldBoosters`, por lo que trabajamos con `nShields`.
    - `nShields` debe ser ajustado a la longitud de la lista de `ShieldBoosters` proporcionada como parámetro, si es menor.
 
