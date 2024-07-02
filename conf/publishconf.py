@@ -97,6 +97,7 @@ PLUGINS = [
 #        'plugins.render_math',
         'plugins.pelican_youtube',
         'pelican_katex',
+        'pelican_toggle'
 ]
 
 MATH_JAX = {
