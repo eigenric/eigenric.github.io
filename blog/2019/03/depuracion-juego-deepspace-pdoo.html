@@ -143,9 +143,13 @@
 <h3>Ajuste de <code>Damage</code></h3>
 <p>El objetivo del ajuste es que la instancia de <code>Damage</code> resultante no pueda implicar la pérdida de más armas o escudos de los que realmente se tienen. En otras palabras, los atributos de <code>Damage</code> deben coincidir con los tipos y cantidades presentes en las colecciones de los parámetros.</p>
 <h3>Pasos para implementar <code>adjust</code></h3>
-<ol>
-<li><strong>Para armas (<code>weaponTypes</code>):</strong></li>
-<li>Comparar la lista de tipos de armas actuales con la lista proporcionada.</li>
+<ul>
+<li>
+<p><strong>Para armas (<code>weaponTypes</code>):</strong></p>
+</li>
+<li>
+<p>Comparar la lista de tipos de armas actuales con la lista proporcionada.</p>
+</li>
 <li>Crear una lista con los tipos de armas que están tanto en el objeto <code>Damage</code> como en la lista de parámetros.</li>
 <li>
 <p>La nueva lista será la diferencia entre los tipos de armas actuales y los tipos suministrados.</p>
@@ -153,9 +157,11 @@
 <li>
 <p><strong>Para escudos (<code>ShieldBoosters</code>):</strong></p>
 </li>
-<li>No hay un atributo de lista de <code>shieldBoosters</code>, por lo que trabajamos con <code>nShields</code>.</li>
+<li>
+<p>No hay un atributo de lista de <code>shieldBoosters</code>, por lo que trabajamos con <code>nShields</code>.</p>
+</li>
 <li><code>nShields</code> debe ser ajustado a la longitud de la lista de <code>ShieldBoosters</code> proporcionada como parámetro, si es menor.</li>
-</ol>
+</ul>
 <h3>Ejemplo</h3>
 <p>Supongamos que <code>Damage</code> tiene 3 tipos de armas y 2 escudos:
 - <code>Damage.weaponTypes = ["laser", "missile", "plasma"]</code>
