@@ -2,7 +2,11 @@ Title: Demostración del Lema de Zorn
 Date: 2020-07-01
 Tags: demostración, lema, zorn
 
-Es un Lema básico en Teoría de Conjuntos que permite probar la existencia de bases de Espacios Vectoriales, entre otros resultados de Álgebra abstracta.
+El Lema de Zorn es un principio fundamental en la teoría de conjuntos. Este lema es equivalente al Axioma de Elección y al Teorema de Zermelo, y es esencial en muchas áreas de la matemática, como el álgebra y la topología.
+
+Por ejemplo, es utilizado para demostrar la existencia de bases en espacios vectoriales y de ideales maximales en anillos conmutativos.
+
+## Enunciado
 
 > **Lema de Zorn.** Si $(X, \leq)$ es un conjunto preordenado en el que toda cadena está acotada superiormente. Entonces $(X, \leq)$ tiene un elemento maximal.
 
@@ -38,22 +42,13 @@ Sea $S \subset X$. Diremos que $m \in S$ es el **máximo** (resp. **mínimo**) c
 
 {% end_toggle %}
 
-**Proposición** Si $S \subset X$ es un conjunto totalmente ordenado o toset y tiene un elemento maximal (resp. minimal) entonces coincide con el máximo (resp. mínimo).
-
-{% toggle %}
-
-> Sea $m \in S$ un elemento maximal entonces no existe elemento estrictamente mayor que él. Como $S$ es toset todos los elementos son comparables y por tanto todos son menores que $m$. La unicidad se da por ser poset en particular.
-Sea $n \in S$ un elemento minimal entonces no existe elemento estrictamente menor que él. Como $S$ es toset todos los elementos son comparables y por tanto todos son mayores que $n$.
-
-{% end_toggle %}
-
 **Definición.** Se dice que $A \subset X$ es un conjunto **bien ordenado** cuando es totalmente ordenado y todo subconjunto suyo no vacío tiene mínimo.  La clase de subconjuntos de $X$ bien ordenados se denota como $Well(X)$
 
-**Definición.** $S \subseteq X$ es un **conjunto cerrado inferiormente** en $X$ si para cualquier $u \in S$, si $v \in X$ tal que $v \leq u$ entonces $v \in S$. 
+**Definición.** $S \subseteq X$ es un **conjunto cerrado inferiormente (c.c.i)** en $X$ si para cualquier $u \in S$, si $v \in X$ tal que $v \leq u$ entonces $v \in S$. 
 
 **Observación:** Todo conjunto es cerrado inferiormente en sí mismo.
 
-Se dice que $C \subset X$ es una **cadena de $X$** sii por def $(C, \leq)$ es totalmente ordenado.
+**Definición.** $C \subset X$ es una **cadena de $X$** sii por def $(C, \leq)$ es totalmente ordenado.
 
 **Definición.** Si $C$ es cadena de $X$ y $x \in C$, entonces llamamos **segmento inicial** de $x$ en $C$ a los elementos de $C$ estrictamente menores que $x$.
 $$
@@ -66,7 +61,7 @@ En efecto, sea $u \in I_c(x)$ entonces $u \lt x$. Si $v \in X$ tal que $v \leq u
 
 **Axioma de Elección.** Dado un conjunto no vacío $X$, existe una función $f$ que asigna a cada subconjunto no vacío de $X$ un elemento de él.
 
-## Teorema (Lema de Zorn). 
+## Demostración del Teorema (Lema de Zorn). 
 
 **Lema de Zorn. Si $(X, \leq)$ es proset en el que toda cadena está acotada superiormente. Entonces $(X, \leq)$ tiene un elemento maximal.**
 
@@ -203,3 +198,11 @@ f(I_{U'}(f(U))) = f(U)
 $$
 
 concluyendo que $U' = U \cup \{f(U)\}$ es un conjunto $f$-inductivo que estaría necesariamente en el maximal obteniendo $f(U) \in U$ en contra de la def. $f(U)$ como cota superior estricta de $U$. $\square$
+
+## Referencias
+
+1. **Miller, Arnold W. "Zorn's Lemma."** Digital Commons @ Kennesaw State University, 2013.
+   [Zorn's Lemma PDF](https://digitalcommons.kennesaw.edu/cgi/viewcontent.cgi?article=2161&context=facpubs){:target="_blank"}
+
+2. **nLab: Zorn's Lemma**
+   [Prueba del Lema de Zorn en nLab](https://ncatlab.org/nlab/show/Zorn's+lemma#proof){:target="_blank"}
