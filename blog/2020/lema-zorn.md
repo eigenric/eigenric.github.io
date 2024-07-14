@@ -1,7 +1,7 @@
 Title: Demostración del Lema de Zorn - Draft
 Date: 2020-07-01
 Tags: demostración, lema, zorn
-Status: Draft
+Status: Hidden
 
 Es un Lema básico en Teoría de Conjuntos que permite probar la existencia de bases de Espacios Vectoriales, entre otros resultados de Álgebra abstracta.
 
