@@ -2,7 +2,11 @@ Title: Configurando i3-gaps y rofi con i3 en Arch Linux
 Date: 2021-02-07
 Tags: arch, i3, rofi, polybar
 
-He encontrado una página de temas para i3 que me ha parecido interesante. Aunque no es muy didáctica para sustituir, te guía para instalar i3-wm, polybar, rofi y stylish.
+En este artículo, exploraremos cómo configurar un entorno de escritorio minimalista y altamente personalizable utilizando i3-gaps, rofi y polybar en Arch Linux. Estas herramientas te permitirán crear un espacio de trabajo eficiente y visualmente atractivo, adaptado a tus necesidades específicas.
+
+`i3-gaps` es una versión modificada del gestor de ventanas i3, que añade la capacidad de crear espacios entre las ventanas. `Rofi` es un lanzador de aplicaciones versátil y personalizable, mientras que `polybar` es una barra de estado moderna y configurable.
+
+A lo largo de esta guía, aprenderás a instalar y configurar estos componentes para crear un entorno de escritorio único y funcional en Arch Linux. ¡Comencemos!
 
 ## Instalación de polybar
 
