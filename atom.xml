@@ -1,5 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2021-01-12T00:00:00+01:00</updated><entry><title>Instalación Oracle ODBC en Apple Silicon</title><link href="https://eigenric.me/blog/2021/01/instalacion-oracle-odbc-en-apple-silicon" rel="alternate"></link><published>2021-01-12T00:00:00+01:00</published><updated>2021-01-12T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2021-01-12:/blog/2021/01/instalacion-oracle-odbc-en-apple-silicon</id><summary type="html">&lt;p&gt;En este tutorial, aprenderás cómo instalar y configurar Oracle Instant Client y ODBC en dispositivos Apple Silicon, como el M1.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>eigenℝic</title><link href="https://eigenric.me/" rel="alternate"></link><link href="https://eigenric.me/atom.xml" rel="self"></link><id>https://eigenric.me/</id><updated>2021-03-18T00:00:00+01:00</updated><entry><title>Aplicación de CLIPS al Problema de Relaciones Familiares</title><link href="https://eigenric.me/blog/2021/03/aplicacion-de-clips-al-problema-de-relaciones-familiares" rel="alternate"></link><published>2021-03-18T00:00:00+01:00</published><updated>2021-03-18T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2021-03-18:/blog/2021/03/aplicacion-de-clips-al-problema-de-relaciones-familiares</id><summary type="html">&lt;p&gt;En el campo de la &lt;strong&gt;Ingeniería del Conocimiento&lt;/strong&gt;, hemos desarrollado un sistema experto utilizando &lt;a href="https://www.clipsrules.net/" target="_blank"&gt;CLIPS&lt;/a&gt; (C Language Integrated Production System) para gestionar y razonar sobre relaciones familiares. CLIPS es una …&lt;/p&gt;</summary><content type="html">&lt;p&gt;En el campo de la &lt;strong&gt;Ingeniería del Conocimiento&lt;/strong&gt;, hemos desarrollado un sistema experto utilizando &lt;a href="https://www.clipsrules.net/" target="_blank"&gt;CLIPS&lt;/a&gt; (C Language Integrated Production System) para gestionar y razonar sobre relaciones familiares. CLIPS es una herramienta potente para crear sistemas basados en reglas, ideales para deducir relaciones complejas a partir de hechos simples.&lt;/p&gt;
+&lt;h2&gt;Estructura del Sistema&lt;/h2&gt;
+&lt;p&gt;El sistema está diseñado para deducir relaciones familiares a partir de datos básicos sobre personas y sus relaciones directas (como padres e hijos). A continuación, se explica cómo funciona el sistema y algunos fragmentos de código clave:&lt;/p&gt;
+&lt;h3&gt;1. Definición de Hechos&lt;/h3&gt;
+&lt;p&gt;Se definen hechos generales sobre las personas (si son hombres o mujeres) y sus relaciones directas. Por ejemplo, se especifica que &lt;code&gt;Juan&lt;/code&gt; es un hombre y que &lt;code&gt;ManuelRuiz&lt;/code&gt; es padre de &lt;code&gt;Ricardo&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;2. Reglas para Inferencia&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Regla de Dualidad:&lt;/strong&gt; Permite deducir la relación opuesta. Por ejemplo, si &lt;code&gt;Ricardo&lt;/code&gt; es hijo de &lt;code&gt;ManuelRuiz&lt;/code&gt;, entonces &lt;code&gt;ManuelRuiz&lt;/code&gt; es padre de &lt;code&gt;Ricardo&lt;/code&gt;. Esto se logra mediante la siguiente regla:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;(defrule dualidad
+  (Relacion (tipo ?r) (sujeto ?x) (objeto ?y))
+  (dual ?r ?t)
+=&amp;gt;
+  (assert (Relacion (tipo ?t) (sujeto ?y) (objeto ?x))))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Regla de Composición:&lt;/strong&gt; Deduce relaciones complejas basadas en relaciones existentes. Por ejemplo, si x es hermano de y y y es padre de z, entonces x es tío de z. Esto se define así:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;(defrule composicion
+  (Relacion (tipo ?r) (sujeto ?y) (objeto ?x))
+  (Relacion (tipo ?t) (sujeto ?x) (objeto ?z))
+  (comp ?r ?t ?u)
+=&amp;gt;
+  (assert (Relacion (tipo ?u) (sujeto ?y) (objeto ?z))))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;3. Interacción con el Usuario&lt;/h3&gt;
+&lt;p&gt;El sistema permite a los usuarios ingresar nombres y consultas sobre relaciones
+familiares. Por ejemplo, una regla pregunta al usuario por el nombre de una
+persona y luego muestra todas las relaciones posibles con esa persona:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;defrule&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pregunta&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;declare&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;salience&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mh"&gt;800&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;printout&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Nombre primera persona: &amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;crlf&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;assert&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;primerapersona&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;printout&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Las relaciones posibles son: &amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;crlf&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Beneficios&lt;/h2&gt;
+&lt;p&gt;Este enfoque demuestra cómo CLIPS puede utilizarse para deducir relaciones implícitas y manejar información compleja en un sistema basado en reglas. Aunque nuestro sistema se centra en relaciones familiares, las mismas técnicas se pueden aplicar a otros dominios, como el diagnóstico médico o los sistemas de recomendación.&lt;/p&gt;
+&lt;p&gt;CLIPS ofrece una forma eficiente y flexible de modelar problemas complejos, mostrando el potencial de los sistemas basados en reglas para resolver desafíos prácticos en diversos campos.&lt;/p&gt;</content><category term="2021"></category></entry><entry><title>Configurando i3-gaps y rofi con i3 en Arch Linux</title><link href="https://eigenric.me/blog/2021/02/configurando-i3-gaps-y-rofi-con-i3-en-arch-linux" rel="alternate"></link><published>2021-02-07T00:00:00+01:00</published><updated>2021-02-07T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2021-02-07:/blog/2021/02/configurando-i3-gaps-y-rofi-con-i3-en-arch-linux</id><summary type="html">&lt;p&gt;En este artículo, exploraremos cómo configurar un entorno de escritorio minimalista y altamente personalizable utilizando i3-gaps, rofi y polybar en Arch Linux. Estas herramientas te permitirán crear un espacio de …&lt;/p&gt;</summary><content type="html">&lt;p&gt;En este artículo, exploraremos cómo configurar un entorno de escritorio minimalista y altamente personalizable utilizando i3-gaps, rofi y polybar en Arch Linux. Estas herramientas te permitirán crear un espacio de trabajo eficiente y visualmente atractivo, adaptado a tus necesidades específicas.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;i3-gaps&lt;/code&gt; es una versión modificada del gestor de ventanas i3, que añade la capacidad de crear espacios entre las ventanas. &lt;code&gt;Rofi&lt;/code&gt; es un lanzador de aplicaciones versátil y personalizable, mientras que &lt;code&gt;polybar&lt;/code&gt; es una barra de estado moderna y configurable.&lt;/p&gt;
+&lt;p&gt;A lo largo de esta guía, aprenderás a instalar y configurar estos componentes para crear un entorno de escritorio único y funcional en Arch Linux. ¡Comencemos!&lt;/p&gt;
+&lt;h2&gt;Instalación de polybar&lt;/h2&gt;
+&lt;p&gt;Puedes seguir &lt;a href="https://nocin.eu/mint-install-polybar-on-linux-mint-19-2-cinnamon/" target="_blank"&gt;esta guía&lt;/a&gt; para instalar polybar. Asegúrate de corregir python3-xcbgen y de instalar la dependencia adicional libjsoncpp-dev y python3-sphinx:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;pacman&lt;span class="w"&gt; &lt;/span&gt;-S&lt;span class="w"&gt; &lt;/span&gt;libjsoncpp-dev&lt;span class="w"&gt; &lt;/span&gt;python3-sphinx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Configurando i3-gaps&lt;/h2&gt;
+&lt;p&gt;Para evitar problemas con i3-gaps, puedes seguir los pasos detallados en &lt;a href="https://github.com/PhalanxHead/i3-gaps_MintInstaller" target="_blank"&gt;esta guía&lt;/a&gt;. Es recomendable purgar completamente i3 y luego instalar i3-gaps según &lt;a href="https://lottalinuxlinks.com/how-to-build-and-install-i3-gaps-on-debian/" target="_blank"&gt;este tutorial&lt;/a&gt;. 
+Recuerda que utilizarán &lt;code&gt;meson&lt;/code&gt; en lugar de &lt;code&gt;autoreconf&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Integración de rofi con i3&lt;/h2&gt;
+&lt;p&gt;Para integrar rofi con i3, primero asegúrate de tenerlo instalado en tu sistema. Puedes hacerlo ejecutando el siguiente comando en tu terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;pacman&lt;span class="w"&gt; &lt;/span&gt;-S&lt;span class="w"&gt; &lt;/span&gt;rofi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Una vez instalado, puedes personalizar la configuración de rofi y su apariencia para que se ajuste a tu entorno i3. Rofi ofrece muchas opciones de configuración que puedes explorar según tus preferencias y necesidades.&lt;/p&gt;</content><category term="2021"></category><category term="arch"></category><category term="i3"></category><category term="rofi"></category><category term="polybar"></category></entry><entry><title>Instalación Oracle ODBC en Apple Silicon</title><link href="https://eigenric.me/blog/2021/01/instalacion-oracle-odbc-en-apple-silicon" rel="alternate"></link><published>2021-01-12T00:00:00+01:00</published><updated>2021-01-12T00:00:00+01:00</updated><author><name>Ricardo Ruiz Fernández de Alba</name></author><id>tag:eigenric.me,2021-01-12:/blog/2021/01/instalacion-oracle-odbc-en-apple-silicon</id><summary type="html">&lt;p&gt;En este tutorial, aprenderás cómo instalar y configurar Oracle Instant Client y ODBC en dispositivos Apple Silicon, como el M1.&lt;/p&gt;
 &lt;p&gt;Vamos a descargar los archivos necesarios, configurar las variables de …&lt;/p&gt;</summary><content type="html">&lt;p&gt;En este tutorial, aprenderás cómo instalar y configurar Oracle Instant Client y ODBC en dispositivos Apple Silicon, como el M1.&lt;/p&gt;
 &lt;p&gt;Vamos a descargar los archivos necesarios, configurar las variables de entorno, instalar &lt;code&gt;unixODBC&lt;/code&gt; como Driver Manager, y finalmente conectar Python a una base de datos Oracle utilizando &lt;code&gt;cx_Oracle&lt;/code&gt;. &lt;/p&gt;
 &lt;p&gt;Sigue los pasos detallados a continuación para completar la instalación y configuración correctamente.&lt;/p&gt;

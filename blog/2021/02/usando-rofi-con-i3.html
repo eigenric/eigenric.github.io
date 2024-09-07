@@ -4,7 +4,7 @@
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
 	<title>Usando rofi con i3 | eigenℝic</title>
-	<meta name="description" content="He encontrado una pagina de temas de i3 directamente. Aunque no sea muy didáctico para sustituir. Te pide instalar i3-wm, polybar, rofi y stylish. Para instalar polybar: Corregir python3-xcbgen Requiere …">
+	<meta name="description" content="Configurando i3-gaps e Integración de rofi con i3 en Linux He encontrado una página de temas para i3 que me ha parecido interesante. Aunque no es muy didáctica para sustituir …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,7 +15,7 @@
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="">
 	<meta property="og:title" content="Usando rofi con i3">
-	<meta property="og:description" content="He encontrado una pagina de temas de i3 directamente. Aunque no sea muy didáctico para sustituir. Te pide instalar i3-wm, polybar, rofi y stylish. Para instalar polybar: Corregir python3-xcbgen Requiere …">
+	<meta property="og:description" content="Configurando i3-gaps e Integración de rofi con i3 en Linux He encontrado una página de temas para i3 que me ha parecido interesante. Aunque no es muy didáctica para sustituir …">
 	<meta property="og:image" content="../../../images/icons/avatar.png">
 	<meta property="og:type" content="article">
 	<meta property="og:url" content="../../../blog/2021/02/usando-rofi-con-i3">
@@ -124,21 +124,28 @@
 	<h1 class="title"><a href="/blog/2021/02/usando-rofi-con-i3" title="Permalink to Usando rofi con i3">Usando rofi con i3</a></h1>
 	<time class="date" datetime="2021-02-07 00:00:00+01:00">7 feb 2021</time>
 	<div class="content">
-		<p>He encontrado una pagina de temas de i3 directamente. Aunque no sea muy
-didáctico para sustituir. Te pide instalar i3-wm, polybar, rofi
-y stylish.</p>
-<p><a href="https://nocin.eu/mint-install-polybar-on-linux-mint-19-2-cinnamon/">Para instalar polybar:</a></p>
-<p>Corregir <code>python3-xcbgen</code></p>
-<p>Requiere dependencia extra json:</p>
+		<h2>Configurando i3-gaps e Integración de rofi con i3 en Linux</h2>
+<p>He encontrado una página de temas para i3 que me ha parecido interesante. Aunque no es muy didáctica para sustituir, te guía para instalar i3-wm, polybar, rofi y stylish.</p>
+<h2>Instalación de polybar</h2>
+<p>Puedes seguir <a href="https://nocin.eu/mint-install-polybar-on-linux-mint-19-2-cinnamon/">esta guía</a> para instalar polybar. Asegúrate de corregir python3-xcbgen y de instalar la dependencia adicional libjsoncpp-dev y python3-sphinx:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libjsoncpp-dev<span class="w"> </span>python3-sphinx
 </code></pre></div>
 
-<p>Ahora seguimos <a href="https://github.com/PhalanxHead/i3-gaps_MintInstaller">esta guia</a> para no tener problemas con i3 gaps.</p>
-<p>Para ello purgueamos completamente i3 e instalamos
-i3 gaps mediante el <a href="https://lottalinuxlinks.com/how-to-build-and-install-i3-gaps-on-debian/">siguiente tutorial</a></p>
-<p>Utiliza meson en lugar de autoreconf</p>
+<h2>Configurando i3-gaps</h2>
+<p>Para evitar problemas con i3-gaps, puedes seguir los pasos detallados en <a href="https://github.com/PhalanxHead/i3-gaps_MintInstaller">esta guía</a>. Es recomendable purgar completamente i3 y luego instalar i3-gaps según <a href="https://lottalinuxlinks.com/how-to-build-and-install-i3-gaps-on-debian/">este tutorial</a>. 
+Recuerda que utilizarán <code>meson</code> en lugar de <code>autoreconf</code>.</p>
+<h2>Integración de rofi con i3</h2>
+<p>Para integrar rofi con i3, primero asegúrate de tenerlo instalado en tu sistema. Puedes hacerlo ejecutando el siguiente comando en tu terminal:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>rofi
+</code></pre></div>
+
+<p>Una vez instalado, puedes personalizar la configuración de rofi y su apariencia para que se ajuste a tu entorno i3. Rofi ofrece muchas opciones de configuración que puedes explorar según tus preferencias y necesidades.</p>
+<p>Espero que estos pasos te ayuden a configurar tu entorno i3 con rofi de manera efectiva.</p>
 	</div>
 
+	<div id="related-articles">
+		<a class="no-dec no-dec-h" href="/blog/2021/01/instalacion-oracle-odbc-en-apple-silicon" id="prev-neighbour">Instalación Oracle ODBC en Apple Silicon &raquo;</a>
+	</div>
 
 			<hr>
 		</article>
@@ -148,15 +155,6 @@ i3 gaps mediante el <a href="https://lottalinuxlinks.com/how-to-build-and-instal
 		</footer>
 	</div>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PR6EXV7JWN"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'G-PR6EXV7JWN');
-	</script>
 	
 
 	<script>

@@ -5,28 +5,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://eigenric.me/blog</loc>
-<lastmod>2024-07-14T20:00:15-00:00</lastmod>
+<lastmod>2024-09-07T21:57:42-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://eigenric.me/archive</loc>
-<lastmod>2024-07-14T20:00:15-00:00</lastmod>
+<lastmod>2024-09-07T21:57:42-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://eigenric.me/404.html</loc>
-<lastmod>2024-07-14T20:00:15-00:00</lastmod>
+<lastmod>2024-09-07T21:57:42-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://eigenric.me/</loc>
-<lastmod>2024-07-14T20:00:15-00:00</lastmod>
+<lastmod>2024-09-07T21:57:42-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://eigenric.me/blog/2021/03/aplicacion-de-clips-al-problema-de-relaciones-familiares</loc>
+<lastmod>2021-03-18T00:00:00+01:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://eigenric.me/blog/2021/02/configurando-i3-gaps-y-rofi-con-i3-en-arch-linux</loc>
+<lastmod>2021-02-07T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
