@@ -4,7 +4,7 @@
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
 	<title>Vista en Flask para consultar a MongoDB | eigenℝic</title>
-	<meta name="description" content="En el contexto de la asignatura DAI (Desarrollo de Aplicaciones para Internet), se nos pide realizar una pequeña aplicación web que consulte una base de datos de recetas de cócteles …">
+	<meta name="description" content="En el contexto de la asignatura Desarrollo de Aplicaciones para Internet (DAI), se nos ha pedido realizar una pequeña aplicación web que consulte una base de datos de recetas de …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,7 +15,7 @@
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="">
 	<meta property="og:title" content="Vista en Flask para consultar a MongoDB">
-	<meta property="og:description" content="En el contexto de la asignatura DAI (Desarrollo de Aplicaciones para Internet), se nos pide realizar una pequeña aplicación web que consulte una base de datos de recetas de cócteles …">
+	<meta property="og:description" content="En el contexto de la asignatura Desarrollo de Aplicaciones para Internet (DAI), se nos ha pedido realizar una pequeña aplicación web que consulte una base de datos de recetas de …">
 	<meta property="og:image" content="../../../images/icons/avatar.png">
 	<meta property="og:type" content="article">
 	<meta property="og:url" content="../../../blog/2022/10/vista-en-flask-para-consultar-a-mongodb">
@@ -124,38 +124,87 @@
 	<h1 class="title"><a href="/blog/2022/10/vista-en-flask-para-consultar-a-mongodb" title="Permalink to Vista en Flask para consultar a MongoDB">Vista en Flask para consultar a MongoDB</a></h1>
 	<time class="date" datetime="2022-10-28 00:00:00+02:00">28 oct 2022</time>
 	<div class="content">
-		<p>En el contexto de la asignatura DAI (Desarrollo de Aplicaciones para Internet),
-se nos pide realizar una pequeña aplicación web que consulte una base de datos
-de recetas de cócteles. La base de datos es MongoDB y la aplicación web se construye con Flask en la primera versión y Flask Restful en la segunda.</p>
-<p>Unos de los ejercicios consiste en elaborar una vista que devuelva las recetas
-que contengan cierto ingrediente. Los ingredientes son una lista interior a las
-recetas. Vodka es un elemento de los ingredientes.</p>
-<p>El truco es hacer ingredients.name y luego comprobar que son iguales con el
-operador $eq</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/recetas_con/&lt;bebida&gt;&quot;</span><span class="p">)</span>
+		<p>En el contexto de la asignatura <strong>Desarrollo de Aplicaciones para Internet (DAI)</strong>, se nos ha pedido realizar una pequeña aplicación web que consulte una base de datos de recetas de cócteles. La base de datos se almacena en <strong>MongoDB</strong>, y la aplicación web se construye con <strong>Flask</strong> en la primera versión, y con <strong>Flask-RESTful</strong> en la segunda. Este artículo detalla cómo crear una vista que permita consultar las recetas que contengan un ingrediente específico, utilizando Flask y MongoDB.</p>
+<h2>Introducción a Flask y MongoDB</h2>
+<p><strong>Flask</strong> es un framework web minimalista para Python, que permite desarrollar aplicaciones web rápidamente. Es conocido por su simplicidad y flexibilidad, lo que lo convierte en una opción ideal para proyectos pequeños o medianos. Flask sigue el principio de "menos es más", lo que significa que no impone una estructura rígida a los desarrolladores, permitiéndoles tomar decisiones según las necesidades del proyecto.</p>
+<p>Flask se integra bien con otras herramientas como bases de datos, plantillas HTML, y sistemas de autenticación, entre otros. La simplicidad de Flask no compromete la capacidad de escalar a aplicaciones más complejas, gracias a su extenso ecosistema de extensiones.</p>
+<h3>¿Qué es MongoDB?</h3>
+<p><strong>MongoDB</strong> es una base de datos NoSQL orientada a documentos, lo que significa que almacena los datos en forma de documentos JSON (o BSON, que es una versión binaria de JSON). En lugar de utilizar las tablas y filas de una base de datos relacional, MongoDB organiza la información en colecciones y documentos, lo que la hace extremadamente flexible y adecuada para manejar grandes cantidades de datos no estructurados o semi-estructurados.</p>
+<p>Una de las ventajas de MongoDB es su capacidad de almacenar arrays y documentos anidados, lo cual se adapta perfectamente al tipo de datos que manejan aplicaciones web modernas, como listas de ingredientes para recetas de cócteles.</p>
+<h3>Ejemplo de Aplicación: Consulta de Recetas con Ingredientes Específicos</h3>
+<p>En este caso, queremos crear una vista que permita consultar todas las recetas que contengan un ingrediente en particular (como "vodka"). Para lograr esto, Flask servirá como la interfaz web, mientras que MongoDB contendrá la base de datos con las recetas y sus ingredientes.</p>
+<h2>Código de la Vista en Flask para Consultar MongoDB</h2>
+<p>El siguiente código Python implementa una vista en Flask que permite consultar las recetas que contengan cierto ingrediente, pasando el nombre del ingrediente como parámetro en la URL:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">Response</span>
+<span class="kn">from</span> <span class="nn">bson.json_util</span> <span class="kn">import</span> <span class="n">dumps</span>
+<span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># Conexión a la base de datos MongoDB</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s1">&#39;mongodb://localhost:27017/&#39;</span><span class="p">)</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cocktails_db</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/recetas_con/&lt;bebida&gt;&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">mongo_recetas_con</span><span class="p">(</span><span class="n">bebida</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Devuelve las recetas con cierta bebida en sus ingredientes&quot;&quot;&quot;</span>
 
+    <span class="c1"># Realiza la consulta en MongoDB buscando en el campo ingredients.name</span>
     <span class="n">recetas_con_bebida</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">recipes</span><span class="o">.</span><span class="n">find</span><span class="p">({</span>
         <span class="s2">&quot;ingredients.name&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$eq&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">bebida</span><span class="p">)</span> <span class="p">}</span>
-    <span class="p">}</span> <span class="p">)</span>    
+    <span class="p">})</span>
 
+    <span class="c1"># Procesa los resultados de la consulta</span>
     <span class="n">lista_recetas</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">receta</span> <span class="ow">in</span> <span class="n">recetas_con_bebida</span><span class="p">:</span>
         <span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">receta</span><span class="p">)</span>
         <span class="n">lista_recetas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">receta</span><span class="p">)</span>
 
+    <span class="c1"># Construye la respuesta JSON</span>
     <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;len&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista_recetas</span><span class="p">),</span>
         <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">lista_recetas</span>
     <span class="p">}</span>
 
+    <span class="c1"># Convierte a JSON y retorna la respuesta</span>
     <span class="n">resJson</span> <span class="o">=</span> <span class="n">dumps</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-
     <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">resJson</span><span class="p">,</span> <span class="n">mimetype</span><span class="o">=</span><span class="s2">&quot;application/json&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+<h2>Resultado Final</h2>
+<p>Al realizar una petición a la siguiente url <a href="http://localhost:5000/recetas_con/vodka"></a>, el usuario puede consultar todas las recetas que contengan vodka, obteniendo una respuesta en formato JSON con la información de las recetas encontradas.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;len&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;62d7a4ff3b31a95b2e7f7e4e&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bloody Mary&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ingredients&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vodka&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;50ml&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tomato juice&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100ml&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lemon juice&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10ml&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;62d7a4ff3b31a95b2e7f7e4f&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Moscow Mule&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ingredients&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vodka&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;50ml&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ginger beer&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;150ml&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lime juice&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10ml&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
 </code></pre></div>
 	</div>
 
+	<div id="related-articles">
+		<a class="no-dec no-dec-h" href="/blog/2021/10/advent-of-code-en-rust-y-un-poco-de-probabilidad" id="prev-neighbour">Advent of Code en Rust y un poco de Probabilidad &raquo;</a>
+	</div>
 
 			<hr>
 		</article>
