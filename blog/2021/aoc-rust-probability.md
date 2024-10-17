@@ -70,7 +70,7 @@ El siguiente paso es calcular la probabilidad de que dos números $X$ y $Y$ de e
 Debido a que estamos trabajando con dos distribuciones uniforme discreta, la probabilidad de que $X + Y$ sigue una distribución triangular. 
 
 $$
-P[X + Y = 2020] = \frac{2020+1}{(2000000+1)^2} \approx 5.05 \times 10^{-10}
+P[X + Y = 2020] = \frac{2020+1}{(200000+1)^2} \approx 5.05 \times 10^{-10}
 $$
 
 Así, **¿qué cantidad de números debemos generar como mínimo para esperar encontrar al menos un par que sume 2020?**
