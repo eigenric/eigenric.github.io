@@ -3,18 +3,22 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>eigenℝic - Blog</title>
-	<meta name="description" content="Personal blog of Ricardo Ruiz">
+	<title>Reescribiendo la historia con git rebase -i | eigenℝic</title>
+	<meta name="description" content="En Git, es común que queramos mejorar la historia de nuestros commits para que sea más clara y organizada, especialmente antes de compartir nuestro trabajo con otros desarrolladores. Una herramienta …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<!-- Open Graph -->
-	<meta property="og:title" content="eigenℝic">
-	<meta property="og:description" content="Personal blog of Ricardo Ruiz">
-	<meta property="og:image" content="./images/icons/avatar.png">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content=".">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="Reescribiendo la historia con git rebase -i">
+	<meta property="og:description" content="En Git, es común que queramos mejorar la historia de nuestros commits para que sea más clara y organizada, especialmente antes de compartir nuestro trabajo con otros desarrolladores. Una herramienta …">
+	<meta property="og:image" content="../../../images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="../../../blog/2023/08/reescribiendo-la-historia-con-git-rebase-i">
 
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
@@ -117,39 +121,67 @@
 		</aside>
 
 		<article>
-		<h1 class="title"><a href="blog/2023/08/reescribiendo-la-historia-con-git-rebase-interactive" title="Reescribiendo la historia con git rebase interactive">Reescribiendo la historia con git rebase interactive</a></h1>
-		<time class="date" datetime="2023-08-10 00:00:00+02:00">10 ago 2023</time>
-		<div class="content summary">
-				<p>
-					En Git, es común que queramos mejorar la historia de nuestros commits para que sea más clara y organizada, especialmente antes de compartir nuestro trabajo con otros desarrolladores. Una herramienta <a class='no-dec readmore' href='blog/2023/08/reescribiendo-la-historia-con-git-rebase-interactive'>&#8230;</a>
-				</p>
-<!--			<p>En Git, es común que queramos mejorar la historia de nuestros commits para que sea más clara y organizada, especialmente antes de compartir nuestro trabajo con otros desarrolladores. Una herramienta&nbsp;&#8230;</p> -->
-		</div>
-<br>		<h1 class="title"><a href="blog/2022/10/vista-en-flask-para-consultar-a-mongodb" title="Vista en Flask para consultar a MongoDB">Vista en Flask para consultar a MongoDB</a></h1>
-		<time class="date" datetime="2022-10-28 00:00:00+02:00">28 oct 2022</time>
-		<div class="content summary">
-				<p>
-					En el contexto de la asignatura Desarrollo de Aplicaciones para Internet (DAI), se nos ha pedido realizar una pequeña aplicación web que consulte una base de datos de recetas de <a class='no-dec readmore' href='blog/2022/10/vista-en-flask-para-consultar-a-mongodb'>&#8230;</a>
-				</p>
-<!--			<p>En el contexto de la asignatura Desarrollo de Aplicaciones para Internet (DAI), se nos ha pedido realizar una pequeña aplicación web que consulte una base de datos de recetas de&nbsp;&#8230;</p> -->
-		</div>
-<br>		<h1 class="title"><a href="blog/2021/10/advent-of-code-en-rust-y-un-poco-de-probabilidad" title="Advent of Code en Rust y un poco de Probabilidad">Advent of Code en Rust y un poco de Probabilidad</a></h1>
-		<time class="date" datetime="2021-10-09 00:00:00+02:00">9 oct 2021</time>
-		<div class="content summary">
-				<p>
-					El problema Report Repair del primer día del Advent of Code 2020 nos plantea un desafío interesante: encontrar dos números en una lista que sumen exactamente 2020 y luego multiplicarlos <a class='no-dec readmore' href='blog/2021/10/advent-of-code-en-rust-y-un-poco-de-probabilidad'>&#8230;</a>
-				</p>
-<!--			<p>El problema Report Repair del primer día del Advent of Code 2020 nos plantea un desafío interesante: encontrar dos números en una lista que sumen exactamente 2020 y luego multiplicarlos&nbsp;&#8230;</p> -->
-		</div>
-<br>		<h1 class="title"><a href="blog/2021/03/aplicacion-de-clips-al-problema-de-relaciones-familiares" title="Aplicación de CLIPS al Problema de Relaciones Familiares">Aplicación de CLIPS al Problema de Relaciones Familiares</a></h1>
-		<time class="date" datetime="2021-03-18 00:00:00+01:00">18 mar 2021</time>
-		<div class="content summary">
-				<p>
-					En el campo de la Ingeniería del Conocimiento, hemos desarrollado un sistema experto utilizando CLIPS (C Language Integrated Production System) para gestionar y razonar sobre relaciones familiares. CLIPS es una <a class='no-dec readmore' href='blog/2021/03/aplicacion-de-clips-al-problema-de-relaciones-familiares'>&#8230;</a>
-				</p>
-<!--			<p>En el campo de la Ingeniería del Conocimiento, hemos desarrollado un sistema experto utilizando CLIPS (C Language Integrated Production System) para gestionar y razonar sobre relaciones familiares. CLIPS es una&nbsp;&#8230;</p> -->
-		</div>
-	<div id="view-archives"><a class="no-dec no-dec-h" href="/archive/">Posts anteriores &raquo;</a></div>
+	<h1 class="title"><a href="/blog/2023/08/reescribiendo-la-historia-con-git-rebase-i" title="Permalink to Reescribiendo la historia con git rebase -i">Reescribiendo la historia con git rebase -i</a></h1>
+	<time class="date" datetime="2023-08-10 00:00:00+02:00">10 ago 2023</time>
+	<div class="content">
+		<p>En Git, es común que queramos mejorar la historia de nuestros commits para que sea más clara y organizada, especialmente antes de compartir nuestro trabajo con otros desarrolladores. Una herramienta poderosa para hacerlo es <code>git rebase -i --root</code>, que permite modificar de forma interactiva todos los commits del repositorio desde el commit raíz.</p>
+<h2>¿Qué es <code>git rebase -i --root</code>?</h2>
+<p>El comando <code>git rebase -i --root</code> inicia un <strong>rebase interactivo</strong> desde el primer commit de tu repositorio. Este tipo de rebase te ofrece varias opciones para manipular la historia de commits. Puedes <strong>fusionar</strong>, <strong>editar</strong>, <strong>reordenar</strong> o <strong>eliminar</strong> commits anteriores de manera que el historial de tu proyecto sea más coherente y fácil de seguir.</p>
+<p>Este comando es especialmente útil si has estado trabajando en un proyecto durante un tiempo y deseas hacer que la secuencia de commits sea más comprensible antes de publicarla en un repositorio remoto o de compartirla con otros colaboradores.</p>
+<h2>Opciones en el rebase interactivo</h2>
+<p>Al ejecutar <code>git rebase -i --root</code>, Git abrirá tu editor de texto predeterminado con una lista de commits, en la que cada línea representará un commit. Junto a cada commit, verás un comando (por defecto, <code>pick</code>) que indica lo que se hará con él. Aquí tienes algunas de las acciones que puedes tomar:</p>
+<ul>
+<li><strong>pick</strong>: Mantiene el commit tal como está.</li>
+<li><strong>reword</strong>: Te permite cambiar el mensaje del commit, pero manteniendo su contenido.</li>
+<li><strong>edit</strong>: Te permite modificar tanto el mensaje como el contenido del commit.</li>
+<li><strong>squash</strong>: Fusiona el commit con el anterior. Es útil para combinar commits pequeños que representan un solo cambio lógico.</li>
+<li><strong>fixup</strong>: Similar a <code>squash</code>, pero descarta el mensaje del commit que se fusiona.</li>
+<li><strong>drop</strong>: Elimina el commit completamente de la historia.</li>
+</ul>
+<h3>Ejemplo práctico</h3>
+<p>Supongamos que tienes un repositorio con la siguiente secuencia de commits:</p>
+<div class="highlight"><pre><span></span><code>Commit A
+Commit B
+Commit C
+</code></pre></div>
+
+<p>Ahora ejecutas el siguiente comando:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>--root
+</code></pre></div>
+
+<p>Esto abrirá tu editor con algo parecido a esto:</p>
+<div class="highlight"><pre><span></span><code>pick abc1234 Commit A
+pick def5678 Commit B
+pick ghi9012 Commit C
+</code></pre></div>
+
+<p>Supongamos que deseas combinar el commit B con el commit A y eliminar el commit C. Modificas las líneas para que se vea así:</p>
+<div class="highlight"><pre><span></span><code>pick abc1234 Commit A
+squash def5678 Commit B
+drop ghi9012 Commit C
+</code></pre></div>
+
+<p>Esto le indica a Git que combine el commit B con el A (fusionándolos en uno solo) y que elimine el commit C. Después de guardar y cerrar el editor, Git te pedirá que escribas un nuevo mensaje de commit para el commit combinado. Una vez finalizado el proceso, tu historial se verá algo así:</p>
+<div class="highlight"><pre><span></span><code>Commit AB (fusión de A y B)
+</code></pre></div>
+
+<p>El commit C habrá desaparecido, y la historia de tu proyecto será más limpia.</p>
+<h2>Consejos y advertencias</h2>
+<h3>1. Reescribe la historia solo si es necesario</h3>
+<p>El uso de <code>git rebase -i --root</code> es muy poderoso, pero debe usarse con cuidado. Reescribir la historia está bien en ramas locales o en commits que no se han compartido con otros. Sin embargo, si ya has compartido tu trabajo, reescribir la historia puede generar conflictos para otros desarrolladores que trabajen en la misma rama.</p>
+<h3>2. Usa <code>rebase</code> en lugar de <code>merge</code> si prefieres un historial lineal</h3>
+<p>El rebase ayuda a mantener un historial de commits más lineal y claro, eliminando los "merge commits" que pueden hacer que la historia sea más difícil de seguir. Sin embargo, si prefieres mantener la historia completa de las fusiones, puedes optar por <code>git merge</code>.</p>
+<h3>3. Guarda cambios importantes en un lugar seguro</h3>
+<p>Si estás experimentando con el rebase interactivo y no estás seguro del resultado, asegúrate de tener una copia de tus cambios. Puedes crear una nueva rama temporal antes de realizar el rebase para evitar perder trabajo.</p>
+<h2>Resumen</h2>
+<p>El comando <code>git rebase -i --root</code> es una herramienta poderosa para organizar y limpiar el historial de tu repositorio. Te permite fusionar, reordenar, editar o eliminar commits de manera interactiva, lo que es especialmente útil antes de compartir el código con otros. Recuerda usarlo con precaución, ya que reescribir la historia puede complicar la colaboración si no se hace correctamente.</p>
+<p>¿Listo para mejorar la historia de tu proyecto?</p>
+	</div>
+
+	<div id="related-articles">
+		<a class="no-dec no-dec-h" href="/blog/2022/10/vista-en-flask-para-consultar-a-mongodb" id="prev-neighbour">Vista en Flask para consultar a MongoDB &raquo;</a>
+	</div>
+
 			<hr>
 		</article>
 
@@ -158,15 +190,6 @@
 		</footer>
 	</div>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PR6EXV7JWN"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'G-PR6EXV7JWN');
-	</script>
 	
 
 	<script>
