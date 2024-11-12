@@ -42,21 +42,36 @@ el generado `access_token`. El resto lo dejas en blanco (default).
 
 Así, crearemos un script llamado `syncw.sh` que sincronice la carpeta `.task` correspondiente a la base de datos de tareas y la carpeta `timewarrior` en Dropbox.
 
+`pushw.sh``
+
 ```bash
 #!/data/data/com.termux/files/usr/bin/bash
 
 # Rutas de sincronización
 LOCAL_TIMEWARRIOR_PATH="/data/data/com.termux/files/home/.local/share/timewarrior"
 DROPBOX_TIMEWARRIOR_PATH="Dropbox:/timewarrior"
-LOCAL_TASK_PATH="/data/data/com.termux/files/home/.task"
+LOCAL_TASK_PATH="/data/data/com.termux/files/home/.task/taskchampion.sqlite3"
 DROPBOX_TASK_PATH="Dropbox:/.task"
 
 # Sincronización en ambos sentidos para Timewarrior
 rclone sync "$LOCAL_TIMEWARRIOR_PATH" "$DROPBOX_TIMEWARRIOR_PATH"
-rclone sync "$DROPBOX_TIMEWARRIOR_PATH" "$LOCAL_TIMEWARRIOR_PATH"
 
 # Sincronización en ambos sentidos para Taskwarrior
 rclone sync "$LOCAL_TASK_PATH" "$DROPBOX_TASK_PATH"
+```
+
+`pullw.sh`
+
+```bash
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Rutas de sincronización
+LOCAL_TIMEWARRIOR_PATH="/data/data/com.termux/files/home/.local/share/timewarrior"
+DROPBOX_TIMEWARRIOR_PATH="Dropbox:/timewarrior"
+LOCAL_TASK_PATH="/data/data/com.termux/files/home/.task/taskchampion.sqlite3"
+DROPBOX_TASK_PATH="Dropbox:/.task"
+
+rclone sync "$DROPBOX_TIMEWARRIOR_PATH" "$LOCAL_TIMEWARRIOR_PATH"
 rclone sync "$DROPBOX_TASK_PATH" "$LOCAL_TASK_PATH
 ```
 
