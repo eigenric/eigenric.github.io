@@ -72,7 +72,7 @@ LOCAL_TASK_PATH="/data/data/com.termux/files/home/.task/taskchampion.sqlite3"
 DROPBOX_TASK_PATH="Dropbox:/.task"
 
 rclone sync "$DROPBOX_TIMEWARRIOR_PATH" "$LOCAL_TIMEWARRIOR_PATH"
-rclone sync "$DROPBOX_TASK_PATH" "$LOCAL_TASK_PATH
+rclone sync "$DROPBOX_TASK_PATH" "$LOCAL_TASK_PATH"
 ```
 
 ## Configuración en el Ordenador
