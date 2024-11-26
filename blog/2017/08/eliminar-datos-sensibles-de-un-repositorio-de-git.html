@@ -3,8 +3,8 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Patterns reconocidos | eigenℝic</title>
-	<meta name="description" content="Bug: no reconoce xx mmmmm tarde En cambio si reconoce xx mmmmm manyana Y cuando ha reconocido manyana si reconoce tarde. Probamos a introducir turno extra: FAIL Nos damos cuenta …">
+	<title>Eliminar datos sensibles de un repositorio de git | eigenℝic</title>
+	<meta name="description" content="Aunque Git incluye un comando nativo para eliminar datos sensibles de un repositorio, conocido como filter-branch, existe una herramienta escrita en Java mucho más rápida y sencilla de usar para …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,11 +14,11 @@
 	<meta name="twitter:creator" content="">
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="">
-	<meta property="og:title" content="Patterns reconocidos">
-	<meta property="og:description" content="Bug: no reconoce xx mmmmm tarde En cambio si reconoce xx mmmmm manyana Y cuando ha reconocido manyana si reconoce tarde. Probamos a introducir turno extra: FAIL Nos damos cuenta …">
+	<meta property="og:title" content="Eliminar datos sensibles de un repositorio de git">
+	<meta property="og:description" content="Aunque Git incluye un comando nativo para eliminar datos sensibles de un repositorio, conocido como filter-branch, existe una herramienta escrita en Java mucho más rápida y sencilla de usar para …">
 	<meta property="og:image" content="../../../images/icons/avatar.png">
 	<meta property="og:type" content="article">
-	<meta property="og:url" content="../../../blog/2020/03/patterns-reconocidos">
+	<meta property="og:url" content="../../../blog/2017/08/eliminar-datos-sensibles-de-un-repositorio-de-git">
 
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
@@ -121,53 +121,34 @@
 		</aside>
 
 		<article>
-	<h1 class="title"><a href="/blog/2020/03/patterns-reconocidos" title="Permalink to Patterns reconocidos">Patterns reconocidos</a></h1>
-	<time class="date" datetime="2020-03-16 00:00:00+01:00">16 mar 2020</time>
+	<h1 class="title"><a href="/blog/2017/08/eliminar-datos-sensibles-de-un-repositorio-de-git" title="Permalink to Eliminar datos sensibles de un repositorio de git">Eliminar datos sensibles de un repositorio de git</a></h1>
+	<time class="date" datetime="2017-08-29 00:00:00+02:00">29 ago 2017</time>
 	<div class="content">
-		<p>Bug: no reconoce xx mmmmm tarde
-En cambio si reconoce xx mmmmm manyana
-Y cuando ha reconocido manyana si reconoce tarde.</p>
-<p>Probamos a introducir turno extra: FAIL</p>
-<p>Nos damos cuenta de que el algoritmo para calcular
-libres tarde depende de libres manyana. Ya que
-postarde depende de pos (variable en libres
-manyana). Por tanto nos disponemos a actualizar
-UPDATE LIBRES para que meta en las variables
-libres-tar, libres-man los huecos libres
-correspondientes. Esto permitiria usarlos
-independientemente.
-(variables globales).</p>
-<p>Resultado final: Bug arreglado</p>
-<p>Queremos ahora arreglar el detalle estético que
-haga que resulte como una cita de dia global.</p>
-<p>Resultado final: Arreglado</p>
-<p>Ahora queremos reconocer variaciones para la
-expresion de tarde y manyana:</p>
-<p>Problema actual: Incluir reconocimiento de año xx
-mmmmm yy. Si yy no es introducido utilizar año
-actual.</p>
-<ul>
-<li>Modificado YEAR para devolver yy en lugar de
-  yyyy:</li>
-<li>^ number (de) month (^ year)</li>
-<li>Quisiera una cita el dia xx de mmmmmm del 20</li>
-</ul>
-<p>Patrones bien reconocidos. Soporte para año
-cualquiera (del yy).</p>
-<p>Hoy, manyana, pasado manyana reconocidos.</p>
-<p>Problema actual:
-Proximo y siguiente no reconocidos.
-Solucionado. Era problema de exceso de DATEFORMAT</p>
-<p>Problema actual: Llega un punto en el que la lista
-de libres no es devuelta como debería
-(probablemente problema con el SUBLIST de manyana
-y tarde).
-Ejemplo: 20 de marzo del 21 tenia dos huecos
-libres 16:00 y 18:00 pero al pedir la lista de
-huecos libres devuelve NIL.</p>
-<p>Analizar que ocurre con dos null</p>
+		<p>Aunque Git incluye un comando nativo para eliminar datos sensibles de un repositorio, conocido como <code>filter-branch</code>, existe una herramienta escrita en Java mucho más rápida y sencilla de usar para realizar esta tarea.</p>
+<h2>Herramienta recomendada: BFG Repo-Cleaner</h2>
+<p><strong>BFG Repo-Cleaner</strong> es una alternativa eficiente y fácil de usar para limpiar un repositorio Git de información sensible. Puedes encontrarla en <a href="https://rtyley.github.io/bfg-repo-cleaner/">BFG Repo-Cleaner</a></p>
+<h3>Uso básico</h3>
+<p>Para reemplazar texto sensible en todo el repositorio, como contraseñas, simplemente usa el siguiente comando:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>bfg<span class="w"> </span>--replace-text<span class="w"> </span>passwords.txt<span class="w"> </span>my-repo.git
+</code></pre></div>
+
+<p><strong>Advertencia:</strong> El último commit no se verá afectado por este proceso. Para eliminarlo, deberás borrarlo manualmente y luego volver a ejecutar la limpieza.</p>
+<h3>Cómo verificar que los datos sensibles han sido eliminados</h3>
+<p>Para asegurarte de que no quedan restos de la información sensible en la historia del repositorio, puedes buscar cadenas específicas en todo el historial de Git. Aunque no es la respuesta más votada, este método ha funcionado en varios casos.</p>
+<p>Consulta este <a href="https://stackoverflow.com/questions/4468361/search-all-of-git-history-for-a-string">enlace de Stack Overflow</a> para más detalles.</p>
+<p>El comando es el siguiente:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>rev-list<span class="w"> </span>--all<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">GIT_PAGER</span><span class="o">=</span>cat<span class="w"> </span>xargs<span class="w"> </span>git<span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;search_string&#39;</span>
+</code></pre></div>
+
+<p>Este comando buscará una cadena específica (<code>search_string</code>) en todos los commits del repositorio, permitiéndote verificar si alguna información sensible permanece en el historial.</p>
+<h2>Conclusión</h2>
+<p>Si bien <code>filter-branch</code> es la herramienta nativa de Git para eliminar datos sensibles, <strong>BFG Repo-Cleaner</strong> es una opción más rápida y fácil de usar, especialmente para repositorios grandes. Recuerda siempre verificar que no queden rastros de información sensible después de la limpieza, y eliminar manualmente el último commit si es necesario.</p>
 	</div>
 
+	<div id="related-articles">
+		<a class="no-dec no-dec-h" href="/blog/2017/09/se-un-guerrero-de-la-productividad-con-taskwarrior" id="next-neighbour">&laquo; Sé un guerrero de la productividad con Taskwarrior</a>
+		<a class="no-dec no-dec-h" href="/blog/2017/08/una-odisea-de-depuracion-top-down-con-vim" id="prev-neighbour">Una odisea de depuración top-down con Vim. &raquo;</a>
+	</div>
 
 			<hr>
 		</article>
@@ -177,6 +158,15 @@ huecos libres devuelve NIL.</p>
 		</footer>
 	</div>
 
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PR6EXV7JWN"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-PR6EXV7JWN');
+	</script>
 	
 
 	<script>

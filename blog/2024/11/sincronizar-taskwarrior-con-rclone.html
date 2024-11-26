@@ -3,8 +3,8 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Patterns reconocidos | eigenℝic</title>
-	<meta name="description" content="Bug: no reconoce xx mmmmm tarde En cambio si reconoce xx mmmmm manyana Y cuando ha reconocido manyana si reconoce tarde. Probamos a introducir turno extra: FAIL Nos damos cuenta …">
+	<title>Sincronizar Taskwarrior con rclone | eigenℝic</title>
+	<meta name="description" content="Como comentamos en el artículo anterior, Taskwarrior es una herramienta de gestión de tareas muy potente y flexible. Pero, ¿qué pasa si trabajamos en varios dispositivos y queremos tener nuestras …">
 	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,11 +14,11 @@
 	<meta name="twitter:creator" content="">
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="">
-	<meta property="og:title" content="Patterns reconocidos">
-	<meta property="og:description" content="Bug: no reconoce xx mmmmm tarde En cambio si reconoce xx mmmmm manyana Y cuando ha reconocido manyana si reconoce tarde. Probamos a introducir turno extra: FAIL Nos damos cuenta …">
+	<meta property="og:title" content="Sincronizar Taskwarrior con rclone">
+	<meta property="og:description" content="Como comentamos en el artículo anterior, Taskwarrior es una herramienta de gestión de tareas muy potente y flexible. Pero, ¿qué pasa si trabajamos en varios dispositivos y queremos tener nuestras …">
 	<meta property="og:image" content="../../../images/icons/avatar.png">
 	<meta property="og:type" content="article">
-	<meta property="og:url" content="../../../blog/2020/03/patterns-reconocidos">
+	<meta property="og:url" content="../../../blog/2024/11/sincronizar-taskwarrior-con-rclone">
 
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?f46fbc66" rel="stylesheet">
@@ -121,53 +121,84 @@
 		</aside>
 
 		<article>
-	<h1 class="title"><a href="/blog/2020/03/patterns-reconocidos" title="Permalink to Patterns reconocidos">Patterns reconocidos</a></h1>
-	<time class="date" datetime="2020-03-16 00:00:00+01:00">16 mar 2020</time>
+	<h1 class="title"><a href="/blog/2024/11/sincronizar-taskwarrior-con-rclone" title="Permalink to Sincronizar Taskwarrior con rclone">Sincronizar Taskwarrior con rclone</a></h1>
+	<time class="date" datetime="2024-11-08 00:00:00+01:00">8 nov 2024</time>
 	<div class="content">
-		<p>Bug: no reconoce xx mmmmm tarde
-En cambio si reconoce xx mmmmm manyana
-Y cuando ha reconocido manyana si reconoce tarde.</p>
-<p>Probamos a introducir turno extra: FAIL</p>
-<p>Nos damos cuenta de que el algoritmo para calcular
-libres tarde depende de libres manyana. Ya que
-postarde depende de pos (variable en libres
-manyana). Por tanto nos disponemos a actualizar
-UPDATE LIBRES para que meta en las variables
-libres-tar, libres-man los huecos libres
-correspondientes. Esto permitiria usarlos
-independientemente.
-(variables globales).</p>
-<p>Resultado final: Bug arreglado</p>
-<p>Queremos ahora arreglar el detalle estético que
-haga que resulte como una cita de dia global.</p>
-<p>Resultado final: Arreglado</p>
-<p>Ahora queremos reconocer variaciones para la
-expresion de tarde y manyana:</p>
-<p>Problema actual: Incluir reconocimiento de año xx
-mmmmm yy. Si yy no es introducido utilizar año
-actual.</p>
-<ul>
-<li>Modificado YEAR para devolver yy en lugar de
-  yyyy:</li>
-<li>^ number (de) month (^ year)</li>
-<li>Quisiera una cita el dia xx de mmmmmm del 20</li>
-</ul>
-<p>Patrones bien reconocidos. Soporte para año
-cualquiera (del yy).</p>
-<p>Hoy, manyana, pasado manyana reconocidos.</p>
-<p>Problema actual:
-Proximo y siguiente no reconocidos.
-Solucionado. Era problema de exceso de DATEFORMAT</p>
-<p>Problema actual: Llega un punto en el que la lista
-de libres no es devuelta como debería
-(probablemente problema con el SUBLIST de manyana
-y tarde).
-Ejemplo: 20 de marzo del 21 tenia dos huecos
-libres 16:00 y 18:00 pero al pedir la lista de
-huecos libres devuelve NIL.</p>
-<p>Analizar que ocurre con dos null</p>
+		<p><img alt="Termux Taskwarrior" src="/images/termux.jpg" width="300px"></p>
+<p>Como comentamos en el artículo anterior, Taskwarrior es una herramienta de
+gestión de tareas muy potente y flexible. Pero, ¿qué pasa si trabajamos en
+varios dispositivos y queremos tener nuestras tareas sincronizadas en todos
+ellos? En este artículo vamos a ver cómo hacerlo.</p>
+<p>En este post describiré el proceso que seguí para tener funcionando taskwarrior
+en Termux (Android) y que sea sincronizable en un Laptop vía Dropbox.</p>
+<p>En primer lugar, es necesario instalar taskwarrior y timewarrior en Termux</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pkg<span class="w"> </span>install<span class="w"> </span>taskwarrior
+$<span class="w"> </span>pkg<span class="w"> </span>install<span class="w"> </span>timewarrior
+</code></pre></div>
+
+<p>Luego instalaremos <code>rclone</code> para sincronizar con Dropbox.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pkg<span class="w"> </span>install<span class="w"> </span>rclone
+</code></pre></div>
+
+<h2>Configuración de rclone</h2>
+<p>Para configurar <code>rclone</code> necesitas registrar una aplicación en Dropbox for developers y 
+guardar los valores de <code>app_id</code>, <code>app_secret</code> y <code>access_token</code>. </p>
+<p>Además, hay que añadir las siguientes <code>Redirect URIs</code></p>
+<p><img alt="Dropbox App" src="/images/dropbox_app.png"></p>
+<p>Luego ejecutamos</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>rclone<span class="w"> </span>config
+</code></pre></div>
+
+<p>Sigues los pasos, para añadir un nuevo servicio llamado "Dropbox" del tipo 12 de la lista y
+le pasas las <code>app_id</code>, <code>app_secret</code> guardadas. En configuración extra, sólo hace falta añadir 
+el generado <code>access_token</code>. El resto lo dejas en blanco (default).</p>
+<p>Así, crearemos un script llamado <code>syncw.sh</code> que sincronice la carpeta <code>.task</code> correspondiente a la base de datos de tareas y la carpeta <code>timewarrior</code> en Dropbox.</p>
+<p>`pushw.sh``</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/data/data/com.termux/files/usr/bin/bash</span>
+
+<span class="c1"># Rutas de sincronización</span>
+<span class="nv">LOCAL_TIMEWARRIOR_PATH</span><span class="o">=</span><span class="s2">&quot;/data/data/com.termux/files/home/.local/share/timewarrior&quot;</span>
+<span class="nv">DROPBOX_TIMEWARRIOR_PATH</span><span class="o">=</span><span class="s2">&quot;Dropbox:/timewarrior&quot;</span>
+<span class="nv">LOCAL_TASK_PATH</span><span class="o">=</span><span class="s2">&quot;/data/data/com.termux/files/home/.task/taskchampion.sqlite3&quot;</span>
+<span class="nv">DROPBOX_TASK_PATH</span><span class="o">=</span><span class="s2">&quot;Dropbox:/.task&quot;</span>
+
+<span class="c1"># Sincronización en ambos sentidos para Timewarrior</span>
+rclone<span class="w"> </span>sync<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOCAL_TIMEWARRIOR_PATH</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DROPBOX_TIMEWARRIOR_PATH</span><span class="s2">&quot;</span>
+
+<span class="c1"># Sincronización en ambos sentidos para Taskwarrior</span>
+rclone<span class="w"> </span>sync<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOCAL_TASK_PATH</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DROPBOX_TASK_PATH</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<p><code>pullw.sh</code></p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/data/data/com.termux/files/usr/bin/bash</span>
+
+<span class="c1"># Rutas de sincronización</span>
+<span class="nv">LOCAL_TIMEWARRIOR_PATH</span><span class="o">=</span><span class="s2">&quot;/data/data/com.termux/files/home/.local/share/timewarrior&quot;</span>
+<span class="nv">DROPBOX_TIMEWARRIOR_PATH</span><span class="o">=</span><span class="s2">&quot;Dropbox:/timewarrior&quot;</span>
+<span class="nv">LOCAL_TASK_PATH</span><span class="o">=</span><span class="s2">&quot;/data/data/com.termux/files/home/.task/taskchampion.sqlite3&quot;</span>
+<span class="nv">DROPBOX_TASK_PATH</span><span class="o">=</span><span class="s2">&quot;Dropbox:/.task&quot;</span>
+
+rclone<span class="w"> </span>sync<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DROPBOX_TIMEWARRIOR_PATH</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOCAL_TIMEWARRIOR_PATH</span><span class="s2">&quot;</span>
+rclone<span class="w"> </span>sync<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DROPBOX_TASK_PATH</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOCAL_TASK_PATH</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<h2>Configuración en el Ordenador</h2>
+<p>Por otro lado, debemos crear un enlace simbólico en <code>.task</code> y
+<code>~/.local/share/timewarrior</code> hacia las carpeta de Dropbox correspondientes.
+Esto permite que se sincronice directamente desde el ordenador mediante el
+demonio de Dropbox instalado.  `</p>
+<blockquote>
+<p><strong>Advertencia</strong>
+    Si se modifica la misma tarea en dos dispositivos distintos <em>antes</em> de realizar
+    la sincronización, se encontrarán conflictos de fusión por parte de Dropbox.
+    No dar pie a esta situación arregla el problema.</p>
+</blockquote>
 	</div>
 
+	<div id="related-articles">
+		<a class="no-dec no-dec-h" href="/blog/2024/11/el-grupo-fundamental-de-la-cinta-de-mobius" id="next-neighbour">&laquo; El grupo fundamental de la cinta de Möbius</a>
+		<a class="no-dec no-dec-h" href="/blog/2023/08/reescribiendo-la-historia-con-git-rebase-interactive" id="prev-neighbour">Reescribiendo la historia con git rebase interactive &raquo;</a>
+	</div>
 
 			<hr>
 		</article>
@@ -177,6 +208,15 @@ huecos libres devuelve NIL.</p>
 		</footer>
 	</div>
 
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PR6EXV7JWN"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-PR6EXV7JWN');
+	</script>
 	
 
 	<script>

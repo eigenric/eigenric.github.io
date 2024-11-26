@@ -5,28 +5,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://eigenric.me/blog</loc>
-<lastmod>2024-10-18T12:38:37-00:00</lastmod>
+<lastmod>2024-11-26T21:47:35-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://eigenric.me/archive</loc>
-<lastmod>2024-10-18T12:38:37-00:00</lastmod>
+<lastmod>2024-11-26T21:47:35-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://eigenric.me/404.html</loc>
-<lastmod>2024-10-18T12:38:37-00:00</lastmod>
+<lastmod>2024-11-26T21:47:35-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://eigenric.me/</loc>
-<lastmod>2024-10-18T12:38:37-00:00</lastmod>
+<lastmod>2024-11-26T21:47:35-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://eigenric.me/blog/2024/11/el-grupo-fundamental-de-la-cinta-de-mobius</loc>
+<lastmod>2024-11-26T00:00:00+01:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://eigenric.me/blog/2024/11/sincronizar-taskwarrior-con-rclone</loc>
+<lastmod>2024-11-08T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -144,6 +158,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://eigenric.me/blog/2017/09/proceso-de-aprendizaje-autociges</loc>
+<lastmod>2017-09-18T00:00:00+02:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://eigenric.me/blog/2017/09/vim-tip-buscar-y-reemplazar</loc>
 <lastmod>2017-09-02T00:00:00+02:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -153,6 +174,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://eigenric.me/blog/2017/09/se-un-guerrero-de-la-productividad-con-taskwarrior</loc>
 <lastmod>2017-09-01T00:00:00+02:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://eigenric.me/blog/2017/08/eliminar-datos-sensibles-de-un-repositorio-de-git</loc>
+<lastmod>2017-08-29T00:00:00+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
