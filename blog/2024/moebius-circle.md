@@ -4,9 +4,9 @@ Tags: topología, retracto, manim
 
 <br>
 
-<center>
-<iframe width="500" height="300" src="https://www.youtube.com/embed/savG0a_MijQ?si=29DqwxaXU0VHxF2e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</center>
+<div class="video-responsive">
+<iframe src="https://www.youtube.com/embed/savG0a_MijQ?si=29DqwxaXU0VHxF2e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 La cinta de Möbius es una superficie no orientable que ha fascinado a matemáticos debido a sus propiedades geométricas y topológicas singulares
 
@@ -106,7 +106,7 @@ $$
 H([(x,y), s)]) = [(x, (1-s)y)] = \pi(x, (1-s)y)
 $$
 
-Claramente $H$ es continua por ser composición de funcioness continuas y además:
+Claramente $H$ es continua por ser composición de funciones continuas y además:
 
 $$
 H([(x,y)], 0) = [(x,y)]
