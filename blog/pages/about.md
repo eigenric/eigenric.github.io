@@ -2,7 +2,7 @@ Title: About
 URL:
 Save_as: index.html
 
-Hi! I'm Ricardo Ruiz Fernández de Alba, currently pursuing a Dual Degree in Mathematics & Computer Science in University of Granada, Spain.  Due to my ongoing battle with [Crohn's disease](https://www.sciencedaily.com/news/health_medicine/crohn's_disease/){:target="_blank"}, I expect to finish next year (≈ 91% completed).
+Hi! I'm Ricardo Ruiz Fernández de Alba, currently pursuing a Dual Degree in Mathematics & Computer Science in University of Granada, Spain.  Due to my ongoing battle with [Crohn's disease](https://www.sciencedaily.com/news/health_medicine/crohn's_disease/){:target="_blank"}, I expect to finish next year (≈ 93.39% completed).
 
 I have been involved in various projects, including:
 
