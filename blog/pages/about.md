@@ -2,10 +2,11 @@ Title: About
 URL:
 Save_as: index.html
 
-Hi! I'm Ricardo Ruiz Fernández de Alba, a Dual Degree student in Mathematics & Computer Science at the University of Granada, Spain (≈93.39% completed).
+Hi! I'm Ricardo Ruiz Fernández de Alba, a Double Degree student in Mathematics & Computer Science at the University of Granada, Spain (≈ 93.39% completed).
 
-I'm currently working on my Bachelor Thesis (TFG), focusing on synthetic data generation from an IoT vehicle detection system using Transformer models. You can check out my progress on GitHub.
+I'm currently working on:
 
-I'm also a co-founder of DGIIM Underground, a collaborative platform for sharing class notes and academic resources.
+- Ubiquotous Computing and Ambiental Intelligence (last subject of my CS degree).
+- My [Bachelor Thesis (TFG)](https://github.com/eigenric/TFG), focusing on synthetic data generation from an IoT vehicle detection system using Transformer models. 
 
-Let me know if you'd like any refinements! 🚀
+You can check out my progress on GitHub.
