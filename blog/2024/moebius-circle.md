@@ -49,7 +49,7 @@ $\tilde{f}$ continua $\Leftrightarrow \tilde{f} \circ \pi_1$ continua. Pero $\ti
 
 # Proposición: El grupo fundamental de la cinta de Möebius es isomorfo a $\mathbb{Z}$
 
-En efecto, la cinta de Möeboius compacta es
+En efecto, la cinta de Möbius compacta es
 
 $$
 M = \frac{[-1, 1] \times [-1, 1]}{R}
