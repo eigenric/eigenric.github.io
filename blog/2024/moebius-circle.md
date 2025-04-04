@@ -14,7 +14,7 @@ Esta figura se obtiene al darle una media vuelta a una tira de papel y unir sus 
 
 El grupo fundamental de un espacio topológico $X$, $\Pi_1(X, x_0)$  describe las clases de homotopía de lazos cerrados y es un invariante topológico crucial para caracterizar su estructura. 
 
-En este artículo, haremos el cálculo del grupo fundamental de la cinta de moebius. Se ha creado además una animación en [Manim](https://www.manim.community/) que ilustra el argumento utilizando mediante el concepto de *retracto de deformación*, que consiste basicamente en una transformación continua hacia la circunferencia.
+En este artículo, haremos el cálculo del grupo fundamental de la cinta de Möbius. Se ha creado además una animación en [Manim](https://www.manim.community/) que ilustra el argumento utilizando mediante el concepto de *retracto de deformación*, que consiste basicamente en una transformación continua hacia la circunferencia.
 
 # Lema: Función continua inducida en los cocientes.
 
@@ -33,21 +33,22 @@ $$
 \tilde{f}: (X_1/R_1, \tau_1(\pi_1)) \rightarrow (X_2/R_2, \tau_2(\pi_2))
 $$ 
 
-tal que $\tilde{f} \circ \pi_1 = \pi_2 \circ f$.
+tal que $\tilde{f} \circ \pi_1 = \pi_2 \circ f$. Además, $\tilde{f}$ es continua.
 
-En efecto: $\tilde{f}([p]_1) = [f(p)]_2$
+{% toggle %}
+
+En efecto, definimos $\tilde{f}([p]_1) := [f(p)]_2$
+Siguiendo el siguiente diagrama conmutativo
 
 ![Diagrama conmutativo](/images/diagrama_lema.png){width=200px}
 
-Además, $\tilde{f}$ es continua.
-
-{% toggle %}
+Para la continuidad:
 
 $\tilde{f}$ continua $\Leftrightarrow \tilde{f} \circ \pi_1$ continua. Pero $\tilde{f} \circ \pi_1 = \pi_2 \circ f$.
 
 {% end_toggle %}
 
-# Proposición: El grupo fundamental de la cinta de Möebius es isomorfo a $\mathbb{Z}$
+# Proposición: El grupo fundamental de la cinta de Möbius es isomorfo a $\mathbb{Z}$
 
 En efecto, la cinta de Möbius compacta es
 
@@ -67,7 +68,7 @@ Es decir aquella que identifica los bordes izquierdo y derecho del rectángulo d
 
 ![](/images/moebius_quotient.png){width=300px}
 
-Sen $\pi: [-1, 1] \times [-1, 1] \rightarrow M$ la proyección al cociente y 
+Sea $\pi: [-1, 1] \times [-1, 1] \rightarrow M$ la proyección al cociente y 
 
 $$
 A := \pi([-1, 1] \times \{0\}) \subset M
@@ -90,15 +91,15 @@ $$
 (x,y) R (x', y') \Rightarrow r_0(x,y) R r_0(x',y')
 $$
 
-Por lo tanto aplicando el Lema anteriormente probando, obtenemos que existe una única aplicación continua $r: M \rightarrow A$ con $r_0 \circ \pi = \pi \circ r_0$
+Por lo tanto aplicando el Lema anteriormente probando, obtenemos que existe una única aplicación continua $r: M \rightarrow A$ con $r_0 \circ \pi = \pi \circ r$
 
 ![](/images/diagrama_moebius.png){width=400px}
 
 $$
-\pi(x,y) = [(x,y)] \longrightarrow [(x, 0)] = \pi(x,0) = \pi(r_0(x,y))
+\pi(x,y) = [(x,y)] \longrightarrow [(x, 0)] = \pi(x,0) = \pi(r(x,y))
 $$
 
-Tenemos que $r$ es continua y $r_\vert{A} = Id_A$. Por lo que $r$ es una retracción.
+Tenemos que $r$ es continua y $r_{|A} = Id_A$. Por lo que $r$ es una retracción.
 
 Por otro lado, definimos $H: M \times [0, 1] \rightarrow M$ tal que
 
@@ -116,7 +117,7 @@ $$
 H([(x,y)], 1) = [(x,0)] = (i_A \circ r)([(x,y)])
 $$
 
-Luego $H: Id_m \simeq i_A \circ r$
+Luego $H: Id_m \simeq i_A \circ r$ (son homotópicamente equivalentes)
 
 Por tanto $A$ es un retracto de deformación de $M$.
 
