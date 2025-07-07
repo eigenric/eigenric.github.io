@@ -5,7 +5,7 @@ Tags: topología, retracto, manim
 <br>
 
 <div class="video-responsive">
-<iframe src="https://www.youtube.com/watch?v=iyRmZW32I2M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iyRmZW32I2M?si=d5ESDCTXXzD2aOb7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
 La cinta de Möbius es una superficie no orientable que ha fascinado a matemáticos debido a sus propiedades geométricas y topológicas singulares
@@ -96,7 +96,7 @@ Por lo tanto aplicando el Lema anteriormente probando, obtenemos que existe una 
 ![](/images/diagrama_moebius.png){width=400px}
 
 $$
-\pi(x,y) = [(x,y)] \longrightarrow [(x, 0)] = \pi(x,0) = \pi(r(x,y))
+\pi(x,y) = [(x,y)] \longrightarrow [(x, 0)] = \pi(x,0) = \pi(r_0(x,y))
 $$
 
 Tenemos que $r$ es continua y $r_{|A} = Id_A$. Por lo que $r$ es una retracción.

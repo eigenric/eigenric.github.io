@@ -2,11 +2,8 @@ Title: About
 URL:
 Save_as: index.html
 
-Hi! I'm Ricardo Ruiz Fernández de Alba, a Double Degree student in Mathematics & Computer Science at the University of Granada, Spain (≈ 93.39% completed).
+Hi! I'm Ricardo, a Mathematician and Computer Scientist driven by curiosity.
 
-I'm currently working on:
+I channel this curiosity into projects that bridge theory and practice. You can see it in my work on [machine learning](https://github.com/eigenric/aprendizaje-automatico){:target="_blank"}, my creative tools like [git-quotes](https://github.com/eigenric/git-quotes){:target="_blank"}, and my conceptual experiments like [turingfy](https://github.com/eigenric/turingfy){:target="_blank"}. I use the [Eigenric Blog](/blog) to share what I learn along the way.
 
-- Ubiquotous Computing and Ambiental Intelligence (last subject of my CS degree).
-- My [Bachelor Thesis (TFG)](https://github.com/eigenric/TFG), focusing on synthetic data generation from an IoT vehicle detection system using Transformer models. 
-
-You can check out my progress on GitHub.
+Believing in the power of shared knowledge, I also cofounded the [DGIIM Underground](https://github.com/DGIIMUnderground){:target="_blank"} developer community.

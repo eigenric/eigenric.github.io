@@ -55,7 +55,7 @@ AUTHOR_FEED_RSS = None
 
 # Pneumatic theme
 
-BIO_TEXT = "Maths & <br>Computer Science"
+BIO_TEXT = "Mathematician & <br>Computer Scientist"
 BIO_TEXT_MOB = "Maths & Computer Science"
 SITE_AUTHOR = AUTHOR
 FA_EMBED_CODE = "a4053f556f"
@@ -82,14 +82,8 @@ SIDEBAR_LINKS = [
 ]
 
 FOOTER_TEXT = (
-    "© 2024 por Ricardo Ruiz con"
-    " <i class='icon fa fa-heart' aria-hidden='true'></i> gracias a"
-    " <a class='no-dec' target='_blank' href='http://www.getpelican.com'>Pelican</a>"
-    " y <a class='no-dec' target='_blank' href='http://github.com/eigenric/pneumatic'>Pneumatic theme.</a><br>"
-    "<a class='no-dec' target='_blank' href='http://github.com/eigenric/eigenric.github.io'>Contenido</a> bajo licencia"
-    " <a class='no-dec no-dec-h' target='_blank' href='https://creativecommons.org/licenses/by-sa/4.0/'>"
-    " <i class='fab fa-creative-commons' aria-hidden='true'></i> <i class='fab fa-creative-commons-by' aria-hidden='true'></i>"
-    " <i class='fab fa-creative-commons-sa' aria-hidden='true'></i></a>"
+    "© 2025 por Ricardo Ruiz con"
+    " <i class='icon fa fa-heart' aria-hidden='true'></i> "
 )
 
 PLUGINS = [
