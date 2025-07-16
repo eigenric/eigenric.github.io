@@ -1,5 +1,7 @@
 Title: ¿Cómo suena una Máquina de Turing?
 Date: 2025-07-16
+Summary: Una exploración sonora y conceptual del modelo más influyente de la computación.
+Image: /images/turing_musical.png
 
 ![](/images/turing_musical.png){width="400px", height="275px"}
 
