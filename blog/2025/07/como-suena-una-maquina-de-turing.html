@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>¿Cómo suena una Máquina de Turing? | eigenℝic</title>
+	<meta name="description" content="Las Máquinas de Turing son uno de los pilares fundamentales sobre los que se construye toda la ciencia de la computación. Propuestas por Alan Turing en 1936, no son máquinas …">
+	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta property="og:title" content="¿Cómo suena una Máquina de Turing?">
+	<meta property="og:description" content="Las Máquinas de Turing son uno de los pilares fundamentales sobre los que se construye toda la ciencia de la computación. Propuestas por Alan Turing en 1936, no son máquinas …">
+	<meta property="og:image" content="../../../images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="../../../blog/2025/07/como-suena-una-maquina-de-turing">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css?53536921" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,700|Source+Code+Pro" rel="stylesheet" type="text/css">
+	<script src="https://kit.fontawesome.com/a4053f556f.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css" crossorigin="anonymous">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+
+	<meta name="theme-color" content="#1e2327">
+
+	<meta name="msapplication-TileColor" content="#1e2327">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<div class="state-indicator"></div>
+		<aside>
+			<div id="bar-title">
+				<i class="fas fa-bars btn-open"></i>
+				<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+				<div id="name"><a class="no-dec no-dec-h bold" href="/">eigenℝic</a></div>
+			</div>
+			<div id="bio">Maths & <br>Computer Science</div>
+			<div id="bio-mob">Maths & Computer Science</div>
+
+			<div class="zeynep">
+				<ul>
+					<a href="/"><img id="avatar-mob" alt="Site Avatar" src="/images/icons/avatar.jpg"></a>
+
+						<li>
+							<a class="no-dec no-dec-h bold" href="/">Home</a>
+						</li>
+						<li>
+							<a class="no-dec no-dec-h bold" href="/blog">Blog</a>
+						</li>
+						<li>
+							<a class="no-dec no-dec-h bold" href="/archive">Archive</a>
+						</li>
+
+					<li>
+					
+						<a class="social-i" target="_blank" href="http://www.github.com/eigenric"><i class="icon fa fa-github"></i></a>
+					
+						<a class="social-i" target="_blank" href="http://stackoverflow.com/u/8401085"><i class="icon fa fa-stack-overflow"></i></a>
+					
+						<a class="social-i" target="_blank" href="https://www.linkedin.com/in/ricardo-ruiz-fern%C3%A1ndez-de-alba-617253147/"><i class="icon fa fa-linkedin"></i></a>
+					
+						<a class="social-i" target="_blank" href="http://twitter.com/eigenric"><i class="icon fa fa-twitter"></i></a>
+					
+						<a class="social-i" target="_blank" href="mailto:ricardoruizfdez@gmail.com"><i class="icon fa fa-envelope"></i></a>
+					
+						<a class="social-i" target="_blank" href="/atom.xml"><i class="icon fa fa-rss"></i></a>
+					</li>
+				</ul>
+			</div>
+
+			<div id="sidebar-links">
+					<a class="no-dec no-dec-h bold" href="/">Home</a>
+ | 					<a class="no-dec no-dec-h bold" href="/blog">Blog</a>
+ | 					<a class="no-dec no-dec-h bold" href="/archive">Archive</a>
+			</div>
+
+			<div id="social">
+				<a href="http://www.github.com/eigenric" target="_blank" title="GitHub" class="icon fa fa-github"></a>
+				<a href="http://stackoverflow.com/u/8401085" target="_blank" title="SO" class="icon fa fa-stack-overflow"></a>
+				<a href="https://www.linkedin.com/in/ricardo-ruiz-fern%C3%A1ndez-de-alba-617253147/" target="_blank" title="Linkedin" class="icon fa fa-linkedin"></a>
+				<a href="http://twitter.com/eigenric" target="_blank" title="Twitter" class="icon fa fa-twitter"></a>
+				<a href="mailto:ricardoruizfdez@gmail.com" target="_blank" title="Email" class="icon fa fa-envelope"></a>
+				<a href="/atom.xml" target="_blank" title="Feed" class="icon fa fa-rss"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/blog/2025/07/como-suena-una-maquina-de-turing" title="Permalink to ¿Cómo suena una Máquina de Turing?">¿Cómo suena una Máquina de Turing?</a></h1>
+	<time class="date" datetime="2025-07-16 00:00:00+02:00">16 jul 2025</time>
+	<div class="content">
+		<p><img _="," alt="" height="275px" src="/images/turing_musical.png" width="400px"></p>
+<p>Las Máquinas de Turing son uno de los pilares fundamentales sobre los que se construye toda la ciencia de la computación. Propuestas por Alan Turing en 1936, no son máquinas físicas en el sentido tradicional, sino un modelo matemático abstracto que formaliza el concepto de "algoritmo".</p>
+<p>En este post, vamos a desglosar este concepto: desde su densa definición formal hasta un ejemplo práctico, y finalmente, os mostraré mi propio experimento para traer este modelo a la vida: <strong>Turingfy</strong>.</p>
+<h3>¿Qué es una Máquina de Turing? La Definición Formal</h3>
+<p>A primera vista, la definición de una Máquina de Turing puede parecer intimidante. Es un formalismo matemático puro. Para no abrumar, he aquí primero la idea intuitiva:</p>
+<p>Imagina una <strong>cinta infinita</strong> dividida en casillas. Un <strong>cabezal</strong> puede leer el símbolo de una casilla, escribir un nuevo símbolo y moverse a la izquierda o a la derecha. La máquina opera siguiendo un conjunto de <strong>reglas</strong> simples basadas en su <strong>estado</strong> actual y el símbolo que está leyendo.</p>
+<p><strong>Definición.</strong> Una <strong>Máquina de Turing</strong> se define formalmente como una 7-tupla:
+ <span class="katex-display"><span class="katex"><span class="katex-mathml"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false">(</mo><mi>Q</mi><mo separator="true">,</mo><mi mathvariant="normal">Σ</mi><mo separator="true">,</mo><mi mathvariant="normal">Γ</mi><mo separator="true">,</mo><mi>δ</mi><mo separator="true">,</mo><msub><mi>q</mi><mn>0</mn></msub><mo separator="true">,</mo><mi>B</mi><mo separator="true">,</mo><mi>F</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">M = (Q, \Sigma, \Gamma, \delta, q_0, B, F)</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">Σ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">Γ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">)</span></span></span></span></span></p>
+<p>donde:</p>
+<blockquote>
+<ul>
+<li><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi></mrow><annotation encoding="application/x-tex">Q</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span></span></span></span></strong>: Es un conjunto finito de <strong>estados</strong> en los que la máquina puede estar.</li>
+<li><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Σ</mi></mrow><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Σ</span></span></span></span></strong>: Es el <strong>alfabeto de entrada</strong>, un conjunto finito de símbolos (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Σ</mi><mo>⊆</mo><mi mathvariant="normal">Γ</mi></mrow><annotation encoding="application/x-tex">\Sigma \subseteq \Gamma</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.136em;"></span><span class="mord">Σ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊆</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Γ</span></span></span></span>).</li>
+<li><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Γ</mi></mrow><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Γ</span></span></span></span></strong>: Es el <strong>alfabeto de la cinta</strong>, que contiene a <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Σ</mi></mrow><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Σ</span></span></span></span> y al símbolo en blanco <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>.</li>
+<li><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi></mrow><annotation encoding="application/x-tex">\delta</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span></span></span></span></strong>: Es la <strong>función de transición</strong>, el "programa" de la máquina. Se define como:
+    <span class="katex-display"><span class="katex"><span class="katex-mathml"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo>:</mo><mi>Q</mi><mo>×</mo><mi mathvariant="normal">Γ</mi><mo>→</mo><mi>Q</mi><mo>×</mo><mi mathvariant="normal">Γ</mi><mo>×</mo><mo stretchy="false">{</mo><mi>L</mi><mo separator="true">,</mo><mi>R</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\delta: Q \times \Gamma \to Q \times \Gamma \times \{L, R\}</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Γ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord">Γ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">L</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mclose">}</span></span></span></span></span>
+    Mapea un estado y un símbolo a un nuevo estado, un nuevo símbolo y una dirección.</li>
+<li><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">q_0</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></strong>: Es el <strong>estado inicial</strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mn>0</mn></msub><mo>∈</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">q_0 \in Q</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span></span></span></span>).</li>
+<li><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></strong>: Es el <strong>símbolo en blanco</strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>∈</mo><mi mathvariant="normal">Γ</mi></mrow><annotation encoding="application/x-tex">B \in \Gamma</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Γ</span></span></span></span>).</li>
+<li><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span></strong>: Es el conjunto de <strong>estados finales o de aceptación</strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊆</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">F \subseteq Q</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.136em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊆</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span></span></span></span>).</li>
+</ul>
+</blockquote>
+<h3>Equivalencia con el Lenguaje Post-Turing y un Ejemplo Práctico</h3>
+<p>Mientras que la Máquina de Turing es poderosa, su función de transición <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi></mrow><annotation encoding="application/x-tex">\delta</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span></span></span></span> es poco intuitiva para escribir programas. Aquí entra en juego el <strong>modelo Post-Turing</strong>. Emil Post propuso un modelo equivalente con instrucciones más simples, parecidas a un lenguaje ensamblador:</p>
+<ol>
+<li><strong>Escribir un símbolo</strong> en la posición actual.</li>
+<li><strong>Mover el cabezal</strong> a la derecha (<code>RIGHT</code>).</li>
+<li><strong>Mover el cabezal</strong> a la izquierda (<code>LEFT</code>).</li>
+<li><strong>Bifurcación condicional (<code>IF ... GOTO ...</code>)</strong>: Ir a una instrucción X si el símbolo actual es Y.</li>
+<li><strong>Detener (<code>HALT</code>)</strong>.</li>
+</ol>
+<p>Se ha demostrado que ambos modelos son <strong>computacionalmente equivalentes</strong>. Para ilustrarlo, veamos cómo se escribe el programa para verificar palíndromos usando una sintaxis Post-Turing. El algoritmo sigue siendo el mismo: leer en un extremo, comparar en el otro y repetir.</p>
+<p>Aquí está el programa, mucho más legible que una tabla de transiciones:</p>
+<div class="highlight"><pre><span></span><code># Programa Palindrome en sintaxis Post-Turing
+# &#39;#&#39; representa el símbolo en blanco.
+# Las líneas están numeradas para las instrucciones GOTO.
+
+&quot;START AGAIN&quot;,      # 0: Mueve el cabezal al inicio de la cinta.
+&quot;GOTO 2&quot;,           # 1: Salto incondicional al bucle principal.
+
+# --- Bucle Principal (en la posición actual) ---
+&quot;IF #&quot;, &quot;GOTO 29&quot;,  # 2-3: Si la cinta está vacía, es un palíndromo -&gt; YES.
+&quot;IF 0&quot;, &quot;GOTO 9&quot;,   # 4-5: Si lee &#39;0&#39;, salta a la lógica del 0.
+&quot;IF 1&quot;, &quot;GOTO 17&quot;,  # 6-7: Si lee &#39;1&#39;, salta a la lógica del 1.
+&quot;GOTO 30&quot;,          # 8: Si es otro símbolo, rechaza -&gt; NO.
+
+# --- Lógica si el primer símbolo es &#39;0&#39; ---
+&quot;DELETE&quot;,           # 9: Borra el &#39;0&#39; del inicio (escribe #).
+&quot;RIGHT TO THE END&quot;, # 10: Va hasta el final de la palabra.
+&quot;LEFT&quot;,             # 11: Retrocede para leer el último carácter.
+&quot;IF #&quot;, &quot;GOTO 29&quot;,  # 12-13: Si la cinta se acabó (palíndromo de un solo carácter), acepta -&gt; YES.
+&quot;IF 0&quot;, &quot;GOTO 25&quot;,  # 14-15: Si el final es &#39;0&#39;, ¡coincide! Salta a borrar y repetir.
+&quot;GOTO 30&quot;,          # 16: No coincide, rechaza -&gt; NO.
+
+# --- Lógica si el primer símbolo es &#39;1&#39; ---
+&quot;DELETE&quot;,           # 17: Borra el &#39;1&#39; del inicio.
+&quot;RIGHT TO THE END&quot;, # 18: Va hasta el final de la palabra.
+&quot;LEFT&quot;,             # 19: Retrocede para leer el último carácter.
+&quot;IF #&quot;, &quot;GOTO 29&quot;,  # 20-21: Si se acabó la cinta, acepta -&gt; YES.
+&quot;IF 1&quot;, &quot;GOTO 25&quot;,  # 22-23: Si el final es &#39;1&#39;, ¡coincide!
+&quot;GOTO 30&quot;,          # 24: No coincide, rechaza -&gt; NO.
+
+# --- Subrutina de Éxito Parcial y Repetición ---
+&quot;DELETE&quot;,           # 25: Borra el carácter coincidente del final.
+&quot;START AGAIN&quot;,      # 26: Vuelve al inicio de la cinta.
+&quot;RIGHT&quot;,            # 27: Se mueve a la derecha para empezar en la siguiente posición no borrada.
+&quot;GOTO 2&quot;,           # 28: Vuelve al bucle principal.
+
+# --- Estados Finales ---
+&quot;YES&quot;,              # 29: Aceptación.
+&quot;NO&quot;                # 30: Rechazo.
+</code></pre></div>
+
+<p>Notarás instrucciones como <code>DELETE</code>, <code>START AGAIN</code> o <code>RIGHT TO THE END</code>. Son abstracciones comunes en simuladores que, a su vez, se pueden implementar con bucles de las instrucciones más básicas (<code>LEFT</code>, <code>RIGHT</code>, <code>IF...GOTO...</code>). Este estilo de programación demuestra por qué la equivalencia es tan útil: nos permite razonar sobre algoritmos de una forma mucho más natural.</p>
+<h3>Turingfy: Un Máquina de Turing Musical</h3>
+<p>Leer sobre la teoría está muy bien, pero como entusiasta de la tecnología, ¡quería verlo en acción!</p>
+<p>Por eso creé Turingfy: un proyecto personal que combina mi pasión por la música con la computación teórica.
+La idea surge de un juego de palabras: tanto las Máquinas de Turing como los reproductores de música usan "cintas". </p>
+<p>En Turingfy, los programas son playlists de Spotify donde cada canción representa una instrucción del programa. La descripción de la playlist contiene el input inicial de la cinta, y mientras el programa se ejecuta paso a paso, cada instrucción reproduce su canción correspondiente.</p>
+<p>Es un intérprete que utiliza la API de Spotify para cargar programas como el que analizamos anteriormente.
+Lo fascinante es que la música que se escucha es el algoritmo que se ejecuta.</p>
+<h3>Turingfy en Acción: Videos de Demostración</h3>
+<p>¡Un video vale más que mil palabras! Aquí os dejo un par de demostraciones de Turingfy ejecutando programas.</p>
+<ol>
+<li>
+<p><strong>Demostración: Verificador de Palíndromos: Palabra Rechazada</strong></p>
+<p>En este video, cargo el programa de Post-Turing en Turingfy y lo ejecuto con la entrada <code>10010</code>. Podéis ver cómo el cabezal viaja de un extremo a otro, "borrando" los símbolos coincidentes, siguiendo exactamente las instrucciones que hemos definido.
+<strong>La canción final es "Rejekto" de Robotiko Rejekto que indica que la palabra no es un palíndromo.</strong></p>
+<p><!-- Reemplaza con el iframe de tu video -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IOZc2kXENnY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+</li>
+<li>
+<p><strong>Demostración: Verificador de palíndromos: Palabra Aceptada</strong></p>
+<p>En este segundo video, ejecuto el mismo programa con la entrada <code>010</code>. Aquí veréis cómo el cabezal se mueve de forma similar, pero esta vez termina aceptando la palabra como un palíndromo. <strong>La canción final en este caso es "Yes It Is" de The Beatles, que indica que la palabra es un palíndromo.</strong></p>
+<p><!-- Reemplaza con el iframe de tu video -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dnAf5fu6DmA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+</li>
+</ol>
+<p>El código fuente está disponible en <a href="https://github.com/eigenric/turingfy">GitHub</a> para quien quiera explorar la implementación.</p>
+<h3>Conclusión</h3>
+<p>La Máquina de Turing es mucho más que una curiosidad matemática. Es la esencia de lo que significa "computar". Y su equivalencia con modelos como el de Post nos permite diseñar algoritmos complejos usando bloques de construcción increíblemente simples.</p>
+<p>Espero que este viaje desde la 7-tupla formal hasta mi modesto proyecto Turingfy os haya resultado interesante y, quizás, os inspire a crear vuestras propias implementaciones. Al final del día, la mejor forma de entender algo es construyéndolo.</p>
+	</div>
+
+	<div id="related-articles">
+		<a class="no-dec no-dec-h" href="/blog/2024/11/el-grupo-fundamental-de-la-cinta-de-mobius" id="prev-neighbour">El grupo fundamental de la cinta de Möbius &raquo;</a>
+	</div>
+
+			<hr>
+		</article>
+
+		<footer>
+			<p>© 2025 por Ricardo Ruiz con <i class='icon fa fa-heart' aria-hidden='true'></i><br>Contenido</a> bajo licencia <a class='no-dec no-dec-h' target='_blank' href='https://creativecommons.org/licenses/by-sa/4.0/'> <i class='fab fa-creative-commons' aria-hidden='true'></i> <i class='fab fa-creative-commons-by' aria-hidden='true'></i> <i class='fab fa-creative-commons-sa' aria-hidden='true'></i></a></p>
+		</footer>
+	</div>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PR6EXV7JWN"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-PR6EXV7JWN');
+	</script>
+	
+
+	<script>
+		function adjustScrollBar() {
+			var state = window.getComputedStyle(
+				document.querySelector(".state-indicator"), ":before"
+			).getPropertyValue("z-index");
+
+			if (state == "1" || state == "2") {
+				var scrollbar_width = window.innerWidth - document.documentElement.clientWidth;
+				container = document.getElementsByClassName("container")[0]
+				original_width = window.getComputedStyle(container).getPropertyValue("width");
+
+				if (scrollbar_width != "0") {
+					container.style.width = parseInt(original_width, 10) - scrollbar_width + "px";
+				}
+
+				var specialMargin = document.querySelectorAll("article, footer");
+				specialMargin.forEach(function(element) {
+					element.style.setProperty("margin", "0px " + -scrollbar_width + "px 0px 0px");
+				});
+			}
+//			document.documentElement.sty.setProperty('--scrollbar-width', (window.innerWidth - document.documentElement.clientWidth) + "px");
+		};
+
+		window.onload = adjustScrollBar;
+		window.onchange = adjustScrollBar;
+	</script>
+
+	   <div class="zeynep-overlay"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="/theme/js/zeynep.min.js"></script>
+
+    <script>
+      $(function() {
+        // init zeynepjs side menu
+        var zeynep = $('.zeynep').zeynep({
+          opened: function () {
+            // log
+            console.log('the side menu opened')
+          },
+          closed: function () {
+            // log
+            console.log('the side menu closed')
+          }
+        })
+
+        // dynamically bind 'closing' event
+        zeynep.on('closing', function () {
+          // log
+          console.log('this event is dynamically binded')
+        })
+
+        // handle zeynepjs overlay click
+        $('.zeynep-overlay').on('click', function () {
+          zeynep.close()
+        })
+
+        // open zeynepjs side menu
+        $('.btn-open').on('click', function () {
+          zeynep.open()
+        })
+      })
+    </script>
+</body>
+</html>
