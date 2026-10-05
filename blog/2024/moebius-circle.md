@@ -66,7 +66,7 @@ $$
 
 Es decir aquella que identifica los bordes izquierdo y derecho del rectángulo de manera cruzada.
 
-![](/images/moebius_quotient.png){width=300px}
+![Diagrama del espacio cociente de la cinta de Möbius](/images/moebius_quotient.png){width=300px}
 
 Sea $\pi: [-1, 1] \times [-1, 1] \rightarrow M$ la proyección al cociente y 
 
@@ -93,7 +93,7 @@ $$
 
 Por lo tanto aplicando el Lema anteriormente probando, obtenemos que existe una única aplicación continua $r: M \rightarrow A$ con $r_0 \circ \pi = \pi \circ r$
 
-![](/images/diagrama_moebius.png){width=400px}
+![Diagrama conmutativo del retracto de la cinta de Möbius](/images/diagrama_moebius.png){width=400px}
 
 $$
 \pi(x,y) = [(x,y)] \longrightarrow [(x, 0)] = \pi(x,0) = \pi(r_0(x,y))

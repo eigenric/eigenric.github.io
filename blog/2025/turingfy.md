@@ -3,7 +3,7 @@ Date: 2025-07-16
 Summary: Una exploración sonora y conceptual del modelo más influyente de la computación.
 Image: /images/turing_musical.png
 
-![](/images/turing_musical.png){width="400px", height="275px"}
+![Representación gráfica de Turingfy y la Máquina de Turing musical](/images/turing_musical.png){width="400px", height="275px"}
 
 Las Máquinas de Turing son uno de los pilares fundamentales sobre los que se construye toda la ciencia de la computación. Propuestas por Alan Turing en 1936, no son máquinas físicas en el sentido tradicional, sino un modelo matemático abstracto que formaliza el concepto de "algoritmo".
 
