@@ -1,0 +1,12 @@
+--2026-10-05 00:06:43--  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3phiJxZ7D6-Xb_H7MQIilvobVckNlMnZft40lg0ipiA
+Cargado certificado CA '/etc/ssl/certs/ca-certificates.crt'
+Resolviendo encrypted-tbn0.gstatic.com (encrypted-tbn0.gstatic.com)... 216.58.205.238, 2a00:1450:4003:812::200e
+Conectando con encrypted-tbn0.gstatic.com (encrypted-tbn0.gstatic.com)[216.58.205.238]:443... conectado.
+Petición HTTP enviada, esperando respuesta... 200 OK
+Longitud: 20506 (20K) [image/png]
+Grabando a: ‘images?q=tbn:ANd9GcS3phiJxZ7D6-Xb_H7MQIilvobVckNlMnZft40lg0ipiA’
+
+               images?q=tbn:AN   0%[                                                    ]       0  --.-KB/s               images?q=tbn:ANd9GcS3phiJxZ7D6 100%[===================================================>]  20,03K  --.-KB/s    en 0,04s   
+
+2026-10-05 00:06:44 (467 KB/s) - ‘images?q=tbn:ANd9GcS3phiJxZ7D6-Xb_H7MQIilvobVckNlMnZft40lg0ipiA’ guardado [20506/20506]
+

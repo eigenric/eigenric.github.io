@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>Navier–Stokes 1: qué afirma realmente esta propuesta | eigenℝic</title>
+	<meta name="description" content="Antes de evaluar una demostración, hay que precisar qué afirma: una construcción forzada desde el reposo, energía finita y ruptura de la suavidad global.">
+	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:image" content="../../..">
+	<meta property="og:title" content="Navier–Stokes 1: qué afirma realmente esta propuesta">
+	<meta property="og:description" content="Antes de evaluar una demostración, hay que precisar qué afirma: una construcción forzada desde el reposo, energía finita y ruptura de la suavidad global.">
+	<meta property="og:image" content="../../../images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="../../../blog/2026/09/navier-stokes-01-afirmacion">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css?05689659" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,700|Source+Code+Pro" rel="stylesheet" type="text/css">
+	<script src="https://kit.fontawesome.com/a4053f556f.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css" crossorigin="anonymous">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+
+	<meta name="theme-color" content="#1e2327">
+
+	<meta name="msapplication-TileColor" content="#1e2327">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<div class="state-indicator"></div>
+		<aside>
+			<div id="bar-title">
+				<i class="fas fa-bars btn-open"></i>
+				<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+				<div id="name"><a class="no-dec no-dec-h bold" href="/">eigenℝic</a></div>
+			</div>
+			<div id="bio">Maths & <br>Computer Science</div>
+			<div id="bio-mob">Maths & Computer Science</div>
+
+			<div class="zeynep">
+				<ul>
+					<a href="/"><img id="avatar-mob" alt="Site Avatar" src="/images/icons/avatar.jpg"></a>
+
+						<li>
+							<a class="no-dec no-dec-h bold" href="/">Home</a>
+						</li>
+						<li>
+							<a class="no-dec no-dec-h bold" href="/blog">Blog</a>
+						</li>
+						<li>
+							<a class="no-dec no-dec-h bold" href="/archive">Archive</a>
+						</li>
+
+					<li>
+					
+						<a class="social-i" target="_blank" href="http://www.github.com/eigenric"><i class="icon fa fa-github"></i></a>
+					
+						<a class="social-i" target="_blank" href="http://stackoverflow.com/u/8401085"><i class="icon fa fa-stack-overflow"></i></a>
+					
+						<a class="social-i" target="_blank" href="https://www.linkedin.com/in/ricardo-ruiz-fern%C3%A1ndez-de-alba-617253147/"><i class="icon fa fa-linkedin"></i></a>
+					
+						<a class="social-i" target="_blank" href="http://twitter.com/eigenric"><i class="icon fa fa-twitter"></i></a>
+					
+						<a class="social-i" target="_blank" href="mailto:ricardoruizfdez@gmail.com"><i class="icon fa fa-envelope"></i></a>
+					
+						<a class="social-i" target="_blank" href="/atom.xml"><i class="icon fa fa-rss"></i></a>
+					</li>
+				</ul>
+			</div>
+
+			<div id="sidebar-links">
+					<a class="no-dec no-dec-h bold" href="/">Home</a>
+ | 					<a class="no-dec no-dec-h bold" href="/blog">Blog</a>
+ | 					<a class="no-dec no-dec-h bold" href="/archive">Archive</a>
+			</div>
+
+			<div id="social">
+				<a href="http://www.github.com/eigenric" target="_blank" title="GitHub" class="icon fa fa-github"></a>
+				<a href="http://stackoverflow.com/u/8401085" target="_blank" title="SO" class="icon fa fa-stack-overflow"></a>
+				<a href="https://www.linkedin.com/in/ricardo-ruiz-fern%C3%A1ndez-de-alba-617253147/" target="_blank" title="Linkedin" class="icon fa fa-linkedin"></a>
+				<a href="http://twitter.com/eigenric" target="_blank" title="Twitter" class="icon fa fa-twitter"></a>
+				<a href="mailto:ricardoruizfdez@gmail.com" target="_blank" title="Email" class="icon fa fa-envelope"></a>
+				<a href="/atom.xml" target="_blank" title="Feed" class="icon fa fa-rss"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/blog/2026/09/navier-stokes-01-afirmacion" title="Permalink to Navier–Stokes 1: qué afirma realmente esta propuesta">Navier–Stokes 1: qué afirma realmente esta propuesta</a></h1>
+	<time class="date" datetime="2026-09-10 09:01:00+02:00">10 sep 2026</time>
+	<div class="content">
+		<!-- Preparación: cálculo elemental; aprender a leer los cuantificadores. Fuentes: PDF 1.1 y 10.6; ComparatorSolution. Procedencia: FUENTE PDF, FUENTE LEAN, CONSECUENCIA MATEMÁTICA. -->
+
+<p>Cuando una noticia anuncia una solución de Navier–Stokes, es tentador empezar por la última pregunta: si debemos creerla. Propongo empezar un poco antes. Dos afirmaciones pueden contener las palabras «Navier–Stokes» y «singularidad» y, sin embargo, resolver problemas distintos.</p>
+<p>Esta es la primera entrega de una <a href="../../../blog/2026/09/navier-stokes-serie">serie de dieciséis</a>. Basta recordar qué es una función y qué significa derivarla. Hoy aprenderemos a identificar el objetivo; las herramientas para entender la construcción llegarán después.</p>
+<h2>La afirmación que vamos a estudiar</h2>
+<p>El manuscrito <em>Finite time blowup for Navier–Stokes</em> afirma que, para cada viscosidad positiva, se pueden construir una velocidad y una fuerza exterior con estas propiedades: el fluido parte del reposo; la fuerza es suave y está localizada en el espacio y en el tiempo; la velocidad es suave antes de cierto instante; su energía permanece acotada; y su rapidez máxima crece sin cota al acercarse a ese instante.</p>
+<p>El tiempo singular se normaliza a uno. La forma matemática del sistema es</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">∂</mi><mi>t</mi></msub><mi>u</mi><mo>+</mo><mo stretchy="false">(</mo><mi>u</mi><mo>⋅</mo><mi mathvariant="normal">∇</mi><mo stretchy="false">)</mo><mi>u</mi><mo>−</mo><mi>ν</mi><mi mathvariant="normal">Δ</mi><mi>u</mi><mo>+</mo><mi mathvariant="normal">∇</mi><mi>p</mi><mo>=</mo><mi>f</mi><mo separator="true">,</mo><mspace width="2em"></mspace><mi mathvariant="normal">∇</mi><mo>⋅</mo><mi>u</mi><mo>=</mo><mn>0</mn><mo separator="true">,</mo><mspace width="2em"></mspace><mi>u</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><mn>0.</mn></mrow><annotation encoding="application/x-tex">
+\partial_tu+(u\cdot\nabla)u-\nu\Delta u+\nabla p=f,
+\qquad \nabla\cdot u=0,\qquad u(x,0)=0.
+</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="katex-base"><span class="katex-strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord" style="margin-right:0.0556em;">∂</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0556em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">u</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∇</span><span class="mclose">)</span><span class="mord mathnormal">u</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.0637em;">ν</span><span class="mord">Δ</span><span class="mord mathnormal">u</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">∇</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mpunct">,</span><span class="mspace" style="margin-right:2em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∇</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:2em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">u</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0.</span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">x\in\mathbb R^3</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="katex-base"><span class="katex-strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span> indica la posición, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="katex-base"><span class="katex-strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> el tiempo, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span></span></span></span> la velocidad, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> la presión normalizada, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\nu&gt;0</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="katex-base"><span class="katex-strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.0637em;">ν</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> la viscosidad y <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span></span></span></span> la fuerza por unidad de masa. Por ahora basta reconocer que la ecuación relaciona aceleración, transporte, difusión, presión y fuerza. Dedicaremos las dos próximas entregas a abrir esos símbolos.</p>
+<p>El <a href="https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf#page=1">teorema 1.1, página 1</a> exige además un mismo compacto espacial que contenga el soporte de la velocidad y la presión en todos los tiempos anteriores a uno. No se permite que la región donde ocurre el movimiento escape al infinito para ocultar la singularidad.</p>
+<h2>«Para cada» y «existe» no son intercambiables</h2>
+<p>La estructura lógica es</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>para cada </mtext><mi>ν</mi><mo>&gt;</mo><mn>0</mn><mo separator="true">,</mo><mspace width="1em"></mspace><mtext>existen </mtext><mi>u</mi><mo separator="true">,</mo><mi>p</mi><mo separator="true">,</mo><mi>f</mi><mspace width="1em"></mspace><mtext>con las propiedades prescritas</mtext><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">
+\text{para cada }\nu&gt;0,\quad
+\text{existen }u,p,f\quad
+\text{con las propiedades prescritas}.
+</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">para cada </span></span><span class="mord mathnormal" style="margin-right:0.0637em;">ν</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">existen </span></span><span class="mord mathnormal">u</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">p</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">con las propiedades prescritas</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>No es</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>para cada fuerza suave </mtext><mi>f</mi><mo separator="true">,</mo><mspace width="1em"></mspace><mrow><mtext>la soluci</mtext><mover accent="true"><mtext>o</mtext><mo>ˊ</mo></mover><mtext>n desarrolla una singularidad</mtext></mrow><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">
+\text{para cada fuerza suave }f,\quad
+\text{la solución desarrolla una singularidad}.
+</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">para cada fuerza suave </span></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">la soluci</span><span class="mord katex-accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">o</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord">n desarrolla una singularidad</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>Esta diferencia es fundamental y se puede comprobar sin análisis avanzado: una afirmación existencial proporciona al menos un ejemplo; una universal debe cubrir todos los ejemplos de su clase. Encontrar una trayectoria que termine en un precipicio no demuestra que todos los caminos lleguen allí.</p>
+<p>En particular, la fuerza no se fija de antemano y después se descubre que produce ruptura. Se diseña junto con el campo de velocidades. Eso no trivializa el problema: si la velocidad se vuelve singular, la fuerza necesaria para imponerla podría volverse singular también. El manuscrito debe impedirlo.</p>
+<h2>Qué significa que la rapidez explote</h2>
+<p>Se afirma</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mrow><mi mathvariant="normal">lim sup</mi><mo>⁡</mo></mrow><mrow><mi>t</mi><mo>↑</mo><mn>1</mn></mrow></munder><mi mathvariant="normal">∥</mi><mi>u</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><msub><mi mathvariant="normal">∥</mi><msup><mi>L</mi><mi mathvariant="normal">∞</mi></msup></msub><mo>=</mo><mi mathvariant="normal">∞</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">
+\limsup_{t\uparrow1}\|u(t)\|_{L^\infty}=\infty.
+</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="katex-base"><span class="katex-strut" style="height:1.8327em;vertical-align:-1.0827em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-2.1535em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mrel mtight">↑</span><span class="mord mtight">1</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop"><span class="mord mathrm">lim</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathrm">sup</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.0827em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∥</span><span class="mord mathnormal">u</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mord"><span class="mord">∥</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5935em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="katex-sizing reset-size3 size1 mtight"><span class="mord mtight">∞</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord">∞.</span></span></span></span></span></p>
+<p>La norma <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>L</mi><mi mathvariant="normal">∞</mi></msup></mrow><annotation encoding="application/x-tex">L^\infty</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">∞</span></span></span></span></span></span></span></span></span></span></span> mide, aquí, la mayor rapidez salvo conjuntos de volumen nulo; para estos campos suaves recoge el crecimiento máximo relevante. El límite superior infinito significa que aparecen velocidades arbitrariamente grandes en tiempos que se acercan a uno.</p>
+<p>No significa que el manuscrito asigne el valor numérico «infinito» a una partícula en el instante uno. La solución clásica se define antes de ese instante. Tampoco significa que ya no pueda existir ninguna descripción más débil después. El tipo de solución forma parte del enunciado, y lo precisaremos en la <a href="../../../blog/2026/09/navier-stokes-05-regularidad">entrega 5</a>.</p>
+<p>La otra condición es</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mrow><mi>sup</mi><mo>⁡</mo></mrow><mrow><mn>0</mn><mo>≤</mo><mi>t</mi><mo>&lt;</mo><mn>1</mn></mrow></munder><msub><mo>∫</mo><msup><mi mathvariant="double-struck">R</mi><mn>3</mn></msup></msub><mi mathvariant="normal">∣</mi><mi>u</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>t</mi><mo stretchy="false">)</mo><msup><mi mathvariant="normal">∣</mi><mn>2</mn></msup><mtext> </mtext><mi>d</mi><mi>x</mi><mo>&lt;</mo><mi mathvariant="normal">∞</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">
+\sup_{0\leq t&lt;1}\int_{\mathbb R^3}|u(x,t)|^2\,dx&lt;\infty.
+</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="katex-base"><span class="katex-strut" style="height:2.3667em;vertical-align:-1.0067em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.4306em;"><span style="top:-2.1885em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mrel mtight">≤</span><span class="mord mathnormal mtight">t</span><span class="mrel mtight">&lt;</span><span class="mord mtight">1</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">sup</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.0067em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.4445em;position:relative;top:-0.0011em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.3895em;"><span style="top:-1.7881em;margin-left:-0.4445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathbb mtight">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="katex-sizing reset-size3 size1 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∣</span><span class="mord mathnormal">u</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mord"><span class="mord">∣</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord">∞.</span></span></span></span></span></p>
+<p>La integral suma el cuadrado de la rapidez en todo el espacio. Una cantidad muy alta en un volumen muy pequeño puede tener una integral modesta. En la <a href="../../../blog/2026/09/navier-stokes-04-energia">entrega 4</a> lo demostraremos mediante un cambio de variables.</p>
+<h2>La fuerza forma parte del problema</h2>
+<p>El enunciado oficial de Clay incluye alternativas de existencia global sin fuerza, A/B, y alternativas de ruptura que permiten fuerza suave, C/D. El trabajo se dirige a estas últimas. Por tanto, un contraejemplo forzado no refuta por sí solo la afirmación sin fuerza. La <a href="https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf">formulación oficial de Fefferman</a> permite verificar esta distinción.</p>
+<p>Hay una comprobación adicional muy útil. Si un fluido de la clase considerada parte del reposo y no recibe fuerza, su identidad de energía impide que comience espontáneamente una evolución no trivial. Así que la fuerza no es un adorno que podamos borrar de este ejemplo. Derivaremos ese argumento, con sus hipótesis, en la entrega 4.</p>
+<h2>Qué aporta el código y qué estado atribuimos al trabajo</h2>
+<p>El repositorio contiene los teoremas <code>navier_stokes_breakdown_R3</code> y <code>navier_stokes_breakdown_periodic</code>, en <a href="https://github.com/openai/NavierStokesAndEuler/blob/8937a8f4cbc7abaab5e9e97d1cc7f5d2319d9538/NavierStokes/ComparatorSolution.lean">ComparatorSolution.lean</a>. Sus tipos afirman la inexistencia de un competidor global de la clase especificada para unos datos y una fuerza admisibles.</p>
+<p>Un tipo escrito y un archivo sin admisiones visibles son piezas de evidencia, pero no sustituyen una reproducción de su comprobación. Esta serie parte de una auditoría estructural y estática; no de una compilación completa verificada aquí. El <a href="https://openai.com/index/navier-stokes-solution/">anuncio de OpenAI</a> atribuye al proyecto una prueba y su formalización. Mantendremos separadas esa atribución, nuestras comprobaciones y la aceptación científica.</p>
+<p>Hoy hemos delimitado una afirmación, no demostrado el teorema. Sabemos qué se construye, qué regularidad se pide y qué no se sigue automáticamente. Ya podemos avanzar sin cambiar de problema a mitad del camino.</p>
+<p><strong>Siguiente:</strong> <a href="../../../blog/2026/09/navier-stokes-02-lenguaje">el lenguaje matemático de un fluido</a>. Antes de entender por qué una ecuación se vuelve difícil, hay que saber qué está midiendo.</p>
+<p><a href="../../../blog/2026/09/navier-stokes-serie">Índice de la serie</a></p>
+	</div>
+
+
+			<hr>
+		</article>
+
+		<footer>
+			<p>© 2025 por Ricardo Ruiz con <i class='icon fa fa-heart' aria-hidden='true'></i><br>Contenido</a> bajo licencia <a class='no-dec no-dec-h' target='_blank' href='https://creativecommons.org/licenses/by-sa/4.0/'> <i class='fab fa-creative-commons' aria-hidden='true'></i> <i class='fab fa-creative-commons-by' aria-hidden='true'></i> <i class='fab fa-creative-commons-sa' aria-hidden='true'></i></a></p>
+		</footer>
+	</div>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PR6EXV7JWN"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-PR6EXV7JWN');
+	</script>
+	
+
+	<script>
+		function adjustScrollBar() {
+			var state = window.getComputedStyle(
+				document.querySelector(".state-indicator"), ":before"
+			).getPropertyValue("z-index");
+
+			if (state == "1" || state == "2") {
+				var scrollbar_width = window.innerWidth - document.documentElement.clientWidth;
+				container = document.getElementsByClassName("container")[0]
+				original_width = window.getComputedStyle(container).getPropertyValue("width");
+
+				if (scrollbar_width != "0") {
+					container.style.width = parseInt(original_width, 10) - scrollbar_width + "px";
+				}
+
+				var specialMargin = document.querySelectorAll("article, footer");
+				specialMargin.forEach(function(element) {
+					element.style.setProperty("margin", "0px " + -scrollbar_width + "px 0px 0px");
+				});
+			}
+//			document.documentElement.sty.setProperty('--scrollbar-width', (window.innerWidth - document.documentElement.clientWidth) + "px");
+		};
+
+		window.onload = adjustScrollBar;
+		window.onchange = adjustScrollBar;
+	</script>
+
+	   <div class="zeynep-overlay"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="/theme/js/zeynep.min.js"></script>
+
+    <script>
+      $(function() {
+        // init zeynepjs side menu
+        var zeynep = $('.zeynep').zeynep({
+          opened: function () {
+            // log
+            console.log('the side menu opened')
+          },
+          closed: function () {
+            // log
+            console.log('the side menu closed')
+          }
+        })
+
+        // dynamically bind 'closing' event
+        zeynep.on('closing', function () {
+          // log
+          console.log('this event is dynamically binded')
+        })
+
+        // handle zeynepjs overlay click
+        $('.zeynep-overlay').on('click', function () {
+          zeynep.close()
+        })
+
+        // open zeynepjs side menu
+        $('.btn-open').on('click', function () {
+          zeynep.open()
+        })
+      })
+    </script>
+</body>
+</html>

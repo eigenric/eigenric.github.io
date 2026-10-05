@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>Entender una propuesta de demostración de Navier–Stokes | eigenℝic</title>
+	<meta name="description" content="Un recorrido en 16 artículos: desde el cálculo de campos hasta la construcción propuesta, su formalización en Lean y los límites de la evidencia disponible.">
+	<meta name="author" content="Ricardo Ruiz Fernández de Alba">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:image" content="../../..">
+	<meta property="og:title" content="Entender una propuesta de demostración de Navier–Stokes">
+	<meta property="og:description" content="Un recorrido en 16 artículos: desde el cálculo de campos hasta la construcción propuesta, su formalización en Lean y los límites de la evidencia disponible.">
+	<meta property="og:image" content="../../../images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="../../../blog/2026/09/navier-stokes-serie">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css?05689659" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,700|Source+Code+Pro" rel="stylesheet" type="text/css">
+	<script src="https://kit.fontawesome.com/a4053f556f.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css" crossorigin="anonymous">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+
+	<meta name="theme-color" content="#1e2327">
+
+	<meta name="msapplication-TileColor" content="#1e2327">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<div class="state-indicator"></div>
+		<aside>
+			<div id="bar-title">
+				<i class="fas fa-bars btn-open"></i>
+				<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+				<div id="name"><a class="no-dec no-dec-h bold" href="/">eigenℝic</a></div>
+			</div>
+			<div id="bio">Maths & <br>Computer Science</div>
+			<div id="bio-mob">Maths & Computer Science</div>
+
+			<div class="zeynep">
+				<ul>
+					<a href="/"><img id="avatar-mob" alt="Site Avatar" src="/images/icons/avatar.jpg"></a>
+
+						<li>
+							<a class="no-dec no-dec-h bold" href="/">Home</a>
+						</li>
+						<li>
+							<a class="no-dec no-dec-h bold" href="/blog">Blog</a>
+						</li>
+						<li>
+							<a class="no-dec no-dec-h bold" href="/archive">Archive</a>
+						</li>
+
+					<li>
+					
+						<a class="social-i" target="_blank" href="http://www.github.com/eigenric"><i class="icon fa fa-github"></i></a>
+					
+						<a class="social-i" target="_blank" href="http://stackoverflow.com/u/8401085"><i class="icon fa fa-stack-overflow"></i></a>
+					
+						<a class="social-i" target="_blank" href="https://www.linkedin.com/in/ricardo-ruiz-fern%C3%A1ndez-de-alba-617253147/"><i class="icon fa fa-linkedin"></i></a>
+					
+						<a class="social-i" target="_blank" href="http://twitter.com/eigenric"><i class="icon fa fa-twitter"></i></a>
+					
+						<a class="social-i" target="_blank" href="mailto:ricardoruizfdez@gmail.com"><i class="icon fa fa-envelope"></i></a>
+					
+						<a class="social-i" target="_blank" href="/atom.xml"><i class="icon fa fa-rss"></i></a>
+					</li>
+				</ul>
+			</div>
+
+			<div id="sidebar-links">
+					<a class="no-dec no-dec-h bold" href="/">Home</a>
+ | 					<a class="no-dec no-dec-h bold" href="/blog">Blog</a>
+ | 					<a class="no-dec no-dec-h bold" href="/archive">Archive</a>
+			</div>
+
+			<div id="social">
+				<a href="http://www.github.com/eigenric" target="_blank" title="GitHub" class="icon fa fa-github"></a>
+				<a href="http://stackoverflow.com/u/8401085" target="_blank" title="SO" class="icon fa fa-stack-overflow"></a>
+				<a href="https://www.linkedin.com/in/ricardo-ruiz-fern%C3%A1ndez-de-alba-617253147/" target="_blank" title="Linkedin" class="icon fa fa-linkedin"></a>
+				<a href="http://twitter.com/eigenric" target="_blank" title="Twitter" class="icon fa fa-twitter"></a>
+				<a href="mailto:ricardoruizfdez@gmail.com" target="_blank" title="Email" class="icon fa fa-envelope"></a>
+				<a href="/atom.xml" target="_blank" title="Feed" class="icon fa fa-rss"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/blog/2026/09/navier-stokes-serie" title="Permalink to Entender una propuesta de demostración de Navier–Stokes">Entender una propuesta de demostración de Navier–Stokes</a></h1>
+	<time class="date" datetime="2026-09-10 09:00:00+02:00">10 sep 2026</time>
+	<div class="content">
+		<p>Una afirmación extraordinaria sobre Navier–Stokes merece algo más que un titular y algo más que una reacción de incredulidad. Merece que abramos el enunciado, entendamos el mecanismo y distingamos las comprobaciones realizadas de las que faltan.</p>
+<p>Esta serie estudia <em>Finite time blowup for Navier–Stokes</em> y el código Lean que lo acompaña. <strong>El trabajo propone una singularidad con fuerza exterior suave.</strong> Esa condición será parte del argumento desde el principio: omitirla cambia el problema que estamos contando.</p>
+<p>El recorrido presupone cálculo y álgebra lineal universitarios, pero introduce las herramientas de análisis que necesita. Las demostraciones que sostienen la idea permanecen visibles. Los cálculos auxiliares y algunas pruebas técnicas aparecen en desplegables. Cuando un resultado profundo se utiliza sin reproducir su prueba completa, se identifica y enlaza expresamente.</p>
+<h2>El recorrido</h2>
+<table>
+<thead>
+<tr>
+<th>Entrega</th>
+<th>Pregunta que aprenderemos a responder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../../blog/2026/09/navier-stokes-01-afirmacion">1. Qué afirma realmente esta propuesta</a></td>
+<td>¿Qué datos, qué fuerza y qué clase de solución están en juego?</td>
+</tr>
+<tr>
+<td><a href="../../../blog/2026/09/navier-stokes-02-lenguaje">2. El lenguaje matemático de un fluido</a></td>
+<td>¿Qué miden el gradiente, la divergencia y el rotacional?</td>
+</tr>
+<tr>
+<td><a href="../../../blog/2026/09/navier-stokes-03-ecuacion">3. De las leyes físicas a la ecuación</a></td>
+<td>¿De dónde sale cada término de Navier–Stokes?</td>
+</tr>
+<tr>
+<td><a href="../../../blog/2026/09/navier-stokes-04-energia">4. Concentración con energía finita</a></td>
+<td>¿Cómo puede crecer la rapidez sin que diverja la energía?</td>
+</tr>
+<tr>
+<td><a href="../../../blog/2026/09/navier-stokes-05-regularidad">5. Existir, ser regular y poder continuar</a></td>
+<td>¿Qué significa exactamente que falle la existencia global?</td>
+</tr>
+<tr>
+<td><a href="../../../blog/2026/09/navier-stokes-06-idea">6. Construir la singularidad y corregir el residuo</a></td>
+<td>¿Cuál es la estrategia central del manuscrito?</td>
+</tr>
+<tr>
+<td><a href="../../../blog/2026/09/navier-stokes-07-herramientas">7. Medir errores y tomar límites</a></td>
+<td>¿Qué herramientas convierten esa estrategia en un argumento?</td>
+</tr>
+<tr>
+<td>8. Anatomía I: perfiles compatibles</td>
+<td>¿Cómo se unen el eje, el núcleo y el exterior?</td>
+</tr>
+<tr>
+<td>9. Anatomía II: pulsos y tensión media</td>
+<td>¿Cómo pueden las ondas cancelar una tensión?</td>
+</tr>
+<tr>
+<td>10. Anatomía III: medias y momentos</td>
+<td>¿Qué errores no se eliminan oscilando?</td>
+</tr>
+<tr>
+<td>11. Anatomía IV: infinitas correcciones</td>
+<td>¿Por qué existe el límite y qué regularidad tiene su residuo?</td>
+</tr>
+<tr>
+<td>12. Anatomía V: del núcleo al problema global</td>
+<td>¿Cómo se obtiene una fuerza admisible y se excluye un competidor global?</td>
+</tr>
+<tr>
+<td>13. Qué significa demostrar en Lean</td>
+<td>¿Qué son un tipo, una táctica y una comprobación del kernel?</td>
+</tr>
+<tr>
+<td>14. Del PDF al código</td>
+<td>¿Dónde están los objetos y los pasos de la prueba?</td>
+</tr>
+<tr>
+<td>15. Qué verifica Lean y qué falta comprobar</td>
+<td>¿Qué evidencia concreta aporta esta auditoría?</td>
+</tr>
+<tr>
+<td>16. Qué permitiría hablar de una resolución aceptada</td>
+<td>¿Cómo se separan corrección, revisión y reconocimiento?</td>
+</tr>
+</tbody>
+</table>
+<h2>Mapa de dependencias</h2>
+<p>El hilo principal es:</p>
+<p><strong>cálculo de campos → conservación → energía → regularidad → residuo → perfiles → pulsos → medias → iteración → cierre global.</strong></p>
+<p>Las herramientas de la entrega 7 alimentan toda la anatomía. La energía de la 4 y la unicidad de la 5 reaparecen en la 12. Después seguimos otra cadena:</p>
+<p><strong>enunciado matemático → definición formal → testigo construido → prueba comprobada → evaluación de la evidencia.</strong></p>
+<p>Se puede leer la primera cadena sin saber Lean. Para evaluar lo que verifica el código, en cambio, hace falta conservar el significado matemático de sus definiciones.</p>
+<h2>Fuentes y fecha de corte</h2>
+<p>La referencia matemática es el <a href="https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf">manuscrito de 166 páginas</a>. Las referencias al código fijan la revisión <a href="https://github.com/openai/NavierStokesAndEuler/tree/8937a8f4cbc7abaab5e9e97d1cc7f5d2319d9538">8937a8f4cbc7abaab5e9e97d1cc7f5d2319d9538</a>.</p>
+<p><strong>Estado de esta lectura: 10 de septiembre de 2026.</strong> Se ha realizado una auditoría estructural del PDF y una inspección estática del código, con lectura de sus principales puntos de ensamblaje. La compilación completa y la comprobación independiente no se han reproducido satisfactoriamente en esta auditoría. La entrega 15 detalla esa limitación.</p>
+<p>La serie distingue las afirmaciones del manuscrito, los resultados que declara el código, las deducciones que desarrollamos aquí y los modelos usados para explicar una idea. No presenta la propuesta como una resolución aceptada por la comunidad.</p>
+<p>Comencemos por <a href="../../../blog/2026/09/navier-stokes-01-afirmacion">leer la afirmación exacta</a>.</p>
+	</div>
+
+
+			<hr>
+		</article>
+
+		<footer>
+			<p>© 2025 por Ricardo Ruiz con <i class='icon fa fa-heart' aria-hidden='true'></i><br>Contenido</a> bajo licencia <a class='no-dec no-dec-h' target='_blank' href='https://creativecommons.org/licenses/by-sa/4.0/'> <i class='fab fa-creative-commons' aria-hidden='true'></i> <i class='fab fa-creative-commons-by' aria-hidden='true'></i> <i class='fab fa-creative-commons-sa' aria-hidden='true'></i></a></p>
+		</footer>
+	</div>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PR6EXV7JWN"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-PR6EXV7JWN');
+	</script>
+	
+
+	<script>
+		function adjustScrollBar() {
+			var state = window.getComputedStyle(
+				document.querySelector(".state-indicator"), ":before"
+			).getPropertyValue("z-index");
+
+			if (state == "1" || state == "2") {
+				var scrollbar_width = window.innerWidth - document.documentElement.clientWidth;
+				container = document.getElementsByClassName("container")[0]
+				original_width = window.getComputedStyle(container).getPropertyValue("width");
+
+				if (scrollbar_width != "0") {
+					container.style.width = parseInt(original_width, 10) - scrollbar_width + "px";
+				}
+
+				var specialMargin = document.querySelectorAll("article, footer");
+				specialMargin.forEach(function(element) {
+					element.style.setProperty("margin", "0px " + -scrollbar_width + "px 0px 0px");
+				});
+			}
+//			document.documentElement.sty.setProperty('--scrollbar-width', (window.innerWidth - document.documentElement.clientWidth) + "px");
+		};
+
+		window.onload = adjustScrollBar;
+		window.onchange = adjustScrollBar;
+	</script>
+
+	   <div class="zeynep-overlay"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="/theme/js/zeynep.min.js"></script>
+
+    <script>
+      $(function() {
+        // init zeynepjs side menu
+        var zeynep = $('.zeynep').zeynep({
+          opened: function () {
+            // log
+            console.log('the side menu opened')
+          },
+          closed: function () {
+            // log
+            console.log('the side menu closed')
+          }
+        })
+
+        // dynamically bind 'closing' event
+        zeynep.on('closing', function () {
+          // log
+          console.log('this event is dynamically binded')
+        })
+
+        // handle zeynepjs overlay click
+        $('.zeynep-overlay').on('click', function () {
+          zeynep.close()
+        })
+
+        // open zeynepjs side menu
+        $('.btn-open').on('click', function () {
+          zeynep.open()
+        })
+      })
+    </script>
+</body>
+</html>
