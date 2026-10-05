@@ -5,6 +5,7 @@ pelican
 cache
 .output
 conf/ftp
+blog/2026/navier-stokes
 
 *.pyc
 *.save

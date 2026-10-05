@@ -1,25 +1,43 @@
-[tool.poetry]
+[build-system]
+requires = ["uv_build>=0.10.0,<0.11.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+package = false
+
+[project]
 name = "eigenric"
 version = "0.1.0"
 description = ""
-authors = ["Ricardo Ruiz <ricardoruizfdez@gmail.com>"]
+authors = [{ name = "Ricardo Ruiz", email = "ricardoruizfdez@gmail.com" }]
+requires-python = ">=3.11.9,<4"
 license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "pelican",
+    "cssmin",
+    "webassets",
+    "libsass",
+    "Markdown",
+    "typogrify",
+    "beautifulsoup4",
+    "lxml",
+    "pytz",
+    "pelican-katex",
+    "pelican-toggle",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-pelican = "*"
-cssmin = "*"
-webassets = "*"
-libsass = "*"
-Markdown = "*"
-typogrify = "*"
-beautifulsoup4 = "*"
-lxml = "*"
+[tool.uv.sources]
+pelican-toggle = { path = "plugins/pelican-toggle" }
 
-[tool.poetry.dev-dependencies]
-invoke = "*"
-livereload = "*"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+    "invoke",
+    "livereload",
+]
